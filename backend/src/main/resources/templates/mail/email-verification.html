@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{mail/layout :: page('Confirma tu correo', ~{::content})}">
+<body>
+<div th:fragment="content" th:remove="tag">
+  <h1 style="margin:0 0 24px;font-size:28px;font-weight:400;line-height:1.3;">Confirma tu correo electronico</h1>
+  <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:#3A3835;">
+    Hola <strong th:text="${name}">Nombre</strong>, gracias por crear tu cuenta.
+  </p>
+  <p style="margin:0 0 32px;font-size:15px;line-height:1.7;color:#3A3835;">
+    Para activarla, confirma que esta direccion de correo es tuya.
+  </p>
+  <table role="presentation" cellpadding="0" cellspacing="0"><tr><td>
+    <a th:href="${link}" href="#"
+       style="display:inline-block;padding:14px 32px;background:#1A1A1A;color:#FFFFFF;text-decoration:none;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;">
+      Confirmar correo
+    </a>
+  </td></tr></table>
+  <p style="margin:32px 0 0;font-size:13px;line-height:1.7;color:#6B6862;">
+    Si el boton no funciona, copia este enlace en tu navegador:<br>
+    <a th:href="${link}" th:text="${link}" href="#" style="color:#6B6862;word-break:break-all;">enlace</a>
+  </p>
+  <p style="margin:24px 0 0;font-size:13px;line-height:1.7;color:#6B6862;">
+    El enlace caduca en 24 horas. Si no creaste esta cuenta, puedes ignorar este mensaje.
+  </p>
+</div>
+</body>
+</html>

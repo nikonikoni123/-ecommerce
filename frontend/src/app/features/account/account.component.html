@@ -1,0 +1,194 @@
+<section class="account">
+  <div class="container">
+    <p class="eyebrow">Mi cuenta</p>
+    <h1 class="account__title">Configuracion</h1>
+
+    @if (loading()) {
+      <p class="account__state">Cargando tu cuenta...</p>
+    } @else if (profile(); as me) {
+      <div class="account__summary card">
+        <div>
+          <p class="eyebrow">Cuenta</p>
+          <p class="account__name">{{ me.firstName }} {{ me.lastName }}</p>
+          <p class="account__email">{{ me.email }}</p>
+        </div>
+        <div class="account__flags">
+          @if (me.emailVerified) {
+            <span class="badge badge--in">Correo verificado</span>
+          } @else {
+            <span class="badge badge--out">Correo sin verificar</span>
+          }
+          @if (me.twoFactorEnabled) {
+            <span class="badge badge--in">2FA activa</span>
+          } @else {
+            <span class="badge">2FA desactivada</span>
+          }
+          @if (me.root) {
+            <span class="badge">Usuario root de {{ me.companyName }}</span>
+          } @else if (me.companyName) {
+            <span class="badge">{{ me.companyName }}</span>
+          }
+        </div>
+      </div>
+
+      <!-- Modificar datos del usuario -->
+      <section class="account__block card">
+        <h2 class="account__block-title">Datos personales</h2>
+        <app-alert [message]="profileMessage()" variant="success" />
+        <app-alert [message]="profileError()" variant="error" />
+
+        <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="firstName">Nombres</label>
+              <input class="input" id="firstName" formControlName="firstName" />
+            </div>
+            @if (me.type === 'CUSTOMER') {
+              <div class="field">
+                <label class="field__label" for="lastName">Apellidos</label>
+                <input class="input" id="lastName" formControlName="lastName" />
+              </div>
+            }
+            <div class="field form-grid--full">
+              <label class="field__label" for="address">Direccion</label>
+              <input class="input" id="address" formControlName="address" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="postalCode">Codigo postal</label>
+              <input class="input" id="postalCode" formControlName="postalCode" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="phone">Telefono</label>
+              <input class="input" id="phone" formControlName="phone" />
+            </div>
+            @if (me.type === 'CUSTOMER') {
+              <div class="field">
+                <label class="field__label" for="gender">Genero (opcional)</label>
+                <select class="select" id="gender" formControlName="gender">
+                  <option value="">Prefiero no indicarlo</option>
+                  <option value="femenino">Femenino</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="no binario">No binario</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            }
+          </div>
+          <button class="btn" type="submit">Guardar cambios</button>
+        </form>
+      </section>
+
+      <!-- Contrasena -->
+      <section class="account__block card">
+        <h2 class="account__block-title">Contrasena</h2>
+        <app-alert [message]="passwordMessage()" variant="success" />
+        <app-alert [message]="passwordError()" variant="error" />
+
+        <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="currentPassword">Contrasena actual</label>
+              <input class="input" id="currentPassword" type="password"
+                formControlName="currentPassword" autocomplete="current-password" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="newPassword">Contrasena nueva</label>
+              <input class="input" id="newPassword" type="password"
+                formControlName="newPassword" autocomplete="new-password" />
+              <span class="field__hint">Minimo 8 caracteres.</span>
+            </div>
+          </div>
+          <button class="btn" type="submit">Cambiar contrasena</button>
+        </form>
+      </section>
+
+      <!-- Verificacion en dos pasos -->
+      <section class="account__block card">
+        <h2 class="account__block-title">Verificacion en dos pasos</h2>
+        <app-alert [message]="twoFactorMessage()" variant="success" />
+        <app-alert [message]="twoFactorError()" variant="error" />
+
+        @if (!me.twoFactorEnabled) {
+          <p class="account__text">
+            Viene desactivada por defecto. Al activarla te pediremos un codigo de tu aplicacion de
+            autenticacion cada vez que inicies sesion.
+          </p>
+
+          @if (!setup()) {
+            <button class="btn" type="button" (click)="startTwoFactor()">Activar</button>
+          } @else {
+            <div class="totp">
+              <p class="account__text">
+                Anade esta clave en Google Authenticator, Authy o similar, y confirma con el codigo
+                que aparezca.
+              </p>
+              <p class="totp__secret">{{ setup()!.secret }}</p>
+              <details class="totp__details">
+                <summary>Ver la URI otpauth completa</summary>
+                <code class="totp__uri">{{ otpUri() }}</code>
+              </details>
+
+              <form [formGroup]="twoFactorForm" (ngSubmit)="confirmTwoFactor()" novalidate>
+                <div class="field">
+                  <label class="field__label" for="code2fa">Codigo de 6 digitos</label>
+                  <input class="input totp__code" id="code2fa" inputmode="numeric" maxlength="6"
+                    formControlName="code" autocomplete="one-time-code" />
+                </div>
+                <button class="btn" type="submit">Confirmar y activar</button>
+              </form>
+            </div>
+          }
+        } @else {
+          <p class="account__text">
+            La verificacion en dos pasos esta activa. Para desactivarla, confirma con un codigo
+            valido.
+          </p>
+          <form [formGroup]="twoFactorForm" (ngSubmit)="disableTwoFactor()" novalidate>
+            <div class="field">
+              <label class="field__label" for="codeOff">Codigo de 6 digitos</label>
+              <input class="input totp__code" id="codeOff" inputmode="numeric" maxlength="6"
+                formControlName="code" autocomplete="one-time-code" />
+            </div>
+            <button class="btn btn--outline" type="submit">Desactivar</button>
+          </form>
+        }
+      </section>
+
+      <!-- Eliminar usuario -->
+      <section class="account__block card account__block--danger">
+        <h2 class="account__block-title">Eliminar cuenta</h2>
+        <app-alert [message]="deleteError()" variant="error" />
+
+        @if (me.root) {
+          <p class="account__text">
+            El usuario root no puede darse de baja: primero hay que transferir la propiedad de la
+            empresa.
+          </p>
+        } @else if (!confirmingDelete()) {
+          <p class="account__text">
+            Se borraran tus datos personales de la plataforma. El historial de pedidos se conserva
+            de forma anonima por motivos de facturacion.
+          </p>
+          <button class="btn btn--danger" type="button" (click)="confirmingDelete.set(true)">
+            Quiero eliminar mi cuenta
+          </button>
+        } @else {
+          <p class="account__text">Confirma tu contrasena para completar la baja.</p>
+          <form [formGroup]="deleteForm" (ngSubmit)="deleteAccount()" novalidate>
+            <div class="field">
+              <label class="field__label" for="deletePassword">Contrasena</label>
+              <input class="input" id="deletePassword" type="password" formControlName="password"
+                autocomplete="current-password" />
+            </div>
+            <div class="account__actions">
+              <button class="btn btn--danger" type="submit">Eliminar definitivamente</button>
+              <button class="btn btn--ghost" type="button" (click)="confirmingDelete.set(false)">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        }
+      </section>
+    }
+  </div>
+</section>

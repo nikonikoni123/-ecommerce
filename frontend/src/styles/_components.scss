@@ -1,0 +1,254 @@
+@use 'tokens' as *;
+
+/**
+ * Clases compartidas de formularios, botones y tarjetas.
+ *
+ * Se definen como clases globales en lugar de componentes envoltorio porque son puramente
+ * presentacionales: asi cualquier plantilla las usa sin importar ni instanciar nada.
+ */
+
+/* --- Botones --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--surface);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--ink);
+
+  &:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--surface);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-muted);
+  padding-inline: var(--space-3);
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    color: var(--ink);
+  }
+}
+
+.btn--danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    color: var(--danger);
+  }
+}
+
+.btn--sm {
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --- Formularios --- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.field__label {
+  @include eyebrow;
+}
+
+.field__hint {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+.field__error {
+  font-size: var(--text-xs);
+  color: var(--danger);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition);
+
+  &::placeholder {
+    color: var(--ink-muted);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--ink-muted);
+  }
+
+  &:focus {
+    border-color: var(--ink);
+    outline: none;
+  }
+
+  &:disabled {
+    background: var(--surface-alt);
+    cursor: not-allowed;
+  }
+
+  &.is-invalid {
+    border-color: var(--danger);
+  }
+}
+
+.textarea {
+  min-height: 128px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0 var(--space-6);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-grid--full {
+  grid-column: 1 / -1;
+}
+
+/* --- Superficies --- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* --- Avisos --- */
+.alert {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.alert--error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.alert--success {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.alert--info {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--ink-soft);
+}
+
+/* --- Etiquetas --- */
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  background: var(--surface);
+}
+
+.badge--out {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.badge--in {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+/* --- Tablas --- */
+.table-wrap {
+  /* Las tablas anchas hacen scroll dentro de su contenedor, nunca la pagina entera. */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  min-width: 720px;
+
+  th {
+    @include eyebrow;
+    text-align: left;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+
+  tbody tr:hover {
+    background: var(--surface-alt);
+  }
+}

@@ -1,0 +1,116 @@
+@use 'styles/tokens' as *;
+
+.hero {
+  @include section;
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 100%);
+}
+
+.hero__inner {
+  @include container;
+  max-width: 780px;
+  text-align: center;
+}
+
+.hero__title {
+  margin-top: var(--space-6);
+  font-size: var(--text-2xl);
+
+  @media (min-width: 768px) {
+    font-size: var(--text-3xl);
+  }
+}
+
+.hero__text {
+  margin-top: var(--space-6);
+  margin-inline: auto;
+  max-width: 56ch;
+  color: var(--ink-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.steps {
+  @include section;
+}
+
+.steps__grid {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.step {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.step__number {
+  @include eyebrow;
+}
+
+.step__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.step__text {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.featured {
+  @include section;
+  padding-top: 0;
+}
+
+.featured__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.featured__link {
+  @include eyebrow;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.featured__state {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.featured__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

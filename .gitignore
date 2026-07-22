@@ -1,0 +1,35 @@
+# Entorno
+.env
+*.local
+
+# Backend (Java / Maven)
+backend/target/
+*.class
+*.jar
+!backend/.mvn/wrapper/maven-wrapper.jar
+*.log
+
+# Frontend (Angular / Node)
+node_modules/
+frontend/dist/
+frontend/.angular/
+npm-debug.log*
+
+# NLP service (Python)
+__pycache__/
+*.py[cod]
+nlp-service/.venv/
+nlp-service/models/
+
+# Correos capturados en desarrollo: contienen tokens de verificacion reales
+scripts/mails/
+
+# Docker
+docker-data/
+
+# IDE / SO
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

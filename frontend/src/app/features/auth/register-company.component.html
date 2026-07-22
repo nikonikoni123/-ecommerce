@@ -1,0 +1,163 @@
+<section class="auth">
+  <div class="auth__panel auth__panel--wide">
+    <p class="eyebrow">Nueva empresa</p>
+    <h1 class="auth__title">Registrar empresa</h1>
+
+    @if (done()) {
+      <app-alert
+        message="Empresa creada. Enviamos un correo de confirmacion al representante legal; esa primera cuenta es el usuario root de la empresa."
+        variant="success"
+      />
+      <div class="auth__links">
+        <a routerLink="/auth/login">Ir a ingresar</a>
+      </div>
+    } @else {
+      <app-alert [message]="error()" variant="error" />
+      <p class="auth__hint">
+        La cuenta que crees aqui sera el usuario <strong>root</strong> de la empresa: el unico que
+        puede definir cargos, departamentos y niveles de acceso.
+      </p>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label" for="companyName">Nombre de la empresa *</label>
+            <input class="input" id="companyName" formControlName="companyName"
+              [class.is-invalid]="form.controls.companyName.touched && form.controls.companyName.invalid" />
+            @if (form.controls.companyName.touched && form.controls.companyName.invalid) {
+              <span class="field__error">El nombre de la empresa es obligatorio.</span>
+            }
+            @if (fieldError('companyName'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="legalRepresentative">Representante legal *</label>
+            <input class="input" id="legalRepresentative" formControlName="legalRepresentative"
+              [class.is-invalid]="form.controls.legalRepresentative.touched && form.controls.legalRepresentative.invalid" />
+            @if (form.controls.legalRepresentative.touched && form.controls.legalRepresentative.invalid) {
+              <span class="field__error">El representante legal es obligatorio.</span>
+            }
+            @if (fieldError('legalRepresentative'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="nit">NIT *</label>
+            <input class="input" id="nit" formControlName="nit"
+              [class.is-invalid]="form.controls.nit.touched && form.controls.nit.invalid" />
+            @if (form.controls.nit.touched && form.controls.nit.invalid) {
+              <span class="field__error">El NIT es obligatorio.</span>
+            }
+            @if (fieldError('nit'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="companyEmail">Correo *</label>
+            <input class="input" id="companyEmail" type="email" formControlName="email" autocomplete="email"
+              [class.is-invalid]="form.controls.email.touched && form.controls.email.invalid" />
+            @if (form.controls.email.touched && form.controls.email.invalid) {
+              <span class="field__error">Escribe un correo valido.</span>
+            }
+            @if (fieldError('email'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field form-grid--full">
+            <label class="field__label" for="companyAddress">Direccion *</label>
+            <input class="input" id="companyAddress" formControlName="address" autocomplete="street-address"
+              [class.is-invalid]="form.controls.address.touched && form.controls.address.invalid" />
+            @if (form.controls.address.touched && form.controls.address.invalid) {
+              <span class="field__error">La direccion es obligatoria.</span>
+            }
+            @if (fieldError('address'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="companyPostalCode">Codigo postal *</label>
+            <input class="input" id="companyPostalCode" formControlName="postalCode" autocomplete="postal-code"
+              [class.is-invalid]="form.controls.postalCode.touched && form.controls.postalCode.invalid" />
+            @if (form.controls.postalCode.touched && form.controls.postalCode.invalid) {
+              <span class="field__error">El codigo postal es obligatorio.</span>
+            }
+            @if (fieldError('postalCode'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="companyPhone">Telefono *</label>
+            <input class="input" id="companyPhone" formControlName="phone" autocomplete="tel"
+              [class.is-invalid]="form.controls.phone.touched && form.controls.phone.invalid" />
+            @if (form.controls.phone.touched && form.controls.phone.invalid) {
+              <span class="field__error">El telefono es obligatorio.</span>
+            }
+            @if (fieldError('phone'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field form-grid--full">
+            <label class="field__label" for="description">Descripcion de la empresa *</label>
+            <textarea class="textarea" id="description" formControlName="description"
+              [class.is-invalid]="form.controls.description.touched && form.controls.description.invalid"></textarea>
+            @if (form.controls.description.touched && form.controls.description.invalid) {
+              <span class="field__error">La descripcion es obligatoria.</span>
+            }
+            @if (fieldError('description'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+
+          <div class="field form-grid--full">
+            <label class="field__label" for="categoryTags">Categorias de productos (opcional)</label>
+            <input class="input" id="categoryTags" formControlName="categoryTags"
+              placeholder="ropa, algodon, accesorios" />
+            <span class="field__hint">Separa las etiquetas con comas.</span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="companyPassword">Contrasena del usuario root *</label>
+            <input class="input" id="companyPassword" type="password" formControlName="password" autocomplete="new-password"
+              [class.is-invalid]="form.controls.password.touched && form.controls.password.invalid" />
+            <span class="field__hint">Minimo 8 caracteres.</span>
+            @if (form.controls.password.touched && form.controls.password.invalid) {
+              <span class="field__error">La contrasena debe tener al menos 8 caracteres.</span>
+            }
+            @if (fieldError('password'); as msg) { <span class="field__error">{{ msg }}</span> }
+          </div>
+        </div>
+
+        <span class="auth__section-title">Usuarios adicionales (opcional)</span>
+        <p class="field__hint">
+          Cada persona recibira un correo para establecer su propia contrasena. Root podra ajustar
+          despues sus niveles de acceso.
+        </p>
+
+        <div class="auth__repeater" formArrayName="additionalUsers">
+          @for (control of additionalUsers.controls; track $index) {
+            <div class="auth__repeater-row" [formGroupName]="$index">
+              <div class="field">
+                <label class="field__label" [attr.for]="'extra-name-' + $index">Nombre</label>
+                <input class="input" [id]="'extra-name-' + $index" formControlName="name" />
+              </div>
+              <div class="field">
+                <label class="field__label" [attr.for]="'extra-email-' + $index">Correo</label>
+                <input class="input" [id]="'extra-email-' + $index" type="email" formControlName="email" />
+              </div>
+              <button class="btn btn--ghost btn--sm" type="button" (click)="removeUser($index)">
+                Quitar
+              </button>
+            </div>
+          }
+        </div>
+
+        <div class="auth__actions">
+          <button class="btn btn--outline btn--sm" type="button" (click)="addUser()">
+            Anadir usuario
+          </button>
+        </div>
+
+        <button class="btn btn--block" type="submit" [disabled]="submitting()">
+          {{ submitting() ? 'Registrando...' : 'Registrar empresa' }}
+        </button>
+      </form>
+
+      <div class="auth__links">
+        <a routerLink="/auth/login">Ya tengo cuenta</a>
+        <a routerLink="/auth/registro-usuario">Quiero una cuenta de usuario</a>
+      </div>
+    }
+  </div>
+</section>

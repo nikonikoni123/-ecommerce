@@ -1,0 +1,25 @@
+<app-header />
+
+<!--
+  Recordatorio de la verificacion en dos pasos. Aparece en cada ingreso mientras siga desactivada;
+  en las cuentas de empresa el backend solo lo marca para el usuario root.
+-->
+@if (auth.showTwoFactorReminder()) {
+  <div class="reminder">
+    <div class="reminder__inner container">
+      <p class="reminder__text">
+        Tu cuenta no tiene activada la verificacion en dos pasos.
+        <a routerLink="/cuenta">Activala ahora</a> para proteger tu sesion.
+      </p>
+      <button class="btn btn--ghost btn--sm" type="button" (click)="auth.dismissTwoFactorReminder()">
+        Ahora no
+      </button>
+    </div>
+  </div>
+}
+
+<main>
+  <router-outlet />
+</main>
+
+<app-footer />

@@ -1,0 +1,84 @@
+/**
+ * Tokens del sistema de diseno.
+ *
+ * La referencia visual es un minimalismo lujoso: base crema, tipografia sans-serif limpia,
+ * microetiquetas en mayusculas con tracking amplio, mucho espacio en blanco y botones de borde
+ * fino sin sombras. El color se usa con moderacion: casi todo el peso lo lleva el espaciado.
+ */
+
+:root {
+  // --- Color ---
+  --bg: #f7f4ef;          // crema de fondo
+  --surface: #ffffff;     // tarjetas y paneles
+  --surface-alt: #f1ece4; // bloques secundarios
+  --ink: #1a1a1a;         // texto principal
+  --ink-soft: #3a3835;    // texto de parrafo
+  --ink-muted: #6b6862;   // texto auxiliar y microetiquetas
+  --line: #e3ddd4;        // bordes y separadores
+  --accent: #a8b5a0;      // salvia
+  --accent-dark: #7d8c74;
+  --accent-soft: #e8ded3; // arena
+  --danger: #a5453a;
+  --danger-soft: #f6e9e7;
+  --success: #4f7a52;
+  --success-soft: #e9f1e9;
+
+  // --- Tipografia ---
+  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --text-xs: 0.75rem;    // 12
+  --text-sm: 0.875rem;   // 14
+  --text-base: 1rem;     // 16
+  --text-lg: 1.25rem;    // 20
+  --text-xl: 1.75rem;    // 28
+  --text-2xl: 2.5rem;    // 40
+  --text-3xl: 3.5rem;    // 56
+
+  --tracking-wide: 0.12em;
+  --tracking-wider: 0.18em;
+
+  // --- Espaciado, escala de 4px ---
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  // --- Otros ---
+  --radius: 2px;
+  --max-width: 1280px;
+  --transition: 160ms ease;
+}
+
+// Microetiqueta: el recurso tipografico caracteristico de la referencia.
+@mixin eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+
+  @media (min-width: 768px) {
+    padding-inline: var(--space-8);
+  }
+}
+
+// Seccion con respiracion generosa, que se reduce en movil.
+@mixin section {
+  padding-block: var(--space-12);
+
+  @media (min-width: 768px) {
+    padding-block: var(--space-24);
+  }
+}

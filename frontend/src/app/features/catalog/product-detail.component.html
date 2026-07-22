@@ -1,0 +1,60 @@
+<section class="detail">
+  <div class="container">
+    <a class="detail__back" routerLink="/productos">&#8592; Volver a la tienda</a>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="detail__state">Cargando producto...</p>
+    } @else if (product(); as item) {
+      <div class="detail__grid">
+        <div class="detail__media">
+          @if (item.images.length) {
+            <img [src]="item.images[0]" [alt]="item.name" />
+          } @else {
+            <span class="detail__placeholder" aria-hidden="true">{{ item.name.charAt(0) }}</span>
+          }
+        </div>
+
+        <div class="detail__body">
+          <p class="eyebrow">{{ item.companyName }}</p>
+          <h1 class="detail__name">{{ item.name }}</h1>
+          <p class="detail__price">{{ price() }}</p>
+
+          <p class="detail__availability">
+            @if (item.inStock) {
+              <span class="badge badge--in">Disponible</span>
+              <span class="detail__stock">{{ item.stock }} unidades en stock</span>
+            } @else {
+              <span class="badge badge--out">Agotado</span>
+            }
+          </p>
+
+          <p class="detail__description">{{ item.description }}</p>
+
+          @if (item.tags.length) {
+            <ul class="detail__tags">
+              @for (tag of item.tags; track tag) {
+                <li class="badge">{{ tag }}</li>
+              }
+            </ul>
+          }
+
+          <!--
+            El carrito y el proceso de pago llegan en la etapa 2. El boton se deja visible pero
+            inhabilitado para que el alcance actual quede claro en la propia interfaz.
+          -->
+          <button class="btn btn--block detail__cta" type="button" disabled>
+            Agregar al carrito (etapa 2)
+          </button>
+
+          @if (item.categories.length) {
+            <p class="detail__meta">
+              Categoria: <span>{{ item.categories.join(', ') }}</span>
+            </p>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section class="catalog">
+  <div class="container">
+    <header class="catalog__head">
+      <p class="eyebrow">Tienda</p>
+      <h1 class="catalog__title">Todos los productos</h1>
+      @if (auth.isCustomer()) {
+        <p class="catalog__note">
+          El orden se ajusta a los productos que sueles consultar.
+        </p>
+      }
+    </header>
+
+    <form class="filters" (ngSubmit)="applyFilters()">
+      <div class="filters__row">
+        <label class="filters__field">
+          <span class="visually-hidden">Buscar</span>
+          <input
+            class="input"
+            type="search"
+            name="search"
+            placeholder="Buscar producto"
+            [(ngModel)]="search"
+          />
+        </label>
+
+        <label class="filters__field">
+          <span class="visually-hidden">Categoria</span>
+          <select class="select" name="category" [(ngModel)]="category">
+            <option value="">Todas las categorias</option>
+            @for (item of categories(); track item) {
+              <option [value]="item">{{ item }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="filters__field">
+          <span class="visually-hidden">Ordenar</span>
+          <select class="select" name="sort" [(ngModel)]="sort">
+            <option value="">Orden recomendado</option>
+            <option value="price_asc">Precio: de menor a mayor</option>
+            <option value="price_desc">Precio: de mayor a menor</option>
+            <option value="name">Nombre</option>
+          </select>
+        </label>
+
+        <label class="filters__check">
+          <input type="checkbox" name="inStockOnly" [(ngModel)]="inStockOnly" />
+          <span>Solo disponibles</span>
+        </label>
+      </div>
+
+      <div class="filters__actions">
+        <button class="btn btn--sm" type="submit">Aplicar</button>
+        <button class="btn btn--ghost btn--sm" type="button" (click)="clearFilters()">
+          Limpiar
+        </button>
+      </div>
+    </form>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="catalog__state">Cargando productos...</p>
+    } @else if (!page()?.content?.length) {
+      <p class="catalog__state">No encontramos productos con esos filtros.</p>
+    } @else {
+      <p class="catalog__count">{{ page()!.totalElements }} producto(s)</p>
+
+      <div class="catalog__grid">
+        @for (product of page()!.content; track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+
+      @if (page()!.totalPages > 1) {
+        <nav class="pagination" aria-label="Paginacion">
+          @for (number of pageNumbers(); track number) {
+            <button
+              class="pagination__item"
+              type="button"
+              [class.is-current]="number === page()!.page"
+              [attr.aria-current]="number === page()!.page ? 'page' : null"
+              (click)="goToPage(number)"
+            >
+              {{ number + 1 }}
+            </button>
+          }
+        </nav>
+      }
+    }
+  </div>
+</section>

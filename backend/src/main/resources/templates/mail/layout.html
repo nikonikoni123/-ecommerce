@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+  Chrome comun de los correos transaccionales. Los estilos van en linea porque los clientes de
+  correo ignoran las hojas de estilo externas y buena parte de las etiquetas <style>.
+  Uso: ~{mail/layout :: page('Titulo', ~{::content})}
+-->
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="page(title, content)">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title}">E-commerce</title>
+</head>
+<body style="margin:0;padding:0;background:#F7F4EF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#1A1A1A;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F7F4EF;padding:48px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border:1px solid #E3DDD4;">
+      <tr><td style="padding:40px 40px 24px;border-bottom:1px solid #E3DDD4;">
+        <span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6862;">E-Commerce</span>
+      </td></tr>
+      <tr><td style="padding:40px;">
+        <th:block th:replace="${content}">Contenido</th:block>
+      </td></tr>
+      <tr><td style="padding:24px 40px 40px;border-top:1px solid #E3DDD4;">
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#6B6862;">
+          Este es un mensaje automatico, por favor no respondas a este correo.
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>

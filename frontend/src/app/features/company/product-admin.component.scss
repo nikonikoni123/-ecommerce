@@ -1,0 +1,81 @@
+@use 'styles/tokens' as *;
+
+.admin {
+  @include section;
+}
+
+.admin__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.admin__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-2xl);
+}
+
+.admin__state {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.admin__form {
+  margin-bottom: var(--space-8);
+}
+
+.admin__form-title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.admin__form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.admin__check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.admin__product-name {
+  display: block;
+  font-weight: 500;
+}
+
+.admin__product-slug {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+.admin__stock {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.admin__stock-input {
+  width: 90px;
+  padding: var(--space-2) var(--space-3);
+}
+
+.admin__hidden-tags {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+.admin__row-actions {
+  display: flex;
+  gap: var(--space-1);
+}

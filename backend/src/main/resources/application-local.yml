@@ -1,0 +1,12 @@
+# Perfil para desarrollar contra servicios ya instalados en la maquina, sin Docker.
+# Uso: ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+#
+# Asume una instalacion de MongoDB sin autenticacion escuchando en el 27017, y un servidor SMTP
+# de pruebas en el 1025 (Mailpit, o el capturador de correos de scripts/mailcatcher.py).
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ecommerce
+  mail:
+    host: localhost
+    port: 1025

@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="header__inner container">
+    <a class="header__brand" routerLink="/" (click)="closeMenu()">E&#8209;Commerce</a>
+
+    <button
+      class="header__toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="nav-principal"
+    >
+      <span class="visually-hidden">Abrir menu</span>
+      <span aria-hidden="true">{{ menuOpen() ? '✕' : '≡' }}</span>
+    </button>
+
+    <nav id="nav-principal" class="header__nav" [class.is-open]="menuOpen()">
+      <a routerLink="/productos" routerLinkActive="is-active" (click)="closeMenu()">Tienda</a>
+      <a routerLink="/nosotros" routerLinkActive="is-active" (click)="closeMenu()">Nosotros</a>
+
+      @if (auth.isCompanyMember()) {
+        <a routerLink="/empresa/productos" routerLinkActive="is-active" (click)="closeMenu()">
+          Gestion
+        </a>
+      }
+
+      @if (auth.isAuthenticated()) {
+        <a routerLink="/notificaciones" routerLinkActive="is-active" (click)="closeMenu()">
+          Notificaciones
+        </a>
+        <a routerLink="/cuenta" routerLinkActive="is-active" (click)="closeMenu()">Cuenta</a>
+        <button class="header__logout" type="button" (click)="logout()">Salir</button>
+      } @else {
+        <a routerLink="/auth/login" routerLinkActive="is-active" (click)="closeMenu()">Ingresar</a>
+      }
+    </nav>
+  </div>
+</header>

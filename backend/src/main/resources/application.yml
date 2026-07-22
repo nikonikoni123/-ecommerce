@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: ecommerce-backend
+
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://ecommerce:ecommerce@localhost:27017/ecommerce?authSource=admin}
+      auto-index-creation: false   # los indices se declaran explicitamente en MongoIndexConfig
+
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+
+  thymeleaf:
+    check-template-location: true
+
+server:
+  port: 8080
+
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
+  frontend-url: ${APP_FRONTEND_URL:http://localhost:4200}
+  mail-from: ${MAIL_FROM:no-reply@ecommerce.local}
+  seed-demo-data: ${APP_SEED_DEMO_DATA:true}
+
+  jwt:
+    # Clave HS256. Se sobreescribe siempre por variable de entorno fuera de desarrollo.
+    secret: ${JWT_SECRET:desarrollo-local-clave-insegura-cambiar-en-produccion-minimo-64-caracteres}
+    access-expiration-minutes: ${JWT_ACCESS_EXPIRATION_MINUTES:15}
+    refresh-expiration-days: ${JWT_REFRESH_EXPIRATION_DAYS:7}
+
+  nlp:
+    url: ${NLP_SERVICE_URL:http://localhost:8000}
+    timeout-ms: ${NLP_SERVICE_TIMEOUT_MS:4000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    com.ecommerce: DEBUG

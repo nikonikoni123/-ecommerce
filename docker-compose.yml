@@ -1,0 +1,56 @@
+services:
+  mongo:
+    image: mongo:8
+    container_name: ecommerce-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-ecommerce}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-ecommerce}
+      MONGO_INITDB_DATABASE: ecommerce
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  # Servidor SMTP de pruebas: captura los correos de verificacion y los
+  # muestra en una interfaz web, sin enviar nada al exterior.
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: ecommerce-mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025"   # SMTP
+      - "8025:8025"   # interfaz web
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+  nlp-service:
+    build: ./nlp-service
+    container_name: ecommerce-nlp
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      NLP_MODEL_NAME: ${NLP_MODEL_NAME:-nlptown/bert-base-multilingual-uncased-sentiment}
+      HF_HOME: /models
+    volumes:
+      # El modelo BERT se descarga una sola vez y queda cacheado en el volumen.
+      - nlp-models:/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  mongo-data:
+  nlp-models:

@@ -1,0 +1,83 @@
+@use '../../styles/tokens' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(247, 244, 239, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: 72px;
+  flex-wrap: wrap;
+}
+
+.header__brand {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.header__toggle {
+  background: none;
+  border: none;
+  font-size: var(--text-lg);
+  line-height: 1;
+  cursor: pointer;
+  padding: var(--space-2);
+
+  @media (min-width: 860px) {
+    display: none;
+  }
+}
+
+.header__nav {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  padding-bottom: var(--space-6);
+
+  &.is-open {
+    display: flex;
+  }
+
+  a,
+  button {
+    @include eyebrow;
+    color: var(--ink);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--ink-muted);
+    }
+  }
+
+  .is-active {
+    /* El subrayado marca la seccion actual sin recurrir a un color de acento. */
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  @media (min-width: 860px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    width: auto;
+    padding-bottom: 0;
+  }
+}

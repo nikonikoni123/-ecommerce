@@ -1,0 +1,182 @@
+<section class="admin">
+  <div class="container">
+    <header class="admin__head">
+      <div>
+        <p class="eyebrow">Panel de empresa</p>
+        <h1 class="admin__title">Gestion de productos</h1>
+      </div>
+      <!--
+        El boton solo se pinta si root concedio el permiso. Es una ayuda visual: el backend vuelve
+        a comprobarlo en cada peticion.
+      -->
+      <button class="btn" type="button" *hasPermission="Permission.PRODUCT_CREATE" (click)="openCreate()">
+        Anadir producto
+      </button>
+    </header>
+
+    <app-alert [message]="message()" variant="success" />
+    <app-alert [message]="error()" variant="error" />
+
+    @if (formOpen()) {
+      <section class="admin__form card">
+        <h2 class="admin__form-title">
+          {{ editing() ? 'Modificar producto' : 'Nuevo producto' }}
+        </h2>
+
+        <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+          <div class="form-grid">
+            <div class="field form-grid--full">
+              <label class="field__label" for="name">Nombre *</label>
+              <input class="input" id="name" formControlName="name"
+                [class.is-invalid]="form.controls.name.touched && form.controls.name.invalid" />
+              @if (form.controls.name.touched && form.controls.name.invalid) {
+                <span class="field__error">El nombre es obligatorio.</span>
+              }
+            </div>
+
+            <div class="field form-grid--full">
+              <label class="field__label" for="description">Descripcion *</label>
+              <textarea class="textarea" id="description" formControlName="description"
+                [class.is-invalid]="form.controls.description.touched && form.controls.description.invalid"></textarea>
+              @if (form.controls.description.touched && form.controls.description.invalid) {
+                <span class="field__error">La descripcion es obligatoria.</span>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="price">Precio *</label>
+              <input class="input" id="price" type="number" min="0" step="0.01" formControlName="price"
+                [class.is-invalid]="form.controls.price.touched && form.controls.price.invalid" />
+              @if (form.controls.price.touched && form.controls.price.invalid) {
+                <span class="field__error">El precio debe ser mayor que cero.</span>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="stock">Cantidad en stock *</label>
+              <input class="input" id="stock" type="number" min="0" step="1" formControlName="stock"
+                [class.is-invalid]="form.controls.stock.touched && form.controls.stock.invalid" />
+              @if (form.controls.stock.touched && form.controls.stock.invalid) {
+                <span class="field__error">El stock no puede ser negativo.</span>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="categories">Categorias</label>
+              <input class="input" id="categories" formControlName="categories"
+                placeholder="limpieza, tratamiento" />
+              <span class="field__hint">Separadas por comas.</span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="visibleTags">Etiquetas visibles</label>
+              <input class="input" id="visibleTags" formControlName="visibleTags"
+                placeholder="piel mixta, uso diario" />
+              <span class="field__hint">Las ve el comprador en la ficha.</span>
+            </div>
+
+            <div class="field form-grid--full">
+              <label class="field__label" for="hiddenTags">Etiquetas invisibles</label>
+              <input class="input" id="hiddenTags" formControlName="hiddenTags"
+                placeholder="rutina-noche, recompra, primera-compra" />
+              <span class="field__hint">
+                No se muestran nunca al comprador. Sirven para priorizar el catalogo segun los
+                intereses de cada usuario.
+              </span>
+            </div>
+
+            <div class="field form-grid--full">
+              <label class="field__label" for="images">Imagenes (URL)</label>
+              <input class="input" id="images" formControlName="images"
+                placeholder="https://... , https://..." />
+              <span class="field__hint">Separadas por comas.</span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="active">Estado</label>
+              <label class="admin__check">
+                <input id="active" type="checkbox" formControlName="active" />
+                <span>Visible en el catalogo</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="admin__form-actions">
+            <button class="btn" type="submit">
+              {{ editing() ? 'Guardar cambios' : 'Crear producto' }}
+            </button>
+            <button class="btn btn--ghost" type="button" (click)="closeForm()">Cancelar</button>
+          </div>
+        </form>
+      </section>
+    }
+
+    @if (loading()) {
+      <p class="admin__state">Cargando productos...</p>
+    } @else if (!page()?.content?.length) {
+      <p class="admin__state">Todavia no has publicado productos.</p>
+    } @else {
+      <div class="panel table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Estado</th>
+              <th>Etiquetas invisibles</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (product of page()!.content; track product.id) {
+              <tr>
+                <td>
+                  <span class="admin__product-name">{{ product.name }}</span>
+                  <span class="admin__product-slug">/{{ product.slug }}</span>
+                </td>
+                <td>{{ price(product.price, product.currency) }}</td>
+                <td>
+                  <div class="admin__stock" *hasPermission="Permission.STOCK_UPDATE">
+                    <input class="input admin__stock-input" type="number" min="0"
+                      [value]="product.stock" #stockInput />
+                    <button class="btn btn--outline btn--sm" type="button"
+                      (click)="changeStock(product, stockInput.value)">
+                      Guardar
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  @if (product.active) {
+                    <span class="badge badge--in">Activo</span>
+                  } @else {
+                    <span class="badge">Oculto</span>
+                  }
+                </td>
+                <td>
+                  @if (product.hiddenTags.length) {
+                    <span class="admin__hidden-tags">{{ product.hiddenTags.join(', ') }}</span>
+                  } @else {
+                    <span class="admin__hidden-tags">—</span>
+                  }
+                </td>
+                <td>
+                  <div class="admin__row-actions">
+                    <button class="btn btn--ghost btn--sm" type="button"
+                      *hasPermission="Permission.PRODUCT_UPDATE" (click)="openEdit(product)">
+                      Modificar
+                    </button>
+                    <button class="btn btn--ghost btn--sm" type="button"
+                      *hasPermission="Permission.PRODUCT_DELETE" (click)="remove(product)">
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section class="auth">
+  <div class="auth__panel">
+    <p class="eyebrow">Verificacion</p>
+    <h1 class="auth__title">Confirmar correo</h1>
+
+    @if (verifying()) {
+      <p class="auth__hint">Confirmando tu direccion de correo...</p>
+    } @else {
+      <app-alert [message]="success()" variant="success" />
+      <app-alert [message]="error()" variant="error" />
+
+      <div class="auth__links">
+        @if (success()) {
+          <a routerLink="/auth/login">Ingresar</a>
+        } @else {
+          <a routerLink="/auth/login">Volver a ingresar</a>
+          <a routerLink="/auth/registro-usuario">Crear una cuenta nueva</a>
+        }
+      </div>
+    }
+  </div>
+</section>

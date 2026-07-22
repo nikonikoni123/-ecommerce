@@ -41,13 +41,6 @@ export class CartService {
     return this.http.get<CartView>(this.base).pipe(tap((c) => this.units.set(c.totalUnits)));
   }
 
-  /** Cotiza el carrito, opcionalmente como pedido sorpresa. */
-  quote(randomOrder = false): Observable<CartView> {
-    return this.http
-      .get<CartView>(`${this.base}/quote`, { params: { randomOrder } })
-      .pipe(tap((c) => this.units.set(c.totalUnits)));
-  }
-
   add(productId: string, quantity = 1): Observable<CartView> {
     return this.http
       .post<CartView>(`${this.base}/items`, { productId, quantity })
@@ -58,9 +51,12 @@ export class CartService {
    * Anade varios productos en una sola peticion. Enviarlos en paralelo seria una condicion de
    * carrera: cada peticion lee el carrito, anade lo suyo y guarda, y solo sobrevive la ultima.
    */
-  addMany(items: { productId: string; quantity: number }[]): Observable<CartView> {
+  addMany(
+    items: { productId: string; quantity: number }[],
+    asRandomOrder = false,
+  ): Observable<CartView> {
     return this.http
-      .post<CartView>(`${this.base}/items/bulk`, { items })
+      .post<CartView>(`${this.base}/items/bulk`, { items, asRandomOrder })
       .pipe(tap((c) => this.units.set(c.totalUnits)));
   }
 

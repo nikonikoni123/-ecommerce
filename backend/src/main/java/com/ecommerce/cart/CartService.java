@@ -40,8 +40,8 @@ public class CartService {
 
     // ------------------------------------------------------------------ modificacion
 
-    public CartView view(String customerId, boolean randomOrder) {
-        return render(load(customerId), customerId, randomOrder);
+    public CartView view(String customerId) {
+        return render(load(customerId), customerId);
     }
 
     public CartView addItem(String customerId, String productId, int quantity) {
@@ -56,6 +56,7 @@ public class CartService {
                 item -> item.setQuantity(nueva),
                 () -> cart.getItems().add(new Cart.CartItem(productId, quantity)));
 
+        cart.setRandomOrder(false);   // anadir a mano deja de ser una caja sorpresa
         return save(cart, customerId);
     }
 
@@ -64,8 +65,11 @@ public class CartService {
      *
      * <p>Se valida todo el lote antes de tocar el carrito: o entra entero o no entra nada, para que
      * un producto agotado no deje media caja sorpresa a medio anadir.
+     *
+     * @param asRandomOrder marca el carrito como caja sorpresa, con derecho al descuento
      */
-    public CartView addItems(String customerId, List<Map.Entry<String, Integer>> requested) {
+    public CartView addItems(String customerId, List<Map.Entry<String, Integer>> requested,
+                             boolean asRandomOrder) {
         var cart = load(customerId);
 
         // Se acumulan las cantidades por producto antes de comprobar el stock, por si el lote
@@ -87,6 +91,7 @@ public class CartService {
                     () -> cart.getItems().add(new Cart.CartItem(entrada.getKey(), entrada.getValue())));
         }
 
+        cart.setRandomOrder(asRandomOrder);
         return save(cart, customerId);
     }
 
@@ -98,6 +103,7 @@ public class CartService {
         requireStock(availableProduct(productId), quantity);
         item.setQuantity(quantity);
 
+        cart.setRandomOrder(false);   // cambiar cantidades ya no es la seleccion de la plataforma
         return save(cart, customerId);
     }
 
@@ -112,36 +118,44 @@ public class CartService {
             throw ApiException.notFound("Ese producto no esta en tu carrito.");
         }
 
-        requireStock(availableProduct(newProductId), quantity);
-
-        // Se quitan ambos y luego se inserta, para no trabajar con indices que se desplazan:
-        // si el producto nuevo ya estaba en otra linea, las dos se fusionan en una sola.
         var items = cart.getItems();
         int posicion = indexOf(cart, productId);
+
+        // Si el producto nuevo ya estaba en otra linea, las dos se fusionan y las cantidades se
+        // suman: quedarse solo con la pedida haria desaparecer unidades sin avisar.
+        int cantidadFinal = quantity;
         if (!newProductId.equals(productId)) {
             int posicionNuevo = indexOf(cart, newProductId);
-            if (posicionNuevo >= 0 && posicionNuevo < posicion) {
-                posicion--;   // al quitar una linea anterior, la nuestra sube un puesto
+            if (posicionNuevo >= 0) {
+                cantidadFinal += items.get(posicionNuevo).getQuantity();
+                if (posicionNuevo < posicion) {
+                    posicion--;   // al quitar una linea anterior, la nuestra sube un puesto
+                }
+                cart.removeItem(newProductId);
             }
-            cart.removeItem(newProductId);
         }
+
+        requireStock(availableProduct(newProductId), cantidadFinal);
+
         cart.removeItem(productId);
-
         items.add(Math.min(Math.max(posicion, 0), items.size()),
-                new Cart.CartItem(newProductId, quantity));
+                new Cart.CartItem(newProductId, cantidadFinal));
 
+        cart.setRandomOrder(false);   // sustituir un producto rehace la seleccion
         return save(cart, customerId);
     }
 
     public CartView removeItem(String customerId, String productId) {
         var cart = load(customerId);
         cart.removeItem(productId);
+        cart.setRandomOrder(false);   // quitar algo tambien rompe la caja propuesta
         return save(cart, customerId);
     }
 
     public void clear(String customerId) {
         carts.findByCustomerId(customerId).ifPresent(cart -> {
             cart.getItems().clear();
+            cart.setRandomOrder(false);
             cart.setUpdatedAt(Instant.now());
             carts.save(cart);
         });
@@ -160,7 +174,7 @@ public class CartService {
 
     private CartView save(Cart cart, String customerId) {
         cart.setUpdatedAt(Instant.now());
-        return render(carts.save(cart), customerId, false);
+        return render(carts.save(cart), customerId);
     }
 
     private int indexOf(Cart cart, String productId) {
@@ -196,10 +210,14 @@ public class CartService {
      * <p>Los totales se calculan <b>por empresa</b>, porque al pagar el carrito se divide en un
      * pedido por vendedor y el envio se cobra una vez a cada uno. El total global es la suma.
      */
-    private CartView render(Cart cart, String customerId, boolean randomOrder) {
+    private CartView render(Cart cart, String customerId) {
         if (cart.isEmpty()) {
             return CartView.empty("COP");
         }
+
+        // La marca sale del carrito guardado, nunca de la peticion: asi el descuento se ve desde que
+        // se acepta la caja y el cliente no puede concederselo el mismo.
+        boolean randomOrder = cart.isRandomOrder();
 
         var lines = new ArrayList<CartLine>();
         var porEmpresa = new LinkedHashMap<String, List<PricingService.Line>>();

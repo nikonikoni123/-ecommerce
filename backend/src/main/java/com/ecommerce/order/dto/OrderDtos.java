@@ -53,8 +53,9 @@ public final class OrderDtos {
             /** Etiqueta del medio de pago simulado. */
             String paymentMethod,
 
-            /** El pedido procede de la caja sorpresa y opta al descuento correspondiente. */
-            boolean randomOrder,
+            // Nota: la condicion de pedido sorpresa NO se recibe aqui. Vive en el carrito, que es
+            // quien sabe si su contenido lo eligio la plataforma. Aceptarla desde la peticion
+            // dejaria que cualquier cliente se concediera el descuento por su cuenta.
 
             boolean asGift,
 

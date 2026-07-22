@@ -35,16 +35,9 @@ public class CartController {
     }
 
     @GetMapping
-    @Operation(summary = "Ver el carrito con precios actuales y totales")
+    @Operation(summary = "Ver el carrito con precios actuales, descuentos y totales")
     public CartView view(@AuthenticationPrincipal AppPrincipal principal) {
-        return cartService.view(customer(principal), false);
-    }
-
-    @GetMapping("/quote")
-    @Operation(summary = "Cotizar el carrito, opcionalmente como pedido sorpresa")
-    public CartView quote(@AuthenticationPrincipal AppPrincipal principal,
-                          @RequestParam(defaultValue = "false") boolean randomOrder) {
-        return cartService.view(customer(principal), randomOrder);
+        return cartService.view(customer(principal));
     }
 
     @GetMapping("/count")
@@ -61,13 +54,13 @@ public class CartController {
     }
 
     @PostMapping("/items/bulk")
-    @Operation(summary = "Anadir varios productos de una vez, sin condiciones de carrera")
+    @Operation(summary = "Anadir varios productos de una vez, opcionalmente como caja sorpresa")
     public CartView addItems(@AuthenticationPrincipal AppPrincipal principal,
                              @Valid @RequestBody AddItemsRequest request) {
         var lineas = request.items().stream()
                 .map(i -> java.util.Map.entry(i.productId(), i.quantity()))
                 .toList();
-        return cartService.addItems(customer(principal), lineas);
+        return cartService.addItems(customer(principal), lineas, request.asRandomOrder());
     }
 
     @PatchMapping("/items/{productId}")

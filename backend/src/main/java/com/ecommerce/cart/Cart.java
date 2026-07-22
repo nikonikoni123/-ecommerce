@@ -25,6 +25,16 @@ public class Cart {
 
     private List<CartItem> items = new ArrayList<>();
 
+    /**
+     * El contenido procede de una caja sorpresa aceptada tal cual.
+     *
+     * <p>Se guarda aqui, y no se recibe al pagar, por dos motivos: el descuento debe verse en el
+     * carrito desde que se acepta la caja, y el cliente no puede concederselo el mismo enviando la
+     * marca en la peticion de pago. Cualquier edicion manual lo desactiva, porque el descuento se
+     * concede a cambio de aceptar la seleccion de la plataforma, no de rehacerla.
+     */
+    private boolean randomOrder;
+
     private Instant updatedAt = Instant.now();
 
     public Cart() {
@@ -72,6 +82,14 @@ public class Cart {
 
     public void setItems(List<CartItem> items) {
         this.items = items == null ? new ArrayList<>() : items;
+    }
+
+    public boolean isRandomOrder() {
+        return randomOrder;
+    }
+
+    public void setRandomOrder(boolean randomOrder) {
+        this.randomOrder = randomOrder;
     }
 
     public Instant getUpdatedAt() {

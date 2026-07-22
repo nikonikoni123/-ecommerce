@@ -108,9 +108,13 @@ public class CheckoutService {
             Instant ahora = Instant.now();
             String referencia = "PAY-" + UUID.randomUUID().toString().substring(0, 12).toUpperCase();
 
+            // La condicion de pedido sorpresa la dicta el carrito, no la peticion.
+            boolean sorpresa = cart.isRandomOrder();
+
             var creados = new ArrayList<Order>();
             for (var entrada : porEmpresa.entrySet()) {
-                creados.add(buildOrder(customer, entrada.getValue(), request, referencia, ahora));
+                creados.add(buildOrder(customer, entrada.getValue(), request, sorpresa, referencia,
+                        ahora));
             }
             orders.saveAll(creados);
 
@@ -145,7 +149,7 @@ public class CheckoutService {
     }
 
     private Order buildOrder(User customer, List<LineaResuelta> lineas, CheckoutRequest request,
-                             String referencia, Instant ahora) {
+                             boolean randomOrder, String referencia, Instant ahora) {
         var primera = lineas.get(0).producto();
 
         var paraCotizar = lineas.stream()
@@ -153,7 +157,7 @@ public class CheckoutService {
                         l.cantidad()))
                 .toList();
 
-        var quote = pricingService.quote(paraCotizar, customer.getId(), request.randomOrder(), ahora);
+        var quote = pricingService.quote(paraCotizar, customer.getId(), randomOrder, ahora);
 
         var order = new Order();
         order.setNumber(sequences.nextOrderNumber());
@@ -183,7 +187,7 @@ public class CheckoutService {
         order.setTaxAmount(quote.taxAmount());
         order.setShippingCost(quote.shippingCost());
         order.setTotal(quote.total());
-        order.setRandomOrder(request.randomOrder());
+        order.setRandomOrder(randomOrder);
 
         order.setShipping(new Order.Address(request.recipientName(), request.address(),
                 request.postalCode(), request.phone()));

@@ -32,7 +32,9 @@ public final class CartDtos {
      * ultima. Es lo que necesita la caja sorpresa, que llega con varios productos a la vez.
      */
     public record AddItemsRequest(
-            @NotNull(message = "Indica los productos") @Valid List<AddItemRequest> items) {
+            @NotNull(message = "Indica los productos") @Valid List<AddItemRequest> items,
+            /** El lote procede de una caja sorpresa aceptada, con derecho a su descuento. */
+            boolean asRandomOrder) {
     }
 
     public record UpdateQuantityRequest(

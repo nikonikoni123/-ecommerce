@@ -101,7 +101,7 @@ export class CheckoutComponent {
         postalCode: v.postalCode,
         phone: v.phone,
         paymentMethod: v.paymentMethod,
-        randomOrder: false,
+        // La condicion de pedido sorpresa la aporta el carrito en el servidor, no esta pantalla.
         asGift: v.asGift,
         gift: v.asGift
           ? {

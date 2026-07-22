@@ -16,6 +16,17 @@
         </div>
       </div>
     } @else if (view(); as c) {
+      @if (c.randomOrder) {
+        <div class="surprise-flag">
+          <p class="eyebrow">Pedido sorpresa</p>
+          <p class="surprise-flag__text">
+            Esta caja la elegimos nosotros, y por eso lleva un descuento adicional. Si cambias las
+            cantidades, sustituyes o quitas algun producto, deja de ser una caja sorpresa y el
+            descuento se pierde.
+          </p>
+        </div>
+      }
+
       <div class="cart__layout">
         <!-- Lineas -->
         <div class="cart__lines">

@@ -28,6 +28,22 @@
   margin-top: var(--space-6);
 }
 
+.surprise-flag {
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.surprise-flag__text {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 76ch;
+}
+
 .cart__layout {
   display: grid;
   gap: var(--space-8);

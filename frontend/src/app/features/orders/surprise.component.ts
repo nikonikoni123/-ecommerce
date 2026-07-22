@@ -71,7 +71,8 @@ export class SurpriseComponent {
     this.cart.clear().subscribe({
       next: () => {
         const items = p.items.map((i) => ({ productId: i.productId, quantity: i.quantity }));
-        this.cart.addMany(items).subscribe({
+        // El true marca el carrito como caja sorpresa: es lo que le da derecho al descuento.
+        this.cart.addMany(items, true).subscribe({
           next: () => {
             this.adding.set(false);
             this.router.navigate(['/carrito']);

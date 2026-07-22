@@ -189,7 +189,6 @@ export interface CheckoutRequest {
   postalCode: string;
   phone: string;
   paymentMethod?: string;
-  randomOrder: boolean;
   asGift: boolean;
   gift?: GiftRequest | null;
 }

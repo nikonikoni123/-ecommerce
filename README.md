@@ -57,7 +57,8 @@ Necesitas **JDK 26**, **Node 24.15+** y **MongoDB**. Maven no hace falta: se usa
 docker compose up -d
 ```
 
-Mailpit captura los correos de verificacion y los muestra en <http://localhost:8025>.
+Mailpit captura los correos de verificacion y los muestra en <http://localhost:8025>. No los reenvia
+a internet: los correos de prueba se leen ahi, no en tu bandeja real.
 
 **Opcion B — MongoDB ya instalado en la maquina.** Usa el perfil `local` del backend (apunta a
 `mongodb://localhost:27017/ecommerce` sin autenticacion) y arranca el capturador de correos incluido:
@@ -66,7 +67,14 @@ Mailpit captura los correos de verificacion y los muestra en <http://localhost:8
 python scripts/mailcatcher.py
 ```
 
-Guarda cada mensaje en `scripts/mails/` e imprime en consola el asunto y los enlaces.
+Hace lo mismo que Mailpit, sin Docker ni dependencias: recibe SMTP en el 1025 y abre una bandeja web
+en <http://localhost:8025> donde puedes leer cada correo y abrir su enlace de verificacion con un
+clic. Los mensajes tambien quedan en `scripts/mails/`.
+
+> **Los correos no salen a internet.** En desarrollo, tanto Mailpit como este capturador interceptan
+> todos los mensajes. Si te registras con tu direccion real, el correo **no** llegara a tu bandeja:
+> abrelo en <http://localhost:8025>. Para enviar correo de verdad hay que configurar un SMTP real en
+> `MAIL_HOST` / `MAIL_PORT` / `MAIL_USERNAME` / `MAIL_PASSWORD`.
 
 ### 2. Backend
 

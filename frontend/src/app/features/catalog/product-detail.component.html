@@ -40,13 +40,31 @@
             </ul>
           }
 
-          <!--
-            El carrito y el proceso de pago llegan en la etapa 2. El boton se deja visible pero
-            inhabilitado para que el alcance actual quede claro en la propia interfaz.
-          -->
-          <button class="btn btn--block detail__cta" type="button" disabled>
-            Agregar al carrito (etapa 2)
-          </button>
+          <app-alert [message]="cartMessage()" variant="success" />
+          <app-alert [message]="cartError()" variant="error" />
+
+          @if (auth.isCustomer()) {
+            <div class="detail__buy">
+              <label class="detail__qty">
+                <span class="visually-hidden">Cantidad</span>
+                <input class="input" type="number" min="1" [max]="item.stock || 1"
+                  [value]="quantity()" (input)="setQuantity($event)" [disabled]="!item.inStock" />
+              </label>
+              <button class="btn detail__cta" type="button"
+                [disabled]="!item.inStock || adding()" (click)="addToCart(item.id)">
+                {{ adding() ? 'Anadiendo...' : item.inStock ? 'Agregar al carrito' : 'Agotado' }}
+              </button>
+            </div>
+          } @else if (auth.isAuthenticated()) {
+            <p class="detail__note">
+              Las cuentas de empresa no pueden comprar. Ingresa con una cuenta de usuario.
+            </p>
+          } @else {
+            <a class="btn btn--block detail__cta" routerLink="/auth/login"
+              [queryParams]="{ redirect: '/productos/' + item.slug }">
+              Ingresa para comprar
+            </a>
+          }
 
           @if (item.categories.length) {
             <p class="detail__meta">

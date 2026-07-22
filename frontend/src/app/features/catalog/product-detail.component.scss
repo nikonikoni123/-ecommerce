@@ -90,8 +90,25 @@
   margin-top: var(--space-6);
 }
 
-.detail__cta {
+.detail__buy {
+  display: flex;
+  gap: var(--space-3);
   margin-top: var(--space-8);
+}
+
+.detail__qty input {
+  width: 80px;
+  text-align: center;
+}
+
+.detail__cta {
+  flex: 1;
+}
+
+.detail__note {
+  margin-top: var(--space-8);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
 }
 
 .detail__meta {

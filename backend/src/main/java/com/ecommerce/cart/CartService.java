@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -54,6 +55,37 @@ public class CartService {
         existing.ifPresentOrElse(
                 item -> item.setQuantity(nueva),
                 () -> cart.getItems().add(new Cart.CartItem(productId, quantity)));
+
+        return save(cart, customerId);
+    }
+
+    /**
+     * Anade varias lineas en una sola operacion.
+     *
+     * <p>Se valida todo el lote antes de tocar el carrito: o entra entero o no entra nada, para que
+     * un producto agotado no deje media caja sorpresa a medio anadir.
+     */
+    public CartView addItems(String customerId, List<Map.Entry<String, Integer>> requested) {
+        var cart = load(customerId);
+
+        // Se acumulan las cantidades por producto antes de comprobar el stock, por si el lote
+        // repite el mismo producto en varias lineas.
+        var deseado = new LinkedHashMap<String, Integer>();
+        for (var entrada : requested) {
+            deseado.merge(entrada.getKey(), entrada.getValue(), Integer::sum);
+        }
+
+        for (var entrada : deseado.entrySet()) {
+            var producto = availableProduct(entrada.getKey());
+            int yaEnCarrito = cart.findItem(entrada.getKey()).map(Cart.CartItem::getQuantity).orElse(0);
+            requireStock(producto, yaEnCarrito + entrada.getValue());
+        }
+
+        for (var entrada : deseado.entrySet()) {
+            cart.findItem(entrada.getKey()).ifPresentOrElse(
+                    item -> item.setQuantity(item.getQuantity() + entrada.getValue()),
+                    () -> cart.getItems().add(new Cart.CartItem(entrada.getKey(), entrada.getValue())));
+        }
 
         return save(cart, customerId);
     }

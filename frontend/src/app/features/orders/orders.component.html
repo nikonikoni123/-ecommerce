@@ -1,0 +1,55 @@
+<section class="orders">
+  <div class="container">
+    <p class="eyebrow">Mi cuenta</p>
+    <h1 class="orders__title">Mis pedidos</h1>
+
+    <nav class="tabs" aria-label="Filtro de pedidos">
+      <button type="button" class="tabs__item" [class.is-active]="scope() === 'active'"
+        (click)="select('active')">
+        En proceso
+      </button>
+      <button type="button" class="tabs__item" [class.is-active]="scope() === 'history'"
+        (click)="select('history')">
+        Historial
+      </button>
+    </nav>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="orders__state">Cargando pedidos...</p>
+    } @else if (!orders().length) {
+      <p class="orders__state">
+        @if (scope() === 'active') {
+          No tienes pedidos en proceso ahora mismo.
+        } @else {
+          Todavia no tienes pedidos cerrados.
+        }
+      </p>
+    } @else {
+      <ul class="orders__list">
+        @for (o of orders(); track o.id) {
+          <li>
+            <a class="order" [routerLink]="['/pedidos', o.id]">
+              <div class="order__head">
+                <span class="order__number">{{ o.number }}</span>
+                <span class="badge" [class.badge--in]="!o.terminal">{{ o.statusLabel }}</span>
+              </div>
+
+              <p class="order__company">{{ o.companyName }}</p>
+
+              <div class="order__meta">
+                <span>{{ date(o.createdAt) }}</span>
+                <span>{{ o.itemCount }} articulo(s)</span>
+                @if (o.gift) { <span class="order__flag">Regalo</span> }
+                @if (o.randomOrder) { <span class="order__flag">Sorpresa</span> }
+              </div>
+
+              <p class="order__total">{{ price(o.total, o.currency) }}</p>
+            </a>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</section>

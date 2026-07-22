@@ -2,6 +2,7 @@ package com.ecommerce.cart;
 
 import com.ecommerce.auth.dto.AuthDtos.MessageResponse;
 import com.ecommerce.cart.dto.CartDtos.AddItemRequest;
+import com.ecommerce.cart.dto.CartDtos.AddItemsRequest;
 import com.ecommerce.cart.dto.CartDtos.CartView;
 import com.ecommerce.cart.dto.CartDtos.ReplaceItemRequest;
 import com.ecommerce.cart.dto.CartDtos.UpdateQuantityRequest;
@@ -57,6 +58,16 @@ public class CartController {
     public CartView addItem(@AuthenticationPrincipal AppPrincipal principal,
                             @Valid @RequestBody AddItemRequest request) {
         return cartService.addItem(customer(principal), request.productId(), request.quantity());
+    }
+
+    @PostMapping("/items/bulk")
+    @Operation(summary = "Anadir varios productos de una vez, sin condiciones de carrera")
+    public CartView addItems(@AuthenticationPrincipal AppPrincipal principal,
+                             @Valid @RequestBody AddItemsRequest request) {
+        var lineas = request.items().stream()
+                .map(i -> java.util.Map.entry(i.productId(), i.quantity()))
+                .toList();
+        return cartService.addItems(customer(principal), lineas);
     }
 
     @PatchMapping("/items/{productId}")

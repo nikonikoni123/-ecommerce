@@ -1,5 +1,6 @@
 package com.ecommerce.cart.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -21,6 +22,17 @@ public final class CartDtos {
             @Min(value = 1, message = "La cantidad minima es 1")
             @Max(value = MAX_UNIDADES, message = "La cantidad maxima por producto es 99")
             Integer quantity) {
+    }
+
+    /**
+     * Anade varias lineas de una sola vez.
+     *
+     * <p>Existe porque enviar N peticiones en paralelo sobre el mismo carrito es una condicion de
+     * carrera: cada una lee el carrito, anade lo suyo y guarda, de modo que solo sobrevive la
+     * ultima. Es lo que necesita la caja sorpresa, que llega con varios productos a la vez.
+     */
+    public record AddItemsRequest(
+            @NotNull(message = "Indica los productos") @Valid List<AddItemRequest> items) {
     }
 
     public record UpdateQuantityRequest(

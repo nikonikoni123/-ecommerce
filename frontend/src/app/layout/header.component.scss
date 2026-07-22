@@ -72,6 +72,26 @@
     text-underline-offset: 6px;
   }
 
+  .header__cart {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .header__badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    padding-inline: 5px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--surface);
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
   @media (min-width: 860px) {
     display: flex;
     flex-direction: row;

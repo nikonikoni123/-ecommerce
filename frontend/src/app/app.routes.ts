@@ -68,6 +68,41 @@ export const routes: Routes = [
     title: 'Nueva contrasena',
   },
 
+  // --- Compra ---
+  {
+    path: 'carrito',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/cart/cart.component').then((m) => m.CartComponent),
+    title: 'Carrito',
+  },
+  {
+    path: 'checkout',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/cart/checkout.component').then((m) => m.CheckoutComponent),
+    title: 'Finalizar compra',
+  },
+  {
+    path: 'sorpresa',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/orders/surprise.component').then((m) => m.SurpriseComponent),
+    title: 'Pedido sorpresa',
+  },
+  {
+    path: 'pedidos',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/orders/orders.component').then((m) => m.OrdersComponent),
+    title: 'Mis pedidos',
+  },
+  {
+    path: 'pedidos/:id',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/orders/order-detail.component').then((m) => m.OrderDetailComponent),
+    title: 'Detalle del pedido',
+  },
+
   // --- Zona autenticada ---
   {
     path: 'cuenta',

@@ -1,0 +1,195 @@
+<section class="checkout">
+  <div class="container">
+    <p class="eyebrow">Pago</p>
+    <h1 class="checkout__title">Finalizar compra</h1>
+
+    <!-- Confirmacion -->
+    @if (done(); as r) {
+      <div class="done card">
+        <p class="eyebrow">Pago realizado</p>
+        <h2 class="done__title">Gracias por tu compra</h2>
+        <p class="done__text">{{ r.message }}</p>
+        <p class="done__ref">Referencia de pago: <strong>{{ r.paymentReference }}</strong></p>
+
+        <ul class="done__orders">
+          @for (o of r.orders; track o.id) {
+            <li>
+              <a [routerLink]="['/pedidos', o.id]">
+                <span class="done__number">{{ o.number }}</span>
+                <span class="done__company">{{ o.companyName }}</span>
+                <span class="done__total">{{ price(o.total, o.currency) }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+
+        <p class="done__total-row">
+          Total pagado <strong>{{ price(r.grandTotal, r.currency) }}</strong>
+        </p>
+
+        <div class="done__actions">
+          <a class="btn" routerLink="/pedidos">Ver mis pedidos</a>
+          <a class="btn btn--outline" routerLink="/productos">Seguir comprando</a>
+        </div>
+      </div>
+    } @else {
+      <app-alert [message]="error()" variant="error" />
+
+      @if (loading()) {
+        <p class="checkout__state">Cargando...</p>
+      } @else if (view(); as c) {
+        <div class="checkout__layout">
+          <form class="checkout__form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <section class="card">
+              <h2 class="checkout__section">Datos de envio</h2>
+
+              <div class="form-grid">
+                <div class="field form-grid--full">
+                  <label class="field__label" for="recipientName">Nombre de quien recibe *</label>
+                  <input class="input" id="recipientName" formControlName="recipientName"
+                    [class.is-invalid]="form.controls.recipientName.touched && form.controls.recipientName.invalid" />
+                  @if (form.controls.recipientName.touched && form.controls.recipientName.invalid) {
+                    <span class="field__error">Este campo es obligatorio.</span>
+                  }
+                </div>
+
+                <div class="field form-grid--full">
+                  <label class="field__label" for="address">Direccion *</label>
+                  <input class="input" id="address" formControlName="address"
+                    [class.is-invalid]="form.controls.address.touched && form.controls.address.invalid" />
+                  @if (form.controls.address.touched && form.controls.address.invalid) {
+                    <span class="field__error">La direccion es obligatoria.</span>
+                  }
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="postalCode">Codigo postal *</label>
+                  <input class="input" id="postalCode" formControlName="postalCode"
+                    [class.is-invalid]="form.controls.postalCode.touched && form.controls.postalCode.invalid" />
+                  @if (form.controls.postalCode.touched && form.controls.postalCode.invalid) {
+                    <span class="field__error">El codigo postal es obligatorio.</span>
+                  }
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="phone">Telefono *</label>
+                  <input class="input" id="phone" formControlName="phone"
+                    [class.is-invalid]="form.controls.phone.touched && form.controls.phone.invalid" />
+                  @if (form.controls.phone.touched && form.controls.phone.invalid) {
+                    <span class="field__error">El telefono es obligatorio.</span>
+                  }
+                </div>
+              </div>
+            </section>
+
+            <!-- Enviar como regalo: destinatario y direccion distintos -->
+            <section class="card">
+              <label class="checkout__check">
+                <input type="checkbox" formControlName="asGift" />
+                <span>
+                  <strong>Enviar como regalo</strong>
+                  <small>Se entrega a otra persona y el paquete no incluye el importe.</small>
+                </span>
+              </label>
+
+              @if (form.controls.asGift.value) {
+                <div class="form-grid checkout__gift">
+                  <div class="field form-grid--full">
+                    <label class="field__label" for="giftRecipientName">Destinatario del regalo *</label>
+                    <input class="input" id="giftRecipientName" formControlName="giftRecipientName"
+                      [class.is-invalid]="form.controls.giftRecipientName.touched && form.controls.giftRecipientName.invalid" />
+                    @if (form.controls.giftRecipientName.touched && form.controls.giftRecipientName.invalid) {
+                      <span class="field__error">Indica quien recibe el regalo.</span>
+                    }
+                  </div>
+
+                  <div class="field form-grid--full">
+                    <label class="field__label" for="giftAddress">Direccion de entrega *</label>
+                    <input class="input" id="giftAddress" formControlName="giftAddress"
+                      [class.is-invalid]="form.controls.giftAddress.touched && form.controls.giftAddress.invalid" />
+                    @if (form.controls.giftAddress.touched && form.controls.giftAddress.invalid) {
+                      <span class="field__error">La direccion del regalo es obligatoria.</span>
+                    }
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="giftPostalCode">Codigo postal *</label>
+                    <input class="input" id="giftPostalCode" formControlName="giftPostalCode"
+                      [class.is-invalid]="form.controls.giftPostalCode.touched && form.controls.giftPostalCode.invalid" />
+                    @if (form.controls.giftPostalCode.touched && form.controls.giftPostalCode.invalid) {
+                      <span class="field__error">El codigo postal es obligatorio.</span>
+                    }
+                  </div>
+
+                  <div class="field form-grid--full">
+                    <label class="field__label" for="giftMessage">Mensaje (opcional)</label>
+                    <textarea class="textarea" id="giftMessage" formControlName="giftMessage"
+                      placeholder="Feliz cumpleanos"></textarea>
+                  </div>
+                </div>
+              }
+            </section>
+
+            <section class="card">
+              <h2 class="checkout__section">Metodo de pago</h2>
+              <p class="checkout__sim">
+                El pago es <strong>simulado</strong>: no se solicitan ni se guardan datos de tarjeta.
+              </p>
+              <div class="field">
+                <label class="field__label" for="paymentMethod">Medio</label>
+                <select class="select" id="paymentMethod" formControlName="paymentMethod">
+                  <option value="Tarjeta simulada">Tarjeta simulada</option>
+                  <option value="PSE simulado">PSE simulado</option>
+                  <option value="Contra entrega">Contra entrega</option>
+                </select>
+              </div>
+            </section>
+
+            <button class="btn btn--block" type="submit" [disabled]="submitting() || c.blocked">
+              {{ submitting() ? 'Procesando el pago...' : 'Pagar ' + price(c.total, c.currency) }}
+            </button>
+          </form>
+
+          <!-- Resumen -->
+          <aside class="summary card">
+            <h2 class="summary__title">Tu pedido</h2>
+
+            <ul class="summary__items">
+              @for (l of c.lines; track l.productId) {
+                <li>
+                  <span class="summary__qty">{{ l.quantity }}x</span>
+                  <span class="summary__name">{{ l.name }}</span>
+                  <span class="summary__amount">{{ price(l.lineTotal, l.currency) }}</span>
+                </li>
+              }
+            </ul>
+
+            <dl class="summary__rows">
+              <div><dt>Subtotal</dt><dd>{{ price(c.subtotal, c.currency) }}</dd></div>
+              @for (d of c.discounts; track d.code) {
+                <div class="summary__discount">
+                  <dt>{{ d.label }} ({{ d.percent }}%)</dt>
+                  <dd>−{{ price(d.amount, c.currency) }}</dd>
+                </div>
+              }
+              <div><dt>IVA ({{ c.taxRate }}%)</dt><dd>{{ price(c.taxAmount, c.currency) }}</dd></div>
+              <div>
+                <dt>Envio</dt>
+                <dd>@if (c.shippingCost === 0) { Gratis } @else { {{ price(c.shippingCost, c.currency) }} }</dd>
+              </div>
+              <div class="summary__total"><dt>Total</dt><dd>{{ price(c.total, c.currency) }}</dd></div>
+            </dl>
+
+            @if (c.byCompany.length > 1) {
+              <p class="summary__note">
+                Se generaran {{ c.byCompany.length }} pedidos, uno por empresa, con un unico pago.
+              </p>
+            }
+
+            <a class="summary__back" routerLink="/carrito">Volver al carrito</a>
+          </aside>
+        </div>
+      }
+    }
+  </div>
+</section>

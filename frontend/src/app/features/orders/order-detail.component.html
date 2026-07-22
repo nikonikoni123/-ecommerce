@@ -1,0 +1,143 @@
+<section class="detail">
+  <div class="container">
+    <a class="detail__back" routerLink="/pedidos">&#8592; Volver a mis pedidos</a>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="detail__state">Cargando pedido...</p>
+    } @else if (order(); as o) {
+      <header class="detail__head">
+        <div>
+          <p class="eyebrow">{{ o.companyName }}</p>
+          <h1 class="detail__number">{{ o.number }}</h1>
+          <p class="detail__date">Realizado el {{ date(o.createdAt) }}</p>
+        </div>
+        <button class="btn" type="button" [disabled]="downloading()" (click)="downloadInvoice()">
+          {{ downloading() ? 'Generando...' : 'Descargar factura' }}
+        </button>
+      </header>
+
+      <!-- Estado de entrega -->
+      <section class="card detail__block">
+        <h2 class="detail__section">Estado de la entrega</h2>
+
+        @if (interrupted) {
+          <p class="detail__interrupted">
+            Este pedido figura como <strong>{{ o.statusLabel }}</strong>, asi que el seguimiento de
+            entrega ya no aplica.
+          </p>
+        } @else {
+          <ol class="timeline">
+            @for (step of steps; track step.status) {
+              <li class="timeline__step" [class.is-done]="reached(step.status)"
+                [class.is-current]="o.status === step.status">
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <span class="timeline__label">{{ step.label }}</span>
+              </li>
+            }
+          </ol>
+        }
+
+        @if (o.history.length) {
+          <ul class="history">
+            @for (h of o.history; track h.at) {
+              <li>
+                <span class="history__when">{{ date(h.at) }}</span>
+                <span class="history__what">{{ h.label }}</span>
+                @if (h.note) { <span class="history__note">{{ h.note }}</span> }
+              </li>
+            }
+          </ul>
+        }
+      </section>
+
+      <div class="detail__layout">
+        <!-- Productos -->
+        <section class="card">
+          <h2 class="detail__section">Productos</h2>
+          <ul class="items">
+            @for (i of o.items; track i.productId) {
+              <li class="item">
+                <div class="item__media">
+                  @if (i.imageUrl) {
+                    <img [src]="i.imageUrl" [alt]="i.name" />
+                  } @else {
+                    <span aria-hidden="true">{{ i.name.charAt(0) }}</span>
+                  }
+                </div>
+                <div class="item__body">
+                  @if (i.slug) {
+                    <a class="item__name" [routerLink]="['/productos', i.slug]">{{ i.name }}</a>
+                  } @else {
+                    <span class="item__name">{{ i.name }}</span>
+                  }
+                  <p class="item__unit">
+                    {{ i.quantity }} x {{ price(i.unitPrice, o.currency) }}
+                  </p>
+                </div>
+                <span class="item__total">{{ price(i.lineTotal, o.currency) }}</span>
+              </li>
+            }
+          </ul>
+        </section>
+
+        <!-- Importes y envio -->
+        <aside class="detail__side">
+          <section class="card">
+            <h2 class="detail__section">Importe</h2>
+            <dl class="rows">
+              <div><dt>Subtotal</dt><dd>{{ price(o.subtotal, o.currency) }}</dd></div>
+              @for (d of o.discounts; track d.code) {
+                <div class="rows__discount">
+                  <dt>{{ d.label }} ({{ d.percent }}%)</dt>
+                  <dd>−{{ price(d.amount, o.currency) }}</dd>
+                </div>
+              }
+              @if (o.discountAmount > 0) {
+                <div><dt>Base imponible</dt><dd>{{ price(o.taxableBase, o.currency) }}</dd></div>
+              }
+              <div><dt>IVA ({{ o.taxRate }}%)</dt><dd>{{ price(o.taxAmount, o.currency) }}</dd></div>
+              <div>
+                <dt>Envio</dt>
+                <dd>@if (o.shippingCost === 0) { Gratis } @else { {{ price(o.shippingCost, o.currency) }} }</dd>
+              </div>
+              <div class="rows__total"><dt>Total</dt><dd>{{ price(o.total, o.currency) }}</dd></div>
+            </dl>
+
+            @if (o.payment; as p) {
+              <p class="detail__payment">
+                Pago {{ p.simulated ? 'simulado' : 'confirmado' }} mediante {{ p.method }}.<br />
+                Referencia {{ p.reference }}
+              </p>
+            }
+          </section>
+
+          <section class="card">
+            <h2 class="detail__section">Entrega</h2>
+
+            @if (o.gift?.isGift) {
+              <p class="eyebrow">Enviado como regalo</p>
+              <p class="detail__address">
+                {{ o.gift!.recipientName }}<br />
+                {{ o.gift!.address }}<br />
+                CP {{ o.gift!.postalCode }}
+              </p>
+              @if (o.gift!.message) {
+                <p class="detail__giftmsg">&laquo;{{ o.gift!.message }}&raquo;</p>
+              }
+              <p class="detail__buyer">Comprado por {{ o.customerName }}</p>
+            } @else if (o.shipping; as s) {
+              <p class="detail__address">
+                {{ s.recipientName }}<br />
+                {{ s.address }}<br />
+                CP {{ s.postalCode }}<br />
+                {{ s.phone }}
+              </p>
+            }
+          </section>
+        </aside>
+      </div>
+    }
+  </div>
+</section>

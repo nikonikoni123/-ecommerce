@@ -1,0 +1,178 @@
+<section class="cart">
+  <div class="container">
+    <p class="eyebrow">Tu compra</p>
+    <h1 class="cart__title">Carrito</h1>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="cart__state">Cargando tu carrito...</p>
+    } @else if (!view()?.lines?.length) {
+      <div class="cart__empty card">
+        <p>Tu carrito esta vacio.</p>
+        <div class="cart__empty-actions">
+          <a class="btn" routerLink="/productos">Ver la tienda</a>
+          <a class="btn btn--outline" routerLink="/sorpresa">Probar una caja sorpresa</a>
+        </div>
+      </div>
+    } @else if (view(); as c) {
+      <div class="cart__layout">
+        <!-- Lineas -->
+        <div class="cart__lines">
+          @for (line of c.lines; track line.productId) {
+            <article class="line" [class.line--blocked]="!line.available">
+              <div class="line__media">
+                @if (line.imageUrl) {
+                  <img [src]="line.imageUrl" [alt]="line.name" />
+                } @else {
+                  <span aria-hidden="true">{{ line.name.charAt(0) }}</span>
+                }
+              </div>
+
+              <div class="line__body">
+                <p class="line__company">{{ line.companyName }}</p>
+                @if (line.slug) {
+                  <a class="line__name" [routerLink]="['/productos', line.slug]">{{ line.name }}</a>
+                } @else {
+                  <span class="line__name">{{ line.name }}</span>
+                }
+
+                @if (!line.available) {
+                  <p class="line__warning">
+                    @if (line.stockLeft > 0) {
+                      Solo quedan {{ line.stockLeft }} unidades. Ajusta la cantidad para continuar.
+                    } @else {
+                      Este producto ya no esta disponible. Quitalo para poder pagar.
+                    }
+                  </p>
+                }
+
+                <p class="line__unit">
+                  Precio unitario <strong>{{ price(line.unitPrice, line.currency) }}</strong>
+                </p>
+
+                <div class="line__actions">
+                  <div class="qty">
+                    <button
+                      type="button"
+                      class="qty__btn"
+                      [disabled]="busy() || line.quantity <= 1"
+                      (click)="changeQuantity(line.productId, line.quantity - 1)"
+                      aria-label="Reducir cantidad"
+                    >−</button>
+                    <span class="qty__value">{{ line.quantity }}</span>
+                    <button
+                      type="button"
+                      class="qty__btn"
+                      [disabled]="busy()"
+                      (click)="changeQuantity(line.productId, line.quantity + 1)"
+                      aria-label="Aumentar cantidad"
+                    >+</button>
+                  </div>
+
+                  <button class="btn btn--ghost btn--sm" type="button" [disabled]="busy()"
+                    (click)="startReplace(line.productId)">
+                    Cambiar producto
+                  </button>
+                  <button class="btn btn--ghost btn--sm" type="button" [disabled]="busy()"
+                    (click)="remove(line.productId)">
+                    Quitar
+                  </button>
+                </div>
+
+                <!-- Sustituir el producto de esta linea por otro -->
+                @if (replacing() === line.productId) {
+                  <div class="swap">
+                    <p class="eyebrow">Cambiar por</p>
+                    @if (!alternatives().length) {
+                      <p class="swap__empty">Buscando alternativas...</p>
+                    } @else {
+                      <ul class="swap__list">
+                        @for (alt of alternatives(); track alt.id) {
+                          <li>
+                            <button type="button" class="swap__item"
+                              (click)="confirmReplace(alt.id, line.quantity)">
+                              <span>{{ alt.name }}</span>
+                              <span class="swap__price">{{ price(alt.price, alt.currency) }}</span>
+                            </button>
+                          </li>
+                        }
+                      </ul>
+                    }
+                  </div>
+                }
+              </div>
+
+              <p class="line__total">{{ price(line.lineTotal, line.currency) }}</p>
+            </article>
+          }
+
+          <button class="btn btn--ghost btn--sm cart__clear" type="button" [disabled]="busy()"
+            (click)="clear()">
+            Vaciar carrito
+          </button>
+        </div>
+
+        <!-- Totales -->
+        <aside class="summary card">
+          <h2 class="summary__title">Resumen</h2>
+
+          @if (c.byCompany.length > 1) {
+            <p class="summary__note">
+              Tu compra se dividira en {{ c.byCompany.length }} pedidos, uno por cada empresa
+              vendedora. El envio se calcula por separado para cada una.
+            </p>
+          }
+
+          <dl class="summary__rows">
+            <div><dt>Subtotal</dt><dd>{{ price(c.subtotal, c.currency) }}</dd></div>
+
+            @for (d of c.discounts; track d.code) {
+              <div class="summary__discount">
+                <dt>{{ d.label }} ({{ d.percent }}%)</dt>
+                <dd>−{{ price(d.amount, c.currency) }}</dd>
+              </div>
+            }
+
+            @if (c.discountAmount > 0) {
+              <div class="summary__strong">
+                <dt>Base imponible</dt><dd>{{ price(c.taxableBase, c.currency) }}</dd>
+              </div>
+            }
+
+            <div><dt>IVA ({{ c.taxRate }}%)</dt><dd>{{ price(c.taxAmount, c.currency) }}</dd></div>
+
+            <div>
+              <dt>Envio</dt>
+              <dd>
+                @if (c.shippingCost === 0) { Gratis } @else { {{ price(c.shippingCost, c.currency) }} }
+              </dd>
+            </div>
+
+            <div class="summary__total"><dt>Total</dt><dd>{{ price(c.total, c.currency) }}</dd></div>
+          </dl>
+
+          @if (!c.promotionActive) {
+            <p class="summary__hint">
+              No hay ninguna promocion activa en este momento, asi que no se aplican descuentos.
+            </p>
+          }
+
+          @if (c.blocked) {
+            <app-alert
+              message="Hay productos sin disponibilidad. Ajusta o quita esas lineas para poder pagar."
+              variant="error"
+            />
+          }
+
+          <button class="btn btn--block" type="button" [disabled]="busy() || c.blocked"
+            (click)="goToCheckout()">
+            Continuar al pago
+          </button>
+
+          <a class="summary__back" routerLink="/productos">Seguir comprando</a>
+        </aside>
+      </div>
+    }
+  </div>
+</section>

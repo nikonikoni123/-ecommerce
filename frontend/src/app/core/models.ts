@@ -119,6 +119,167 @@ export interface TwoFactorSetup {
   otpAuthUri: string;
 }
 
+// --------------------------------------------------------------------- carrito y pedidos
+
+export interface CartLine {
+  productId: string;
+  name: string;
+  slug: string | null;
+  imageUrl: string | null;
+  companyId: string | null;
+  companyName: string | null;
+  unitPrice: number;
+  quantity: number;
+  lineTotal: number;
+  currency: string;
+  /** El producto sigue publicado y con stock suficiente. */
+  available: boolean;
+  stockLeft: number;
+}
+
+export interface CompanyTotals {
+  companyId: string;
+  companyName: string;
+  subtotal: number;
+  discountAmount: number;
+  taxableBase: number;
+  taxAmount: number;
+  shippingCost: number;
+  total: number;
+}
+
+export interface DiscountLine {
+  code: string;
+  label: string;
+  percent: number;
+  amount: number;
+}
+
+export interface CartView {
+  lines: CartLine[];
+  byCompany: CompanyTotals[];
+  discounts: DiscountLine[];
+  subtotal: number;
+  discountPercent: number;
+  discountAmount: number;
+  taxableBase: number;
+  taxRate: number;
+  taxAmount: number;
+  shippingCost: number;
+  total: number;
+  currency: string;
+  totalUnits: number;
+  randomOrder: boolean;
+  /** Hay lineas sin stock: no se puede pagar hasta resolverlas. */
+  blocked: boolean;
+  capped: boolean;
+  promotionActive: boolean;
+}
+
+export interface GiftRequest {
+  recipientName: string;
+  address: string;
+  postalCode: string;
+  message?: string;
+}
+
+export interface CheckoutRequest {
+  recipientName: string;
+  address: string;
+  postalCode: string;
+  phone: string;
+  paymentMethod?: string;
+  randomOrder: boolean;
+  asGift: boolean;
+  gift?: GiftRequest | null;
+}
+
+export interface OrderSummary {
+  id: string;
+  number: string;
+  companyId: string;
+  companyName: string;
+  status: string;
+  statusLabel: string;
+  terminal: boolean;
+  itemCount: number;
+  total: number;
+  currency: string;
+  randomOrder: boolean;
+  gift: boolean;
+  createdAt: string;
+}
+
+export interface OrderItemView {
+  productId: string;
+  name: string;
+  slug: string | null;
+  imageUrl: string | null;
+  unitPrice: number;
+  quantity: number;
+  lineTotal: number;
+}
+
+export interface StatusChangeView {
+  status: string;
+  label: string;
+  at: string;
+  note: string | null;
+}
+
+export interface OrderDetail {
+  id: string;
+  number: string;
+  companyId: string;
+  companyName: string;
+  customerName: string;
+  customerEmail: string;
+  items: OrderItemView[];
+  subtotal: number;
+  discounts: DiscountLine[];
+  discountPercent: number;
+  discountAmount: number;
+  taxableBase: number;
+  taxRate: number;
+  taxAmount: number;
+  shippingCost: number;
+  total: number;
+  currency: string;
+  status: string;
+  statusLabel: string;
+  terminal: boolean;
+  history: StatusChangeView[];
+  randomOrder: boolean;
+  shipping: { recipientName: string; address: string; postalCode: string; phone: string } | null;
+  gift: {
+    isGift: boolean;
+    recipientName: string | null;
+    address: string | null;
+    postalCode: string | null;
+    message: string | null;
+  } | null;
+  payment: { simulated: boolean; method: string; reference: string; paidAt: string } | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CheckoutResponse {
+  orders: OrderSummary[];
+  grandTotal: number;
+  currency: string;
+  paymentReference: string;
+  message: string;
+}
+
+export interface SurpriseProposal {
+  items: OrderItemView[];
+  subtotal: number;
+  estimatedDiscountPercent: number;
+  estimatedTotal: number;
+  currency: string;
+  message: string;
+}
+
 /** Permisos del backend usados por la interfaz. Debe coincidir con el enum Permission de Java. */
 export const Permission = {
   PRODUCT_VIEW: 'PRODUCT_VIEW',

@@ -1,0 +1,86 @@
+<section class="surprise">
+  <div class="container">
+    <div class="surprise__intro">
+      <p class="eyebrow">Pedido sorpresa</p>
+      <h1 class="surprise__title">Deja que elijamos por ti</h1>
+      <p class="surprise__text">
+        Dinos cuantos productos quieres y armamos la caja con nuestra seleccion, teniendo en cuenta
+        lo que sueles mirar. A cambio de renunciar a elegir, el pedido se lleva un descuento
+        adicional.
+      </p>
+    </div>
+
+    <app-alert [message]="error()" variant="error" />
+
+    <form class="card surprise__form" [formGroup]="form" (ngSubmit)="generate()" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label class="field__label" for="items">Cuantos productos</label>
+          <input class="input" id="items" type="number" min="1" max="10" formControlName="items"
+            [class.is-invalid]="form.controls.items.touched && form.controls.items.invalid" />
+          @if (form.controls.items.touched && form.controls.items.invalid) {
+            <span class="field__error">Elige entre 1 y 10 productos.</span>
+          }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="maxTotal">Presupuesto maximo (opcional)</label>
+          <input class="input" id="maxTotal" type="number" min="0" step="1000"
+            formControlName="maxTotal" placeholder="Sin limite" />
+          <span class="field__hint">Antes de descuentos e impuestos.</span>
+        </div>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="loading()">
+        {{ loading() ? 'Armando la caja...' : proposal() ? 'Probar otra combinacion' : 'Armar mi caja' }}
+      </button>
+    </form>
+
+    @if (proposal(); as p) {
+      <section class="card proposal">
+        <h2 class="proposal__title">Tu caja sorpresa</h2>
+
+        <ul class="proposal__items">
+          @for (i of p.items; track i.productId) {
+            <li class="pitem">
+              <div class="pitem__media">
+                @if (i.imageUrl) {
+                  <img [src]="i.imageUrl" [alt]="i.name" />
+                } @else {
+                  <span aria-hidden="true">{{ i.name.charAt(0) }}</span>
+                }
+              </div>
+              <span class="pitem__name">{{ i.name }}</span>
+              <span class="pitem__price">{{ price(i.unitPrice, p.currency) }}</span>
+            </li>
+          }
+        </ul>
+
+        <dl class="proposal__rows">
+          <div><dt>Valor de la caja</dt><dd>{{ price(p.subtotal, p.currency) }}</dd></div>
+          @if (p.estimatedDiscountPercent > 0) {
+            <div class="proposal__discount">
+              <dt>Descuento aplicado</dt>
+              <dd>{{ p.estimatedDiscountPercent }}%</dd>
+            </div>
+          }
+          <div class="proposal__total">
+            <dt>Total estimado</dt><dd>{{ price(p.estimatedTotal, p.currency) }}</dd>
+          </div>
+        </dl>
+
+        <p class="proposal__note">{{ p.message }}</p>
+        <p class="proposal__warn">
+          Al aceptar, tu carrito actual se reemplaza por esta caja.
+        </p>
+
+        <div class="proposal__actions">
+          <button class="btn" type="button" [disabled]="adding()" (click)="accept()">
+            {{ adding() ? 'Preparando...' : 'Aceptar y pasar al carrito' }}
+          </button>
+          <a class="btn btn--outline" routerLink="/productos">Prefiero elegir yo</a>
+        </div>
+      </section>
+    }
+  </div>
+</section>

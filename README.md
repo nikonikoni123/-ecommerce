@@ -60,6 +60,11 @@ docker compose up -d
 Mailpit captura los correos de verificacion y los muestra en <http://localhost:8025>. No los reenvia
 a internet: los correos de prueba se leen ahi, no en tu bandeja real.
 
+**MongoDB se publica en el 27018**, no en el 27017. Es deliberado: muchas maquinas ya tienen un
+MongoDB propio en el 27017 y, si los dos escuchan (uno en IPv4 y otro en IPv6), `localhost` resuelve
+de forma impredecible y la aplicacion puede acabar leyendo y escribiendo en la base equivocada.
+Con el 27018 ambos conviven sin pisarse.
+
 **Opcion B — MongoDB ya instalado en la maquina.** Usa el perfil `local` del backend (apunta a
 `mongodb://localhost:27017/ecommerce` sin autenticacion) y arranca el capturador de correos incluido:
 

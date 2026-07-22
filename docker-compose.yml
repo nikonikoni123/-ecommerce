@@ -4,7 +4,10 @@ services:
     container_name: ecommerce-mongo
     restart: unless-stopped
     ports:
-      - "27017:27017"
+      # Se publica en el 27018 a proposito: es habitual tener ya un MongoDB propio ocupando el
+      # 27017, y si ambos escuchan (uno en IPv4 y otro en IPv6) "localhost" resuelve de forma
+      # impredecible y la aplicacion puede acabar escribiendo en la base equivocada.
+      - "27018:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-ecommerce}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-ecommerce}

@@ -4,7 +4,12 @@ spring:
 
   data:
     mongodb:
-      uri: ${MONGO_URI:mongodb://ecommerce:ecommerce@localhost:27017/ecommerce?authSource=admin}
+      # El 27018 es el puerto que publica docker-compose (ver ahi el motivo).
+      uri: ${MONGO_URI:mongodb://ecommerce:ecommerce@127.0.0.1:27018/ecommerce?authSource=admin}
+      # Nombre de base explicito a proposito: si solo se indica en la ruta de la URI, Spring Boot
+      # puede no tomarlo y caer en su valor por defecto ('test'), escribiendo en la base equivocada
+      # sin dar ningun aviso.
+      database: ${MONGO_DATABASE:ecommerce}
       auto-index-creation: false   # los indices se declaran explicitamente en MongoIndexConfig
 
   mail:

@@ -1,12 +1,16 @@
-# Perfil para desarrollar contra servicios ya instalados en la maquina, sin Docker.
+# Perfil de reserva para desarrollar contra servicios ya instalados en la maquina, sin Docker.
 # Uso: ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
 #
-# Asume una instalacion de MongoDB sin autenticacion escuchando en el 27017, y un servidor SMTP
-# de pruebas en el 1025 (Mailpit, o el capturador de correos de scripts/mailcatcher.py).
+# El camino normal es docker-compose (ver README). Este perfil asume un MongoDB sin autenticacion
+# en el 27017 y un SMTP de pruebas en el 1025.
+#
+# Aviso: si ese MongoDB es compartido, la aplicacion creara aqui su base 'ecommerce' junto a las
+# demas. El nombre de base va explicito abajo, no solo en la ruta de la URI.
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ecommerce
+      uri: mongodb://127.0.0.1:27017
+      database: ecommerce
   mail:
-    host: localhost
+    host: 127.0.0.1
     port: 1025

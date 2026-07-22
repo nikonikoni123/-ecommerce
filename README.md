@@ -93,13 +93,25 @@ MAIL_SMTP_AUTH=true
 MAIL_SMTP_STARTTLS=true
 ```
 
-Tres detalles que hacen fallar el envio con un escueto `Authentication failed`:
+Cuatro detalles que hacen fallar el envio con un escueto `Authentication failed`:
 
 - **La contrasena de tu cuenta de Google no sirve.** Google la rechaza para SMTP desde 2022. Hay que
-  generar una **contrasena de aplicacion** en <https://myaccount.google.com/apppasswords>, que son
-  exactamente **16 letras minusculas**. Se pegan sin espacios.
-- Para poder generarla, la cuenta de Google necesita tener activada su verificacion en dos pasos.
+  generar una **contrasena de aplicacion** en <https://myaccount.google.com/apppasswords>.
+- Esa pagina **no existe** mientras la cuenta no tenga activada la verificacion en dos pasos: si
+  entras antes, Google responde "la opcion de configuracion que buscas no esta disponible". Activala
+  primero en <https://myaccount.google.com/signinoptions/twosv>.
+- **Google muestra la contrasena en cuatro grupos separados por espacios** (`abcd efgh ijkl mnop`),
+  pero hay que pegarla **sin espacios**: son 16 letras minusculas seguidas. Con los espacios la
+  autenticacion falla exactamente igual que con una contrasena incorrecta.
 - `MAIL_FROM` debe ser la misma direccion autenticada; Gmail no permite remitentes arbitrarios.
+
+Para comprobar el formato sin abrir el archivo:
+
+```bash
+grep MAIL_PASSWORD .env | cut -d= -f2 | tr -d '\n' | wc -c
+```
+
+Debe devolver 16.
 
 ### 2. Backend
 

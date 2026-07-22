@@ -1,0 +1,604 @@
+# Documentacion tecnica — Plataforma E-Commerce
+
+> Documento vivo. Se actualiza al cerrar cada fase del proyecto.
+> **Estado:** Fases 1 y 2 entregadas · Rama `Nicolas` · Ultima actualizacion tras el commit `6884df9`
+
+---
+
+## 1. Introduccion
+
+Plataforma de comercio electronico con dos tipos de cuenta —comprador y empresa vendedora— que
+cubre el ciclo completo desde la publicacion de un producto hasta la factura del pedido.
+
+El proyecto se construye **por fases**. Cada una se verifica de punta a punta antes de darse por
+cerrada, y esta documentacion crece con ella.
+
+| Fase | Alcance | Estado |
+|---|---|---|
+| 1 | Cimientos, autenticacion, RBAC y catalogo | Entregada |
+| 2 | Carrito, checkout, descuentos y factura | Entregada |
+| 3 | Gestion de pedidos por la empresa y reembolsos | Pendiente |
+| 4 | Casos de atencion con BERT, comentarios y chats | Pendiente |
+| 5 | Departamentos, equipos, metas KPI y graficas | Pendiente |
+
+### Pila tecnologica
+
+| Componente | Tecnologia | Puerto |
+|---|---|---|
+| `backend/` | Spring Boot 4.1 · Java 26 · Maven Wrapper | 8080 |
+| `frontend/` | Angular 22 · TypeScript · SCSS | 4200 |
+| `nlp-service/` | FastAPI · BERT multilingue | 8000 |
+| Base de datos | MongoDB 8 (contenedor) | **27018** |
+| Correo de pruebas | Mailpit | 1025 / 8025 |
+
+> MongoDB se publica en el **27018** a proposito: es habitual tener ya un MongoDB propio en el 27017
+> y, si ambos escuchan, `localhost` resuelve de forma impredecible y la aplicacion puede acabar
+> escribiendo en la base equivocada.
+
+---
+
+## 2. Objetivos
+
+### Funcionales
+
+1. **Dos categorias de cuenta** con registro y verificacion de correo obligatoria.
+2. **Niveles de acceso personalizables**: cada empresa define cargos y ajusta permisos por persona.
+3. **Gestion de producto e inventario** desde un panel propio de cada empresa.
+4. **Priorizacion personalizada** del catalogo mediante etiquetas invisibles.
+5. **Compra completa**: carrito, impuestos, envio, descuentos, pago simulado y factura.
+6. **Descuentos parametrizados**: 10% por ventana de tiempo, 50% por pedido aleatorio y 5% por
+   cliente frecuente.
+7. **Trazabilidad**: estado de entrega, historial de pedidos y registro de actividad.
+
+### Tecnicos
+
+- **Dinero sin errores de redondeo**: `BigDecimal` en todo el calculo, nunca `double`.
+- **Sin sobreventa** aunque dos compras coincidan en el ultimo articulo.
+- **Seguridad por defecto**: permisos recalculados en cada peticion, secretos fuera del repositorio,
+  y ningun dato sensible expuesto en las respuestas publicas.
+- **Verificacion real**: cada fase se prueba recorriendo el flujo del cliente, no solo compilando.
+
+---
+
+## 3. Modelo de dominio
+
+### Entidades y relaciones
+
+```mermaid
+erDiagram
+    COMPANY ||--|| USER : "tiene un root"
+    COMPANY ||--o{ USER : "emplea"
+    COMPANY ||--o{ ROLE : "define cargos"
+    COMPANY ||--o{ PRODUCT : "publica"
+    COMPANY ||--o{ ORDER : "recibe"
+    USER ||--o{ ROLE : "acumula"
+    USER ||--|| CART : "posee uno"
+    USER ||--o{ ORDER : "realiza"
+    USER ||--o{ NOTIFICATION : "recibe"
+    CART ||--o{ PRODUCT : "referencia"
+    ORDER ||--o{ ORDER_ITEM : "congela"
+    ORDER_ITEM }o--|| PRODUCT : "copia de"
+    PROMOTION_WINDOW ||--o{ ORDER : "descuenta"
+```
+
+### Colecciones de MongoDB
+
+| Coleccion | Proposito | Indices relevantes |
+|---|---|---|
+| `users` | Documento unico para ambos tipos, con discriminador `type` | `email` unico; `username` unico **parcial**; `(companyId, root)` unico parcial |
+| `companies` | Empresa vendedora | `nit` unico |
+| `roles` | Cargos: plantillas de permisos | `companyId` |
+| `products` | Catalogo | `slug` unico; `(active, createdAt)`; indice de texto en español |
+| `carts` | Un carrito por cliente | `customerId` unico |
+| `orders` | Pedido a **una sola** empresa | `number` unico; `(companyId, status, createdAt)` |
+| `promotionWindows` | Rango de tiempo con descuentos | `(active, startsAt, endsAt)` |
+| `counters` | Numeracion atomica de pedidos y facturas | clave primaria |
+| `verificationTokens`, `refreshTokens` | Tokens de un solo uso | TTL sobre `expiresAt` |
+| `notifications`, `activityLog` | Avisos y trazabilidad | por destinatario / por empresa |
+
+### Reglas de negocio
+
+**Usuario root unico por empresa.** Garantizado por un indice parcial unico sobre
+`(companyId, root: true)`. No depende de una comprobacion en codigo, que fallaria bajo concurrencia.
+
+**Permisos efectivos** = union de los cargos + concedidos individualmente − revocados individualmente.
+El root los tiene todos de forma implicita. Se recalculan en **cada peticion**, de modo que un cambio
+de cargo aplica al instante y no al caducar el token.
+
+**Etiquetas invisibles.** Cada producto lleva `hiddenTags` y cada cliente acumula `tagAffinity` al
+consultar fichas. El catalogo ordena por esa afinidad. Las etiquetas **nunca** se serializan hacia el
+navegador: solo alimentan el orden.
+
+**Un pedido por empresa.** Un carrito con productos de varios vendedores se divide al pagar. Cada
+pedido tiene su numero, su estado y su factura, y el pago es unico y comparte referencia. Sin esta
+division, dos empresas competirian por un mismo campo de estado en la Fase 3.
+
+**El carrito no guarda precios.** Solo `productId` y `quantity`; el resto se lee del catalogo en cada
+consulta. Asi un cambio de precio se refleja al instante y no hay dos copias que sincronizar. Los
+importes se congelan **al crear el pedido**, para que una factura emitida no cambie nunca.
+
+**Estados del pedido**
+
+```mermaid
+stateDiagram-v2
+    [*] --> PREPARANDO_ORDEN : pago confirmado
+    PREPARANDO_ORDEN --> ALISTANDO_PEDIDO
+    ALISTANDO_PEDIDO --> ENVIANDO
+    ENVIANDO --> ENTREGADO
+    PREPARANDO_ORDEN --> CANCELADO
+    ALISTANDO_PEDIDO --> CANCELADO
+    ENTREGADO --> REEMBOLSADO
+    ENTREGADO --> [*]
+    CANCELADO --> [*]
+    REEMBOLSADO --> [*]
+```
+
+Las transiciones posteriores al pago las gestiona la empresa en la **Fase 3**.
+
+---
+
+## 4. Referencias visuales
+
+La identidad visual se inspira en **<https://beautyinstem.com>**: minimalismo lujoso, base crema,
+tipografia sans-serif limpia y mucho espacio en blanco.
+
+### Principios
+
+| Recurso | Aplicacion |
+|---|---|
+| Base crema, no blanca | `--bg: #F7F4EF` en toda la aplicacion |
+| Microetiquetas | Texto pequeño en MAYUSCULAS con `letter-spacing: .18em` para encabezar bloques |
+| Color contenido | Casi todo el peso lo lleva el espaciado; el acento salvia se reserva para estados |
+| Botones minimos | Rectangulares, borde de 1px, sin sombra, radio de 2px, relleno invertido en hover |
+| Fotografia suave | Producto sobre fondo plano; sin imagen se muestra la inicial para no romper la rejilla |
+
+### Paleta
+
+| Token | Valor | Uso |
+|---|---|---|
+| `--bg` | `#F7F4EF` | Fondo general |
+| `--surface` | `#FFFFFF` | Tarjetas y paneles |
+| `--ink` | `#1A1A1A` | Texto principal y botones |
+| `--ink-muted` | `#6B6862` | Texto auxiliar y microetiquetas |
+| `--line` | `#E3DDD4` | Bordes y separadores |
+| `--accent` | `#A8B5A0` | Salvia: estados y destacados |
+| `--accent-soft` | `#E8DED3` | Arena: avisos y fondos suaves |
+| `--danger` / `--success` | `#A5453A` / `#4F7A52` | Errores y confirmaciones |
+
+Definidos en `frontend/src/styles/_tokens.scss`. La tipografia es **Inter**, servida desde
+`@fontsource` en local: no se solicita ninguna fuente a un servidor externo.
+
+La coherencia se extiende fuera de la aplicacion: **los correos transaccionales y la factura PDF**
+usan la misma paleta y el mismo recurso de microetiquetas.
+
+---
+
+## 5. Estructura UX
+
+### Mapa de navegacion
+
+```mermaid
+flowchart TD
+    H["/ Inicio"] --> C["/productos Catalogo"]
+    C --> D["/productos/:slug Ficha"]
+    D -->|Agregar| CA["/carrito"]
+    S["/sorpresa Caja sorpresa"] -->|Aceptar| CA
+    CA --> CK["/checkout"]
+    CK -->|Pago simulado| P["/pedidos"]
+    P --> PD["/pedidos/:id Detalle"]
+    PD -->|Descargar| F[["Factura PDF"]]
+
+    L["/auth/login"] -.-> CA
+    L -.-> EP["/empresa/productos"]
+
+    subgraph Cliente
+        C
+        D
+        CA
+        CK
+        P
+        PD
+        S
+    end
+    subgraph Empresa
+        EP
+    end
+```
+
+### Decisiones de experiencia
+
+**El servidor manda en los importes.** El carrito no calcula nada en el navegador: cada cambio de
+cantidad devuelve los totales recalculados. Evita que el cliente vea un precio y pague otro.
+
+**Los bloqueos se explican.** Si un producto se agota o se retira, la linea permanece marcada con el
+motivo en lugar de desaparecer, y el boton de pagar se inhabilita. Borrarla en silencio dejaria al
+cliente sin entender por que cambio su total.
+
+**El descuento se ve antes de pagar.** Al aceptar una caja sorpresa el carrito muestra el desglose
+completo, con un aviso de que editarlo hace perder el 50%.
+
+**Los permisos se reflejan en la interfaz.** La directiva `*hasPermission` oculta las acciones no
+permitidas. Es solo cortesia visual: el backend vuelve a comprobarlo y responde 403.
+
+**Responsive de 4 a 1 columnas.** Rejilla de catalogo 4 → 2 → 1 segun ancho; ninguna pagina desborda
+horizontalmente. Las tablas anchas hacen scroll dentro de su contenedor.
+
+### Pantallas
+
+| Ruta | Acceso | Contenido |
+|---|---|---|
+| `/` | Publico | Hero, los cuatro pasos y seleccion destacada |
+| `/productos` | Publico | Filtros, busqueda, paginacion y orden personalizado |
+| `/productos/:slug` | Publico | Ficha, stock y alta al carrito |
+| `/auth/*` | Invitado | Login con 2FA, registro de usuario y de empresa, verificacion |
+| `/carrito` | Cliente | Lineas, cantidades, sustitucion y resumen |
+| `/checkout` | Cliente | Envio, casilla de regalo y pago simulado |
+| `/sorpresa` | Cliente | Caja sorpresa con presupuesto |
+| `/pedidos`, `/pedidos/:id` | Cliente | En proceso e historial; linea de tiempo y factura |
+| `/cuenta` | Autenticado | Datos, contrasena, 2FA y baja |
+| `/notificaciones` | Autenticado | Avisos |
+| `/empresa/productos` | Empresa | Panel de catalogo e inventario |
+
+---
+
+## 6. Funcionamiento del backend
+
+### Autenticacion
+
+```mermaid
+sequenceDiagram
+    participant C as Cliente
+    participant A as AuthController
+    participant M as MailService
+    participant D as MongoDB
+
+    C->>A: POST /auth/register/customer
+    A->>D: guarda usuario (emailVerified=false)
+    A->>M: correo con token (24 h, un solo uso)
+    C->>A: POST /auth/verify?token
+    A->>D: emailVerified=true, token consumido
+    C->>A: POST /auth/login
+    alt 2FA activa
+        A-->>C: challengeToken (5 min)
+        C->>A: POST /auth/login/2fa + codigo
+    end
+    A-->>C: accessToken (15 min) + refreshToken rotatorio
+```
+
+El **acceso** viaja en JWT firmado con HS256. El **refresh** es opaco y se guarda solo como hash: una
+filtracion de la coleccion no permite suplantar sesiones. Cada uso lo rota.
+
+La **verificacion en dos pasos** implementa TOTP (RFC 6238) sin dependencias externas, con tolerancia
+de un paso de reloj y comparacion en tiempo constante.
+
+### Motor de descuentos
+
+Tres reglas, con dos decisiones que conviene tener presentes:
+
+1. **La ventana condiciona a las tres.** La especificacion dice que *"los descuentos"* —en plural—
+   solo aplican dentro del rango, asi que fuera de la ventana no se aplica ninguno, ni siquiera el de
+   cliente frecuente.
+2. **Se suman, no se encadenan.** El 5% se describe como *"adicional"*, propio de una suma. Techo
+   configurable del 65%.
+
+```
+si no hay ventana activa  ->  0%
+si la hay                 ->  10% + (50% si sorpresa) + (5% si frecuente), con techo del 65%
+```
+
+La condicion de **pedido sorpresa vive en el carrito**, no en la peticion de pago: asi el descuento
+se ve desde que se acepta la caja y ningun cliente puede concederselo enviandolo a mano. Cualquier
+edicion manual del carrito la desactiva.
+
+### Calculo de totales
+
+El orden de las operaciones decide cuanto se paga, y se fija en un solo sitio:
+
+```
+subtotal       = suma de (precio unitario x cantidad)
+descuento      = subtotal x porcentaje acumulado
+base imponible = subtotal - descuento
+IVA            = base imponible x 19%        (sobre la base ya descontada)
+envio          = 0 si base >= umbral, si no tarifa plana   (una vez por empresa)
+total          = base imponible + IVA + envio
+```
+
+### Pago
+
+```mermaid
+sequenceDiagram
+    participant C as Cliente
+    participant CH as CheckoutService
+    participant ST as StockService
+    participant D as MongoDB
+
+    C->>CH: POST /api/checkout
+    CH->>D: lee carrito y valida disponibilidad
+    CH->>CH: agrupa por empresa
+    loop cada linea
+        CH->>ST: reserve(producto, cantidad)
+        ST->>D: updateFirst(stock >= n, $inc -n)
+        alt sin stock
+            ST-->>CH: false
+            CH->>ST: release() de lo ya reservado
+            CH-->>C: 409 sin pedido creado
+        end
+    end
+    CH->>D: guarda un pedido por empresa
+    CH->>D: vacia el carrito
+    CH-->>C: pedidos + referencia de pago
+```
+
+**Sin sobreventa.** La resta de stock es una unica operacion atomica cuyo filtro exige que queden
+unidades suficientes. Leer, restar en memoria y guardar seria una condicion de carrera: dos compras
+simultaneas del ultimo articulo leerian el mismo valor y ambas creerian haberlo conseguido.
+
+**Compensacion manual.** MongoDB corre como nodo suelto, sin transacciones multidocumento, asi que si
+algo falla a mitad se devuelve a mano el stock ya reservado.
+
+### Notas de plataforma
+
+Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por escrito:
+
+- La conexion a Mongo se configura en **`spring.mongodb.*`**, no en `spring.data.mongodb.*`. La
+  antigua ya no controla el servidor, y el valor por defecto de la nueva es `mongodb://localhost/test`:
+  configurarlo en el sitio equivocado hace que la aplicacion escriba en la base `test` sin avisar.
+- Spring Boot **no lee `.env`** de forma nativa. Se importa con
+  `spring.config.import: optional:file:../.env[.properties]`.
+
+---
+
+## 7. Documentacion por clases
+
+### `com.ecommerce.security`
+
+| Clase | Responsabilidad |
+|---|---|
+| `Permission` | Enum de permisos granulares por proceso, agrupados para la interfaz |
+| `PermissionResolver` | Calcula los permisos efectivos: cargos + concedidos − revocados; root los tiene todos |
+| `JwtService` | Emite y valida los JWT; genera y hashea los refresh tokens |
+| `JwtAuthFilter` | Traduce el encabezado en una autenticacion; recarga el usuario en cada peticion |
+| `TotpService` | TOTP propio (RFC 6238), con base32 y verificacion en tiempo constante |
+| `AppPrincipal` | Usuario autenticado tal como lo ven los controladores |
+
+### `com.ecommerce.auth` · `com.ecommerce.user` · `com.ecommerce.company`
+
+| Clase | Responsabilidad |
+|---|---|
+| `AuthService` | Registro de cliente y empresa, verificacion, sesion, 2FA y contrasena |
+| `UserService` | Perfil, cambio de contrasena, alta y baja de 2FA, y baja de cuenta con anonimizacion |
+| `User` | Documento unico para ambos tipos, discriminado por `type` |
+| `Company` / `Role` | Empresa y cargos (plantillas de permisos) |
+
+### `com.ecommerce.catalog`
+
+| Clase | Responsabilidad |
+|---|---|
+| `Product` | Producto, con `visibleTags` publicas y `hiddenTags` internas |
+| `CatalogService` | Consulta publica; ordena por afinidad y refuerza la afinidad al ver una ficha |
+| `ProductAdminService` | Alta, modificacion, stock y baja; genera slugs unicos y registra actividad |
+
+### `com.ecommerce.cart`
+
+| Clase | Responsabilidad |
+|---|---|
+| `Cart` | Carrito por cliente: solo identificadores, cantidades y la marca de caja sorpresa |
+| `CartService` | Alta individual y por lote, cantidad, sustitucion con fusion, y renderizado con precios vivos |
+
+### `com.ecommerce.order`
+
+| Clase | Responsabilidad |
+|---|---|
+| `DiscountService` | Motor de descuentos; devuelve el desglose, no solo el total |
+| `PricingService` | Orden de operaciones del calculo, con `BigDecimal` |
+| `CheckoutService` | Divide por empresa, reserva stock, crea pedidos, avisa y compensa ante fallo |
+| `StockService` | Reserva y devolucion atomicas de unidades |
+| `SurpriseBoxService` | Sorteo ponderado por afinidad, con presupuesto opcional |
+| `InvoiceService` | Factura PDF con OpenPDF, generada al vuelo desde los importes congelados |
+| `Order` / `OrderStatus` | Pedido con importes, historial de estados, regalo y pago |
+| `PromotionWindow` | Rango de tiempo con sus porcentajes |
+
+### `com.ecommerce.common` y transversales
+
+| Clase | Responsabilidad |
+|---|---|
+| `SequenceService` | Contadores atomicos (`findAndModify` con `$inc`) para numerar sin colisiones |
+| `ApiException` / `GlobalExceptionHandler` | Errores de negocio con codigo estable y mensaje en español |
+| `PageResponse<T>` | Envoltorio de paginacion estable |
+| `MailService` | Correos transaccionales con plantillas Thymeleaf, asincronos y tolerantes a fallo |
+| `NotificationService` / `ActivityService` | Avisos en la aplicacion y trazabilidad por empresa |
+| `CasePrioritizationClient` | Cliente del microservicio BERT, con heuristica de reserva (se consume en la Fase 4) |
+
+### Frontend — `frontend/src/app/core`
+
+| Archivo | Responsabilidad |
+|---|---|
+| `auth.service.ts` | Sesion con signals; recordatorio de 2FA persistido en `sessionStorage` |
+| `auth.interceptor.ts` | Adjunta el token y renueva **una sola vez** ante varios 401 concurrentes |
+| `cart.service.ts` | Carrito y pedidos; signal del contador del encabezado |
+| `catalog.service.ts` | Catalogo publico y panel de productos |
+| `guards.ts` | Guardas por sesion, por tipo de cuenta y por permiso |
+| `has-permission.directive.ts` | Oculta acciones sin permiso |
+
+---
+
+## 8. Diagramas de clases
+
+### Seguridad y acceso
+
+```mermaid
+classDiagram
+    class User {
+        +String id
+        +UserType type
+        +String email
+        +boolean twoFactorEnabled
+        +boolean root
+        +Set~String~ roleIds
+        +Set~Permission~ extraPermissions
+        +Set~Permission~ revokedPermissions
+        +Map~String,Double~ tagAffinity
+    }
+    class Role {
+        +String companyId
+        +String name
+        +Set~Permission~ permissions
+    }
+    class PermissionResolver {
+        +resolve(User) Set~Permission~
+    }
+    class AppPrincipal {
+        +String userId
+        +boolean root
+        +has(Permission) boolean
+    }
+    class JwtAuthFilter {
+        +doFilterInternal()
+    }
+    User "0..*" --> "0..*" Role : roleIds
+    PermissionResolver ..> User
+    PermissionResolver ..> Role
+    JwtAuthFilter ..> PermissionResolver
+    JwtAuthFilter ..> AppPrincipal : construye
+```
+
+### Compra
+
+```mermaid
+classDiagram
+    class Cart {
+        +String customerId
+        +List~CartItem~ items
+        +boolean randomOrder
+    }
+    class CartService {
+        +view(customerId) CartView
+        +addItems(customerId, items, asRandomOrder) CartView
+        +replaceItem(...) CartView
+    }
+    class CheckoutService {
+        +checkout(customerId, request) CheckoutResponse
+    }
+    class PricingService {
+        +quote(lines, customerId, randomOrder, when) Quote
+    }
+    class DiscountService {
+        +calculate(subtotal, customerId, randomOrder, when) DiscountResult
+    }
+    class StockService {
+        +reserve(productId, qty) boolean
+        +release(productId, qty)
+    }
+    class Order {
+        +String number
+        +String companyId
+        +BigDecimal total
+        +OrderStatus status
+        +boolean randomOrder
+    }
+    class InvoiceService {
+        +render(Order) byte[]
+    }
+    CartService --> Cart
+    CartService --> PricingService
+    CheckoutService --> CartService
+    CheckoutService --> PricingService
+    CheckoutService --> StockService
+    CheckoutService --> Order : crea 1 por empresa
+    PricingService --> DiscountService
+    InvoiceService ..> Order
+```
+
+---
+
+## 9. Arquitectura
+
+### Vista general
+
+```mermaid
+flowchart LR
+    NAV["Navegador"] -->|HTTPS| NG["Angular 22<br/>:4200"]
+    NG -->|REST + JWT| API["Spring Boot 4.1<br/>:8080"]
+    API --> MDB[("MongoDB 8<br/>:27018")]
+    API -->|SMTP| MP["Mailpit :8025<br/>o SMTP real"]
+    API -.->|HTTP, fase 4| NLP["FastAPI + BERT<br/>:8000"]
+
+    subgraph "docker compose"
+        MDB
+        MP
+        NLP
+    end
+```
+
+### Capas del backend
+
+```
+Controladores   validacion de entrada y contrato HTTP
+     |
+Servicios       reglas de negocio; unico sitio donde vive el dominio
+     |
+Repositorios    Spring Data MongoDB; MongoTemplate donde hace falta atomicidad
+     |
+MongoDB
+```
+
+Los **DTO** aislan el modelo interno del contrato publico. Gracias a eso `hiddenTags` nunca sale del
+servidor: no es que se filtre y se limpie, es que la vista publica no lo contiene.
+
+### Decisiones de arquitectura
+
+| Decision | Motivo |
+|---|---|
+| **Un backend, no microservicios** | El dominio comparte transacciones y permisos; separarlo añadiria latencia y complejidad sin beneficio a esta escala. Solo el NLP vive aparte, por su naturaleza y sus dependencias de Python |
+| **MongoDB** | Requisito del enunciado. Encaja bien con documentos autocontenidos como el pedido, que congela sus lineas e importes |
+| **Permisos recalculados por peticion** | Un cambio de cargo debe aplicar de inmediato; hornearlos en el token obligaria a esperar 15 minutos |
+| **Un pedido por empresa** | Cada vendedor gestiona su propio estado sin pisar a otro. Sin esto, la Fase 3 obligaria a rehacer el modelo |
+| **Importes congelados en el pedido** | Una factura emitida no puede cambiar porque alguien edite un precio |
+| **Atomicidad via `$inc` condicionado** | Sin replica set no hay transacciones; la unica garantia real es la operacion atomica de Mongo |
+| **Contadores en coleccion** | Contar documentos para deducir el siguiente numero daria duplicados bajo concurrencia |
+
+### Seguridad
+
+- Contrasenas con **BCrypt**; el registro nunca las devuelve.
+- **Refresh tokens** guardados como hash y rotados en cada uso.
+- **2FA TOTP** opcional, con recordatorio en cada ingreso mientras siga desactivada.
+- **CORS** restringido al origen del frontend.
+- Respuestas **identicas** exista o no la cuenta en recuperacion de contrasena y reenvio de
+  verificacion, para no revelar que correos estan registrados.
+- Baja de cuenta con **borrado logico y anonimizacion**: los pedidos siguen siendo trazables.
+- Secretos fuera del repositorio: `.env` en `.gitignore`, con `.env.example` como plantilla.
+
+### Pruebas
+
+| Suite | Cubre |
+|---|---|
+| `TotpServiceTest` (9) | Base32, vectores de la RFC, deriva de reloj y entradas invalidas |
+| `PermissionResolverTest` (7) | Union de cargos, concesion y revocacion individual, root |
+| `DiscountServiceTest` (9) | Las tres reglas, la puerta de la ventana, el techo y el desglose |
+| `PricingServiceTest` (8) | Orden de operaciones, umbral de envio y redondeo |
+| `CheckoutServiceTest` (7) | Reversion de stock, division por empresa y origen de la marca de sorpresa |
+
+**40 pruebas.** Ademas se verifica en el navegador el recorrido completo del cliente: los dos
+defectos mas graves encontrados —el descuento del 50% inalcanzable y la caja sorpresa que perdia
+productos— **solo aparecieron ahi**, no en las pruebas unitarias.
+
+---
+
+## Anexo · Puesta en marcha
+
+```bash
+docker compose up -d                        # MongoDB, Mailpit y NLP
+cd backend && ./mvnw spring-boot:run        # API en :8080
+cd frontend && npm install && npm start     # Aplicacion en :4200
+```
+
+Documentacion interactiva de la API en <http://localhost:8080/swagger-ui.html> y bandeja de correo en
+<http://localhost:8025>.
+
+**Cuentas de demostracion** (contrasena `Demo1234!`):
+
+| Correo | Rol |
+|---|---|
+| `empresa@demo.local` | Root, todos los permisos |
+| `gestor@demo.local` | Cargo sin permiso de eliminar |
+| `cliente@demo.local` | Comprador |

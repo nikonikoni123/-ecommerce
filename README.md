@@ -3,7 +3,10 @@
 Plataforma de comercio electronico con dos tipos de cuenta (usuario comprador y empresa vendedora),
 gestion de productos e inventario, y un panel de empresa con niveles de acceso personalizables.
 
-El desarrollo avanza **por etapas**. Este repositorio contiene la **Etapa 1** completa y funcional.
+El desarrollo avanza **por etapas**. Este repositorio contiene las **Etapas 1 y 2** completas.
+
+> La documentacion tecnica detallada —modelo de dominio, arquitectura, clases y diagramas— esta en
+> **[doc.md](doc.md)**, y se actualiza al cerrar cada fase.
 
 ## Arquitectura
 

@@ -65,20 +65,18 @@ MongoDB propio en el 27017 y, si los dos escuchan (uno en IPv4 y otro en IPv6), 
 de forma impredecible y la aplicacion puede acabar leyendo y escribiendo en la base equivocada.
 Con el 27018 ambos conviven sin pisarse.
 
-**Opcion B — MongoDB ya instalado en la maquina.** Usa el perfil `local` del backend (apunta a
-`mongodb://localhost:27017/ecommerce` sin autenticacion) y arranca el capturador de correos incluido:
+**Opcion B — MongoDB ya instalado en la maquina.** Usa el perfil `local` del backend, que apunta a
+`mongodb://127.0.0.1:27017` sin autenticacion:
 
 ```bash
-python scripts/mailcatcher.py
+cd backend && ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
-Hace lo mismo que Mailpit, sin Docker ni dependencias: recibe SMTP en el 1025 y abre una bandeja web
-en <http://localhost:8025> donde puedes leer cada correo y abrir su enlace de verificacion con un
-clic. Los mensajes tambien quedan en `scripts/mails/`.
+Necesitaras de todas formas un SMTP de pruebas en el 1025; lo mas comodo es levantar solo Mailpit
+con `docker compose up -d mailpit`.
 
-> **Los correos no salen a internet.** En desarrollo, tanto Mailpit como este capturador interceptan
-> todos los mensajes. Si te registras con tu direccion real, el correo **no** llegara a tu bandeja:
-> abrelo en <http://localhost:8025>.
+> **Los correos no salen a internet.** Mailpit intercepta todos los mensajes. Si te registras con tu
+> direccion real, el correo **no** llegara a tu bandeja: abrelo en <http://localhost:8025>.
 
 ### Enviar correo de verdad
 

@@ -21,9 +21,6 @@ __pycache__/
 nlp-service/.venv/
 nlp-service/models/
 
-# Correos capturados en desarrollo: contienen tokens de verificacion reales
-scripts/mails/
-
 # Docker
 docker-data/
 

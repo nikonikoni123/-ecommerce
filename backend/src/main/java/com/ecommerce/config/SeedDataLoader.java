@@ -6,11 +6,15 @@ import com.ecommerce.company.Company;
 import com.ecommerce.company.CompanyRepository;
 import com.ecommerce.company.Role;
 import com.ecommerce.company.RoleRepository;
+import com.ecommerce.order.PromotionWindow;
+import com.ecommerce.order.PromotionWindowRepository;
 import com.ecommerce.security.Permission;
 import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import com.ecommerce.user.UserType;
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
@@ -41,11 +45,15 @@ public class SeedDataLoader {
     private final CompanyRepository companyRepository;
     private final RoleRepository roleRepository;
     private final ProductRepository productRepository;
+    private final PromotionWindowRepository promotionWindowRepository;
     private final PasswordEncoder passwordEncoder;
 
     public SeedDataLoader(AppProperties properties, UserRepository userRepository,
                           CompanyRepository companyRepository, RoleRepository roleRepository,
-                          ProductRepository productRepository, PasswordEncoder passwordEncoder) {
+                          ProductRepository productRepository,
+                          PromotionWindowRepository promotionWindowRepository,
+                          PasswordEncoder passwordEncoder) {
+        this.promotionWindowRepository = promotionWindowRepository;
         this.properties = properties;
         this.userRepository = userRepository;
         this.companyRepository = companyRepository;
@@ -56,7 +64,16 @@ public class SeedDataLoader {
 
     @EventListener(ApplicationReadyEvent.class)
     public void seed() {
-        if (!properties.seedDemoData() || companyRepository.count() > 0) {
+        if (!properties.seedDemoData()) {
+            return;
+        }
+
+        // La ventana de promocion se siembra por separado: sin ella no hay ningun descuento, y las
+        // bases creadas antes de la Etapa 2 ya tienen empresas, asi que no entrarian por el bloque
+        // de datos de demostracion.
+        seedPromotionWindow();
+
+        if (companyRepository.count() > 0) {
             return;
         }
         log.info("Cargando datos de demostracion");
@@ -134,6 +151,26 @@ public class SeedDataLoader {
 
         log.info("Datos de demostracion listos. Cuentas: empresa@demo.local / gestor@demo.local / "
                 + "cliente@demo.local, contrasena {}", DEMO_PASSWORD);
+    }
+
+    /**
+     * Ventana de promocion abierta, para que los descuentos se puedan probar nada mas levantar el
+     * proyecto. Sin una ventana activa la especificacion no aplica ningun descuento.
+     */
+    private void seedPromotionWindow() {
+        if (promotionWindowRepository.count() > 0) {
+            return;
+        }
+        var window = new PromotionWindow();
+        window.setName("Temporada de lanzamiento");
+        window.setStartsAt(Instant.now().minus(1, ChronoUnit.DAYS));
+        window.setEndsAt(Instant.now().plus(365, ChronoUnit.DAYS));
+        window.setOrderDiscountPercent(new BigDecimal("10"));
+        window.setRandomOrderDiscountPercent(new BigDecimal("50"));
+        window.setActive(true);
+        promotionWindowRepository.save(window);
+
+        log.info("Ventana de promocion activa: 10% en toda orden, 50% adicional en pedido sorpresa");
     }
 
     private List<Product> demoProducts(Company company) {

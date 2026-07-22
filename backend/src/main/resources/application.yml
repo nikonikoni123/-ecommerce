@@ -61,6 +61,16 @@ app:
     url: ${NLP_SERVICE_URL:http://localhost:8000}
     timeout-ms: ${NLP_SERVICE_TIMEOUT_MS:4000}
 
+  # Parametros economicos. El descuento por ventana de tiempo y el de pedido aleatorio se definen
+  # en la propia ventana de promocion (coleccion promotionWindows), no aqui.
+  pricing:
+    tax-rate-percent: ${TAX_RATE_PERCENT:19}            # IVA colombiano
+    shipping-flat-rate: ${SHIPPING_FLAT_RATE:15000}     # por empresa, no por pedido global
+    free-shipping-threshold: ${FREE_SHIPPING_THRESHOLD:200000}
+    frequent-customer-orders: ${FREQUENT_CUSTOMER_ORDERS:3}
+    frequent-customer-percent: ${FREQUENT_CUSTOMER_PERCENT:5}
+    max-discount-percent: ${MAX_DISCOUNT_PERCENT:65}
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

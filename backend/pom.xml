@@ -20,6 +20,7 @@
 		<java.version>26</java.version>
 		<jjwt.version>0.13.0</jjwt.version>
 		<springdoc.version>3.0.3</springdoc.version>
+		<openpdf.version>3.0.5</openpdf.version>
 	</properties>
 
 	<dependencies>
@@ -76,6 +77,13 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${springdoc.version}</version>
+		</dependency>
+
+		<!-- Generacion de la factura en PDF. LGPL/MPL, sin dependencias transitivas pesadas. -->
+		<dependency>
+			<groupId>com.github.librepdf</groupId>
+			<artifactId>openpdf</artifactId>
+			<version>${openpdf.version}</version>
 		</dependency>
 
 		<dependency>

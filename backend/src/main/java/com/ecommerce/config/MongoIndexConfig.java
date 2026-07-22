@@ -93,6 +93,31 @@ public class MongoIndexConfig {
         mongo.indexOps(RefreshToken.class).createIndex(
                 new Index().on("tokenHash", Sort.Direction.ASC).unique().named("uk_refresh_token_hash"));
 
+        // --- carrito: uno por cliente ---
+        mongo.indexOps(com.ecommerce.cart.Cart.class).createIndex(
+                new Index().on("customerId", Sort.Direction.ASC).unique().named("uk_carts_customer"));
+
+        // --- pedidos ---
+        var orders = mongo.indexOps(com.ecommerce.order.Order.class);
+        orders.createIndex(new Index().on("number", Sort.Direction.ASC).unique().named("uk_orders_number"));
+        orders.createIndex(new Index()
+                .on("customerId", Sort.Direction.ASC)
+                .on("createdAt", Sort.Direction.DESC)
+                .named("ix_orders_customer"));
+        // El panel de la empresa (Etapa 3) ordena por estado y fecha.
+        orders.createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("status", Sort.Direction.ASC)
+                .on("createdAt", Sort.Direction.DESC)
+                .named("ix_orders_company_status"));
+
+        // --- ventanas de promocion ---
+        mongo.indexOps(com.ecommerce.order.PromotionWindow.class).createIndex(new Index()
+                .on("active", Sort.Direction.ASC)
+                .on("startsAt", Sort.Direction.ASC)
+                .on("endsAt", Sort.Direction.ASC)
+                .named("ix_promotions_window"));
+
         // --- notifications y actividad ---
         mongo.indexOps(Notification.class).createIndex(new Index()
                 .on("recipientId", Sort.Direction.ASC)

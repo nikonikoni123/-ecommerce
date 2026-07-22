@@ -78,8 +78,30 @@ clic. Los mensajes tambien quedan en `scripts/mails/`.
 
 > **Los correos no salen a internet.** En desarrollo, tanto Mailpit como este capturador interceptan
 > todos los mensajes. Si te registras con tu direccion real, el correo **no** llegara a tu bandeja:
-> abrelo en <http://localhost:8025>. Para enviar correo de verdad hay que configurar un SMTP real en
-> `MAIL_HOST` / `MAIL_PORT` / `MAIL_USERNAME` / `MAIL_PASSWORD`.
+> abrelo en <http://localhost:8025>.
+
+### Enviar correo de verdad
+
+El backend lee el `.env` de la raiz del repositorio, el mismo que usa docker-compose. Para salir a
+un SMTP real con Gmail:
+
+```properties
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=tu-cuenta@gmail.com
+MAIL_PASSWORD=abcdefghijklmnop
+MAIL_FROM=tu-cuenta@gmail.com
+MAIL_SMTP_AUTH=true
+MAIL_SMTP_STARTTLS=true
+```
+
+Tres detalles que hacen fallar el envio con un escueto `Authentication failed`:
+
+- **La contrasena de tu cuenta de Google no sirve.** Google la rechaza para SMTP desde 2022. Hay que
+  generar una **contrasena de aplicacion** en <https://myaccount.google.com/apppasswords>, que son
+  exactamente **16 letras minusculas**. Se pegan sin espacios.
+- Para poder generarla, la cuenta de Google necesita tener activada su verificacion en dos pasos.
+- `MAIL_FROM` debe ser la misma direccion autenticada; Gmail no permite remitentes arbitrarios.
 
 ### 2. Backend
 

@@ -7,10 +7,10 @@
 # Aviso: si ese MongoDB es compartido, la aplicacion creara aqui su base 'ecommerce' junto a las
 # demas. El nombre de base va explicito abajo, no solo en la ruta de la URI.
 spring:
-  data:
-    mongodb:
-      uri: mongodb://127.0.0.1:27017
-      database: ecommerce
+  # En Spring Boot 4 la conexion va en 'spring.mongodb', no en 'spring.data.mongodb'.
+  mongodb:
+    uri: mongodb://127.0.0.1:27017
+    database: ecommerce
   mail:
     host: 127.0.0.1
     port: 1025

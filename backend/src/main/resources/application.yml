@@ -2,14 +2,25 @@ spring:
   application:
     name: ecommerce-backend
 
+  # Carga el .env de la raiz del repositorio, el mismo que lee docker-compose. El sufijo
+  # [.properties] le indica a Spring como interpretarlo, y 'optional:' evita que el arranque falle
+  # cuando no existe (por ejemplo dentro del contenedor, donde las variables llegan del entorno).
+  # Las variables de entorno reales siguen teniendo prioridad sobre este archivo.
+  config:
+    import: optional:file:../.env[.properties]
+
+  # Ojo: en Spring Boot 4 la conexion se configura en 'spring.mongodb', no en 'spring.data.mongodb'.
+  # Esta ultima ya no controla el servidor y su valor por defecto es 'mongodb://localhost/test', asi
+  # que si se configura en el sitio antiguo la aplicacion se conecta al 27017 y escribe en la base
+  # 'test' sin dar ningun aviso.
+  mongodb:
+    # El 27018 es el puerto que publica docker-compose (ver ahi el motivo).
+    uri: ${MONGO_URI:mongodb://ecommerce:ecommerce@127.0.0.1:27018/ecommerce?authSource=admin}
+    # Nombre de base explicito, para no depender de que se lea de la ruta de la URI.
+    database: ${MONGO_DATABASE:ecommerce}
+
   data:
     mongodb:
-      # El 27018 es el puerto que publica docker-compose (ver ahi el motivo).
-      uri: ${MONGO_URI:mongodb://ecommerce:ecommerce@127.0.0.1:27018/ecommerce?authSource=admin}
-      # Nombre de base explicito a proposito: si solo se indica en la ruta de la URI, Spring Boot
-      # puede no tomarlo y caer en su valor por defecto ('test'), escribiendo en la base equivocada
-      # sin dar ningun aviso.
-      database: ${MONGO_DATABASE:ecommerce}
       auto-index-creation: false   # los indices se declaran explicitamente en MongoIndexConfig
 
   mail:
@@ -18,8 +29,15 @@ spring:
     username: ${MAIL_USERNAME:}
     password: ${MAIL_PASSWORD:}
     properties:
-      mail.smtp.auth: false
-      mail.smtp.starttls.enable: false
+      # Mailpit no pide autenticacion ni cifrado; un SMTP real como Gmail exige ambos.
+      # Por eso son configurables: con MAIL_SMTP_AUTH=true y MAIL_SMTP_STARTTLS=true se envia
+      # correo de verdad sin tocar el codigo.
+      mail.smtp.auth: ${MAIL_SMTP_AUTH:false}
+      mail.smtp.starttls.enable: ${MAIL_SMTP_STARTTLS:false}
+      mail.smtp.starttls.required: ${MAIL_SMTP_STARTTLS:false}
+      mail.smtp.connectiontimeout: 10000
+      mail.smtp.timeout: 10000
+      mail.smtp.writetimeout: 10000
 
   thymeleaf:
     check-template-location: true

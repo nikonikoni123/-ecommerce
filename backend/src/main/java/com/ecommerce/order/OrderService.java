@@ -25,8 +25,16 @@ public class OrderService {
 
     private final OrderRepository orders;
 
-    public OrderService(OrderRepository orders) {
+    /**
+     * Se inyecta de forma perezosa para romper el ciclo: RefundService necesita OrderService para
+     * cargar el pedido del cliente, y este necesita aquel solo para saber si admite reembolso.
+     */
+    private final org.springframework.beans.factory.ObjectProvider<RefundService> refundService;
+
+    public OrderService(OrderRepository orders,
+                        org.springframework.beans.factory.ObjectProvider<RefundService> refundService) {
         this.orders = orders;
+        this.refundService = refundService;
     }
 
     /**
@@ -48,7 +56,9 @@ public class OrderService {
     }
 
     public OrderDetail detail(String customerId, String orderId) {
-        return OrderMapper.toDetail(require(customerId, orderId));
+        var order = require(customerId, orderId);
+        boolean elegible = refundService.getObject().isEligible(order);
+        return OrderMapper.toDetail(order, elegible);
     }
 
     /** Carga el pedido comprobando que pertenece a quien lo pide. */

@@ -55,6 +55,24 @@ public class Order {
     private OrderStatus status = OrderStatus.PREPARANDO_ORDEN;
     private List<StatusChange> statusHistory = new ArrayList<>();
 
+    /**
+     * Fecha comprometida de entrega. Es la que ordena el panel de la empresa por vencimiento y la
+     * que permite destacar lo que se esta quedando atras.
+     */
+    private Instant dueDate;
+
+    /**
+     * Diferencia acumulada por los cambios de productos posteriores al pago.
+     *
+     * <p>Negativa cuando el pedido encarecio y el cliente debe la diferencia; positiva cuando
+     * abarato y hay saldo a su favor. El pago original no se toca: el ajuste queda registrado para
+     * que la factura y el historial cuadren con lo que realmente se envia.
+     */
+    private BigDecimal adjustmentBalance = BigDecimal.ZERO;
+
+    /** Importe efectivamente cobrado en el pago simulado, antes de cualquier ajuste. */
+    private BigDecimal paidTotal = BigDecimal.ZERO;
+
     /** El pedido nacio de la funcion de caja sorpresa. */
     private boolean randomOrder;
 
@@ -77,6 +95,16 @@ public class Order {
         this.status = newStatus;
         this.statusHistory.add(new StatusChange(newStatus, Instant.now(), byUserId, note));
         this.updatedAt = Instant.now();
+    }
+
+    /** Unidades totales del pedido: uno de los criterios de orden del panel de la empresa. */
+    public int totalUnits() {
+        return items.stream().mapToInt(OrderItem::getQuantity).sum();
+    }
+
+    /** El compromiso de entrega ya vencio y el pedido sigue sin entregarse. */
+    public boolean isOverdue() {
+        return dueDate != null && !status.isTerminal() && Instant.now().isAfter(dueDate);
     }
 
     // ------------------------------------------------------------------ tipos anidados
@@ -614,5 +642,29 @@ public class Order {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Instant getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Instant dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public BigDecimal getAdjustmentBalance() {
+        return adjustmentBalance;
+    }
+
+    public void setAdjustmentBalance(BigDecimal adjustmentBalance) {
+        this.adjustmentBalance = adjustmentBalance == null ? BigDecimal.ZERO : adjustmentBalance;
+    }
+
+    public BigDecimal getPaidTotal() {
+        return paidTotal;
+    }
+
+    public void setPaidTotal(BigDecimal paidTotal) {
+        this.paidTotal = paidTotal == null ? BigDecimal.ZERO : paidTotal;
     }
 }

@@ -2,6 +2,8 @@ package com.ecommerce.order;
 
 import com.ecommerce.common.ApiException;
 import com.ecommerce.common.PageResponse;
+import com.ecommerce.order.dto.CompanyOrderDtos.CreateRefundRequest;
+import com.ecommerce.order.dto.CompanyOrderDtos.RefundView;
 import com.ecommerce.order.dto.OrderDtos.CheckoutRequest;
 import com.ecommerce.order.dto.OrderDtos.CheckoutResponse;
 import com.ecommerce.order.dto.OrderDtos.OrderDetail;
@@ -12,6 +14,7 @@ import com.ecommerce.security.AppPrincipal;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -34,13 +37,16 @@ public class OrderController {
     private final OrderService orderService;
     private final SurpriseBoxService surpriseBoxService;
     private final InvoiceService invoiceService;
+    private final RefundService refundService;
 
     public OrderController(CheckoutService checkoutService, OrderService orderService,
-                           SurpriseBoxService surpriseBoxService, InvoiceService invoiceService) {
+                           SurpriseBoxService surpriseBoxService, InvoiceService invoiceService,
+                           RefundService refundService) {
         this.checkoutService = checkoutService;
         this.orderService = orderService;
         this.surpriseBoxService = surpriseBoxService;
         this.invoiceService = invoiceService;
+        this.refundService = refundService;
     }
 
     @PostMapping("/checkout")
@@ -72,6 +78,20 @@ public class OrderController {
     public OrderDetail detail(@AuthenticationPrincipal AppPrincipal principal,
                               @PathVariable String id) {
         return orderService.detail(customer(principal), id);
+    }
+
+    @PostMapping("/orders/{id}/refund")
+    @Operation(summary = "Solicitar el reembolso de un pedido entregado")
+    public RefundView requestRefund(@AuthenticationPrincipal AppPrincipal principal,
+                                    @PathVariable String id,
+                                    @Valid @RequestBody CreateRefundRequest request) {
+        return refundService.request(principal, id, request.reason());
+    }
+
+    @GetMapping("/refunds")
+    @Operation(summary = "Mis solicitudes de reembolso")
+    public List<RefundView> myRefunds(@AuthenticationPrincipal AppPrincipal principal) {
+        return refundService.mine(principal);
     }
 
     @GetMapping("/orders/{id}/invoice")

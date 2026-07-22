@@ -111,6 +111,24 @@ public class MongoIndexConfig {
                 .on("createdAt", Sort.Direction.DESC)
                 .named("ix_orders_company_status"));
 
+        // El panel de la empresa ordena por vencimiento para ver primero lo que se queda atras.
+        orders.createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("dueDate", Sort.Direction.ASC)
+                .named("ix_orders_company_due"));
+
+        // --- solicitudes de reembolso ---
+        var refunds = mongo.indexOps(com.ecommerce.order.RefundRequest.class);
+        refunds.createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("status", Sort.Direction.ASC)
+                .on("createdAt", Sort.Direction.DESC)
+                .named("ix_refunds_company_status"));
+        refunds.createIndex(new Index()
+                .on("customerId", Sort.Direction.ASC)
+                .on("createdAt", Sort.Direction.DESC)
+                .named("ix_refunds_customer"));
+
         // --- ventanas de promocion ---
         mongo.indexOps(com.ecommerce.order.PromotionWindow.class).createIndex(new Index()
                 .on("active", Sort.Direction.ASC)

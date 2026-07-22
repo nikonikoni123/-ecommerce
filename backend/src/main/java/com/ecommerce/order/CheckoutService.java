@@ -2,6 +2,7 @@ package com.ecommerce.order;
 
 import com.ecommerce.cart.CartService;
 import com.ecommerce.catalog.Product;
+import com.ecommerce.config.AppProperties;
 import com.ecommerce.catalog.ProductRepository;
 import com.ecommerce.common.ApiException;
 import com.ecommerce.common.SequenceService;
@@ -15,6 +16,7 @@ import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -47,12 +49,14 @@ public class CheckoutService {
     private final SequenceService sequences;
     private final MailService mailService;
     private final NotificationService notifications;
+    private final AppProperties properties;
 
     public CheckoutService(CartService cartService, ProductRepository products,
                            OrderRepository orders, UserRepository users,
                            PricingService pricingService, StockService stockService,
                            SequenceService sequences, MailService mailService,
-                           NotificationService notifications) {
+                           NotificationService notifications, AppProperties properties) {
+        this.properties = properties;
         this.cartService = cartService;
         this.products = products;
         this.orders = orders;
@@ -187,7 +191,9 @@ public class CheckoutService {
         order.setTaxAmount(quote.taxAmount());
         order.setShippingCost(quote.shippingCost());
         order.setTotal(quote.total());
+        order.setPaidTotal(quote.total());   // referencia fija del cobro, ajena a cambios posteriores
         order.setRandomOrder(randomOrder);
+        order.setDueDate(ahora.plus(properties.orders().deliveryDays(), ChronoUnit.DAYS));
 
         order.setShipping(new Order.Address(request.recipientName(), request.address(),
                 request.postalCode(), request.phone()));

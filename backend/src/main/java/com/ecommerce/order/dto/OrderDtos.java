@@ -86,6 +86,8 @@ public final class OrderDtos {
             String currency,
             boolean randomOrder,
             boolean gift,
+            Instant dueDate,
+            boolean overdue,
             Instant createdAt) {
     }
 
@@ -141,6 +143,13 @@ public final class OrderDtos {
             AddressView shipping,
             GiftView gift,
             PaymentView payment,
+            /** Fecha comprometida de entrega. */
+            Instant dueDate,
+            boolean overdue,
+            /** Saldo acumulado por cambios de productos: positivo a favor del cliente. */
+            BigDecimal adjustmentBalance,
+            /** El pedido admite solicitud de reembolso ahora mismo. */
+            boolean refundEligible,
             Instant createdAt,
             Instant updatedAt) {
     }

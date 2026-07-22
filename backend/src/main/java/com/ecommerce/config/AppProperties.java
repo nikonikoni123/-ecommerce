@@ -11,7 +11,8 @@ public record AppProperties(
         boolean seedDemoData,
         Jwt jwt,
         Nlp nlp,
-        Pricing pricing) {
+        Pricing pricing,
+        Orders orders) {
 
     public record Jwt(String secret, long accessExpirationMinutes, long refreshExpirationDays) {
     }
@@ -37,5 +38,15 @@ public record AppProperties(
             int frequentCustomerOrders,
             java.math.BigDecimal frequentCustomerPercent,
             java.math.BigDecimal maxDiscountPercent) {
+    }
+
+    /**
+     * Plazos del ciclo de vida del pedido.
+     *
+     * @param deliveryDays   dias comprometidos de entrega; fijan la fecha de vencimiento
+     * @param refundDays     plazo para solicitar un reembolso tras la entrega
+     * @param dueSoonHours   antelacion con la que un pedido se considera proximo a vencer
+     */
+    public record Orders(int deliveryDays, int refundDays, int dueSoonHours) {
     }
 }

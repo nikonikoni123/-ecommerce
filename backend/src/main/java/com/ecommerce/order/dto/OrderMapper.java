@@ -31,7 +31,22 @@ public final class OrderMapper {
                 order.getCurrency(),
                 order.isRandomOrder(),
                 order.getGift() != null && order.getGift().isGift(),
+                order.getDueDate(),
+                order.isOverdue(),
                 order.getCreatedAt());
+    }
+
+    /** Variante para el cliente, que necesita saber si puede pedir el reembolso. */
+    public static OrderDetail toDetail(Order order, boolean refundEligible) {
+        var base = toDetail(order);
+        return new OrderDetail(base.id(), base.number(), base.companyId(), base.companyName(),
+                base.customerName(), base.customerEmail(), base.items(), base.subtotal(),
+                base.discounts(), base.discountPercent(), base.discountAmount(), base.taxableBase(),
+                base.taxRate(), base.taxAmount(), base.shippingCost(), base.total(), base.currency(),
+                base.status(), base.statusLabel(), base.terminal(), base.history(),
+                base.randomOrder(), base.shipping(), base.gift(), base.payment(), base.dueDate(),
+                base.overdue(), base.adjustmentBalance(), refundEligible, base.createdAt(),
+                base.updatedAt());
     }
 
     public static OrderDetail toDetail(Order order) {
@@ -67,6 +82,10 @@ public final class OrderMapper {
                 toAddress(order.getShipping()),
                 toGift(order.getGift()),
                 toPayment(order.getPayment()),
+                order.getDueDate(),
+                order.isOverdue(),
+                order.getAdjustmentBalance(),
+                false,   // la elegibilidad la resuelve RefundService; ver la sobrecarga
                 order.getCreatedAt(),
                 order.getUpdatedAt());
     }

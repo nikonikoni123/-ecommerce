@@ -71,6 +71,12 @@ app:
     frequent-customer-percent: ${FREQUENT_CUSTOMER_PERCENT:5}
     max-discount-percent: ${MAX_DISCOUNT_PERCENT:65}
 
+  # Plazos del ciclo de vida del pedido.
+  orders:
+    delivery-days: ${ORDER_DELIVERY_DAYS:5}       # compromiso de entrega y fecha de vencimiento
+    refund-days: ${ORDER_REFUND_DAYS:30}          # plazo para pedir reembolso tras la entrega
+    due-soon-hours: ${ORDER_DUE_SOON_HOURS:24}    # antelacion para marcar "proximo a vencer"
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

@@ -44,7 +44,8 @@ class DiscountServiceTest {
                 new BigDecimal("19"), new BigDecimal("15000"), new BigDecimal("200000"),
                 3, new BigDecimal("5"), new BigDecimal("65"));
         var properties = new AppProperties("http://localhost:8080", "http://localhost:4200",
-                "no-reply@test", false, null, null, pricing);
+                "no-reply@test", false, null, null, pricing,
+                new AppProperties.Orders(5, 30, 24));
 
         service = new DiscountService(promotionWindows, orders, properties);
 

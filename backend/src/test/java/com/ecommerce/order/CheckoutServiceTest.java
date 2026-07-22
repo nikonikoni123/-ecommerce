@@ -18,6 +18,7 @@ import com.ecommerce.catalog.Product;
 import com.ecommerce.catalog.ProductRepository;
 import com.ecommerce.common.ApiException;
 import com.ecommerce.common.SequenceService;
+import com.ecommerce.config.AppProperties;
 import com.ecommerce.mail.MailService;
 import com.ecommerce.notification.NotificationService;
 import com.ecommerce.order.dto.OrderDtos.CheckoutRequest;
@@ -60,8 +61,13 @@ class CheckoutServiceTest {
 
     @BeforeEach
     void setUp() {
+        var pricing = new AppProperties.Pricing(new BigDecimal("19"), new BigDecimal("15000"),
+                new BigDecimal("200000"), 3, new BigDecimal("5"), new BigDecimal("65"));
+        var properties = new AppProperties("http://localhost:8080", "http://localhost:4200",
+                "no-reply@test", false, null, null, pricing, new AppProperties.Orders(5, 30, 24));
+
         service = new CheckoutService(cartService, products, orders, users, pricingService,
-                stockService, sequences, mailService, notifications);
+                stockService, sequences, mailService, notifications, properties);
 
         var cliente = new User();
         cliente.setId(CLIENTE);

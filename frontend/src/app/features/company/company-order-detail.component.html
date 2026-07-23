@@ -1,0 +1,197 @@
+<section class="gestion">
+  <div class="container">
+    <a class="gestion__back" routerLink="/empresa/pedidos">&#8592; Volver a los pedidos</a>
+
+    <app-alert [message]="message()" variant="success" />
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="gestion__state">Cargando pedido...</p>
+    } @else if (order(); as o) {
+      <header class="gestion__head">
+        <div>
+          <p class="eyebrow">{{ o.customerName }} &middot; {{ o.customerEmail }}</p>
+          <h1 class="gestion__number">{{ o.number }}</h1>
+          <p class="gestion__meta">
+            Realizado el {{ date(o.createdAt) }}
+            @if (o.dueDate) {
+              &middot; Vence el <strong [class.is-overdue]="o.overdue">{{ date(o.dueDate) }}</strong>
+            }
+          </p>
+        </div>
+        <span class="badge" [class.badge--in]="!o.terminal">{{ o.statusLabel }}</span>
+      </header>
+
+      <div class="gestion__layout">
+        <div class="gestion__main">
+          <!-- Cambio de estado -->
+          <section class="card" *hasPermission="Permission.ORDER_STATUS_CHANGE">
+            <h2 class="gestion__section">Cambiar estado</h2>
+
+            @if (!availableTransitions().length) {
+              <p class="gestion__note">
+                Este pedido esta en un estado final y ya no admite mas cambios.
+              </p>
+            } @else {
+              <p class="gestion__note">
+                Cada cambio avisa al cliente por correo y por notificacion.
+              </p>
+
+              <div class="field">
+                <label class="field__label" for="statusNote">Nota para el cliente (opcional)</label>
+                <input class="input" id="statusNote" [(ngModel)]="statusNote"
+                  placeholder="Ej: salio esta manana con la transportadora" />
+              </div>
+
+              <div class="gestion__actions">
+                @for (t of availableTransitions(); track t.status) {
+                  <button class="btn btn--sm" type="button" [disabled]="busy()"
+                    (click)="changeStatus(t.status)">
+                    {{ t.label }}
+                  </button>
+                }
+              </div>
+            }
+          </section>
+
+          <!-- Productos -->
+          <section class="card" *hasPermission="Permission.ORDER_ITEMS_CHANGE">
+            <div class="gestion__section-head">
+              <h2 class="gestion__section">Productos</h2>
+              @if (canEditItems() && !editingItems()) {
+                <button class="btn btn--outline btn--sm" type="button"
+                  (click)="editingItems.set(true)">
+                  Modificar
+                </button>
+              }
+            </div>
+
+            @if (!canEditItems()) {
+              <p class="gestion__note">
+                Un pedido en estado "{{ o.statusLabel }}" ya no admite cambios de productos.
+              </p>
+            }
+
+            <div class="table-wrap">
+              <table class="table gestion__items">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Importe</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (i of o.items; track i.productId) {
+                    <tr>
+                      <td>{{ i.name }}</td>
+                      <td>{{ price(i.unitPrice, o.currency) }}</td>
+                      <td>
+                        @if (editingItems()) {
+                          <input class="input gestion__qty" type="number" min="0"
+                            [value]="quantities()[i.productId]"
+                            (input)="setQuantity(i.productId, $any($event.target).value)" />
+                        } @else {
+                          {{ i.quantity }}
+                        }
+                      </td>
+                      <td>{{ price(i.lineTotal, o.currency) }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            @if (editingItems()) {
+              <p class="gestion__hint">
+                Pon la cantidad en 0 para quitar un producto. El stock y los importes se ajustan
+                solos, conservando el descuento con el que se compro.
+              </p>
+
+              <div class="field">
+                <label class="field__label" for="itemsNote">Motivo del cambio (opcional)</label>
+                <input class="input" id="itemsNote" [(ngModel)]="itemsNote"
+                  placeholder="Ej: sustituimos un articulo defectuoso" />
+              </div>
+
+              <div class="gestion__actions">
+                <button class="btn btn--sm" type="button" [disabled]="busy()" (click)="saveItems()">
+                  Guardar cambios
+                </button>
+                <button class="btn btn--ghost btn--sm" type="button" (click)="cancelEdit()">
+                  Cancelar
+                </button>
+              </div>
+            }
+          </section>
+
+          <!-- Historial -->
+          <section class="card">
+            <h2 class="gestion__section">Historial</h2>
+            <ul class="historial">
+              @for (h of o.history; track h.at) {
+                <li>
+                  <span class="historial__when">{{ date(h.at) }}</span>
+                  <span class="historial__what">{{ h.label }}</span>
+                  @if (h.note) { <span class="historial__note">{{ h.note }}</span> }
+                </li>
+              }
+            </ul>
+          </section>
+        </div>
+
+        <!-- Resumen -->
+        <aside class="gestion__side">
+          <section class="card">
+            <h2 class="gestion__section">Importe</h2>
+            <dl class="rows">
+              <div><dt>Subtotal</dt><dd>{{ price(o.subtotal, o.currency) }}</dd></div>
+              @for (d of o.discounts; track d.code) {
+                <div class="rows__discount">
+                  <dt>{{ d.label }} ({{ d.percent }}%)</dt>
+                  <dd>&minus;{{ price(d.amount, o.currency) }}</dd>
+                </div>
+              }
+              <div><dt>IVA ({{ o.taxRate }}%)</dt><dd>{{ price(o.taxAmount, o.currency) }}</dd></div>
+              <div>
+                <dt>Envio</dt>
+                <dd>@if (o.shippingCost === 0) { Gratis } @else { {{ price(o.shippingCost, o.currency) }} }</dd>
+              </div>
+              <div class="rows__total"><dt>Total</dt><dd>{{ price(o.total, o.currency) }}</dd></div>
+
+              @if (o.adjustmentBalance !== 0) {
+                <div class="rows__adjust">
+                  <dt>{{ o.adjustmentBalance > 0 ? 'A favor del cliente' : 'Pendiente de cobro' }}</dt>
+                  <dd>{{ price(o.adjustmentBalance > 0 ? o.adjustmentBalance : -o.adjustmentBalance, o.currency) }}</dd>
+                </div>
+              }
+            </dl>
+          </section>
+
+          <section class="card">
+            <h2 class="gestion__section">Entrega</h2>
+            @if (o.gift?.isGift) {
+              <p class="eyebrow">Enviar como regalo</p>
+              <p class="gestion__address">
+                {{ o.gift!.recipientName }}<br />
+                {{ o.gift!.address }}<br />
+                CP {{ o.gift!.postalCode }}
+              </p>
+              @if (o.gift!.message) {
+                <p class="gestion__gift">&laquo;{{ o.gift!.message }}&raquo;</p>
+              }
+            } @else if (o.shipping; as s) {
+              <p class="gestion__address">
+                {{ s.recipientName }}<br />
+                {{ s.address }}<br />
+                CP {{ s.postalCode }}<br />
+                {{ s.phone }}
+              </p>
+            }
+          </section>
+        </aside>
+      </div>
+    }
+  </div>
+</section>

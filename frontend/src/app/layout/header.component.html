@@ -19,7 +19,10 @@
 
       @if (auth.isCompanyMember()) {
         <a routerLink="/empresa/productos" routerLinkActive="is-active" (click)="closeMenu()">
-          Gestion
+          Productos
+        </a>
+        <a routerLink="/empresa/pedidos" routerLinkActive="is-active" (click)="closeMenu()">
+          Pedidos
         </a>
       }
 

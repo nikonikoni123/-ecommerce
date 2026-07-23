@@ -39,6 +39,16 @@
           </ol>
         }
 
+        @if (o.dueDate && !o.terminal) {
+          <p class="detail__due" [class.is-overdue]="o.overdue">
+            @if (o.overdue) {
+              La fecha comprometida de entrega ({{ date(o.dueDate) }}) ya paso.
+            } @else {
+              Entrega prevista para el {{ date(o.dueDate) }}.
+            }
+          </p>
+        }
+
         @if (o.history.length) {
           <ul class="history">
             @for (h of o.history; track h.at) {
@@ -112,6 +122,41 @@
               </p>
             }
           </section>
+
+          <!-- Solicitud de reembolso -->
+          @if (o.refundEligible || refundSent()) {
+            <section class="card">
+              <h2 class="detail__section">Reembolso</h2>
+
+              @if (refundSent(); as aviso) {
+                <app-alert [message]="aviso" variant="success" />
+              } @else if (!requestingRefund()) {
+                <p class="detail__refund-text">
+                  Si el producto no era lo que esperabas, puedes solicitar el reembolso y el
+                  vendedor revisara tu caso.
+                </p>
+                <button class="btn btn--outline btn--block" type="button"
+                  (click)="requestingRefund.set(true)">
+                  Solicitar reembolso
+                </button>
+              } @else {
+                <div class="field">
+                  <label class="field__label" for="refundReason">Motivo *</label>
+                  <textarea class="textarea" id="refundReason" [(ngModel)]="refundReason"
+                    placeholder="Cuentanos que paso con el producto"></textarea>
+                  <span class="field__hint">Minimo 10 caracteres.</span>
+                </div>
+                <div class="detail__refund-actions">
+                  <button class="btn btn--sm" type="button" [disabled]="submittingRefund()"
+                    (click)="submitRefund()">
+                    {{ submittingRefund() ? 'Enviando...' : 'Enviar solicitud' }}
+                  </button>
+                  <button class="btn btn--ghost btn--sm" type="button"
+                    (click)="requestingRefund.set(false)">Cancelar</button>
+                </div>
+              }
+            </section>
+          }
 
           <section class="card">
             <h2 class="detail__section">Entrega</h2>

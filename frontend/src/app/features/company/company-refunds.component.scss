@@ -1,0 +1,136 @@
+@use 'styles/tokens' as *;
+
+.refunds {
+  @include section;
+}
+
+.refunds__back {
+  @include eyebrow;
+  color: var(--ink);
+  display: inline-block;
+  margin-bottom: var(--space-8);
+}
+
+.refunds__title {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
+  font-size: var(--text-2xl);
+}
+
+.refunds__state {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs__item {
+  @include eyebrow;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 var(--space-3);
+  cursor: pointer;
+  color: var(--ink-muted);
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  &.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+}
+
+.refunds__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.refund__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.refund__order {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.refund__customer {
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+.refund__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.refund__amount {
+  font-size: var(--text-lg);
+  white-space: nowrap;
+}
+
+.refund__reason {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface-alt);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.refund__date {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+.refund__resolve {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.refund__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.refund__resolution {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.7;
+
+  .eyebrow {
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+}

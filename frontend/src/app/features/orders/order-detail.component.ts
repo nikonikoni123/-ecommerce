@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { errorMessage } from '../../core/api-error';
 import { OrderService } from '../../core/cart.service';
@@ -16,7 +17,7 @@ const RUTA_ENTREGA = [
 
 @Component({
   selector: 'app-order-detail',
-  imports: [RouterLink, AlertComponent],
+  imports: [FormsModule, RouterLink, AlertComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './order-detail.component.html',
   styleUrl: './order-detail.component.scss',
@@ -29,6 +30,12 @@ export class OrderDetailComponent {
   protected readonly loading = signal(true);
   protected readonly error = signal<string | null>(null);
   protected readonly downloading = signal(false);
+
+  /** Formulario de solicitud de reembolso. */
+  protected readonly requestingRefund = signal(false);
+  protected readonly refundSent = signal<string | null>(null);
+  protected readonly submittingRefund = signal(false);
+  protected refundReason = '';
 
   protected readonly steps = RUTA_ENTREGA;
   protected readonly price = formatPrice;
@@ -63,6 +70,35 @@ export class OrderDetailComponent {
   protected get interrupted(): boolean {
     const o = this.order();
     return o ? o.status === 'CANCELADO' || o.status === 'REEMBOLSADO' : false;
+  }
+
+  protected submitRefund(): void {
+    const o = this.order();
+    if (!o || this.submittingRefund()) {
+      return;
+    }
+    if (this.refundReason.trim().length < 10) {
+      this.error.set('Explica el motivo con al menos 10 caracteres.');
+      return;
+    }
+    this.submittingRefund.set(true);
+    this.error.set(null);
+
+    this.api.requestRefund(o.id, this.refundReason.trim()).subscribe({
+      next: () => {
+        this.submittingRefund.set(false);
+        this.requestingRefund.set(false);
+        this.refundReason = '';
+        this.refundSent.set(
+          'Solicitud enviada. El vendedor la revisara y recibiras su respuesta por correo.');
+        // El pedido deja de admitir otra solicitud mientras esta siga abierta.
+        this.order.update((current) => (current ? { ...current, refundEligible: false } : current));
+      },
+      error: (err) => {
+        this.submittingRefund.set(false);
+        this.error.set(errorMessage(err, 'No pudimos registrar la solicitud.'));
+      },
+    });
   }
 
   protected downloadInvoice(): void {

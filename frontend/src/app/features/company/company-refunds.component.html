@@ -1,0 +1,84 @@
+<section class="refunds">
+  <div class="container">
+    <a class="refunds__back" routerLink="/empresa/pedidos">&#8592; Volver a los pedidos</a>
+
+    <p class="eyebrow">Panel de empresa</p>
+    <h1 class="refunds__title">Solicitudes de reembolso</h1>
+
+    <nav class="tabs" aria-label="Filtro de solicitudes">
+      <button type="button" class="tabs__item" [class.is-active]="status === 'PENDIENTE'"
+        (click)="status = 'PENDIENTE'; load()">Pendientes</button>
+      <button type="button" class="tabs__item" [class.is-active]="status === 'APROBADA'"
+        (click)="status = 'APROBADA'; load()">Aprobadas</button>
+      <button type="button" class="tabs__item" [class.is-active]="status === 'RECHAZADA'"
+        (click)="status = 'RECHAZADA'; load()">Rechazadas</button>
+      <button type="button" class="tabs__item" [class.is-active]="status === ''"
+        (click)="status = ''; load()">Todas</button>
+    </nav>
+
+    <app-alert [message]="message()" variant="success" />
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="refunds__state">Cargando solicitudes...</p>
+    } @else if (!refunds().length) {
+      <p class="refunds__state">No hay solicitudes en este filtro.</p>
+    } @else {
+      <ul class="refunds__list">
+        @for (r of refunds(); track r.id) {
+          <li class="refund card">
+            <div class="refund__head">
+              <div>
+                <a class="refund__order" [routerLink]="['/empresa/pedidos', r.orderId]">
+                  {{ r.orderNumber }}
+                </a>
+                <p class="refund__customer">{{ r.customerName }} &middot; {{ r.customerEmail }}</p>
+              </div>
+              <div class="refund__right">
+                <span class="refund__amount">{{ price(r.amount, r.currency) }}</span>
+                <span class="badge" [class.badge--in]="r.status === 'APROBADA'"
+                  [class.badge--out]="r.status === 'RECHAZADA'">{{ r.statusLabel }}</span>
+              </div>
+            </div>
+
+            <p class="refund__reason">&laquo;{{ r.reason }}&raquo;</p>
+            <p class="refund__date">Solicitado el {{ date(r.createdAt) }}</p>
+
+            @if (r.status === 'PENDIENTE') {
+              @if (resolving() === r.id) {
+                <div class="refund__resolve">
+                  <div class="field">
+                    <label class="field__label" [attr.for]="'res-' + r.id">
+                      Respuesta al cliente (opcional)
+                    </label>
+                    <textarea class="textarea" [id]="'res-' + r.id" [(ngModel)]="resolution"
+                      placeholder="Ej: lamentamos el inconveniente, procesamos la devolucion"></textarea>
+                  </div>
+                  <div class="refund__actions">
+                    <button class="btn btn--sm" type="button" [disabled]="busy()"
+                      (click)="resolve(r.id, true)">Aprobar reembolso</button>
+                    <button class="btn btn--danger btn--sm" type="button" [disabled]="busy()"
+                      (click)="resolve(r.id, false)">Rechazar</button>
+                    <button class="btn btn--ghost btn--sm" type="button"
+                      (click)="open(r.id)">Cerrar</button>
+                  </div>
+                </div>
+              } @else {
+                <div class="refund__actions">
+                  <button class="btn btn--outline btn--sm" type="button" (click)="open(r.id)">
+                    Resolver
+                  </button>
+                </div>
+              }
+            } @else if (r.resolution) {
+              <p class="refund__resolution">
+                <span class="eyebrow">Respuesta</span>
+                {{ r.resolution }}
+              </p>
+            }
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</section>

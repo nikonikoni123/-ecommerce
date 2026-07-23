@@ -138,6 +138,29 @@
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
+.detail__due {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.detail__due.is-overdue {
+  color: var(--danger);
+}
+
+.detail__refund-text {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+.detail__refund-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
 .detail__interrupted {
   font-size: var(--text-sm);
   color: var(--ink-soft);

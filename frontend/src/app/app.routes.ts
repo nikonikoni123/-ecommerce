@@ -121,6 +121,31 @@ export const routes: Routes = [
 
   // --- Panel de empresa ---
   {
+    path: 'empresa/pedidos',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.ORDER_VIEW },
+    loadComponent: () =>
+      import('./features/company/company-orders.component').then((m) => m.CompanyOrdersComponent),
+    title: 'Pedidos de la empresa',
+  },
+  {
+    path: 'empresa/pedidos/:id',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.ORDER_VIEW },
+    loadComponent: () =>
+      import('./features/company/company-order-detail.component')
+        .then((m) => m.CompanyOrderDetailComponent),
+    title: 'Gestionar pedido',
+  },
+  {
+    path: 'empresa/reembolsos',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.REFUND_MANAGE },
+    loadComponent: () =>
+      import('./features/company/company-refunds.component').then((m) => m.CompanyRefundsComponent),
+    title: 'Reembolsos',
+  },
+  {
     path: 'empresa/productos',
     canActivate: [companyGuard, permissionGuard],
     data: { permission: Permission.PRODUCT_VIEW },

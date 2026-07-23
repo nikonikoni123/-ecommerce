@@ -11,6 +11,7 @@ import {
   OrderDetail,
   OrderSummary,
   PageResponse,
+  RefundView,
   SurpriseProposal,
 } from './models';
 
@@ -119,5 +120,13 @@ export class OrderService {
   /** Descarga la factura como blob, para poder forzar el guardado con el nombre correcto. */
   invoice(id: string): Observable<Blob> {
     return this.http.get(`${this.base}/orders/${id}/invoice`, { responseType: 'blob' });
+  }
+
+  requestRefund(orderId: string, reason: string): Observable<RefundView> {
+    return this.http.post<RefundView>(`${this.base}/orders/${orderId}/refund`, { reason });
+  }
+
+  myRefunds(): Observable<RefundView[]> {
+    return this.http.get<RefundView[]>(`${this.base}/refunds`);
   }
 }

@@ -1,0 +1,122 @@
+<section class="panel-orders">
+  <div class="container">
+    <header class="panel-orders__head">
+      <div>
+        <p class="eyebrow">Panel de empresa</p>
+        <h1 class="panel-orders__title">Pedidos</h1>
+      </div>
+      <a class="btn btn--outline" routerLink="/empresa/reembolsos">
+        Reembolsos
+        @if (stats(); as s) {
+          @if (s.pendingRefunds > 0) {
+            <span class="badge-count">{{ s.pendingRefunds }}</span>
+          }
+        }
+      </a>
+    </header>
+
+    @if (stats(); as s) {
+      <div class="stats">
+        <div class="stat"><span class="stat__n">{{ s.total }}</span><span class="stat__l">Total</span></div>
+        <div class="stat"><span class="stat__n">{{ s.inProgress }}</span><span class="stat__l">En curso</span></div>
+        <div class="stat" [class.stat--alert]="s.overdue > 0">
+          <span class="stat__n">{{ s.overdue }}</span><span class="stat__l">Vencidos</span>
+        </div>
+        <div class="stat"><span class="stat__n">{{ s.delivered }}</span><span class="stat__l">Entregados</span></div>
+        <div class="stat" [class.stat--alert]="s.pendingRefunds > 0">
+          <span class="stat__n">{{ s.pendingRefunds }}</span><span class="stat__l">Reembolsos</span>
+        </div>
+      </div>
+    }
+
+    <form class="filters" (ngSubmit)="applyFilters()">
+      <label class="filters__field">
+        <span class="field__label">Ordenar por</span>
+        <select class="select" name="sort" [(ngModel)]="sort" (change)="applyFilters()">
+          <option value="priority">Prioridad</option>
+          <option value="dueDate">Fecha de vencimiento</option>
+          <option value="date">Fecha del pedido</option>
+          <option value="units">Cantidad</option>
+          <option value="status">Estado</option>
+        </select>
+      </label>
+
+      <label class="filters__field">
+        <span class="field__label">Estado</span>
+        <select class="select" name="status" [(ngModel)]="status" (change)="applyFilters()">
+          <option value="">Todos</option>
+          @for (s of statuses(); track s.status) {
+            <option [value]="s.status">{{ s.label }}</option>
+          }
+        </select>
+      </label>
+
+      <label class="filters__check">
+        <input type="checkbox" name="onlyOverdue" [(ngModel)]="onlyOverdue" (change)="applyFilters()" />
+        <span>Solo vencidos</span>
+      </label>
+    </form>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="panel-orders__state">Cargando pedidos...</p>
+    } @else if (!rows().length) {
+      <p class="panel-orders__state">No hay pedidos que coincidan con el filtro.</p>
+    } @else {
+      <div class="panel table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Cliente</th>
+              <th>Prioridad</th>
+              <th>Vencimiento</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (o of rows(); track o.id) {
+              <tr [class.is-overdue]="o.overdue">
+                <td>
+                  <span class="cell-number">{{ o.number }}</span>
+                  <span class="cell-sub">{{ date(o.createdAt) }}</span>
+                  @if (o.gift) { <span class="tag">Regalo</span> }
+                  @if (o.randomOrder) { <span class="tag">Sorpresa</span> }
+                </td>
+                <td>
+                  <span>{{ o.customerName }}</span>
+                  <span class="cell-sub">{{ o.customerEmail }}</span>
+                </td>
+                <td>
+                  <span class="prio" [class]="'prio--' + o.priority.toLowerCase()">
+                    {{ priorityLabel(o) }}
+                  </span>
+                  @if (o.hasPendingRefund) {
+                    <span class="tag tag--alert">Reembolso pedido</span>
+                  }
+                </td>
+                <td>
+                  @if (o.dueDate) { {{ date(o.dueDate) }} } @else { — }
+                </td>
+                <td>{{ o.units }}</td>
+                <td>{{ price(o.total, o.currency) }}</td>
+                <td>
+                  <span class="badge" [class.badge--in]="!o.terminal">{{ o.statusLabel }}</span>
+                </td>
+                <td>
+                  <a class="btn btn--ghost btn--sm" [routerLink]="['/empresa/pedidos', o.id]">
+                    Gestionar
+                  </a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</section>

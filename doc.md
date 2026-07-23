@@ -1,7 +1,7 @@
 # Documentacion tecnica — Plataforma E-Commerce
 
 > Documento vivo. Se actualiza al cerrar cada fase del proyecto.
-> **Estado:** Fases 1 y 2 entregadas · Rama `Nicolas` · Ultima actualizacion tras el commit `6884df9`
+> **Estado:** Fases 1, 2 y 3 entregadas · Rama `Nicolas`
 
 ---
 
@@ -17,7 +17,7 @@ cerrada, y esta documentacion crece con ella.
 |---|---|---|
 | 1 | Cimientos, autenticacion, RBAC y catalogo | Entregada |
 | 2 | Carrito, checkout, descuentos y factura | Entregada |
-| 3 | Gestion de pedidos por la empresa y reembolsos | Pendiente |
+| 3 | Gestion de pedidos por la empresa, estados y reembolsos | Entregada |
 | 4 | Casos de atencion con BERT, comentarios y chats | Pendiente |
 | 5 | Departamentos, equipos, metas KPI y graficas | Pendiente |
 
@@ -92,6 +92,7 @@ erDiagram
 | `carts` | Un carrito por cliente | `customerId` unico |
 | `orders` | Pedido a **una sola** empresa | `number` unico; `(companyId, status, createdAt)` |
 | `promotionWindows` | Rango de tiempo con descuentos | `(active, startsAt, endsAt)` |
+| `refundRequests` | Solicitudes de reembolso, con ciclo propio | `(companyId, status, createdAt)`; `customerId` |
 | `counters` | Numeracion atomica de pedidos y facturas | clave primaria |
 | `verificationTokens`, `refreshTokens` | Tokens de un solo uso | TTL sobre `expiresAt` |
 | `notifications`, `activityLog` | Avisos y trazabilidad | por destinatario / por empresa |
@@ -133,7 +134,15 @@ stateDiagram-v2
     REEMBOLSADO --> [*]
 ```
 
-Las transiciones posteriores al pago las gestiona la empresa en la **Fase 3**.
+Las transiciones las gestiona la empresa, y las declara el propio enum `OrderStatus`, no el
+servicio: la regla vive junto al dato que gobierna y no puede saltarsela quien llame por otra via.
+El avance es secuencial, **cancelar** solo cabe antes de que salga el paquete, y **reembolsar** solo
+despues de entregar —cuando el cliente puede saber que "no era lo esperado"—. Cancelar y reembolsar
+**devuelven la mercancia al catalogo**.
+
+Los productos de un pedido solo se pueden cambiar mientras no haya salido; al hacerlo, los importes
+se recalculan conservando el porcentaje de descuento original y la diferencia queda registrada como
+**saldo de ajuste**.
 
 ---
 
@@ -238,6 +247,8 @@ horizontalmente. Las tablas anchas hacen scroll dentro de su contenedor.
 | `/cuenta` | Autenticado | Datos, contrasena, 2FA y baja |
 | `/notificaciones` | Autenticado | Avisos |
 | `/empresa/productos` | Empresa | Panel de catalogo e inventario |
+| `/empresa/pedidos`, `/empresa/pedidos/:id` | Empresa | Panel por prioridad; detalle con cambio de estado y de productos |
+| `/empresa/reembolsos` | Empresa | Solicitudes recibidas, con aprobacion o rechazo |
 
 ---
 
@@ -336,6 +347,27 @@ simultaneas del ultimo articulo leerian el mismo valor y ambas creerian haberlo 
 **Compensacion manual.** MongoDB corre como nodo suelto, sin transacciones multidocumento, asi que si
 algo falla a mitad se devuelve a mano el stock ya reservado.
 
+### Gestion del pedido por la empresa (Fase 3)
+
+El panel de la empresa ordena los pedidos por los criterios que pide la especificacion —fecha,
+vencimiento, cantidad y estado— mas una **prioridad calculada** (`VENCIDO`, `POR_VENCER`, `NORMAL`)
+que responde a la pregunta real de quien gestiona: que atender primero. La prioridad no es un campo
+almacenado, asi que ese orden se resuelve en memoria sobre un conjunto acotado; el resto se pagina en
+la base de datos.
+
+**Toda modificacion avisa al cliente por correo y por notificacion**, como exige la especificacion.
+El aviso se centraliza en `OrderManagementService`, no en cada controlador, para que no se olvide en
+ningun camino.
+
+Al **cambiar los productos** de un pedido pagado se reserva primero lo que aumenta y solo despues se
+libera lo que se reduce, de modo que un fallo de stock no deje el pedido a medias. Los importes se
+recalculan **conservando el porcentaje de descuento con el que se compro**: volver a consultar el
+motor daria otro resultado si la promocion ya cerro, y el cliente perderia una rebaja ya ganada.
+
+Los **reembolsos** se solicitan sobre pedidos entregados y dentro de un plazo configurable. Al
+aprobarlos, el pedido pasa a `REEMBOLSADO` y la mercancia vuelve al catalogo; al rechazarlos, se
+queda como estaba. Un pedido no puede acumular dos solicitudes abiertas a la vez.
+
 ### Notas de plataforma
 
 Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por escrito:
@@ -393,6 +425,10 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `PricingService` | Orden de operaciones del calculo, con `BigDecimal` |
 | `CheckoutService` | Divide por empresa, reserva stock, crea pedidos, avisa y compensa ante fallo |
 | `StockService` | Reserva y devolucion atomicas de unidades |
+| `CompanyOrderService` | Panel de la empresa: listado por prioridad, filtros y contadores |
+| `OrderManagementService` | Cambios de estado y de productos, con recalculo y aviso al cliente |
+| `RefundService` | Ciclo del reembolso: solicitud del cliente y resolucion de la empresa |
+| `RefundRequest` | Solicitud de reembolso, con su propio ciclo de vida |
 | `SurpriseBoxService` | Sorteo ponderado por afinidad, con presupuesto opcional |
 | `InvoiceService` | Factura PDF con OpenPDF, generada al vuelo desde los importes congelados |
 | `Order` / `OrderStatus` | Pedido con importes, historial de estados, regalo y pago |
@@ -577,10 +613,12 @@ servidor: no es que se filtre y se limpie, es que la vista publica no lo contien
 | `DiscountServiceTest` (9) | Las tres reglas, la puerta de la ventana, el techo y el desglose |
 | `PricingServiceTest` (8) | Orden de operaciones, umbral de envio y redondeo |
 | `CheckoutServiceTest` (7) | Reversion de stock, division por empresa y origen de la marca de sorpresa |
+| `OrderStatusTest` (11) | Cada arista de la maquina de estados, valida e invalida |
+| `OrderManagementServiceTest` (13) | Cambios de estado y de productos, recalculo, saldo y avisos |
 
-**40 pruebas.** Ademas se verifica en el navegador el recorrido completo del cliente: los dos
-defectos mas graves encontrados —el descuento del 50% inalcanzable y la caja sorpresa que perdia
-productos— **solo aparecieron ahi**, no en las pruebas unitarias.
+**64 pruebas.** Ademas se verifica en el navegador el recorrido completo, tanto del cliente como de
+la empresa: los dos defectos mas graves encontrados —el descuento del 50% inalcanzable y la caja
+sorpresa que perdia productos— **solo aparecieron ahi**, no en las pruebas unitarias.
 
 ---
 

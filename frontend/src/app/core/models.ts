@@ -206,6 +206,8 @@ export interface OrderSummary {
   currency: string;
   randomOrder: boolean;
   gift: boolean;
+  dueDate: string | null;
+  overdue: boolean;
   createdAt: string;
 }
 
@@ -258,8 +260,69 @@ export interface OrderDetail {
     message: string | null;
   } | null;
   payment: { simulated: boolean; method: string; reference: string; paidAt: string } | null;
+  dueDate: string | null;
+  overdue: boolean;
+  /** Saldo por cambios de productos: positivo a favor del cliente. */
+  adjustmentBalance: number;
+  /** El pedido admite solicitud de reembolso ahora mismo. */
+  refundEligible: boolean;
   createdAt: string;
   updatedAt: string;
+}
+
+// --------------------------------------------------------------------- gestion de la empresa
+
+export interface CompanyOrderRow {
+  id: string;
+  number: string;
+  customerName: string;
+  customerEmail: string;
+  status: string;
+  statusLabel: string;
+  terminal: boolean;
+  units: number;
+  total: number;
+  currency: string;
+  createdAt: string;
+  dueDate: string | null;
+  overdue: boolean;
+  dueSoon: boolean;
+  /** VENCIDO, POR_VENCER, NORMAL o CERRADO. */
+  priority: string;
+  gift: boolean;
+  randomOrder: boolean;
+  hasPendingRefund: boolean;
+}
+
+export interface CompanyOrderStats {
+  total: number;
+  inProgress: number;
+  overdue: number;
+  delivered: number;
+  pendingRefunds: number;
+}
+
+export interface StatusOption {
+  status: string;
+  label: string;
+  terminal: boolean;
+  allowedTransitions: string[];
+}
+
+export interface RefundView {
+  id: string;
+  orderId: string;
+  orderNumber: string;
+  customerName: string;
+  customerEmail: string;
+  reason: string;
+  amount: number;
+  currency: string;
+  status: string;
+  statusLabel: string;
+  resolution: string | null;
+  resolvedAt: string | null;
+  createdAt: string;
 }
 
 export interface CheckoutResponse {
@@ -286,6 +349,10 @@ export const Permission = {
   PRODUCT_UPDATE: 'PRODUCT_UPDATE',
   PRODUCT_DELETE: 'PRODUCT_DELETE',
   STOCK_UPDATE: 'STOCK_UPDATE',
+  ORDER_VIEW: 'ORDER_VIEW',
+  ORDER_STATUS_CHANGE: 'ORDER_STATUS_CHANGE',
+  ORDER_ITEMS_CHANGE: 'ORDER_ITEMS_CHANGE',
+  REFUND_MANAGE: 'REFUND_MANAGE',
   USER_MANAGE: 'USER_MANAGE',
   ROLE_MANAGE: 'ROLE_MANAGE',
   ACTIVITY_VIEW: 'ACTIVITY_VIEW',

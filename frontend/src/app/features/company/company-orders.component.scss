@@ -1,0 +1,154 @@
+@use 'styles/tokens' as *;
+
+.panel-orders {
+  @include section;
+}
+
+.panel-orders__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.panel-orders__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-2xl);
+}
+
+.panel-orders__state {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.badge-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  margin-left: var(--space-2);
+  padding-inline: 5px;
+  border-radius: 999px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+/* --- Contadores --- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+
+  @media (min-width: 720px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.stat--alert {
+  border-color: var(--danger);
+}
+
+.stat__n {
+  font-size: var(--text-xl);
+  line-height: 1;
+}
+
+.stat__l {
+  @include eyebrow;
+}
+
+/* --- Filtros --- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+
+.filters__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 180px;
+}
+
+.filters__check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  padding-bottom: var(--space-3);
+}
+
+/* --- Tabla --- */
+.cell-number {
+  display: block;
+  font-weight: 500;
+}
+
+.cell-sub {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+tr.is-overdue {
+  /* Marca lateral: la urgencia no se comunica solo con color de fondo. */
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.tag {
+  display: inline-block;
+  margin-top: var(--space-1);
+  margin-right: var(--space-1);
+  font-size: 10px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.tag--alert {
+  color: var(--danger);
+}
+
+.prio {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.prio--vencido {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.prio--por_vencer {
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+}
+
+.prio--cerrado {
+  color: var(--ink-muted);
+}

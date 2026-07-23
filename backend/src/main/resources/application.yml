@@ -77,6 +77,12 @@ app:
     refund-days: ${ORDER_REFUND_DAYS:30}          # plazo para pedir reembolso tras la entrega
     due-soon-hours: ${ORDER_DUE_SOON_HOURS:24}    # antelacion para marcar "proximo a vencer"
 
+  # SLA de los casos de atencion, en horas segun la prioridad que detecta el BERT.
+  support:
+    sla-high-hours: ${SLA_HIGH_HOURS:24}
+    sla-medium-hours: ${SLA_MEDIUM_HOURS:48}
+    sla-low-hours: ${SLA_LOW_HOURS:72}
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

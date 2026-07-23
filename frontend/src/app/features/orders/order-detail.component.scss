@@ -161,6 +161,19 @@
   gap: var(--space-3);
 }
 
+.detail__contact-text {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+.detail__contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
 .detail__interrupted {
   font-size: var(--text-sm);
   color: var(--ink-soft);

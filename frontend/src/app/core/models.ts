@@ -342,6 +342,90 @@ export interface SurpriseProposal {
   message: string;
 }
 
+// --------------------------------------------------------------------- casos y chat (Fase 4)
+
+export interface CaseMessageView {
+  author: string; // CLIENTE o EMPRESA
+  authorName: string;
+  body: string;
+  createdAt: string;
+}
+
+export interface CaseRow {
+  id: string;
+  number: string;
+  subject: string;
+  status: string;
+  statusLabel: string;
+  terminal: boolean;
+  priority: string; // HIGH, MEDIUM, LOW
+  sentiment: string;
+  aiClassified: boolean;
+  dueDate: string | null;
+  overdue: boolean;
+  customerName: string;
+  companyName: string;
+  orderNumber: string | null;
+  assignedToName: string | null;
+  messageCount: number;
+  lastMessageAt: string;
+  createdAt: string;
+}
+
+export interface CaseDetail {
+  id: string;
+  number: string;
+  subject: string;
+  status: string;
+  statusLabel: string;
+  terminal: boolean;
+  priority: string;
+  sentiment: string;
+  aiReason: string | null;
+  aiClassified: boolean;
+  dueDate: string | null;
+  overdue: boolean;
+  customerName: string;
+  customerEmail: string;
+  companyName: string;
+  orderId: string | null;
+  orderNumber: string | null;
+  assignedToName: string | null;
+  allowedTransitions: string[];
+  messages: CaseMessageView[];
+  createdAt: string;
+}
+
+export interface CaseStats {
+  open: number;
+  inProgress: number;
+  overdue: number;
+  waiting: number;
+  resolved: number;
+}
+
+export interface CaseStatusOption {
+  status: string;
+  label: string;
+  terminal: boolean;
+  allowedTransitions: string[];
+}
+
+export interface ChatMessageView {
+  id: string;
+  type: string; // MESSAGE o BROADCAST
+  authorName: string;
+  body: string;
+  mine: boolean;
+  createdAt: string;
+}
+
+export interface ChatFeed {
+  messages: PageResponse<ChatMessageView>;
+  canPost: boolean;
+  canBroadcast: boolean;
+}
+
 /** Permisos del backend usados por la interfaz. Debe coincidir con el enum Permission de Java. */
 export const Permission = {
   PRODUCT_VIEW: 'PRODUCT_VIEW',
@@ -353,6 +437,11 @@ export const Permission = {
   ORDER_STATUS_CHANGE: 'ORDER_STATUS_CHANGE',
   ORDER_ITEMS_CHANGE: 'ORDER_ITEMS_CHANGE',
   REFUND_MANAGE: 'REFUND_MANAGE',
+  CASE_VIEW: 'CASE_VIEW',
+  CASE_ASSIGN: 'CASE_ASSIGN',
+  CASE_REPLY: 'CASE_REPLY',
+  CHAT_GENERAL_POST: 'CHAT_GENERAL_POST',
+  BROADCAST_SEND: 'BROADCAST_SEND',
   USER_MANAGE: 'USER_MANAGE',
   ROLE_MANAGE: 'ROLE_MANAGE',
   ACTIVITY_VIEW: 'ACTIVITY_VIEW',

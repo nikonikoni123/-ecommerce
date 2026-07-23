@@ -24,11 +24,18 @@
         <a routerLink="/empresa/pedidos" routerLinkActive="is-active" (click)="closeMenu()">
           Pedidos
         </a>
+        <a routerLink="/empresa/casos" routerLinkActive="is-active" (click)="closeMenu()">
+          Casos
+        </a>
+        <a routerLink="/empresa/chat" routerLinkActive="is-active" (click)="closeMenu()">
+          Chat
+        </a>
       }
 
       @if (auth.isCustomer()) {
         <a routerLink="/sorpresa" routerLinkActive="is-active" (click)="closeMenu()">Sorpresa</a>
         <a routerLink="/pedidos" routerLinkActive="is-active" (click)="closeMenu()">Pedidos</a>
+        <a routerLink="/casos" routerLinkActive="is-active" (click)="closeMenu()">Casos</a>
         <a class="header__cart" routerLink="/carrito" routerLinkActive="is-active" (click)="closeMenu()">
           Carrito
           @if (cart.hasItems()) {

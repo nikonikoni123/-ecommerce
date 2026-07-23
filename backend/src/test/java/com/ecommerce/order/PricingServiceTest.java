@@ -37,7 +37,8 @@ class PricingServiceTest {
                 3, new BigDecimal("5"), new BigDecimal("65"));
         var properties = new AppProperties("http://localhost:8080", "http://localhost:4200",
                 "no-reply@test", false, null, null, pricing,
-                new AppProperties.Orders(5, 30, 24));
+                new AppProperties.Orders(5, 30, 24),
+                new AppProperties.Support(24, 48, 72));
 
         service = new PricingService(discountService, properties);
     }

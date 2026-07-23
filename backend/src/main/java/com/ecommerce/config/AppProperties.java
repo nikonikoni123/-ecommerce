@@ -12,7 +12,8 @@ public record AppProperties(
         Jwt jwt,
         Nlp nlp,
         Pricing pricing,
-        Orders orders) {
+        Orders orders,
+        Support support) {
 
     public record Jwt(String secret, long accessExpirationMinutes, long refreshExpirationDays) {
     }
@@ -48,5 +49,23 @@ public record AppProperties(
      * @param dueSoonHours   antelacion con la que un pedido se considera proximo a vencer
      */
     public record Orders(int deliveryDays, int refundDays, int dueSoonHours) {
+    }
+
+    /**
+     * SLA de los casos de atencion, en horas segun la prioridad que detecta el BERT.
+     *
+     * <p>Un caso negativo o critico vence antes que una consulta trivial, de modo que la bandeja
+     * ponga arriba lo que de verdad no puede esperar.
+     */
+    public record Support(int slaHighHours, int slaMediumHours, int slaLowHours) {
+
+        /** Horas de SLA para una prioridad; por defecto la de MEDIUM ante un valor inesperado. */
+        public int slaHoursFor(String priority) {
+            return switch (priority == null ? "" : priority.toUpperCase()) {
+                case "HIGH" -> slaHighHours;
+                case "LOW" -> slaLowHours;
+                default -> slaMediumHours;
+            };
+        }
     }
 }

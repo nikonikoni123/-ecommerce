@@ -64,7 +64,8 @@ class CheckoutServiceTest {
         var pricing = new AppProperties.Pricing(new BigDecimal("19"), new BigDecimal("15000"),
                 new BigDecimal("200000"), 3, new BigDecimal("5"), new BigDecimal("65"));
         var properties = new AppProperties("http://localhost:8080", "http://localhost:4200",
-                "no-reply@test", false, null, null, pricing, new AppProperties.Orders(5, 30, 24));
+                "no-reply@test", false, null, null, pricing, new AppProperties.Orders(5, 30, 24),
+                new AppProperties.Support(24, 48, 72));
 
         service = new CheckoutService(cartService, products, orders, users, pricingService,
                 stockService, sequences, mailService, notifications, properties);

@@ -1,0 +1,92 @@
+<section class="inbox">
+  <div class="container">
+    <p class="eyebrow">Panel de empresa</p>
+    <h1 class="inbox__title">Atencion a casos</h1>
+    <p class="inbox__intro">
+      Los casos se ordenan automaticamente con un modelo de lenguaje: primero lo vencido, luego lo de
+      mayor prioridad.
+    </p>
+
+    @if (stats(); as s) {
+      <div class="stats">
+        <div class="stat"><span class="stat__n">{{ s.open }}</span><span class="stat__l">Nuevos</span></div>
+        <div class="stat"><span class="stat__n">{{ s.inProgress }}</span><span class="stat__l">En atencion</span></div>
+        <div class="stat" [class.stat--alert]="s.overdue > 0">
+          <span class="stat__n">{{ s.overdue }}</span><span class="stat__l">Vencidos</span>
+        </div>
+        <div class="stat"><span class="stat__n">{{ s.waiting }}</span><span class="stat__l">En espera</span></div>
+        <div class="stat"><span class="stat__n">{{ s.resolved }}</span><span class="stat__l">Resueltos</span></div>
+      </div>
+    }
+
+    <form class="filters" (ngSubmit)="load()">
+      <label class="filters__field">
+        <span class="field__label">Ordenar por</span>
+        <select class="select" name="sort" [(ngModel)]="sort" (change)="load()">
+          <option value="priority">Prioridad (BERT)</option>
+          <option value="dueDate">Vencimiento</option>
+          <option value="date">Fecha</option>
+        </select>
+      </label>
+      <label class="filters__field">
+        <span class="field__label">Estado</span>
+        <select class="select" name="status" [(ngModel)]="status" (change)="load()">
+          <option value="">Todos</option>
+          @for (s of statuses(); track s.status) {
+            <option [value]="s.status">{{ s.label }}</option>
+          }
+        </select>
+      </label>
+    </form>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="inbox__state">Cargando casos...</p>
+    } @else if (!rows().length) {
+      <p class="inbox__state">No hay casos que coincidan con el filtro.</p>
+    } @else {
+      <div class="panel table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Caso</th>
+              <th>Cliente</th>
+              <th>Prioridad</th>
+              <th>Vencimiento</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (c of rows(); track c.id) {
+              <tr [class.is-overdue]="c.overdue">
+                <td>
+                  <span class="cell-number">{{ c.number }}</span>
+                  <span class="cell-sub">{{ c.subject }}</span>
+                </td>
+                <td>
+                  <span>{{ c.customerName }}</span>
+                  @if (c.orderNumber) { <span class="cell-sub">Pedido {{ c.orderNumber }}</span> }
+                </td>
+                <td>
+                  <span class="prio" [class]="priorityClass(c.priority)">{{ priorityLabel(c.priority) }}</span>
+                  @if (!c.aiClassified) { <span class="cell-sub">estimada</span> }
+                </td>
+                <td>
+                  @if (c.dueDate) {
+                    <span [class.is-overdue]="c.overdue">{{ date(c.dueDate) }}</span>
+                  } @else { — }
+                </td>
+                <td><span class="badge" [class.badge--in]="!c.terminal">{{ c.statusLabel }}</span></td>
+                <td>
+                  <a class="btn btn--ghost btn--sm" [routerLink]="['/empresa/casos', c.id]">Atender</a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</section>

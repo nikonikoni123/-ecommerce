@@ -1,0 +1,41 @@
+<section class="case-detail">
+  <div class="container">
+    <a class="case-detail__back" routerLink="/casos">&#8592; Volver a mis casos</a>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="case-detail__state">Cargando caso...</p>
+    } @else if (case(); as c) {
+      <header class="case-detail__head">
+        <div>
+          <p class="eyebrow">{{ c.companyName }}@if (c.orderNumber) { &middot; Pedido {{ c.orderNumber }} }</p>
+          <h1 class="case-detail__subject">{{ c.subject }}</h1>
+          <p class="case-detail__number">{{ c.number }} &middot; abierto el {{ date(c.createdAt) }}</p>
+        </div>
+        <span class="badge" [class.badge--in]="!c.terminal">{{ c.statusLabel }}</span>
+      </header>
+
+      <div class="case-detail__thread card">
+        <app-case-thread [messages]="c.messages" mineAuthor="CLIENTE" />
+      </div>
+
+      @if (c.status === 'CERRADO') {
+        <p class="case-detail__closed">
+          Este caso esta cerrado. Si necesitas mas ayuda, abre uno nuevo desde el pedido.
+        </p>
+      } @else {
+        <form class="case-detail__reply card" (ngSubmit)="send()">
+          <div class="field">
+            <label class="field__label" for="reply">Tu respuesta</label>
+            <textarea class="textarea" id="reply" [(ngModel)]="reply" name="reply"
+              placeholder="Escribe tu mensaje al vendedor"></textarea>
+          </div>
+          <button class="btn" type="submit" [disabled]="sending() || !reply.trim()">
+            {{ sending() ? 'Enviando...' : 'Enviar' }}
+          </button>
+        </form>
+      }
+    }
+  </div>
+</section>

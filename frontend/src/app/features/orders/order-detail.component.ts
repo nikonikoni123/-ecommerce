@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { errorMessage } from '../../core/api-error';
 import { OrderService } from '../../core/cart.service';
 import { formatDate, formatPrice } from '../../core/format';
 import { OrderDetail } from '../../core/models';
+import { SupportService } from '../../core/support.service';
 import { AlertComponent } from '../../shared/alert.component';
 
 /** Los estados por los que pasa un pedido, para dibujar la linea de tiempo de la entrega. */
@@ -24,12 +25,20 @@ const RUTA_ENTREGA = [
 })
 export class OrderDetailComponent {
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   private readonly api = inject(OrderService);
+  private readonly support = inject(SupportService);
 
   protected readonly order = signal<OrderDetail | null>(null);
   protected readonly loading = signal(true);
   protected readonly error = signal<string | null>(null);
   protected readonly downloading = signal(false);
+
+  /** Formulario de contacto con el vendedor (abre un caso de atencion). */
+  protected readonly contacting = signal(false);
+  protected readonly openingCase = signal(false);
+  protected contactSubject = '';
+  protected contactMessage = '';
 
   /** Formulario de solicitud de reembolso. */
   protected readonly requestingRefund = signal(false);
@@ -70,6 +79,30 @@ export class OrderDetailComponent {
   protected get interrupted(): boolean {
     const o = this.order();
     return o ? o.status === 'CANCELADO' || o.status === 'REEMBOLSADO' : false;
+  }
+
+  protected openCase(): void {
+    const o = this.order();
+    if (!o || this.openingCase()) {
+      return;
+    }
+    if (!this.contactSubject.trim() || this.contactMessage.trim().length < 5) {
+      this.error.set('Indica un asunto y un mensaje de al menos 5 caracteres.');
+      return;
+    }
+    this.openingCase.set(true);
+    this.error.set(null);
+
+    this.support.open(this.contactSubject.trim(), this.contactMessage.trim(), o.id).subscribe({
+      next: (caso) => {
+        this.openingCase.set(false);
+        this.router.navigate(['/casos', caso.id]);
+      },
+      error: (err) => {
+        this.openingCase.set(false);
+        this.error.set(errorMessage(err, 'No pudimos abrir el caso.'));
+      },
+    });
   }
 
   protected submitRefund(): void {

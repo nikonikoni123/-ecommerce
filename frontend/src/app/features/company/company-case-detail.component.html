@@ -1,0 +1,97 @@
+<section class="atender">
+  <div class="container">
+    <a class="atender__back" routerLink="/empresa/casos">&#8592; Volver a la bandeja</a>
+
+    <app-alert [message]="message()" variant="success" />
+    <app-alert [message]="error()" variant="error" />
+
+    @if (loading()) {
+      <p class="atender__state">Cargando caso...</p>
+    } @else if (case(); as c) {
+      <header class="atender__head">
+        <div>
+          <p class="eyebrow">
+            {{ c.customerName }} &middot; {{ c.customerEmail }}
+            @if (c.orderNumber) { &middot; Pedido {{ c.orderNumber }} }
+          </p>
+          <h1 class="atender__subject">{{ c.subject }}</h1>
+          <p class="atender__number">
+            {{ c.number }} &middot; abierto el {{ date(c.createdAt) }}
+            @if (c.dueDate) {
+              &middot; vence <strong [class.is-overdue]="c.overdue">{{ date(c.dueDate) }}</strong>
+            }
+          </p>
+        </div>
+        <span class="badge" [class.badge--in]="!c.terminal">{{ c.statusLabel }}</span>
+      </header>
+
+      <!-- Clasificacion del modelo -->
+      <div class="ia card">
+        <div class="ia__item">
+          <span class="eyebrow">Prioridad</span>
+          <span class="prio" [class]="priorityClass(c.priority)">{{ priorityLabel(c.priority) }}</span>
+        </div>
+        <div class="ia__item">
+          <span class="eyebrow">Sentimiento</span>
+          <span>{{ sentimentLabel(c.sentiment) }}</span>
+        </div>
+        <div class="ia__item ia__item--wide">
+          <span class="eyebrow">{{ c.aiClassified ? 'Analisis del modelo' : 'Estimacion (modelo no disponible)' }}</span>
+          <span>{{ c.aiReason || 'Sin datos' }}</span>
+        </div>
+      </div>
+
+      <div class="atender__layout">
+        <div class="atender__main">
+          <div class="card">
+            <app-case-thread [messages]="c.messages" mineAuthor="EMPRESA" />
+          </div>
+
+          @if (c.status !== 'CERRADO') {
+            <form class="card atender__reply" (ngSubmit)="send()" *hasPermission="Permission.CASE_REPLY">
+              <div class="field">
+                <label class="field__label" for="reply">Responder al cliente</label>
+                <textarea class="textarea" id="reply" [(ngModel)]="reply" name="reply"
+                  placeholder="Escribe tu respuesta"></textarea>
+              </div>
+              <button class="btn" type="submit" [disabled]="busy() || !reply.trim()">
+                {{ busy() ? 'Enviando...' : 'Enviar respuesta' }}
+              </button>
+            </form>
+          }
+        </div>
+
+        <aside class="atender__side">
+          <section class="card" *hasPermission="Permission.CASE_ASSIGN">
+            <h2 class="atender__section">Asignacion</h2>
+            @if (case()!.assignedToName) {
+              <p class="atender__assigned">Asignado a <strong>{{ case()!.assignedToName }}</strong></p>
+            } @else {
+              <p class="atender__note">Sin asignar.</p>
+            }
+            <button class="btn btn--outline btn--sm" type="button" [disabled]="busy()"
+              (click)="assignToMe()">
+              Asignarme este caso
+            </button>
+          </section>
+
+          <section class="card" *hasPermission="Permission.CASE_REPLY">
+            <h2 class="atender__section">Estado</h2>
+            @if (!availableTransitions().length) {
+              <p class="atender__note">El caso esta cerrado y no admite mas cambios.</p>
+            } @else {
+              <div class="atender__actions">
+                @for (t of availableTransitions(); track t.status) {
+                  <button class="btn btn--sm" type="button" [disabled]="busy()"
+                    (click)="changeStatus(t.status)">
+                    {{ t.label }}
+                  </button>
+                }
+              </div>
+            }
+          </section>
+        </aside>
+      </div>
+    }
+  </div>
+</section>

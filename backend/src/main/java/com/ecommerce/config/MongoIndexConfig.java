@@ -136,6 +136,27 @@ public class MongoIndexConfig {
                 .on("endsAt", Sort.Direction.ASC)
                 .named("ix_promotions_window"));
 
+        // --- casos de atencion ---
+        var cases = mongo.indexOps(com.ecommerce.support.SupportCase.class);
+        cases.createIndex(new Index().on("number", Sort.Direction.ASC).unique().named("uk_cases_number"));
+        cases.createIndex(new Index()
+                .on("customerId", Sort.Direction.ASC)
+                .on("lastMessageAt", Sort.Direction.DESC)
+                .named("ix_cases_customer"));
+        // La bandeja de la empresa filtra por estado y ordena por actividad y vencimiento.
+        cases.createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("status", Sort.Direction.ASC)
+                .on("dueDate", Sort.Direction.ASC)
+                .named("ix_cases_company_status_due"));
+
+        // --- chat general ---
+        mongo.indexOps(com.ecommerce.chat.ChatMessage.class).createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("channel", Sort.Direction.ASC)
+                .on("createdAt", Sort.Direction.DESC)
+                .named("ix_chat_company_channel"));
+
         // --- notifications y actividad ---
         mongo.indexOps(Notification.class).createIndex(new Index()
                 .on("recipientId", Sort.Direction.ASC)

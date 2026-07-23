@@ -1,7 +1,7 @@
 # Documentacion tecnica — Plataforma E-Commerce
 
 > Documento vivo. Se actualiza al cerrar cada fase del proyecto.
-> **Estado:** Fases 1, 2 y 3 entregadas · Rama `Nicolas`
+> **Estado:** Fases 1, 2, 3 y 4 entregadas · Rama `Nicolas`
 
 ---
 
@@ -18,7 +18,7 @@ cerrada, y esta documentacion crece con ella.
 | 1 | Cimientos, autenticacion, RBAC y catalogo | Entregada |
 | 2 | Carrito, checkout, descuentos y factura | Entregada |
 | 3 | Gestion de pedidos por la empresa, estados y reembolsos | Entregada |
-| 4 | Casos de atencion con BERT, comentarios y chats | Pendiente |
+| 4 | Casos de atencion con BERT, comentarios al vendedor y chat | Entregada |
 | 5 | Departamentos, equipos, metas KPI y graficas | Pendiente |
 
 ### Pila tecnologica
@@ -93,7 +93,9 @@ erDiagram
 | `orders` | Pedido a **una sola** empresa | `number` unico; `(companyId, status, createdAt)` |
 | `promotionWindows` | Rango de tiempo con descuentos | `(active, startsAt, endsAt)` |
 | `refundRequests` | Solicitudes de reembolso, con ciclo propio | `(companyId, status, createdAt)`; `customerId` |
-| `counters` | Numeracion atomica de pedidos y facturas | clave primaria |
+| `supportCases` | Casos de atencion, con los mensajes embebidos | `number` unico; `(companyId, status, dueDate)`; `customerId` |
+| `chatMessages` | Chat general de la empresa y comunicados de root | `(companyId, channel, createdAt)` |
+| `counters` | Numeracion atomica de pedidos, facturas y casos | clave primaria |
 | `verificationTokens`, `refreshTokens` | Tokens de un solo uso | TTL sobre `expiresAt` |
 | `notifications`, `activityLog` | Avisos y trazabilidad | por destinatario / por empresa |
 
@@ -249,6 +251,9 @@ horizontalmente. Las tablas anchas hacen scroll dentro de su contenedor.
 | `/empresa/productos` | Empresa | Panel de catalogo e inventario |
 | `/empresa/pedidos`, `/empresa/pedidos/:id` | Empresa | Panel por prioridad; detalle con cambio de estado y de productos |
 | `/empresa/reembolsos` | Empresa | Solicitudes recibidas, con aprobacion o rechazo |
+| `/casos`, `/casos/:id` | Cliente | Mis casos y su conversacion; se abren desde el pedido |
+| `/empresa/casos`, `/empresa/casos/:id` | Empresa | Bandeja priorizada por BERT; atender, asignar y responder |
+| `/empresa/chat` | Empresa | Chat general y comunicados de root |
 
 ---
 
@@ -368,6 +373,37 @@ Los **reembolsos** se solicitan sobre pedidos entregados y dentro de un plazo co
 aprobarlos, el pedido pasa a `REEMBOLSADO` y la mercancia vuelve al catalogo; al rechazarlos, se
 queda como estaba. Un pedido no puede acumular dos solicitudes abiertas a la vez.
 
+### Casos de atencion con BERT (Fase 4)
+
+Un **caso** es un hilo entre un cliente y una empresa. Resuelve a la vez los dos requisitos: por el
+lado del cliente, "realizar comentarios o peticiones al vendedor"; por el de la empresa, la "pestana
+de atencion" que un modelo BERT ordena por prioridad, fecha y vencimiento.
+
+**Al abrir el caso se clasifica con el microservicio BERT** (`nlp-service`, ya desplegado desde la
+Fase 1). De su respuesta salen la prioridad (`HIGH`/`MEDIUM`/`LOW`), el sentimiento y —lo mas util—
+el **vencimiento del SLA**, mas corto cuanto mas urgente: 24h para alta, 48h para media, 72h para
+baja, todo configurable. Asi la bandeja nace ordenada por lo que no puede esperar. La clasificacion
+se guarda en la apertura: recalcularla en cada listado seria caro y volatil, y el orden debe ser
+estable.
+
+El cliente `CasePrioritizationClient` **se degrada a una heuristica local** (vencimiento, antiguedad
+y palabras clave) si el microservicio no responde, de modo que abrir un caso nunca falla por un
+servicio auxiliar. El caso recuerda si lo clasifico el modelo o la heuristica.
+
+El caso tiene su propia maquina de estados —`ABIERTO`, `EN_ATENCION`, `ESPERANDO_CLIENTE`,
+`RESUELTO`, `CERRADO`— con reglas: responder deja el caso a la espera del cliente, y que el cliente
+conteste a un caso resuelto lo reabre. Cada respuesta de la empresa avisa al cliente por notificacion.
+
+### Chat interno y comunicados (Fase 4)
+
+El **chat general** de la empresa lo lee todo el personal, pero solo publican quienes root autoriza
+(`CHAT_GENERAL_POST`); el resto tiene acceso de lectura. Los **comunicados de root**
+(`BROADCAST_SEND`) aparecen en el mismo hilo, destacados, y ademas generan una notificacion a cada
+miembro: es informacion que debe llegar a todos, no depender de que abran el chat.
+
+Los chats por departamento o equipo se dejan para la **Fase 5**, cuando existan los departamentos a
+los que pertenecen; el campo `channel` reserva el sitio sin migrar nada.
+
 ### Notas de plataforma
 
 Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por escrito:
@@ -429,6 +465,10 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `OrderManagementService` | Cambios de estado y de productos, con recalculo y aviso al cliente |
 | `RefundService` | Ciclo del reembolso: solicitud del cliente y resolucion de la empresa |
 | `RefundRequest` | Solicitud de reembolso, con su propio ciclo de vida |
+| `SupportCaseService` | Casos del cliente: abrir, clasificar con BERT, fijar SLA y conversar |
+| `CompanySupportService` | Bandeja de la empresa: orden por prioridad, asignacion y respuesta |
+| `CasePrioritizationClient` | Cliente del microservicio BERT, con heuristica de reserva |
+| `ChatService` | Chat general y comunicados de root, con control de quien publica |
 | `SurpriseBoxService` | Sorteo ponderado por afinidad, con presupuesto opcional |
 | `InvoiceService` | Factura PDF con OpenPDF, generada al vuelo desde los importes congelados |
 | `Order` / `OrderStatus` | Pedido con importes, historial de estados, regalo y pago |
@@ -443,7 +483,6 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `PageResponse<T>` | Envoltorio de paginacion estable |
 | `MailService` | Correos transaccionales con plantillas Thymeleaf, asincronos y tolerantes a fallo |
 | `NotificationService` / `ActivityService` | Avisos en la aplicacion y trazabilidad por empresa |
-| `CasePrioritizationClient` | Cliente del microservicio BERT, con heuristica de reserva (se consume en la Fase 4) |
 
 ### Frontend — `frontend/src/app/core`
 
@@ -557,7 +596,7 @@ flowchart LR
     NG -->|REST + JWT| API["Spring Boot 4.1<br/>:8080"]
     API --> MDB[("MongoDB 8<br/>:27018")]
     API -->|SMTP| MP["Mailpit :8025<br/>o SMTP real"]
-    API -.->|HTTP, fase 4| NLP["FastAPI + BERT<br/>:8000"]
+    API -->|HTTP| NLP["FastAPI + BERT<br/>:8000"]
 
     subgraph "docker compose"
         MDB
@@ -613,10 +652,13 @@ servidor: no es que se filtre y se limpie, es que la vista publica no lo contien
 | `DiscountServiceTest` (9) | Las tres reglas, la puerta de la ventana, el techo y el desglose |
 | `PricingServiceTest` (8) | Orden de operaciones, umbral de envio y redondeo |
 | `CheckoutServiceTest` (7) | Reversion de stock, division por empresa y origen de la marca de sorpresa |
-| `OrderStatusTest` (11) | Cada arista de la maquina de estados, valida e invalida |
+| `OrderStatusTest` (11) | Cada arista de la maquina de estados de pedidos, valida e invalida |
 | `OrderManagementServiceTest` (13) | Cambios de estado y de productos, recalculo, saldo y avisos |
+| `CaseStatusTest` (10) | Maquina de estados del caso, incluida la reapertura |
+| `SupportCaseServiceTest` (9) | Clasificacion BERT, SLA por prioridad y fallback |
+| `ChatServiceTest` (6) | Quien publica en el chat y alcance de los comunicados |
 
-**64 pruebas.** Ademas se verifica en el navegador el recorrido completo, tanto del cliente como de
+**89 pruebas.** Ademas se verifica en el navegador el recorrido completo, tanto del cliente como de
 la empresa: los dos defectos mas graves encontrados —el descuento del 50% inalcanzable y la caja
 sorpresa que perdia productos— **solo aparecieron ahi**, no en las pruebas unitarias.
 

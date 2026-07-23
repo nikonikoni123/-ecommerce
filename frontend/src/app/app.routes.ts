@@ -118,6 +118,20 @@ export const routes: Routes = [
       import('./features/account/notifications.component').then((m) => m.NotificationsComponent),
     title: 'Notificaciones',
   },
+  {
+    path: 'casos',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/support/my-cases.component').then((m) => m.MyCasesComponent),
+    title: 'Mis casos',
+  },
+  {
+    path: 'casos/:id',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/support/case-detail.component').then((m) => m.CaseDetailComponent),
+    title: 'Caso',
+  },
 
   // --- Panel de empresa ---
   {
@@ -144,6 +158,30 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/company/company-refunds.component').then((m) => m.CompanyRefundsComponent),
     title: 'Reembolsos',
+  },
+  {
+    path: 'empresa/casos',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.CASE_VIEW },
+    loadComponent: () =>
+      import('./features/company/company-cases.component').then((m) => m.CompanyCasesComponent),
+    title: 'Atencion a casos',
+  },
+  {
+    path: 'empresa/casos/:id',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.CASE_VIEW },
+    loadComponent: () =>
+      import('./features/company/company-case-detail.component')
+        .then((m) => m.CompanyCaseDetailComponent),
+    title: 'Atender caso',
+  },
+  {
+    path: 'empresa/chat',
+    canActivate: [companyGuard],
+    loadComponent: () =>
+      import('./features/company/company-chat.component').then((m) => m.CompanyChatComponent),
+    title: 'Chat de empresa',
   },
   {
     path: 'empresa/productos',

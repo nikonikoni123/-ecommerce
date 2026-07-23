@@ -158,6 +158,38 @@
             </section>
           }
 
+          <!-- Contactar al vendedor: abre un caso de atencion -->
+          <section class="card">
+            <h2 class="detail__section">Contactar al vendedor</h2>
+            @if (!contacting()) {
+              <p class="detail__contact-text">
+                Cualquier comentario o peticion sobre este pedido lo atiende {{ order()!.companyName }}.
+              </p>
+              <button class="btn btn--outline btn--block" type="button" (click)="contacting.set(true)">
+                Abrir un caso
+              </button>
+            } @else {
+              <div class="field">
+                <label class="field__label" for="caseSubject">Asunto *</label>
+                <input class="input" id="caseSubject" [(ngModel)]="contactSubject"
+                  placeholder="Ej: el producto llego danado" />
+              </div>
+              <div class="field">
+                <label class="field__label" for="caseMsg">Mensaje *</label>
+                <textarea class="textarea" id="caseMsg" [(ngModel)]="contactMessage"
+                  placeholder="Cuentanos que necesitas"></textarea>
+              </div>
+              <div class="detail__contact-actions">
+                <button class="btn btn--sm" type="button" [disabled]="openingCase()" (click)="openCase()">
+                  {{ openingCase() ? 'Abriendo...' : 'Abrir caso' }}
+                </button>
+                <button class="btn btn--ghost btn--sm" type="button" (click)="contacting.set(false)">
+                  Cancelar
+                </button>
+              </div>
+            }
+          </section>
+
           <section class="card">
             <h2 class="detail__section">Entrega</h2>
 

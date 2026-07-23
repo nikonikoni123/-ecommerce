@@ -11,6 +11,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.ecommerce.common.ApiException;
+import com.ecommerce.company.Department;
+import com.ecommerce.company.DepartmentRepository;
 import com.ecommerce.notification.NotificationService;
 import com.ecommerce.security.AppPrincipal;
 import com.ecommerce.security.Permission;
@@ -37,13 +39,14 @@ class ChatServiceTest {
 
     @Mock private ChatMessageRepository messages;
     @Mock private UserRepository users;
+    @Mock private DepartmentRepository departments;
     @Mock private NotificationService notifications;
 
     private ChatService service;
 
     @BeforeEach
     void setUp() {
-        service = new ChatService(messages, users, notifications);
+        service = new ChatService(messages, users, departments, notifications);
         lenient().when(messages.save(any())).thenAnswer(inv -> inv.getArgument(0));
         lenient().when(users.findById(anyString())).thenReturn(Optional.of(miembro("autor-1", "Ana")));
     }
@@ -115,6 +118,61 @@ class ChatServiceTest {
                 .hasMessageContaining("empresa");
     }
 
+    // ------------------------------------------------------------------ chat por departamento
+
+    @Test
+    void unMiembroPublicaEnElChatDeSuDepartamento() {
+        var dept = departamento("d1", "Soporte", "jefe-1");
+        when(departments.findByIdAndCompanyId("d1", EMPRESA)).thenReturn(Optional.of(dept));
+        when(users.findById("autor-1")).thenReturn(Optional.of(enDepartamento("autor-1", "Ana", "d1")));
+
+        var vista = service.postToDepartment(principal("autor-1", Set.of()), "d1", "Hola equipo");
+
+        assertThat(vista.body()).isEqualTo("Hola equipo");
+        verify(messages).save(any());
+    }
+
+    @Test
+    void elJefeAccedeAlChatAunSinPertenecerAlDepartamento() {
+        var dept = departamento("d1", "Soporte", "jefe-1");
+        when(departments.findByIdAndCompanyId("d1", EMPRESA)).thenReturn(Optional.of(dept));
+        // El jefe no tiene departmentId = d1, pero lidera d1.
+        when(users.findById("jefe-1")).thenReturn(Optional.of(enDepartamento("jefe-1", "Jefa", null)));
+
+        var vista = service.postToDepartment(principal("jefe-1", Set.of()), "d1", "Buen trabajo");
+
+        assertThat(vista.body()).isEqualTo("Buen trabajo");
+        verify(messages).save(any());
+    }
+
+    @Test
+    void unExtranoNoAccedeAlChatDeOtroDepartamento() {
+        var dept = departamento("d1", "Soporte", "jefe-1");
+        when(departments.findByIdAndCompanyId("d1", EMPRESA)).thenReturn(Optional.of(dept));
+        when(users.findById("intruso"))
+                .thenReturn(Optional.of(enDepartamento("intruso", "Otro", "d2")));
+
+        assertThatThrownBy(() ->
+                service.postToDepartment(principal("intruso", Set.of()), "d1", "Cotilleo"))
+                .isInstanceOf(ApiException.class)
+                .hasMessageContaining("perteneces");
+
+        verify(messages, never()).save(any());
+    }
+
+    @Test
+    void soloAparecenLosDepartamentosAccesibles() {
+        when(departments.findByCompanyId(EMPRESA)).thenReturn(List.of(
+                departamento("d1", "Soporte", "jefe-1"),   // el propio del usuario
+                departamento("d2", "Ventas", "u9"),         // liderado por el usuario
+                departamento("d3", "Legal", "otro")));      // ajeno
+        when(users.findById("u9")).thenReturn(Optional.of(enDepartamento("u9", "Nico", "d1")));
+
+        var accesibles = service.accessibleDepartments(principal("u9", Set.of()));
+
+        assertThat(accesibles).extracting(Department::getId).containsExactlyInAnyOrder("d1", "d2");
+    }
+
     // ------------------------------------------------------------------ apoyo
 
     private AppPrincipal principal(String id, Set<Permission> permisos) {
@@ -129,5 +187,20 @@ class ChatServiceTest {
         u.setCompanyId(EMPRESA);
         u.setFirstName(nombre);
         return u;
+    }
+
+    private User enDepartamento(String id, String nombre, String deptId) {
+        var u = miembro(id, nombre);
+        u.setDepartmentId(deptId);
+        return u;
+    }
+
+    private Department departamento(String id, String nombre, String jefeId) {
+        var d = new Department();
+        d.setId(id);
+        d.setCompanyId(EMPRESA);
+        d.setName(nombre);
+        d.setLeaderUserId(jefeId);
+        return d;
     }
 }

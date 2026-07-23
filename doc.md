@@ -1,7 +1,7 @@
 # Documentacion tecnica — Plataforma E-Commerce
 
 > Documento vivo. Se actualiza al cerrar cada fase del proyecto.
-> **Estado:** Fases 1, 2, 3 y 4 entregadas · Rama `Nicolas`
+> **Estado:** Fases 1, 2, 3, 4 y 5 entregadas — proyecto completo · Rama `Nicolas`
 
 ---
 
@@ -19,7 +19,7 @@ cerrada, y esta documentacion crece con ella.
 | 2 | Carrito, checkout, descuentos y factura | Entregada |
 | 3 | Gestion de pedidos por la empresa, estados y reembolsos | Entregada |
 | 4 | Casos de atencion con BERT, comentarios al vendedor y chat | Entregada |
-| 5 | Departamentos, equipos, metas KPI y graficas | Pendiente |
+| 5 | Administracion de la empresa: cargos, usuarios, departamentos, equipos, metas KPI, graficas y chat de equipo | Entregada |
 
 ### Pila tecnologica
 
@@ -49,6 +49,10 @@ cerrada, y esta documentacion crece con ella.
 6. **Descuentos parametrizados**: 10% por ventana de tiempo, 50% por pedido aleatorio y 5% por
    cliente frecuente.
 7. **Trazabilidad**: estado de entrega, historial de pedidos y registro de actividad.
+8. **Administracion por root**: cargos, usuarios, departamentos con jefes y equipos (un jefe puede
+   tener jefe), y personalizacion de acceso por proceso de gestion.
+9. **Metas KPI e indicadores**: metas por empresa, departamento o persona, con su progreso calculado
+   sobre los datos reales, y un panel de graficas de gestion.
 
 ### Tecnicos
 
@@ -69,9 +73,14 @@ erDiagram
     COMPANY ||--|| USER : "tiene un root"
     COMPANY ||--o{ USER : "emplea"
     COMPANY ||--o{ ROLE : "define cargos"
+    COMPANY ||--o{ DEPARTMENT : "organiza en"
     COMPANY ||--o{ PRODUCT : "publica"
     COMPANY ||--o{ ORDER : "recibe"
+    COMPANY ||--o{ KPI_GOAL : "fija metas"
     USER ||--o{ ROLE : "acumula"
+    DEPARTMENT ||--o| USER : "lo lidera un jefe"
+    DEPARTMENT ||--o{ USER : "agrupa miembros"
+    USER ||--o| USER : "tiene jefe (managerId)"
     USER ||--|| CART : "posee uno"
     USER ||--o{ ORDER : "realiza"
     USER ||--o{ NOTIFICATION : "recibe"
@@ -79,6 +88,8 @@ erDiagram
     ORDER ||--o{ ORDER_ITEM : "congela"
     ORDER_ITEM }o--|| PRODUCT : "copia de"
     PROMOTION_WINDOW ||--o{ ORDER : "descuenta"
+    KPI_GOAL }o--o| DEPARTMENT : "puede apuntar a"
+    KPI_GOAL }o--o| USER : "puede apuntar a"
 ```
 
 ### Colecciones de MongoDB
@@ -88,13 +99,15 @@ erDiagram
 | `users` | Documento unico para ambos tipos, con discriminador `type` | `email` unico; `username` unico **parcial**; `(companyId, root)` unico parcial |
 | `companies` | Empresa vendedora | `nit` unico |
 | `roles` | Cargos: plantillas de permisos | `companyId` |
+| `departments` | Departamentos con su jefe; la pertenencia vive en `User.departmentId` | `companyId` |
+| `kpiGoals` | Metas KPI; el valor cumplido no se almacena, se calcula al consultar | `(companyId, targetType, targetId)` |
 | `products` | Catalogo | `slug` unico; `(active, createdAt)`; indice de texto en español |
 | `carts` | Un carrito por cliente | `customerId` unico |
 | `orders` | Pedido a **una sola** empresa | `number` unico; `(companyId, status, createdAt)` |
 | `promotionWindows` | Rango de tiempo con descuentos | `(active, startsAt, endsAt)` |
 | `refundRequests` | Solicitudes de reembolso, con ciclo propio | `(companyId, status, createdAt)`; `customerId` |
 | `supportCases` | Casos de atencion, con los mensajes embebidos | `number` unico; `(companyId, status, dueDate)`; `customerId` |
-| `chatMessages` | Chat general de la empresa y comunicados de root | `(companyId, channel, createdAt)` |
+| `chatMessages` | Chat general, comunicados de root y chats de departamento (canal `dept:<id>`) | `(companyId, channel, createdAt)` |
 | `counters` | Numeracion atomica de pedidos, facturas y casos | clave primaria |
 | `verificationTokens`, `refreshTokens` | Tokens de un solo uso | TTL sobre `expiresAt` |
 | `notifications`, `activityLog` | Avisos y trazabilidad | por destinatario / por empresa |
@@ -145,6 +158,25 @@ despues de entregar —cuando el cliente puede saber que "no era lo esperado"—
 Los productos de un pedido solo se pueden cambiar mientras no haya salido; al hacerlo, los importes
 se recalculan conservando el porcentaje de descuento original y la diferencia queda registrada como
 **saldo de ajuste**.
+
+**Departamentos y jerarquia (Fase 5).** Un departamento agrupa personas y tiene un jefe opcional. La
+pertenencia no se guarda como una lista en el departamento, sino en `User.departmentId`: un solo sitio
+que consultar y sin listas que sincronizar al mover a alguien. La jerarquia de mando es
+independiente y vive en `User.managerId` —"un jefe puede tener jefe"—, con guardas que impiden que
+alguien sea su propio jefe o que se forme un ciclo directo. Al eliminar a un usuario, sus
+subordinados quedan sin jefe y los departamentos que lideraba, sin lider, en lugar de conservar
+referencias rotas.
+
+**Metas KPI calculadas, no almacenadas.** Una meta guarda solo su objetivo, su periodo y a quien
+apunta (empresa, departamento o persona). El **valor cumplido se calcula al consultar**, sobre los
+pedidos y casos reales del periodo: guardarlo obligaria a recalcularlo con cada cambio de pedido o
+caso, y quedaria desincronizado en cuanto algo cambiara por otra via. Las **ventas** solo tienen
+sentido a nivel de empresa o departamento —quien compra es el cliente, no el personal—; las metricas
+de gestion (casos resueltos, a tiempo, atendidos, pedidos entregados) si pueden apuntar a una persona.
+
+**Ambito del jefe.** Root gestiona cualquier meta de su empresa; un jefe solo las de su departamento
+y las de las personas de ese departamento, como pide la especificacion. La misma regla decide que
+metas ve cada quien.
 
 ---
 
@@ -213,6 +245,10 @@ flowchart TD
     end
     subgraph Empresa
         EP
+        EK["/empresa/kpi"]
+        EA["/empresa/administracion"]
+        EAC["/empresa/actividad"]
+        ECH["/empresa/chat"]
     end
 ```
 
@@ -234,6 +270,12 @@ permitidas. Es solo cortesia visual: el backend vuelve a comprobarlo y responde 
 **Responsive de 4 a 1 columnas.** Rejilla de catalogo 4 → 2 → 1 segun ancho; ninguna pagina desborda
 horizontalmente. Las tablas anchas hacen scroll dentro de su contenedor.
 
+**Graficas propias, sin libreria.** El panel KPI dibuja sus barras, lineas, dona y medidores en
+**SVG a mano**, con los mismos tokens del sistema de diseño. Es coherente con la postura del proyecto
+de no arrastrar dependencias de frontend, y evita cargar una libreria de graficas entera para cinco
+figuras. Cada grafica es un componente reutilizable (`app-bar-chart`, `app-line-chart`,
+`app-donut-chart`, `app-gauge`) que recibe una lista de puntos.
+
 ### Pantallas
 
 | Ruta | Acceso | Contenido |
@@ -253,7 +295,10 @@ horizontalmente. Las tablas anchas hacen scroll dentro de su contenedor.
 | `/empresa/reembolsos` | Empresa | Solicitudes recibidas, con aprobacion o rechazo |
 | `/casos`, `/casos/:id` | Cliente | Mis casos y su conversacion; se abren desde el pedido |
 | `/empresa/casos`, `/empresa/casos/:id` | Empresa | Bandeja priorizada por BERT; atender, asignar y responder |
-| `/empresa/chat` | Empresa | Chat general y comunicados de root |
+| `/empresa/kpi` | Empresa (KPI) | Panel de indicadores con graficas SVG y gestion de metas con su progreso |
+| `/empresa/administracion` | Empresa (root) | Cargos, usuarios y departamentos, en tres pestañas; ajuste fino de permisos por persona |
+| `/empresa/actividad` | Empresa (`ACTIVITY_VIEW`) | Registro de la actividad de gestion, filtrable por usuario |
+| `/empresa/chat` | Empresa | Chat general, comunicados de root y chat privado por departamento o equipo |
 
 ---
 
@@ -401,8 +446,39 @@ El **chat general** de la empresa lo lee todo el personal, pero solo publican qu
 (`BROADCAST_SEND`) aparecen en el mismo hilo, destacados, y ademas generan una notificacion a cada
 miembro: es informacion que debe llegar a todos, no depender de que abran el chat.
 
-Los chats por departamento o equipo se dejan para la **Fase 5**, cuando existan los departamentos a
-los que pertenecen; el campo `channel` reserva el sitio sin migrar nada.
+Los **chats por departamento o equipo** (Fase 5) reutilizan la misma coleccion: cada canal se nombra
+`dept:<id>` sobre el campo `channel` que ya estaba reservado, sin migrar nada. A diferencia del chat
+general, aqui no hace falta un permiso para escribir: el chat de equipo es privado y la barrera es la
+**pertenencia** —lo ven y publican los miembros del departamento, su jefe y root—. La interfaz ofrece
+un selector de canales que solo lista los departamentos accesibles para quien mira.
+
+### Administracion de la empresa (Fase 5)
+
+Root administra su empresa desde un mismo servicio (`CompanyAdminService`), con cada competencia tras
+su propio permiso para poder repartirlas entre cargos:
+
+- **Cargos** (`ROLE_MANAGE`): crear, modificar y eliminar plantillas de permisos. Los cargos del
+  sistema no se borran, y al eliminar un cargo se retira de quien lo tuviera para no dejar referencias
+  colgando.
+- **Usuarios** (`USER_MANAGE`): crear e invitar por correo (sin contrasena utilizable hasta que la
+  fije desde el enlace), modificar cargos, departamento, jefe y **permisos individuales** concedidos o
+  revocados sobre los cargos, y eliminar. No se puede eliminar al root ni eliminarse a uno mismo.
+- **Departamentos** (`DEPARTMENT_MANAGE`): crear, modificar, asignar jefe y eliminar; al eliminar, sus
+  miembros quedan sin departamento.
+- **Actividad** (`ACTIVITY_VIEW`): consultar el registro de acciones de gestion de la empresa,
+  opcionalmente filtrado por usuario.
+
+Cada mutacion se anota en el **registro de actividad**, de modo que el visor refleje quien hizo que.
+
+### Metas KPI y panel de indicadores (Fase 5)
+
+El valor real de cada metrica lo calcula `KpiCalculator` **sobre los datos que ya existen** —pedidos y
+casos— en el periodo y el ambito pedidos, sin almacenar nada. `KpiGoalService` fija las metas y
+resuelve su progreso (`actual / objetivo`), aplicando el ambito del jefe. `DashboardService` arma el
+panel: ventas por mes, casos por estado, productos mas vendidos, y casos por departamento y por
+persona, todo del periodo elegido. Un endpoint de **objetivos** devuelve a cada quien solo los
+departamentos y usuarios que puede fijar como meta, para que un jefe sin `USER_MANAGE` pueda armar sus
+metas sin ver toda la plantilla.
 
 ### Notas de plataforma
 
@@ -435,8 +511,20 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 |---|---|
 | `AuthService` | Registro de cliente y empresa, verificacion, sesion, 2FA y contrasena |
 | `UserService` | Perfil, cambio de contrasena, alta y baja de 2FA, y baja de cuenta con anonimizacion |
-| `User` | Documento unico para ambos tipos, discriminado por `type` |
+| `User` | Documento unico para ambos tipos, discriminado por `type`; `departmentId` y `managerId` |
 | `Company` / `Role` | Empresa y cargos (plantillas de permisos) |
+| `Department` | Departamento con su jefe; la pertenencia vive en `User.departmentId` |
+| `CompanyAdminService` | Administracion por root: cargos, usuarios, departamentos, con guardas e invitacion por correo |
+
+### `com.ecommerce.kpi`
+
+| Clase | Responsabilidad |
+|---|---|
+| `KpiMetric` | Metricas disponibles, con su unidad (moneda/conteo) y su ambito |
+| `KpiGoal` | Meta: objetivo, periodo y a quien apunta; no guarda el valor cumplido |
+| `KpiCalculator` | Calcula el valor real de cada metrica sobre pedidos y casos, al consultar |
+| `KpiGoalService` | Crea, lista y borra metas con su progreso; aplica el ambito del jefe |
+| `DashboardService` | Arma las series del panel: ventas, casos, productos, por departamento y por persona |
 
 ### `com.ecommerce.catalog`
 
@@ -468,7 +556,7 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `SupportCaseService` | Casos del cliente: abrir, clasificar con BERT, fijar SLA y conversar |
 | `CompanySupportService` | Bandeja de la empresa: orden por prioridad, asignacion y respuesta |
 | `CasePrioritizationClient` | Cliente del microservicio BERT, con heuristica de reserva |
-| `ChatService` | Chat general y comunicados de root, con control de quien publica |
+| `ChatService` | Chat general, comunicados de root y chats de departamento por pertenencia |
 | `SurpriseBoxService` | Sorteo ponderado por afinidad, con presupuesto opcional |
 | `InvoiceService` | Factura PDF con OpenPDF, generada al vuelo desde los importes congelados |
 | `Order` / `OrderStatus` | Pedido con importes, historial de estados, regalo y pago |
@@ -492,8 +580,10 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `auth.interceptor.ts` | Adjunta el token y renueva **una sola vez** ante varios 401 concurrentes |
 | `cart.service.ts` | Carrito y pedidos; signal del contador del encabezado |
 | `catalog.service.ts` | Catalogo publico y panel de productos |
-| `guards.ts` | Guardas por sesion, por tipo de cuenta y por permiso |
+| `guards.ts` | Guardas por sesion, por tipo de cuenta y por permiso (`permission` o `anyPermission`) |
 | `has-permission.directive.ts` | Oculta acciones sin permiso |
+| `admin.service.ts` | Administracion (cargos, usuarios, departamentos, actividad) y KPI (metas, panel) |
+| `shared/charts.component.ts` | Graficas SVG propias: barras, linea, dona y medidor |
 
 ---
 
@@ -584,6 +674,47 @@ classDiagram
     InvoiceService ..> Order
 ```
 
+### Administracion y KPI (Fase 5)
+
+```mermaid
+classDiagram
+    class Department {
+        +String companyId
+        +String name
+        +String leaderUserId
+    }
+    class CompanyAdminService {
+        +listRoles / createRole / updateRole / deleteRole()
+        +listMembers / createMember / updateMember / deleteMember()
+        +listDepartments / createDepartment / updateDepartment / deleteDepartment()
+    }
+    class KpiGoal {
+        +KpiMetric metric
+        +TargetType targetType
+        +String targetId
+        +BigDecimal target
+        +Instant periodStart
+        +Instant periodEnd
+    }
+    class KpiCalculator {
+        +actual(companyId, metric, from, to, userIds) BigDecimal
+    }
+    class KpiGoalService {
+        +list(actor) List~GoalView~
+        +create / update / delete()
+        +targets(actor) TargetScope
+    }
+    class DashboardService {
+        +build(actor, months) Dashboard
+    }
+    CompanyAdminService --> Department
+    CompanyAdminService ..> ActivityService : registra
+    KpiGoalService --> KpiGoal
+    KpiGoalService --> KpiCalculator
+    KpiGoalService ..> Department : ambito del jefe
+    DashboardService ..> KpiCalculator
+```
+
 ---
 
 ## 9. Arquitectura
@@ -656,11 +787,14 @@ servidor: no es que se filtre y se limpie, es que la vista publica no lo contien
 | `OrderManagementServiceTest` (13) | Cambios de estado y de productos, recalculo, saldo y avisos |
 | `CaseStatusTest` (10) | Maquina de estados del caso, incluida la reapertura |
 | `SupportCaseServiceTest` (9) | Clasificacion BERT, SLA por prioridad y fallback |
-| `ChatServiceTest` (6) | Quien publica en el chat y alcance de los comunicados |
+| `ChatServiceTest` (10) | Quien publica en el chat, alcance de los comunicados y acceso al chat de departamento |
+| `KpiGoalServiceTest` (6) | Progreso calculado, validacion de ambito y alcance del jefe sobre las metas |
+| `CompanyAdminServiceTest` (5) | Guardas de root/autoborrado, cargos de sistema y unicidad de nombre |
 
-**89 pruebas.** Ademas se verifica en el navegador el recorrido completo, tanto del cliente como de
-la empresa: los dos defectos mas graves encontrados —el descuento del 50% inalcanzable y la caja
-sorpresa que perdia productos— **solo aparecieron ahi**, no en las pruebas unitarias.
+**104 pruebas.** Ademas se verifica en el navegador el recorrido completo, tanto del cliente como de
+la empresa: los dos defectos mas graves encontrados a lo largo del proyecto —el descuento del 50%
+inalcanzable y la caja sorpresa que perdia productos— **solo aparecieron ahi**, no en las pruebas
+unitarias.
 
 ---
 

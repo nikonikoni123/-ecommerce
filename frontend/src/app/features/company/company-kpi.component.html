@@ -1,0 +1,225 @@
+<section class="kpi">
+  <div class="container">
+    <p class="eyebrow">Panel de empresa</p>
+    <h1 class="kpi__title">Indicadores KPI</h1>
+    <p class="kpi__intro">
+      Resultados de gestion calculados sobre los pedidos y casos reales. Las ventas se miden a nivel
+      de empresa; el desempeno de las personas, por los casos y pedidos que gestionan.
+    </p>
+
+    <app-alert [message]="error()" variant="error" />
+    <app-alert [message]="notice()" variant="success" />
+
+    <!-- ============================================================ PANEL -->
+    @if (canViewDashboard()) {
+      <div class="kpi__toolbar">
+        <label class="kpi__range">
+          Periodo
+          <select class="select" [(ngModel)]="months" (ngModelChange)="loadDashboard()">
+            <option [value]="3">Ultimos 3 meses</option>
+            <option [value]="6">Ultimos 6 meses</option>
+            <option [value]="12">Ultimos 12 meses</option>
+          </select>
+        </label>
+      </div>
+
+      @if (loadingDash()) {
+        <p class="kpi__state">Cargando panel...</p>
+      } @else if (dashboard(); as d) {
+        <div class="tiles">
+          @for (t of d.tiles; track t.label) {
+            <div class="tile">
+              <p class="tile__label">{{ t.label }}</p>
+              <p class="tile__value">{{ metricValue(t.value, t.unit) }}</p>
+            </div>
+          }
+        </div>
+
+        <div class="charts">
+          <div class="card chart-card chart-card--wide">
+            <h3 class="chart-card__title">{{ d.salesByMonth.name }}</h3>
+            <app-line-chart
+              [slices]="d.salesByMonth.slices"
+              [unit]="d.salesByMonth.unit"
+              [label]="d.salesByMonth.name"
+            />
+          </div>
+
+          <div class="card chart-card">
+            <h3 class="chart-card__title">{{ d.casesByStatus.name }}</h3>
+            <app-donut-chart [slices]="d.casesByStatus.slices" [label]="d.casesByStatus.name" />
+          </div>
+
+          <div class="card chart-card">
+            <h3 class="chart-card__title">{{ d.topProducts.name }}</h3>
+            <app-bar-chart [slices]="d.topProducts.slices" [unit]="d.topProducts.unit" />
+          </div>
+
+          <div class="card chart-card">
+            <h3 class="chart-card__title">{{ d.byDepartment.name }}</h3>
+            <app-bar-chart [slices]="d.byDepartment.slices" [unit]="d.byDepartment.unit" />
+          </div>
+
+          <div class="card chart-card">
+            <h3 class="chart-card__title">{{ d.byAgent.name }}</h3>
+            <app-bar-chart [slices]="d.byAgent.slices" [unit]="d.byAgent.unit" />
+          </div>
+        </div>
+      }
+    }
+
+    <!-- ============================================================ METAS -->
+    <div class="kpi__goals">
+      <h2 class="kpi__section">Metas</h2>
+
+      <div class="goals-grid">
+        <div class="goals">
+          @if (goals().length === 0) {
+            <p class="kpi__state">Aun no hay metas definidas.</p>
+          }
+          @for (g of goals(); track g.id) {
+            <div class="card goal">
+              <div class="goal__gauge">
+                <app-gauge [percent]="g.progress" />
+              </div>
+              <div class="goal__body">
+                <p class="goal__metric">{{ g.metricLabel }}</p>
+                <p class="goal__target">
+                  {{ g.targetName }} ·
+                  <span class="goal__nums">
+                    {{ metricValue(g.actual, g.unit) }} / {{ metricValue(g.target, g.unit) }}
+                  </span>
+                </p>
+                <p class="goal__period">{{ date(g.periodStart) }} — {{ date(g.periodEnd) }}</p>
+                @if (g.achieved) {
+                  <span class="badge badge--in">Cumplida</span>
+                }
+              </div>
+              @if (canManage()) {
+                <div class="goal__actions">
+                  <button class="btn btn--ghost btn--sm" (click)="editGoal(g)">Editar</button>
+                  <button class="btn btn--ghost btn--sm danger" (click)="deleteGoal(g)">Eliminar</button>
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        @if (canManage()) {
+          <form class="card goal-form" (ngSubmit)="saveGoal()">
+            <div class="goal-form__head">
+              <h3>{{ editingGoal() ? 'Editar meta' : 'Nueva meta' }}</h3>
+              @if (editingGoal()) {
+                <button type="button" class="btn btn--ghost btn--sm" (click)="newGoal()">Nueva</button>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label">Metrica</label>
+              <select
+                class="select"
+                name="metric"
+                [ngModel]="draft().metric"
+                (ngModelChange)="patchDraft({ metric: $event })"
+              >
+                <option value="">Elige una metrica</option>
+                @for (m of metrics(); track m.metric) {
+                  <option [value]="m.metric">{{ m.label }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Se asigna a</label>
+              <select
+                class="select"
+                name="ttype"
+                [ngModel]="draft().targetType"
+                (ngModelChange)="patchDraft({ targetType: $event })"
+              >
+                <option value="COMPANY">Toda la empresa</option>
+                <option value="DEPARTMENT">Un departamento</option>
+                @if (allowsUser()) {
+                  <option value="USER">Una persona</option>
+                }
+              </select>
+            </div>
+
+            @if (draft().targetType === 'DEPARTMENT') {
+              <div class="field">
+                <label class="field__label">Departamento</label>
+                <select
+                  class="select"
+                  name="dept"
+                  [ngModel]="draft().targetId"
+                  (ngModelChange)="patchDraft({ targetId: $event })"
+                >
+                  <option value="">Elige un departamento</option>
+                  @for (d of scope().departments; track d.id) {
+                    <option [value]="d.id">{{ d.name }}</option>
+                  }
+                </select>
+              </div>
+            }
+
+            @if (draft().targetType === 'USER') {
+              <div class="field">
+                <label class="field__label">Persona</label>
+                <select
+                  class="select"
+                  name="user"
+                  [ngModel]="draft().targetId"
+                  (ngModelChange)="patchDraft({ targetId: $event })"
+                >
+                  <option value="">Elige una persona</option>
+                  @for (u of scope().users; track u.id) {
+                    <option [value]="u.id">{{ u.name }}</option>
+                  }
+                </select>
+              </div>
+            }
+
+            <div class="field">
+              <label class="field__label">Objetivo</label>
+              <input
+                class="input"
+                type="number"
+                min="1"
+                name="target"
+                [ngModel]="draft().target"
+                (ngModelChange)="patchDraft({ target: $event })"
+              />
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label">Desde</label>
+                <input
+                  class="input"
+                  type="date"
+                  name="from"
+                  [ngModel]="draft().periodStart"
+                  (ngModelChange)="patchDraft({ periodStart: $event })"
+                />
+              </div>
+              <div class="field">
+                <label class="field__label">Hasta</label>
+                <input
+                  class="input"
+                  type="date"
+                  name="to"
+                  [ngModel]="draft().periodEnd"
+                  (ngModelChange)="patchDraft({ periodEnd: $event })"
+                />
+              </div>
+            </div>
+
+            <button class="btn btn--block" type="submit" [disabled]="busy()">
+              {{ busy() ? 'Guardando...' : editingGoal() ? 'Guardar cambios' : 'Crear meta' }}
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

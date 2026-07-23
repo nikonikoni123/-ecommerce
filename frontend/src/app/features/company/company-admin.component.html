@@ -1,0 +1,402 @@
+<section class="admin">
+  <div class="container">
+    <p class="eyebrow">Panel de empresa</p>
+    <h1 class="admin__title">Administracion</h1>
+    <p class="admin__intro">
+      Gestiona los cargos (plantillas de permisos), los usuarios de tu empresa y los departamentos
+      con sus jefes y equipos.
+    </p>
+
+    <div class="tabs" role="tablist">
+      <button class="tabs__tab" [class.is-active]="tab() === 'usuarios'" (click)="switchTab('usuarios')">
+        Usuarios ({{ members().length }})
+      </button>
+      <button class="tabs__tab" [class.is-active]="tab() === 'cargos'" (click)="switchTab('cargos')">
+        Cargos ({{ roles().length }})
+      </button>
+      <button
+        class="tabs__tab"
+        [class.is-active]="tab() === 'departamentos'"
+        (click)="switchTab('departamentos')"
+      >
+        Departamentos ({{ departments().length }})
+      </button>
+    </div>
+
+    <app-alert [message]="error()" variant="error" />
+    <app-alert [message]="notice()" variant="success" />
+
+    <!-- ============================================================ USUARIOS -->
+    @if (tab() === 'usuarios') {
+      <div class="grid">
+        <div class="panel admin__list">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Cargo/puesto</th>
+                  <th>Departamento</th>
+                  <th>Jefe</th>
+                  <th>Cargos</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (m of members(); track m.id) {
+                  <tr [class.is-selected]="editingMember()?.id === m.id">
+                    <td>
+                      <strong>{{ m.name }}</strong>
+                      @if (m.root) { <span class="badge badge--in">root</span> }
+                      @if (m.leadsADepartment) { <span class="badge">jefe</span> }
+                      <br /><span class="muted">{{ m.email }}</span>
+                    </td>
+                    <td>{{ m.position || '—' }}</td>
+                    <td>{{ m.departmentName || '—' }}</td>
+                    <td>{{ m.managerName || '—' }}</td>
+                    <td>{{ m.roleNames.length ? m.roleNames.join(', ') : '—' }}</td>
+                    <td class="right">
+                      <button class="btn btn--ghost btn--sm" (click)="editMember(m)">Editar</button>
+                      @if (!m.root) {
+                        <button class="btn btn--ghost btn--sm danger" (click)="deleteMember(m)">
+                          Eliminar
+                        </button>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Editor / alta de usuario -->
+        @if (editingMember(); as m) {
+          <div class="card admin__editor">
+            <div class="admin__editor-head">
+              <h2>{{ m.name }}</h2>
+              <button class="btn btn--ghost btn--sm" (click)="newMember()">Nuevo usuario</button>
+            </div>
+            <p class="muted">{{ m.email }}</p>
+
+            <div class="field">
+              <label class="field__label">Departamento</label>
+              <select
+                class="select"
+                [value]="m.departmentId || ''"
+                (change)="setMemberDepartment($any($event.target).value)"
+              >
+                <option value="">Sin departamento</option>
+                @for (d of departments(); track d.id) {
+                  <option [value]="d.id">{{ d.name }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Jefe</label>
+              <select
+                class="select"
+                [value]="m.managerId || ''"
+                (change)="setMemberManager($any($event.target).value)"
+              >
+                <option value="">Sin jefe</option>
+                @for (u of members(); track u.id) {
+                  @if (u.id !== m.id) { <option [value]="u.id">{{ u.name }}</option> }
+                }
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label">Cargos</label>
+              <div class="chips">
+                @for (r of roles(); track r.id) {
+                  <button
+                    type="button"
+                    class="chip"
+                    [class.is-on]="m.roleIds.includes(r.id)"
+                    (click)="toggleMemberRole(m, r.id)"
+                  >
+                    {{ r.name }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <details class="admin__perms">
+              <summary>Ajuste fino de permisos</summary>
+              <p class="field__hint">
+                Concede o revoca permisos individuales sobre este usuario, por encima de sus cargos.
+              </p>
+              @for (g of groups(); track g.name) {
+                <p class="admin__perms-group">{{ g.name }}</p>
+                @for (p of g.permissions; track p.name) {
+                  <div class="admin__perm-row">
+                    <span [title]="p.name">{{ p.label }}</span>
+                    <div class="admin__perm-toggles">
+                      <button
+                        type="button"
+                        class="mini"
+                        [class.is-grant]="m.extraPermissions.includes(p.name)"
+                        (click)="toggleMemberPermission(m, p.name, 'extra')"
+                      >
+                        +
+                      </button>
+                      <button
+                        type="button"
+                        class="mini"
+                        [class.is-revoke]="m.revokedPermissions.includes(p.name)"
+                        (click)="toggleMemberPermission(m, p.name, 'revoked')"
+                      >
+                        −
+                      </button>
+                    </div>
+                  </div>
+                }
+              }
+            </details>
+
+            <div class="admin__effective">
+              <p class="field__label">Permisos efectivos ({{ m.effectivePermissions.length }})</p>
+              <div class="chips">
+                @for (p of m.effectivePermissions; track p) {
+                  <span class="chip chip--static">{{ p }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        } @else {
+          <form class="card admin__editor" (ngSubmit)="createMember()">
+            <h2>Nuevo usuario</h2>
+            <p class="field__hint">Se le enviara una invitacion por correo para fijar su contrasena.</p>
+
+            <div class="field">
+              <label class="field__label">Nombre</label>
+              <input
+                class="input"
+                name="name"
+                [ngModel]="memberDraft().name"
+                (ngModelChange)="memberDraft.update((d) => ({ ...d, name: $event }))"
+              />
+            </div>
+            <div class="field">
+              <label class="field__label">Correo</label>
+              <input
+                class="input"
+                type="email"
+                name="email"
+                [ngModel]="memberDraft().email"
+                (ngModelChange)="memberDraft.update((d) => ({ ...d, email: $event }))"
+              />
+            </div>
+            <div class="field">
+              <label class="field__label">Cargo/puesto</label>
+              <input
+                class="input"
+                name="position"
+                [ngModel]="memberDraft().position"
+                (ngModelChange)="memberDraft.update((d) => ({ ...d, position: $event }))"
+              />
+            </div>
+            <div class="field">
+              <label class="field__label">Departamento</label>
+              <select
+                class="select"
+                name="dept"
+                [ngModel]="memberDraft().departmentId"
+                (ngModelChange)="memberDraft.update((d) => ({ ...d, departmentId: $event }))"
+              >
+                <option value="">Sin departamento</option>
+                @for (d of departments(); track d.id) {
+                  <option [value]="d.id">{{ d.name }}</option>
+                }
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label">Cargos</label>
+              <div class="chips">
+                @for (r of roles(); track r.id) {
+                  <button
+                    type="button"
+                    class="chip"
+                    [class.is-on]="memberDraft().roleIds.includes(r.id)"
+                    (click)="toggleDraftRole(r.id)"
+                  >
+                    {{ r.name }}
+                  </button>
+                }
+              </div>
+            </div>
+            <button class="btn btn--block" type="submit" [disabled]="busy()">
+              {{ busy() ? 'Creando...' : 'Crear e invitar' }}
+            </button>
+          </form>
+        }
+      </div>
+    }
+
+    <!-- ============================================================ CARGOS -->
+    @if (tab() === 'cargos') {
+      <div class="grid">
+        <div class="panel admin__list">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr><th>Cargo</th><th>Permisos</th><th>Usuarios</th><th></th></tr>
+              </thead>
+              <tbody>
+                @for (r of roles(); track r.id) {
+                  <tr>
+                    <td>
+                      <strong>{{ r.name }}</strong>
+                      @if (r.system) { <span class="badge">sistema</span> }
+                      @if (r.description) { <br /><span class="muted">{{ r.description }}</span> }
+                    </td>
+                    <td>{{ r.permissions.length }}</td>
+                    <td>{{ r.memberCount }}</td>
+                    <td class="right">
+                      <button class="btn btn--ghost btn--sm" (click)="editRole(r)">Editar</button>
+                      @if (!r.system) {
+                        <button class="btn btn--ghost btn--sm danger" (click)="deleteRole(r)">
+                          Eliminar
+                        </button>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <form class="card admin__editor" (ngSubmit)="saveRole()">
+          <div class="admin__editor-head">
+            <h2>{{ editingRole() ? 'Editar cargo' : 'Nuevo cargo' }}</h2>
+            @if (editingRole()) {
+              <button type="button" class="btn btn--ghost btn--sm" (click)="newRole()">Nuevo</button>
+            }
+          </div>
+
+          <div class="field">
+            <label class="field__label">Nombre</label>
+            <input
+              class="input"
+              name="rname"
+              [ngModel]="roleForm().name"
+              (ngModelChange)="roleForm.update((f) => ({ ...f, name: $event }))"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label">Descripcion</label>
+            <input
+              class="input"
+              name="rdesc"
+              [ngModel]="roleForm().description"
+              (ngModelChange)="roleForm.update((f) => ({ ...f, description: $event }))"
+            />
+          </div>
+
+          <div class="field">
+            <label class="field__label">Permisos</label>
+            @for (g of groups(); track g.name) {
+              <p class="admin__perms-group">{{ g.name }}</p>
+              @for (p of g.permissions; track p.name) {
+                <label class="admin__check">
+                  <input
+                    type="checkbox"
+                    [checked]="roleHas(p.name)"
+                    (change)="toggleRolePermission(p.name)"
+                  />
+                  <span>{{ p.label }}</span>
+                </label>
+              }
+            }
+          </div>
+
+          <button class="btn btn--block" type="submit" [disabled]="busy()">
+            {{ busy() ? 'Guardando...' : editingRole() ? 'Guardar cambios' : 'Crear cargo' }}
+          </button>
+        </form>
+      </div>
+    }
+
+    <!-- ============================================================ DEPARTAMENTOS -->
+    @if (tab() === 'departamentos') {
+      <div class="grid">
+        <div class="panel admin__list">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr><th>Departamento</th><th>Jefe</th><th>Miembros</th><th></th></tr>
+              </thead>
+              <tbody>
+                @for (d of departments(); track d.id) {
+                  <tr>
+                    <td>
+                      <strong>{{ d.name }}</strong>
+                      @if (d.description) { <br /><span class="muted">{{ d.description }}</span> }
+                    </td>
+                    <td>{{ d.leaderName || '—' }}</td>
+                    <td>{{ d.memberCount }}</td>
+                    <td class="right">
+                      <button class="btn btn--ghost btn--sm" (click)="editDept(d)">Editar</button>
+                      <button class="btn btn--ghost btn--sm danger" (click)="deleteDept(d)">
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <form class="card admin__editor" (ngSubmit)="saveDept()">
+          <div class="admin__editor-head">
+            <h2>{{ editingDept() ? 'Editar departamento' : 'Nuevo departamento' }}</h2>
+            @if (editingDept()) {
+              <button type="button" class="btn btn--ghost btn--sm" (click)="newDept()">Nuevo</button>
+            }
+          </div>
+
+          <div class="field">
+            <label class="field__label">Nombre</label>
+            <input
+              class="input"
+              name="dname"
+              [ngModel]="deptForm().name"
+              (ngModelChange)="deptForm.update((f) => ({ ...f, name: $event }))"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label">Descripcion</label>
+            <input
+              class="input"
+              name="ddesc"
+              [ngModel]="deptForm().description"
+              (ngModelChange)="deptForm.update((f) => ({ ...f, description: $event }))"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label">Jefe que lidera el equipo</label>
+            <select
+              class="select"
+              name="leader"
+              [ngModel]="deptForm().leaderUserId"
+              (ngModelChange)="deptForm.update((f) => ({ ...f, leaderUserId: $event }))"
+            >
+              <option value="">Sin jefe asignado</option>
+              @for (u of members(); track u.id) {
+                <option [value]="u.id">{{ u.name }}</option>
+              }
+            </select>
+          </div>
+
+          <button class="btn btn--block" type="submit" [disabled]="busy()">
+            {{ busy() ? 'Guardando...' : editingDept() ? 'Guardar cambios' : 'Crear departamento' }}
+          </button>
+        </form>
+      </div>
+    }
+  </div>
+</section>

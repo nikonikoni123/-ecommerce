@@ -2,6 +2,8 @@ package com.ecommerce.chat;
 
 import com.ecommerce.common.ApiException;
 import com.ecommerce.common.PageResponse;
+import com.ecommerce.company.Department;
+import com.ecommerce.company.DepartmentRepository;
 import com.ecommerce.notification.Notification;
 import com.ecommerce.notification.NotificationService;
 import com.ecommerce.security.AppPrincipal;
@@ -38,12 +40,14 @@ public class ChatService {
 
     private final ChatMessageRepository messages;
     private final UserRepository users;
+    private final DepartmentRepository departments;
     private final NotificationService notifications;
 
     public ChatService(ChatMessageRepository messages, UserRepository users,
-                       NotificationService notifications) {
+                       DepartmentRepository departments, NotificationService notifications) {
         this.messages = messages;
         this.users = users;
+        this.departments = departments;
         this.notifications = notifications;
     }
 
@@ -96,6 +100,68 @@ public class ChatService {
         log.info("Comunicado enviado a {} miembros de la empresa {}", miembros.size(), companyId);
 
         return toView(comunicado, principal.userId());
+    }
+
+    // ================================================================= chat por departamento
+
+    /** Departamentos a cuyo chat tiene acceso el usuario: el suyo y los que lidera. */
+    public List<Department> accessibleDepartments(AppPrincipal principal) {
+        String companyId = companyOf(principal);
+        var propio = users.findById(principal.userId())
+                .map(User::getDepartmentId).orElse(null);
+
+        return departments.findByCompanyId(companyId).stream()
+                .filter(d -> principal.root()
+                        || d.getId().equals(propio)
+                        || principal.userId().equals(d.getLeaderUserId()))
+                .toList();
+    }
+
+    public PageResponse<ChatMessageView> departmentHistory(AppPrincipal principal, String departmentId,
+                                                           int page, int size) {
+        requireDepartmentAccess(principal, departmentId);
+        var result = messages.findByCompanyIdAndChannelOrderByCreatedAtDesc(
+                companyOf(principal), channel(departmentId), PageRequest.of(page, size));
+        return PageResponse.of(result, m -> toView(m, principal.userId()));
+    }
+
+    /**
+     * Publica en el chat de un departamento.
+     *
+     * <p>A diferencia del chat general, aqui no hace falta un permiso especial para escribir: el
+     * chat de equipo es privado y quien tiene acceso puede conversar. La barrera es la pertenencia.
+     */
+    public ChatMessageView postToDepartment(AppPrincipal principal, String departmentId, String body) {
+        requireDepartmentAccess(principal, departmentId);
+        var autor = users.findById(principal.userId()).orElse(null);
+
+        var mensaje = new ChatMessage(companyOf(principal), ChatMessage.Type.MESSAGE,
+                principal.userId(),
+                autor == null ? principal.email() : autor.displayName().trim(), body.trim());
+        mensaje.setChannel(channel(departmentId));
+        return toView(messages.save(mensaje), principal.userId());
+    }
+
+    private void requireDepartmentAccess(AppPrincipal principal, String departmentId) {
+        String companyId = companyOf(principal);
+        var dept = departments.findByIdAndCompanyId(departmentId, companyId)
+                .orElseThrow(() -> ApiException.notFound("El departamento no existe en tu empresa."));
+
+        // Root, el jefe del departamento, o un miembro del propio departamento.
+        boolean acceso = principal.root()
+                || principal.userId().equals(dept.getLeaderUserId())
+                || users.findById(principal.userId())
+                        .map(u -> departmentId.equals(u.getDepartmentId()))
+                        .orElse(false);
+        if (!acceso) {
+            throw ApiException.forbidden("NO_DEPARTMENT_ACCESS",
+                    "No perteneces a ese departamento ni lo lideras.");
+        }
+    }
+
+    /** El canal de un departamento se nombra con un prefijo, para separarlo del general. */
+    private String channel(String departmentId) {
+        return "dept:" + departmentId;
     }
 
     private String companyOf(AppPrincipal principal) {

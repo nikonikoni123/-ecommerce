@@ -27,6 +27,21 @@
         <a routerLink="/empresa/casos" routerLinkActive="is-active" (click)="closeMenu()">
           Casos
         </a>
+        @if (canViewKpi()) {
+          <a routerLink="/empresa/kpi" routerLinkActive="is-active" (click)="closeMenu()">
+            KPI
+          </a>
+        }
+        @if (canAdminister()) {
+          <a routerLink="/empresa/administracion" routerLinkActive="is-active" (click)="closeMenu()">
+            Administracion
+          </a>
+        }
+        @if (auth.has('ACTIVITY_VIEW')) {
+          <a routerLink="/empresa/actividad" routerLinkActive="is-active" (click)="closeMenu()">
+            Actividad
+          </a>
+        }
         <a routerLink="/empresa/chat" routerLinkActive="is-active" (click)="closeMenu()">
           Chat
         </a>

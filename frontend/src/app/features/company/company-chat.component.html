@@ -1,11 +1,30 @@
 <section class="chat">
   <div class="container container--narrow">
     <p class="eyebrow">Panel de empresa</p>
-    <h1 class="chat__title">Chat general</h1>
+    <h1 class="chat__title">Chat {{ inDepartment() ? 'de ' + active().name : 'general' }}</h1>
     <p class="chat__intro">
-      El chat lo lee todo el equipo. Solo publican los usuarios autorizados; los comunicados de la
-      direccion aparecen destacados.
+      @if (inDepartment()) {
+        Chat privado del equipo. Solo lo ven quienes pertenecen al departamento o lo lideran.
+      } @else {
+        El chat lo lee todo el equipo. Solo publican los usuarios autorizados; los comunicados de la
+        direccion aparecen destacados.
+      }
     </p>
+
+    @if (channels().length > 1) {
+      <div class="channels" role="tablist">
+        @for (c of channels(); track c.id) {
+          <button
+            type="button"
+            class="channels__tab"
+            [class.is-active]="c.id === active().id"
+            (click)="select(c)"
+          >
+            {{ c.department ? '# ' + c.name : c.name }}
+          </button>
+        }
+      </div>
+    }
 
     <app-alert [message]="error()" variant="error" />
 

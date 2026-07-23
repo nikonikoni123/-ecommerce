@@ -9,6 +9,7 @@ import {
   CaseStatusOption,
   ChatFeed,
   ChatMessageView,
+  DepartmentChannel,
   PageResponse,
 } from './models';
 
@@ -93,5 +94,22 @@ export class ChatService {
 
   broadcast(body: string): Observable<ChatMessageView> {
     return this.http.post<ChatMessageView>(`${this.base}/broadcast`, { body });
+  }
+
+  // -------------------------------------------------------------- chat por departamento
+
+  /** Departamentos a cuyo chat de equipo tiene acceso quien consulta. */
+  departments(): Observable<DepartmentChannel[]> {
+    return this.http.get<DepartmentChannel[]>(`${this.base}/departments`);
+  }
+
+  departmentFeed(id: string, page = 0, size = 40): Observable<PageResponse<ChatMessageView>> {
+    return this.http.get<PageResponse<ChatMessageView>>(`${this.base}/departments/${id}`, {
+      params: new HttpParams().set('page', page).set('size', size),
+    });
+  }
+
+  postToDepartment(id: string, body: string): Observable<ChatMessageView> {
+    return this.http.post<ChatMessageView>(`${this.base}/departments/${id}`, { body });
   }
 }

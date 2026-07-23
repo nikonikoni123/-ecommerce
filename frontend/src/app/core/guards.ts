@@ -27,18 +27,24 @@ export const companyGuard: CanActivateFn = () => {
 };
 
 /**
- * Exige un permiso concreto, declarado en la ruta como {@code data: { permission: '...' }}.
- * Es la contraparte en el enrutador de las comprobaciones del backend.
+ * Exige permisos declarados en la ruta. Acepta {@code data: { permission: '...' }} para exigir uno
+ * concreto, o {@code data: { anyPermission: ['A', 'B'] }} para exigir al menos uno de la lista. Es la
+ * contraparte en el enrutador de las comprobaciones del backend.
  */
 export const permissionGuard: CanActivateFn = (route) => {
   const auth = inject(AuthService);
   const router = inject(Router);
 
   const permission = route.data['permission'] as string | undefined;
-  if (!permission) {
-    return true;
+  const anyPermission = route.data['anyPermission'] as string[] | undefined;
+
+  if (permission && !auth.has(permission)) {
+    return router.createUrlTree(['/']);
   }
-  return auth.has(permission) ? true : router.createUrlTree(['/']);
+  if (anyPermission && !anyPermission.some((p) => auth.has(p))) {
+    return router.createUrlTree(['/']);
+  }
+  return true;
 };
 
 /** Impide volver al login o al registro con la sesion ya iniciada. */

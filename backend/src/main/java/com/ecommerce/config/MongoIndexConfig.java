@@ -157,6 +157,15 @@ public class MongoIndexConfig {
                 .on("createdAt", Sort.Direction.DESC)
                 .named("ix_chat_company_channel"));
 
+        // --- departamentos y metas KPI ---
+        mongo.indexOps(com.ecommerce.company.Department.class).createIndex(
+                new Index().on("companyId", Sort.Direction.ASC).named("ix_departments_company"));
+        mongo.indexOps(com.ecommerce.kpi.KpiGoal.class).createIndex(new Index()
+                .on("companyId", Sort.Direction.ASC)
+                .on("targetType", Sort.Direction.ASC)
+                .on("targetId", Sort.Direction.ASC)
+                .named("ix_kpi_company_target"));
+
         // --- notifications y actividad ---
         mongo.indexOps(Notification.class).createIndex(new Index()
                 .on("recipientId", Sort.Direction.ASC)

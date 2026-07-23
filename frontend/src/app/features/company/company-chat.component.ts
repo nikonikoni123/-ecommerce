@@ -2,9 +2,16 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { FormsModule } from '@angular/forms';
 import { errorMessage } from '../../core/api-error';
 import { formatDate } from '../../core/format';
-import { ChatMessageView } from '../../core/models';
+import { ChatMessageView, DepartmentChannel } from '../../core/models';
 import { ChatService } from '../../core/support.service';
 import { AlertComponent } from '../../shared/alert.component';
+
+/** Un canal seleccionable: el general o un departamento. */
+interface Channel {
+  id: string; // 'general' o el id del departamento
+  name: string;
+  department: boolean;
+}
 
 @Component({
   selector: 'app-company-chat',
@@ -24,18 +31,42 @@ export class CompanyChatComponent {
   protected readonly sending = signal(false);
   protected readonly error = signal<string | null>(null);
 
+  /** Canales disponibles: siempre el general, y los departamentos accesibles. */
+  protected readonly channels = signal<Channel[]>([{ id: 'general', name: 'General', department: false }]);
+  protected readonly active = signal<Channel>({ id: 'general', name: 'General', department: false });
+
   protected draft = '';
   /** El siguiente envio es un comunicado a toda la empresa, no un mensaje normal. */
   protected readonly broadcastMode = signal(false);
 
   protected readonly date = formatDate;
   protected readonly empty = computed(() => !this.loading() && this.messages().length === 0);
+  protected readonly inDepartment = computed(() => this.active().department);
 
   constructor() {
-    this.load();
+    this.loadGeneral();
+    this.api.departments().subscribe({
+      next: (deps) => this.channels.update((list) => [...list, ...deps.map(toChannel)]),
+      error: () => undefined,
+    });
   }
 
-  private load(): void {
+  protected select(channel: Channel): void {
+    if (channel.id === this.active().id) {
+      return;
+    }
+    this.active.set(channel);
+    this.broadcastMode.set(false);
+    this.error.set(null);
+    if (channel.department) {
+      this.loadDepartment(channel.id);
+    } else {
+      this.loadGeneral();
+    }
+  }
+
+  private loadGeneral(): void {
+    this.loading.set(true);
     this.api.feed(0, 60).subscribe({
       next: (feed) => {
         this.messages.set([...feed.messages.content].reverse());
@@ -50,6 +81,23 @@ export class CompanyChatComponent {
     });
   }
 
+  private loadDepartment(id: string): void {
+    this.loading.set(true);
+    // En un chat de equipo, quien tiene acceso puede escribir: no hace falta permiso especial.
+    this.canBroadcast.set(false);
+    this.canPost.set(true);
+    this.api.departmentFeed(id, 0, 60).subscribe({
+      next: (page) => {
+        this.messages.set([...page.content].reverse());
+        this.loading.set(false);
+      },
+      error: (err) => {
+        this.error.set(errorMessage(err, 'No pudimos cargar el chat del equipo.'));
+        this.loading.set(false);
+      },
+    });
+  }
+
   protected send(): void {
     if (!this.draft.trim() || this.sending()) {
       return;
@@ -58,7 +106,12 @@ export class CompanyChatComponent {
     this.error.set(null);
 
     const texto = this.draft.trim();
-    const request = this.broadcastMode() ? this.api.broadcast(texto) : this.api.post(texto);
+    const channel = this.active();
+    const request = channel.department
+      ? this.api.postToDepartment(channel.id, texto)
+      : this.broadcastMode()
+        ? this.api.broadcast(texto)
+        : this.api.post(texto);
 
     request.subscribe({
       next: (msg) => {
@@ -72,4 +125,8 @@ export class CompanyChatComponent {
       },
     });
   }
+}
+
+function toChannel(d: DepartmentChannel): Channel {
+  return { id: d.id, name: d.name, department: true };
 }

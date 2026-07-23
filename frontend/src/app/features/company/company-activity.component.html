@@ -1,0 +1,57 @@
+<section class="activity">
+  <div class="container">
+    <p class="eyebrow">Panel de empresa</p>
+    <h1 class="activity__title">Actividad</h1>
+    <p class="activity__intro">
+      Registro de las acciones de gestion de los usuarios de tu empresa: cargos, usuarios,
+      departamentos, metas KPI, pedidos y casos.
+    </p>
+
+    <app-alert [message]="error()" variant="error" />
+
+    @if (members().length > 0) {
+      <div class="activity__toolbar">
+        <label class="activity__filter">
+          Usuario
+          <select class="select" [(ngModel)]="userFilter" (ngModelChange)="changeFilter()">
+            <option value="">Todos</option>
+            @for (m of members(); track m.id) {
+              <option [value]="m.id">{{ m.name }}</option>
+            }
+          </select>
+        </label>
+      </div>
+    }
+
+    <div class="panel">
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>Fecha</th><th>Usuario</th><th>Accion</th><th>Detalle</th></tr>
+          </thead>
+          <tbody>
+            @for (row of rows(); track row.id) {
+              <tr>
+                <td>{{ date(row.createdAt) }}</td>
+                <td>{{ row.userEmail }}</td>
+                <td>{{ actionLabel(row.action) }}</td>
+                <td class="muted">{{ detail(row) }}</td>
+              </tr>
+            }
+            @if (rows().length === 0 && !loading()) {
+              <tr><td colspan="4" class="muted">Sin actividad registrada.</td></tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="activity__more">
+      @if (loading()) {
+        <p class="muted">Cargando...</p>
+      } @else if (!last()) {
+        <button class="btn btn--outline" (click)="more()">Cargar mas</button>
+      }
+    </div>
+  </div>
+</section>

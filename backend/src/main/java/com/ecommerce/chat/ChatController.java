@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Size;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,6 +59,39 @@ public class ChatController {
     public ChatMessageView broadcast(@AuthenticationPrincipal AppPrincipal principal,
                                      @Valid @RequestBody MessageRequest request) {
         return service.broadcast(principal, request.body());
+    }
+
+    // ---------------------------------------------------------------- chat por departamento
+
+    @GetMapping("/departments")
+    @Operation(summary = "Departamentos a cuyo chat tengo acceso")
+    public java.util.List<DepartmentChannel> departments(
+            @AuthenticationPrincipal AppPrincipal principal) {
+        return service.accessibleDepartments(principal).stream()
+                .map(d -> new DepartmentChannel(d.getId(), d.getName()))
+                .toList();
+    }
+
+    @GetMapping("/departments/{id}")
+    @Operation(summary = "Historial del chat de un departamento")
+    public PageResponse<ChatMessageView> departmentFeed(
+            @AuthenticationPrincipal AppPrincipal principal,
+            @PathVariable String id,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "40") int size) {
+        return service.departmentHistory(principal, id, Math.max(page, 0),
+                Math.min(Math.max(size, 1), 100));
+    }
+
+    @PostMapping("/departments/{id}")
+    @Operation(summary = "Publicar en el chat de un departamento")
+    public ChatMessageView postToDepartment(@AuthenticationPrincipal AppPrincipal principal,
+                                            @PathVariable String id,
+                                            @Valid @RequestBody MessageRequest request) {
+        return service.postToDepartment(principal, id, request.body());
+    }
+
+    public record DepartmentChannel(String id, String name) {
     }
 
     public record MessageRequest(

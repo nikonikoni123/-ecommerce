@@ -1,0 +1,44 @@
+@use 'styles/tokens' as *;
+
+.activity {
+  @include section;
+}
+
+.activity__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-2xl);
+}
+
+.activity__intro {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  max-width: 62ch;
+}
+
+.activity__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-6);
+}
+
+.activity__filter {
+  @include eyebrow;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  .select {
+    width: auto;
+  }
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+.activity__more {
+  margin-top: var(--space-6);
+  text-align: center;
+}

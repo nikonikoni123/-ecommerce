@@ -191,6 +191,43 @@ export const routes: Routes = [
       import('./features/company/product-admin.component').then((m) => m.ProductAdminComponent),
     title: 'Gestion de productos',
   },
+  {
+    path: 'empresa/kpi',
+    canActivate: [companyGuard, permissionGuard],
+    data: {
+      anyPermission: [
+        Permission.KPI_VIEW_ALL,
+        Permission.KPI_VIEW_TEAM,
+        Permission.KPI_VIEW_OWN,
+        Permission.KPI_GOAL_MANAGE,
+      ],
+    },
+    loadComponent: () =>
+      import('./features/company/company-kpi.component').then((m) => m.CompanyKpiComponent),
+    title: 'Indicadores KPI',
+  },
+  {
+    path: 'empresa/administracion',
+    canActivate: [companyGuard, permissionGuard],
+    data: {
+      anyPermission: [
+        Permission.USER_MANAGE,
+        Permission.ROLE_MANAGE,
+        Permission.DEPARTMENT_MANAGE,
+      ],
+    },
+    loadComponent: () =>
+      import('./features/company/company-admin.component').then((m) => m.CompanyAdminComponent),
+    title: 'Administracion',
+  },
+  {
+    path: 'empresa/actividad',
+    canActivate: [companyGuard, permissionGuard],
+    data: { permission: Permission.ACTIVITY_VIEW },
+    loadComponent: () =>
+      import('./features/company/company-activity.component').then((m) => m.CompanyActivityComponent),
+    title: 'Actividad',
+  },
 
   { path: '**', redirectTo: '' },
 ];

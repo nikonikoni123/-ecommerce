@@ -440,9 +440,147 @@ export const Permission = {
   CASE_VIEW: 'CASE_VIEW',
   CASE_ASSIGN: 'CASE_ASSIGN',
   CASE_REPLY: 'CASE_REPLY',
+  KPI_VIEW_OWN: 'KPI_VIEW_OWN',
+  KPI_VIEW_TEAM: 'KPI_VIEW_TEAM',
+  KPI_VIEW_ALL: 'KPI_VIEW_ALL',
+  KPI_GOAL_MANAGE: 'KPI_GOAL_MANAGE',
   CHAT_GENERAL_POST: 'CHAT_GENERAL_POST',
   BROADCAST_SEND: 'BROADCAST_SEND',
   USER_MANAGE: 'USER_MANAGE',
   ROLE_MANAGE: 'ROLE_MANAGE',
+  DEPARTMENT_MANAGE: 'DEPARTMENT_MANAGE',
   ACTIVITY_VIEW: 'ACTIVITY_VIEW',
+  COMPANY_SETTINGS: 'COMPANY_SETTINGS',
 } as const;
+
+// --------------------------------------------------------------------- administracion y KPI (Fase 5)
+
+export interface PermissionView {
+  name: string;
+  label: string;
+  group: string;
+}
+
+export interface RoleView {
+  id: string;
+  name: string;
+  description: string | null;
+  permissions: string[];
+  system: boolean;
+  memberCount: number;
+}
+
+export interface MemberView {
+  id: string;
+  name: string;
+  email: string;
+  position: string | null;
+  root: boolean;
+  active: boolean;
+  departmentId: string | null;
+  departmentName: string | null;
+  managerId: string | null;
+  managerName: string | null;
+  roleIds: string[];
+  roleNames: string[];
+  extraPermissions: string[];
+  revokedPermissions: string[];
+  effectivePermissions: string[];
+  leadsADepartment: boolean;
+  createdAt: string;
+}
+
+export interface DepartmentView {
+  id: string;
+  name: string;
+  description: string | null;
+  leaderUserId: string | null;
+  leaderName: string | null;
+  memberCount: number;
+}
+
+export interface ActivityRow {
+  id: string;
+  userId: string;
+  userEmail: string;
+  action: string;
+  targetType: string | null;
+  targetId: string | null;
+  metadata: Record<string, string>;
+  createdAt: string;
+}
+
+// KPI
+export interface MetricOption {
+  metric: string;
+  label: string;
+  unit: string; // CURRENCY o COUNT
+  scope: string; // ANY o COMPANY_OR_DEPARTMENT
+}
+
+export interface GoalView {
+  id: string;
+  metric: string;
+  metricLabel: string;
+  unit: string;
+  targetType: string; // COMPANY, DEPARTMENT, USER
+  targetId: string | null;
+  targetName: string;
+  target: number;
+  actual: number;
+  progress: number;
+  achieved: boolean;
+  periodStart: string;
+  periodEnd: string;
+}
+
+export interface GoalRequest {
+  metric: string;
+  targetType: string;
+  targetId: string | null;
+  target: number;
+  periodStart: string;
+  periodEnd: string;
+}
+
+export interface StatTile {
+  label: string;
+  value: number;
+  unit: string;
+}
+
+export interface KpiSlice {
+  label: string;
+  value: number;
+}
+
+export interface KpiSeries {
+  name: string;
+  unit: string;
+  slices: KpiSlice[];
+}
+
+export interface Dashboard {
+  tiles: StatTile[];
+  salesByMonth: KpiSeries;
+  topProducts: KpiSeries;
+  casesByStatus: KpiSeries;
+  byDepartment: KpiSeries;
+  byAgent: KpiSeries;
+}
+
+export interface TargetRef {
+  id: string;
+  name: string;
+  departmentId: string | null;
+}
+
+export interface TargetScope {
+  departments: TargetRef[];
+  users: TargetRef[];
+}
+
+export interface DepartmentChannel {
+  id: string;
+  name: string;
+}

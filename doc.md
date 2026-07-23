@@ -798,6 +798,98 @@ unitarias.
 
 ---
 
+## Anexo · Referencia de permisos y API
+
+### Catalogo de permisos
+
+Definidos en `Permission`, agrupados como los presenta la interfaz al armar cargos.
+
+| Permiso | Grupo | Que habilita |
+|---|---|---|
+| `PRODUCT_VIEW` | Productos | Ver productos de la empresa |
+| `PRODUCT_CREATE` | Productos | Anadir un producto |
+| `PRODUCT_UPDATE` | Productos | Modificar un producto |
+| `PRODUCT_DELETE` | Productos | Eliminar un producto |
+| `STOCK_UPDATE` | Productos | Modificar el stock |
+| `ORDER_VIEW` | Ordenes | Ver pedidos |
+| `ORDER_STATUS_CHANGE` | Ordenes | Cambiar el estado de un pedido |
+| `ORDER_ITEMS_CHANGE` | Ordenes | Cambiar productos de un pedido |
+| `REFUND_MANAGE` | Ordenes | Resolver reembolsos |
+| `CASE_VIEW` | Casos | Ver casos de atencion |
+| `CASE_ASSIGN` | Casos | Asignar casos |
+| `CASE_REPLY` | Casos | Responder casos |
+| `KPI_VIEW_OWN` | KPI | Ver sus propios KPI |
+| `KPI_VIEW_TEAM` | KPI | Ver KPI de su equipo |
+| `KPI_VIEW_ALL` | KPI | Ver KPI de toda la empresa |
+| `KPI_GOAL_MANAGE` | KPI | Asignar y modificar metas KPI |
+| `USER_MANAGE` | Administracion | Crear, modificar y eliminar usuarios |
+| `ROLE_MANAGE` | Administracion | Crear, modificar y eliminar cargos |
+| `DEPARTMENT_MANAGE` | Administracion | Gestionar departamentos, jefes y equipos |
+| `ACTIVITY_VIEW` | Administracion | Ver la actividad de los usuarios |
+| `COMPANY_SETTINGS` | Administracion | Modificar los datos de la empresa |
+| `CHAT_GENERAL_POST` | Comunicacion | Publicar en el chat general |
+| `BROADCAST_SEND` | Comunicacion | Comunicar a toda la empresa |
+
+El **root** tiene todos los permisos de forma implicita, no hace falta concederselos.
+
+### Metricas KPI
+
+Definidas en `KpiMetric`. El **ambito** decide a que puede apuntar una meta; el valor real lo calcula
+`KpiCalculator` sobre los datos del periodo.
+
+| Metrica | Etiqueta | Unidad | Ambito | Como se calcula |
+|---|---|---|---|---|
+| `VENTAS` | Ventas | Moneda | Empresa o departamento | Suma del total de los pedidos no anulados |
+| `PEDIDOS_ENTREGADOS` | Pedidos entregados | Conteo | Cualquiera | Pedidos en estado `ENTREGADO` |
+| `CASOS_RESUELTOS` | Casos resueltos | Conteo | Cualquiera | Casos en `RESUELTO` o `CERRADO` |
+| `CASOS_A_TIEMPO` | Casos resueltos a tiempo | Conteo | Cualquiera | Resueltos con el ultimo cambio dentro del vencimiento |
+| `CASOS_ATENDIDOS` | Casos atendidos | Conteo | Cualquiera | Casos con responsable asignado |
+
+Una meta apunta a la empresa (`COMPANY`), a un departamento (`DEPARTMENT`) o a una persona (`USER`).
+Las metricas de ambito *empresa o departamento* —las ventas— **no** se pueden asignar a una persona.
+
+### Endpoints de la Fase 5
+
+Todos exigen sesion de cuenta de empresa. La columna **Permiso** indica la autoridad que comprueba
+`@PreAuthorize`; ademas, cada servicio valida que el objeto pertenezca a la empresa de quien actua.
+
+**Administracion** — `/api/company/admin`
+
+| Metodo | Ruta | Permiso |
+|---|---|---|
+| GET | `/permissions` | `ROLE_MANAGE` o `USER_MANAGE` |
+| GET · POST | `/roles` | `ROLE_MANAGE` |
+| PUT · DELETE | `/roles/{id}` | `ROLE_MANAGE` |
+| GET · POST | `/members` | `USER_MANAGE` |
+| PATCH · DELETE | `/members/{id}` | `USER_MANAGE` |
+| GET | `/departments` | `DEPARTMENT_MANAGE` o `USER_MANAGE` |
+| POST | `/departments` | `DEPARTMENT_MANAGE` |
+| PUT · DELETE | `/departments/{id}` | `DEPARTMENT_MANAGE` |
+| GET | `/activity` | `ACTIVITY_VIEW` |
+
+**KPI** — `/api/company/kpi`
+
+| Metodo | Ruta | Permiso |
+|---|---|---|
+| GET | `/metrics` | cualquiera de `KPI_VIEW_*` o `KPI_GOAL_MANAGE` |
+| GET | `/goals` | cualquiera de `KPI_VIEW_*` o `KPI_GOAL_MANAGE` |
+| GET | `/targets` | `KPI_GOAL_MANAGE` |
+| POST | `/goals` | `KPI_GOAL_MANAGE` |
+| PUT · DELETE | `/goals/{id}` | `KPI_GOAL_MANAGE` |
+| GET | `/dashboard` | `KPI_VIEW_ALL` o `KPI_VIEW_TEAM` |
+
+**Chat** — `/api/company/chat`
+
+| Metodo | Ruta | Permiso |
+|---|---|---|
+| GET | `/` (chat general) | Miembro de la empresa (lectura) |
+| POST | `/` | `CHAT_GENERAL_POST` |
+| POST | `/broadcast` | `BROADCAST_SEND` |
+| GET | `/departments` | Miembro de la empresa |
+| GET · POST | `/departments/{id}` | Pertenencia al departamento (miembro, jefe o root) |
+
+---
+
 ## Anexo · Puesta en marcha
 
 ```bash

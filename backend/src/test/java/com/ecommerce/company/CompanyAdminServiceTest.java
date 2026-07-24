@@ -1,11 +1,19 @@
 package com.ecommerce.company;
 
+import java.util.Optional;
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import org.mockito.Mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ecommerce.activity.ActivityService;
 import com.ecommerce.auth.token.VerificationTokenRepository;
@@ -17,15 +25,6 @@ import com.ecommerce.security.PermissionResolver;
 import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import com.ecommerce.user.UserType;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * La administracion de la empresa protege los invariantes que la especificacion y el modelo exigen:
@@ -107,8 +106,7 @@ class CompanyAdminServiceTest {
         var yo = miembro("admin-1", "Admin");
         when(users.findById("admin-1")).thenReturn(Optional.of(yo));
 
-        var actor = new AppPrincipal("admin-1", "admin@test.local", UserType.COMPANY_MEMBER, EMPRESA,
-                false, Set.of());
+        var actor = new AppPrincipal("admin-1", "admin@test.local", UserType.COMPANY_MEMBER, EMPRESA,false, Set.of());
 
         assertThatThrownBy(() -> service.deleteMember(actor, "admin-1"))
                 .isInstanceOf(ApiException.class)
@@ -132,8 +130,7 @@ class CompanyAdminServiceTest {
     // ------------------------------------------------------------------ apoyo
 
     private AppPrincipal root() {
-        return new AppPrincipal("root-1", "root@test.local", UserType.COMPANY_MEMBER, EMPRESA, true,
-                Set.of());
+        return new AppPrincipal("root-1", "root@test.local", UserType.COMPANY_MEMBER, EMPRESA, true, Set.of());
     }
 
     private User miembro(String id, String nombre) {

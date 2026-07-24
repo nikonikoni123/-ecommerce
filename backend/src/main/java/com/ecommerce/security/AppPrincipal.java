@@ -1,7 +1,8 @@
 package com.ecommerce.security;
 
-import com.ecommerce.user.UserType;
 import java.util.Set;
+
+import com.ecommerce.user.UserType;
 
 /**
  * Usuario autenticado tal y como lo ven los controladores, via {@code @AuthenticationPrincipal}.

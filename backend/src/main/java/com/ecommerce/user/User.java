@@ -291,7 +291,7 @@ public class User {
     public void setRoot(boolean root) {
         this.root = root;
     }
-
+    
     public String getDepartmentId() {
         return departmentId;
     }

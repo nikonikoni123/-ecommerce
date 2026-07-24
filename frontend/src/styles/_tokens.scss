@@ -1,27 +1,32 @@
 /**
  * Tokens del sistema de diseno.
  *
- * La referencia visual es un minimalismo lujoso: base crema, tipografia sans-serif limpia,
- * microetiquetas en mayusculas con tracking amplio, mucho espacio en blanco y botones de borde
- * fino sin sombras. El color se usa con moderacion: casi todo el peso lo lleva el espaciado.
+ * La referencia visual mantiene el minimalismo de base: tipografia sans-serif limpia, microetiquetas
+ * en mayusculas con tracking amplio, mucho espacio en blanco y botones de borde fino sin sombras.
+ * La paleta es rojo vibrante y amarillo sobre un fondo palido: el color entra en acentos concretos
+ * (marca, foco, avisos) y el peso de la composicion lo sigue llevando el espaciado.
  */
 
 :root {
   // --- Color ---
-  --bg: #f7f4ef;          // crema de fondo
+  --bg: #fdf8f0;          // palido calido, casi papel
   --surface: #ffffff;     // tarjetas y paneles
-  --surface-alt: #f1ece4; // bloques secundarios
-  --ink: #1a1a1a;         // texto principal
-  --ink-soft: #3a3835;    // texto de parrafo
-  --ink-muted: #6b6862;   // texto auxiliar y microetiquetas
-  --line: #e3ddd4;        // bordes y separadores
-  --accent: #a8b5a0;      // salvia
-  --accent-dark: #7d8c74;
-  --accent-soft: #e8ded3; // arena
-  --danger: #a5453a;
-  --danger-soft: #f6e9e7;
-  --success: #4f7a52;
-  --success-soft: #e9f1e9;
+  --surface-alt: #fdeedd; // bloques secundarios
+  --ink: #1c1210;         // texto principal, negro calido
+  --ink-soft: #43302b;    // texto de parrafo
+  --ink-muted: #806a63;   // texto auxiliar y microetiquetas
+  --line: #ecd9c6;        // bordes y separadores
+  --accent: #e01f26;      // rojo vibrante de marca
+  --accent-dark: #a8121a;
+  --accent-soft: #fff0c2; // amarillo palido de fondo
+  --yellow: #f7b500;      // amarillo vibrante, acento secundario
+  --yellow-dark: #d99400;
+  // El rojo de error es mas profundo que el de marca para que un aviso no se lea como decoracion.
+  --danger: #8f1013;
+  --danger-soft: #fbe4e2;
+  // Verde y su fondo se mantienen: son semantica de semaforo (stock, entregado), no de marca.
+  --success: #2f7d46;
+  --success-soft: #e6f2e9;
 
   // --- Tipografia ---
   --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;

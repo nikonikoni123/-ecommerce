@@ -1,16 +1,26 @@
 package com.ecommerce.order;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
+import org.mockito.Mock;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.ecommerce.catalog.Product;
 import com.ecommerce.catalog.ProductRepository;
@@ -21,15 +31,6 @@ import com.ecommerce.order.dto.CompanyOrderDtos.ChangeItemsRequest;
 import com.ecommerce.order.dto.CompanyOrderDtos.OrderItemChange;
 import com.ecommerce.security.AppPrincipal;
 import com.ecommerce.user.UserType;
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * Cambios de estado y de productos.
@@ -57,8 +58,7 @@ class OrderManagementServiceTest {
     void setUp() {
         service = new OrderManagementService(orders, products, stockService, pricingService,
                 companyOrders, mailService, notifications);
-        actor = new AppPrincipal("gestor-1", "gestor@test.local", UserType.COMPANY_MEMBER,
-                EMPRESA, false, Set.of());
+        actor = new AppPrincipal("gestor-1", "gestor@test.local", UserType.COMPANY_MEMBER, EMPRESA, false, Set.of());
         lenient().when(pricingService.shippingFor(any())).thenReturn(BigDecimal.ZERO);
     }
 

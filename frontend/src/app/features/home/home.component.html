@@ -1,25 +1,54 @@
 <section class="hero">
-  <div class="hero__inner container">
-    <p class="eyebrow"></p>
-    <h1 class="hero__title">Una plataforma pensada para vender bien</h1>
-    <p class="hero__text">
-      Gestiona tu catalogo, tu inventario y tus pedidos desde un unico panel, y ofrece a tus
-      clientes una tienda que se adapta a lo que de verdad les interesa.
-    </p>
-    <div class="hero__actions">
-      
-      @if (auth.isCompanyMember()) {
-        <a class="btn btn--primary" routerLink="/empresa/productos">Ir al Panel de Control</a>
-      } @else {
-        <a class="btn btn--primary" routerLink="/productos">Ver la tienda</a>
-      }
+  <!--
+    Lluvia de cajas. Es decoracion pura: aria-hidden la retira del arbol de accesibilidad y el CSS
+    le quita los eventos de puntero, asi que nunca se interpone con los botones de abajo.
+    Las ocho cajas son identicas en el marcado; el SCSS las diferencia con :nth-child, y cada <i>
+    es una de las seis caras del cubo.
+  -->
+  <div class="hero__rain" aria-hidden="true">
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="crate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
 
-      @if (!auth.isAuthenticated()) {
-        <a class="btn btn--outline" routerLink="/auth/registro-usuario">Registrarse</a>
-      }
-      @if (!auth.isAuthenticated()){
-        <a class="btn btn--outline" routerLink="/auth/registro-empresa">Registrar mi empresa</a>
-      }
+  <div class="hero__inner container">
+    <!-- Titular gigante, texto y acciones directamente sobre el degradado, como la referencia. -->
+    <div class="hero__content">
+      <p class="eyebrow"></p>
+      <h1 class="hero__title">Una plataforma pensada para vender bien</h1>
+      <p class="hero__text">
+        Explora un catálogo curado especialmente para ti. Disfruta de una experiencia de compra sin complicaciones, 
+        donde lo único difícil será elegir solo una cosa.
+      </p>
+      <div class="hero__actions">
+
+        @if (auth.isCompanyMember()) {
+          <a class="btn btn--primary" routerLink="/empresa/productos">Ir al Panel de Control</a>
+        } @else {
+          <a class="btn btn--primary" routerLink="/productos">Ver la tienda</a>
+        }
+
+        @if (!auth.isAuthenticated()) {
+          <a class="btn btn--outline" routerLink="/auth/registro-usuario">Registrarse</a>
+        }
+        @if (!auth.isAuthenticated()){
+          <a class="btn btn--outline" routerLink="/auth/registro-empresa">Registrar mi empresa</a>
+        }
+      </div>
+    </div>
+
+    <!--
+      La caja producto: un carton de envio kraft cerrado en diagonal que cae, rebota y abre las
+      solapas. El div ancla el centro del cubo y cada <i> es una cara: frente, trasera, lateral
+      derecho, lateral izquierdo, falso fondo y las dos solapas de la boca.
+    -->
+    <div class="hero__cube" aria-hidden="true">
+      <i></i><i class="d"></i><i></i><i class="d"></i><i class="d"></i><i></i><i></i>
     </div>
   </div>
 </section>

@@ -60,19 +60,37 @@ public class UserService {
     }
 
     public ProfileResponse toProfile(User user) {
-        String companyName = Optional.ofNullable(user.getCompanyId())
-                .flatMap(companyRepository::findById)
-                .map(Company::getName)
-                .orElse(null);
-
+        var companyOpt = Optional.ofNullable(user.getCompanyId())
+                .flatMap(companyRepository::findById);
+        String cName = companyOpt.map(Company::getName).orElse(null);
+        String cNit = companyOpt.map(Company::getNit).orElse(null);
+        String cDesc = companyOpt.map(Company::getDescription).orElse(null);
+        String cRep = companyOpt.map(Company::getLegalRepresentative).orElse(null);
+        String cAddr = companyOpt.map(Company::getAddress).orElse(null);
         boolean reminder = !user.isTwoFactorEnabled()
                 && (user.getType() != UserType.COMPANY_MEMBER || user.isRoot());
-
         return new ProfileResponse(
-                user.getId(), user.getType().name(), user.getEmail(), user.getFirstName(),
-                user.getLastName(), user.getUsername(), user.getAddress(), user.getPostalCode(),
-                user.getPhone(), user.getGender(), user.isEmailVerified(), user.isTwoFactorEnabled(),
-                reminder, user.getCompanyId(), companyName, user.isRoot(), user.getPosition(),
+                user.getId(),                           
+                user.getType().name(),              
+                user.getEmail(),                      
+                user.getFirstName(),              
+                user.getLastName(),                 
+                user.getUsername(),                  
+                user.getAddress(),                   
+                user.getPostalCode(),                  
+                user.getPhone(),                 
+                user.getGender(),                     
+                user.isEmailVerified(),     
+                user.isTwoFactorEnabled(),    
+                reminder,             
+                user.getCompanyId(),               
+                cName,                         
+                cNit,                          
+                cDesc,                          
+                cRep,                          
+                cAddr,                           
+                user.isRoot(),                    
+                user.getPosition(),               
                 permissionResolver.resolve(user).stream().map(Enum::name).sorted().toList());
     }
 

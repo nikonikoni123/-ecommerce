@@ -23,7 +23,7 @@ import { AuthService } from '../../core/auth.service';
         </p>
         <div class="about__actions">
           @if (!auth.isAuthenticated()) {
-            <a class="btn" routerLink="/auth/registro-usuario">Crear una cuenta</a>
+            <a class="btn" routerLink="/auth/registro-usuario">Únete ahora</a>
             <a class="btn btn--outline" routerLink="/auth/registro-empresa">Registrar una empresa</a>
           }
         </div>
@@ -33,23 +33,41 @@ import { AuthService } from '../../core/auth.service';
   styles: `
     @use 'styles/tokens' as *;
 
+    /* El mismo lenguaje del hero de la home: degradado rojo a sangre y titular gigante en
+       mayusculas. Los botones quedan con su estilo global, sin tocar. */
     .about {
       @include section;
+      background: linear-gradient(150deg, var(--accent-dark), var(--accent) 45%, #f78c1f);
     }
 
     .about__inner {
       @include container;
       max-width: 680px;
+      animation: rise 700ms cubic-bezier(0.22, 0.8, 0.3, 1) 150ms both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .eyebrow {
+      color: rgb(255 255 255 / 0.75);
     }
 
     .about__title {
       margin-top: var(--space-6);
-      font-size: var(--text-2xl);
+      color: #fff;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
     }
 
     .about__text {
       margin-top: var(--space-6);
-      color: var(--ink-soft);
+      color: #fff;
     }
 
     .about__actions {
@@ -57,6 +75,10 @@ import { AuthService } from '../../core/auth.service';
       flex-wrap: wrap;
       gap: var(--space-4);
       margin-top: var(--space-8);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about__inner { animation: none; }
     }
   `,
 })

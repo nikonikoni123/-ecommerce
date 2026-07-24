@@ -1,38 +1,276 @@
 @use 'styles/tokens' as *;
 
+/*
+ * Hero 3D al estilo takeboost.com: fondo degradado vibrante a sangre completa, titular gigante
+ * en mayusculas y el producto (una caja de envio kraft) como protagonista, cayendo en diagonal
+ * y abriendo las solapas. Todo con perspective + preserve-3d, sin WebGL.
+ * Cuidado: opacity < 1, filter y clip-path aplanan el 3D, asi que la atenuacion y el desenfoque
+ * van en las CARAS, hojas del arbol. El estilo compite con el budget de 8 kB de angular.json.
+ */
+
 .hero {
-  @include section;
-  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 100%);
+  padding-block: var(--space-12);
+  position: relative;
+  overflow: hidden;
+  min-height: min(860px, 94vh);
+  display: grid;
+  align-items: center;
+  background: linear-gradient(150deg, var(--accent-dark), var(--accent) 45%, #f78c1f);
+  perspective: 1100px;
 }
+
+/* --- Lluvia de cajas kraft --- */
+
+.hero__rain {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.crate {
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  --h: calc(var(--s) / 2); // media arista: separacion de cada cara al centro
+  margin-left: calc(var(--h) * -1);
+  transform-style: preserve-3d;
+  // La profundidad va en la propiedad translate, independiente: los keyframes no la repiten.
+  translate: 0 0 calc(var(--zn) * 1px);
+  animation: fall var(--d) linear var(--dl) infinite;
+  // Carton kraft con cinta de embalaje roja de la marca.
+  --fa: #d7b98e;
+  --fb: #b8946a;
+  --tp: var(--accent);
+  /*
+   * Bruma atmosferica: las cajas lejanas se lavan HACIA el tono medio del degradado del hero en
+   * vez de volverse translucidas. Es una capa encima del carton, asi que la caja siempre es opaca.
+   */
+  --hz: color-mix(in srgb, #ea4a20 max(0%, calc(var(--zn) * -0.08%)), transparent);
+}
+
+.crate > i {
+  position: absolute;
+  inset: 0;
+  // Cinta de embalaje y bruma son capas del fondo, no pseudo-elementos.
+  background:
+    linear-gradient(var(--tp), var(--tp)) 0 42% / 100% 16% no-repeat,
+    linear-gradient(var(--hz), var(--hz)),
+    linear-gradient(150deg, var(--fa), var(--fb));
+  // La luz distinta por cara es lo que da el volumen; el desenfoque, la profundidad de campo.
+  filter: brightness(var(--lt, 1)) blur(max(0px, calc(var(--zn) * 0.012px)));
+}
+
+.crate > i:nth-child(1) { transform: translateZ(var(--h)); }
+.crate > i:nth-child(2) { transform: rotateY(180deg) translateZ(var(--h)); --lt: 0.78; }
+.crate > i:nth-child(3) { transform: rotateY(90deg) translateZ(var(--h)); --lt: 0.86; }
+.crate > i:nth-child(4) { transform: rotateY(-90deg) translateZ(var(--h)); --lt: 0.84; }
+.crate > i:nth-child(5) { transform: rotateX(90deg) translateZ(var(--h)); --lt: 1.18; }
+.crate > i:nth-child(6) { transform: rotateX(-90deg) translateZ(var(--h)); --lt: 0.6; }
+
+.crate:nth-child(3n + 2) { --fa: #c9a97c; --fb: #a5825c; --tp: #faf4e9; }
+
+/* Reparto fijo, se ve igual en cada recarga. Los --dl negativos arrancan la caida a mitad de
+   vuelo, para que no haya una primera pantalla vacia. */
+.crate:nth-child(1) { --x: 6%; --s: 118px; --zn: 140; --d: 13s; --dl: -3s; --sp: 300deg; }
+.crate:nth-child(2) { --x: 18%; --s: 62px; --zn: -320; --d: 19s; --dl: -11s; --sp: 540deg; }
+.crate:nth-child(3) { --x: 30%; --s: 88px; --zn: -60; --d: 15s; --dl: -6s; --sp: 380deg; }
+.crate:nth-child(4) { --x: 41%; --s: 48px; --zn: -520; --d: 22s; --dl: -1s; --sp: 640deg; }
+.crate:nth-child(5) { --x: 52%; --s: 74px; --zn: -180; --d: 17s; --dl: -14s; --sp: 300deg; }
+.crate:nth-child(6) { --x: 64%; --s: 132px; --zn: 205; --d: 12s; --dl: -8s; --sp: 260deg; }
+.crate:nth-child(7) { --x: 76%; --s: 58px; --zn: -400; --d: 20s; --dl: -4s; --sp: 580deg; }
+.crate:nth-child(8) { --x: 88%; --s: 96px; --zn: -40; --d: 16s; --dl: -12s; --sp: 420deg; }
+
+@keyframes fall {
+  from { transform: translateY(-25vh); }
+  to { transform: translateY(115vh) rotateX(var(--sp)) rotateY(calc(var(--sp) * 1.35)); }
+}
+
+/* --- Composicion: titular gigante a la izquierda, caja producto a la derecha --- */
 
 .hero__inner {
   @include container;
-  max-width: 780px;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content {
+  animation: rise 700ms cubic-bezier(0.22, 0.8, 0.3, 1) 150ms both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
 }
 
 .hero__title {
-  margin-top: var(--space-6);
-  font-size: var(--text-2xl);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-3xl);
-  }
+  color: #fff;
+  font-size: clamp(2.75rem, 7.5vw, 5.5rem);
+  line-height: 0.98;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  max-width: 13ch; // fuerza el apilado de palabras del titular, como la referencia
 }
 
 .hero__text {
   margin-top: var(--space-6);
-  margin-inline: auto;
-  max-width: 56ch;
-  color: var(--ink-soft);
+  max-width: 38ch;
+  color: #fff;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-4);
   margin-top: var(--space-8);
+}
+
+/* Botones pill sobre el degradado: blanco solido el primario, contorno blanco el resto. */
+.hero__actions .btn {
+  border-radius: 999px;
+  border-color: #fff;
+  background: #fff;
+  color: var(--accent-dark);
+}
+
+.hero__actions .btn--outline {
+  background: transparent;
+  color: #fff;
+}
+
+.hero__actions .btn:hover:not(:disabled) {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+/*
+ * La caja producto: carton kraft cerrado en diagonal de tres cuartos que cae, rebota y abre
+ * las solapas. El div ancla el centro del cubo (mide 0x0) y cada <i> es una cara colocada con
+ * rotate + translateZ. La luz es un brightness por cara.
+ */
+.hero__cube {
+  position: absolute;
+  right: 17%;
+  bottom: 40px; // el ancla es el centro del cubo, medido desde el borde del bloque de contenido
+  transform-style: preserve-3d;
+  pointer-events: none;
+  --w: 300px; // ancho
+  --hh: 190px; // alto
+  --dd: 220px; // fondo
+  animation: drop 950ms both;
+}
+
+/* Caida con rebote: acelera, toca con un sobreimpulso y asienta en la pose diagonal. */
+@keyframes drop {
+  0% {
+    transform: translateY(-105vh) rotateX(-44deg) rotateY(-76deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.85, 0.6);
+  }
+  62% {
+    transform: translateY(18px) rotateX(-10deg) rotateY(-23deg);
+    animation-timing-function: cubic-bezier(0.3, 1.4, 0.5, 1);
+  }
+  100% { transform: rotateX(-14deg) rotateY(-28deg); }
+}
+
+.hero__cube > i {
+  position: absolute;
+  // Kraft con la cinta roja de la marca rodeando la caja, como un paquete de envio real.
+  background:
+    linear-gradient(90deg, transparent 44%, var(--accent) 44% 56%, transparent 56%),
+    linear-gradient(160deg, #dcc09a, #b8946a);
+  border: 1px solid rgb(92 62 32 / 0.4);
+  filter: brightness(var(--lt, 1));
+}
+
+/*
+ * Caras: frente y lateral derecho en kraft; trasera, izquierda y falso fondo pintados del color
+ * oscuro del interior, porque por fuera nunca se ven (rotY se mueve en [-76, -28] y rotX en
+ * [-44, -9]) pero por dentro cierran la boca: sin ellas se veia el fondo a traves de la banda
+ * entre la boca y el falso fondo.
+ */
+.hero__cube > i:nth-child(-n + 2) { left: calc(var(--w) / -2); top: calc(var(--hh) / -2); width: var(--w); height: var(--hh); }
+.hero__cube > i:nth-child(3),
+.hero__cube > i:nth-child(4) { left: calc(var(--dd) / -2); top: calc(var(--hh) / -2); width: var(--dd); height: var(--hh); }
+.hero__cube > i:nth-child(n + 5) { left: calc(var(--w) / -2); top: calc(var(--dd) / -2); width: var(--w); height: var(--dd); }
+
+.hero__cube > i:nth-child(1) { transform: translateZ(calc(var(--dd) / 2)); }
+.hero__cube > i:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--dd) / 2)); }
+.hero__cube > i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--w) / 2)); --lt: 0.8; }
+.hero__cube > i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--w) / 2)); }
+
+/* Interior en sombra (clase .d en la plantilla): trasera, izquierda y falso fondo. */
+.hero__cube > .d { background: #46331f; }
+
+.hero__cube > i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--hh) / 2 - 16px)); --lt: 0.7; }
+
+/*
+ * Solapas: cierran la boca durante la caida y abren con la bisagra en su canto. La colocacion
+ * usa la propiedad translate y el giro la propiedad rotate, independientes: los keyframes solo
+ * animan el angulo y no repiten toda la cadena de transformaciones.
+ */
+.hero__cube > i:nth-child(6),
+.hero__cube > i:nth-child(7) {
+  height: calc(var(--dd) / 2);
+  transform-origin: 50% 100%;
+  translate: 0 calc(var(--hh) / -2) var(--tz);
+  --lt: 1.14;
+}
+
+.hero__cube > i:nth-child(6) { --tz: calc(var(--dd) / 2); animation: fopen 620ms cubic-bezier(0.34, 1.2, 0.6, 1) 1000ms both; }
+.hero__cube > i:nth-child(7) { --tz: calc(var(--dd) / -2); animation: bopen 620ms cubic-bezier(0.34, 1.2, 0.6, 1) 1080ms both; }
+
+@keyframes fopen {
+  from { rotate: x 90deg; }
+  to { rotate: x -20deg; }
+}
+
+@keyframes bopen {
+  from { rotate: x -90deg; }
+  to { rotate: x 18deg; }
+}
+
+/*
+ * Franja intermedia: el carton se encoge y el ancla (que es el CENTRO del cubo) se fija a mas
+ * distancia del borde que su semi-anchura proyectada (~140px con estos tamanos): con porcentaje
+ * el cubo se salia del viewport y overflow:hidden lo cortaba contra el borde.
+ */
+@media (min-width: 1000px) and (max-width: 1099px) {
+  .hero__cube {
+    right: 150px;
+    bottom: 6px;
+    --w: 230px;
+    --hh: 146px;
+    --dd: 170px;
+  }
+}
+
+/* Bajo 1000px no hay hueco lado a lado sin pisar los botones o el borde: la escena se aligera
+   (cuatro cajas) y la caja producto pasa a centrarse bajo el texto. */
+@media (max-width: 999px) {
+  .hero {
+    perspective: 700px;
+    min-height: min(760px, 94vh);
+  }
+
+  .crate:nth-child(n + 5) { display: none; }
+
+  .hero__inner { padding-bottom: 250px; }
+  .hero__cube { right: 50%; bottom: 60px; --w: 210px; --hh: 134px; --dd: 154px; }
+}
+
+/* Sin movimiento: el carton nace apoyado y abierto, el contenido visible. Accesibilidad, y ademas
+   la red de seguridad: el texto del hero no depende de que nada se anime. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__rain { display: none; }
+  .hero__cube { animation: none; transform: rotateX(-14deg) rotateY(-28deg); }
+  .hero__cube > i:nth-child(6) { animation: none; rotate: x -20deg; }
+  .hero__cube > i:nth-child(7) { animation: none; rotate: x 18deg; }
+  .hero__content { animation: none; }
 }
 
 .steps {

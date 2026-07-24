@@ -85,7 +85,6 @@ export class AuthService {
       .post<AuthResponse>(`${this.base}/auth/refresh`, {})
       .pipe(tap((response) => this.storeSession(response)));
   }
-
   /**
    * Restaura la sesion al arrancar la aplicacion. La cookie viaja sola; si es valida el servidor
    * devuelve el usuario, y si no, se queda sin sesion sin mas.

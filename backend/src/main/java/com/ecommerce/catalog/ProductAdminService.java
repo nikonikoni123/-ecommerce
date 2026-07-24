@@ -1,5 +1,15 @@
 package com.ecommerce.catalog;
 
+import java.text.Normalizer;
+import java.time.Instant;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
 import com.ecommerce.activity.ActivityService;
 import com.ecommerce.catalog.dto.ProductDtos.CompanyProductView;
 import com.ecommerce.catalog.dto.ProductDtos.CreateProductRequest;
@@ -8,14 +18,6 @@ import com.ecommerce.common.ApiException;
 import com.ecommerce.common.PageResponse;
 import com.ecommerce.company.CompanyRepository;
 import com.ecommerce.security.AppPrincipal;
-import java.text.Normalizer;
-import java.time.Instant;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 
 /** Panel de gestion de productos de una empresa: alta, modificacion, stock y baja. */
 @Service

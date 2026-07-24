@@ -1,5 +1,20 @@
 package com.ecommerce.config;
 
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
 import com.ecommerce.catalog.Product;
 import com.ecommerce.catalog.ProductRepository;
 import com.ecommerce.company.Company;
@@ -12,19 +27,6 @@ import com.ecommerce.security.Permission;
 import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import com.ecommerce.user.UserType;
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.core.annotation.Order;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 /**
  * Datos de demostracion para poder probar la aplicacion nada mas levantarla.
@@ -64,6 +66,7 @@ public class SeedDataLoader {
 
     @EventListener(ApplicationReadyEvent.class)
     public void seed() {
+
         if (!properties.seedDemoData()) {
             return;
         }
@@ -152,11 +155,7 @@ public class SeedDataLoader {
         log.info("Datos de demostracion listos. Cuentas: empresa@demo.local / gestor@demo.local / "
                 + "cliente@demo.local, contrasena {}", DEMO_PASSWORD);
     }
-
-    /**
-     * Ventana de promocion abierta, para que los descuentos se puedan probar nada mas levantar el
-     * proyecto. Sin una ventana activa la especificacion no aplica ningun descuento.
-     */
+    
     private void seedPromotionWindow() {
         if (promotionWindowRepository.count() > 0) {
             return;

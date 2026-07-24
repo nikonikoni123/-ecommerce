@@ -399,7 +399,6 @@ public class AuthService {
                 .orElse(null);
 
         List<String> permissions = new ArrayList<>(permissionResolver.resolve(user).stream().map(Enum::name).sorted().toList());
-        String accessToken = jwtService.issueAccessToken(user.getId(), user.getEmail(), user.getType().name());
 
         return new UserSummary(
                 user.getId(),

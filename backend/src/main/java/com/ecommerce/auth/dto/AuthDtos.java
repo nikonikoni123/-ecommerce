@@ -1,11 +1,12 @@
 package com.ecommerce.auth.dto;
 
+import java.util.List;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.util.List;
 
 /**
  * Contratos de entrada y salida de los endpoints de autenticacion.

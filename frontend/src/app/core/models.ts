@@ -47,6 +47,10 @@ export interface Profile {
   twoFactorReminder: boolean;
   companyId: string | null;
   companyName: string | null;
+  companyNit: string | null;
+  companyDescription: string | null;
+  companyLegalRepresentative: string | null;
+  companyAddress: string | null;
   root: boolean;
   position: string | null;
   permissions: string[];

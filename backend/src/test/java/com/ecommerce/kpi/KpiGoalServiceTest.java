@@ -1,14 +1,26 @@
 package com.ecommerce.kpi;
 
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.eq;
+import org.mockito.Mock;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.ecommerce.activity.ActivityService;
 import com.ecommerce.common.ApiException;
@@ -20,17 +32,6 @@ import com.ecommerce.security.Permission;
 import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import com.ecommerce.user.UserType;
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * Las metas KPI concentran dos reglas delicadas de la especificacion: el progreso se calcula desde
@@ -153,13 +154,11 @@ class KpiGoalServiceTest {
     }
 
     private AppPrincipal root() {
-        return new AppPrincipal("root-1", "root@test.local", UserType.COMPANY_MEMBER, EMPRESA, true,
-                Set.of());
+        return new AppPrincipal("root-1", "root@test.local", UserType.COMPANY_MEMBER, EMPRESA, true, Set.of());
     }
 
     private AppPrincipal jefe(String id, Set<Permission> permisos) {
-        return new AppPrincipal(id, id + "@test.local", UserType.COMPANY_MEMBER, EMPRESA, false,
-                permisos);
+        return new AppPrincipal(id, id + "@test.local", UserType.COMPANY_MEMBER, EMPRESA, false, permisos);
     }
 
     private Department departamento(String id, String nombre, String jefeId) {

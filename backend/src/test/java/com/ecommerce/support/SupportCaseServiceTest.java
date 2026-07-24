@@ -64,8 +64,7 @@ class SupportCaseServiceTest {
         service = new SupportCaseService(cases, orders, users, companies, nlp, notifications,
                 sequences, properties);
 
-        principal = new AppPrincipal(CLIENTE, "cliente@test.local", UserType.CUSTOMER, null, false,
-                Set.of());
+        principal = new AppPrincipal(CLIENTE, "cliente@test.local", UserType.CUSTOMER, null, false, Set.of());
 
         var cliente = new User();
         cliente.setId(CLIENTE);

@@ -1,5 +1,7 @@
 package com.ecommerce.user.dto;
 
+import java.util.List;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -25,9 +27,13 @@ public final class UserDtos {
             boolean twoFactorReminder,
             String companyId,
             String companyName,
+            String companyNit,
+            String companyDescription,
+            String companyLegalRepresentative,
+            String companyAddress,
             boolean root,
             String position,
-            java.util.List<String> permissions) {
+            List<String> permissions) {
     }
 
     /**

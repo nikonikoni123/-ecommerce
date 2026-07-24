@@ -154,6 +154,36 @@
         }
       </section>
     -->
+      @if (me.type === 'COMPANY_MEMBER') {
+        <section class="account__block card">
+          <div class="account__business"> 
+            <h2 class="account__block-title">Datos de la Empresa</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label">Nombre de la Empresa</label>
+                <p class="account__data-value">{{ me.companyName || 'No disponible' }}</p>
+              </div>
+              <div class="field">
+                <label class="field__label">NIT</label>
+                <p class="account__data-value">{{ me.companyNit || 'No disponible' }}</p>
+              </div>
+              <div class="field">
+                <label class="field__label">Representante Legal</label>
+                <p class="account__data-value">{{ me.companyLegalRepresentative || 'No disponible' }}</p>
+              </div>
+              <div class="field form-grid--full">
+                <label class="field__label">Descripción</label>
+                <p class="account__data-value">{{ me.companyDescription || 'Sin descripción' }}</p>
+              </div>
+              <div class="field form-grid--full">
+                <label class="field__label">Dirección Fiscal</label>
+                <p class="account__data-value">{{ me.companyAddress || 'No disponible' }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      }
+
       <section class="account__block card">
         <h2 class="account__block-title">Verificación en dos pasos</h2>
         

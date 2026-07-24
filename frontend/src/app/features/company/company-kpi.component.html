@@ -37,6 +37,12 @@
 
         <div class="charts">
           <div class="card chart-card chart-card--wide">
+            <h3 class="card chart-card__title">{{ d.topCustomers.name }}</h3>
+            <app-bar-chart 
+              [slices]="d.topCustomers.slices" 
+              [unit]="d.topCustomers.unit"
+            />
+
             <h3 class="chart-card__title">{{ d.salesByMonth.name }}</h3>
             <app-line-chart
               [slices]="d.salesByMonth.slices"

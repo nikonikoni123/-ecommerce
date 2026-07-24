@@ -63,6 +63,7 @@ public class DashboardService {
                 tiles(pedidos, casos, companyId),
                 salesByMonth(pedidos, months),
                 topProducts(pedidos),
+                topCustomers(pedidos),
                 casesByStatus(casos),
                 byDepartment(companyId, casos),
                 byAgent(companyId, casos));
@@ -119,7 +120,7 @@ public class DashboardService {
         }
         var slices = unidades.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .limit(6)
+                .limit(5)
                 .map(e -> new Slice(e.getKey(), BigDecimal.valueOf(e.getValue())))
                 .toList();
         return new Series("Productos mas vendidos", "COUNT", slices);
@@ -190,6 +191,19 @@ public class DashboardService {
         return new Series("Casos por usuario", "COUNT", new ArrayList<>(slices));
     }
 
+    private Series topCustomers(List<Order> pedidos) {
+        var conteo = new LinkedHashMap<String, Integer>();
+        for (var o : pedidos) {
+            conteo.merge(o.getCustomerName(), 1, Integer::sum);
+        }
+        var slices = conteo.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .limit(5) 
+                .map(e -> new Slice(e.getKey(), BigDecimal.valueOf(e.getValue())))
+                .toList();
+                
+        return new Series("Top 5 clientes frecuentes", "COUNT", slices);
+    }
     // ------------------------------------------------------------------ apoyo
 
     private Query pedidosPagados(String companyId, Instant from, Instant to) {

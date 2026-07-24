@@ -1,11 +1,12 @@
 package com.ecommerce.kpi.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 public final class KpiDtos {
 
@@ -81,16 +82,18 @@ public final class KpiDtos {
      * @param tiles       cifras destacadas: ventas, pedidos, casos nuevos/vencidos/en espera
      * @param salesByMonth ventas por mes, para la grafica de linea
      * @param topProducts  productos mas vendidos, por unidades
+     * @param topCustomers clientes que mas compran, por unidades
      * @param casesByStatus reparto de casos por estado
      * @param byDepartment  casos atendidos por departamento
      * @param byAgent       casos atendidos por usuario de empresa
      */
     public record Dashboard(
-            List<StatTile> tiles,
-            Series salesByMonth,
-            Series topProducts,
-            Series casesByStatus,
-            Series byDepartment,
-            Series byAgent) {
+        List<StatTile> tiles,
+        Series salesByMonth,
+        Series topProducts,
+        Series topCustomers,
+        Series casesByStatus,
+        Series byDepartment,
+        Series byAgent) {
     }
 }

@@ -1,5 +1,20 @@
 package com.ecommerce.auth;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.ecommerce.auth.dto.AuthDtos.AuthResponse;
 import com.ecommerce.auth.dto.AuthDtos.ForgotPasswordRequest;
 import com.ecommerce.auth.dto.AuthDtos.LoginRequest;
@@ -28,18 +43,6 @@ import com.ecommerce.user.User;
 import com.ecommerce.user.UserRepository;
 import com.ecommerce.user.UserStatus;
 import com.ecommerce.user.UserType;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
@@ -306,8 +309,17 @@ public class AuthService {
             throw ApiException.forbidden("EMAIL_NOT_VERIFIED",
                     "Debes confirmar tu correo antes de iniciar sesion.");
         }
-
+        /*
         if (user.isTwoFactorEnabled()) {
+            return AuthResponse.challenge(jwtService.issueTwoFactorChallengeToken(user.getId()));
+        }
+        */
+        if (user.isTwoFactorEnabled()) {
+            String code = String.format("%06d", new java.util.Random().nextInt(1000000));
+            user.setTwoFactorCode(code);
+            user.setTwoFactorCodeExpiresAt(Instant.now().plus(10, ChronoUnit.MINUTES));
+            userRepository.save(user);
+            mailService.sendTwoFactorCode(user.getEmail(), user.getFirstName(), code);
             return AuthResponse.challenge(jwtService.issueTwoFactorChallengeToken(user.getId()));
         }
         return issueSession(user);
@@ -319,20 +331,28 @@ public class AuthService {
                 .orElseThrow(() -> ApiException.unauthorized("INVALID_CHALLENGE",
                         "La sesion de verificacion caduco. Inicia sesion de nuevo."));
 
-        var user = userRepository.findById(claims.getSubject())
-                .orElseThrow(() -> ApiException.unauthorized("INVALID_CHALLENGE",
+        var user = userRepository.findById(claims.getSubject()).orElseThrow(() -> ApiException.unauthorized("INVALID_CHALLENGE",
                         "La sesion de verificacion no es valida."));
 
+        if (user.getTwoFactorCode() == null || 
+            !user.getTwoFactorCode().equals(request.code()) || 
+            Instant.now().isAfter(user.getTwoFactorCodeExpiresAt())) {
+            throw ApiException.unauthorized("INVALID_2FA_CODE", "El código es incorrecto o expiró.");  
+        }
+        user.setTwoFactorCode(null);
+        userRepository.save(user);
+        
+        /*
         if (!totpService.verify(user.getTwoFactorSecret(), request.code())) {
             throw ApiException.unauthorized("INVALID_2FA_CODE",
                     "El codigo de verificacion no es correcto.");
-        }
+        } */
+
         return issueSession(user);
     }
 
     private AuthResponse issueSession(User user) {
-        String accessToken = jwtService.issueAccessToken(
-                user.getId(), user.getEmail(), user.getType().name());
+        String accessToken = jwtService.issueAccessToken(user.getId(), user.getEmail(), user.getType().name());
 
         String rawRefresh = jwtService.generateRefreshToken();
         refreshTokenRepository.save(new RefreshToken(
@@ -378,8 +398,8 @@ public class AuthService {
                 .map(Company::getName)
                 .orElse(null);
 
-        List<String> permissions = new ArrayList<>(
-                permissionResolver.resolve(user).stream().map(Enum::name).sorted().toList());
+        List<String> permissions = new ArrayList<>(permissionResolver.resolve(user).stream().map(Enum::name).sorted().toList());
+        String accessToken = jwtService.issueAccessToken(user.getId(), user.getEmail(), user.getType().name());
 
         return new UserSummary(
                 user.getId(),

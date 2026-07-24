@@ -1,5 +1,11 @@
 package com.ecommerce.user;
 
+import java.time.Instant;
+import java.util.Optional;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.ecommerce.auth.token.RefreshTokenRepository;
 import com.ecommerce.common.ApiException;
 import com.ecommerce.company.Company;
@@ -15,10 +21,6 @@ import com.ecommerce.user.dto.UserDtos.DeleteAccountRequest;
 import com.ecommerce.user.dto.UserDtos.ProfileResponse;
 import com.ecommerce.user.dto.UserDtos.TwoFactorSetupResponse;
 import com.ecommerce.user.dto.UserDtos.UpdateProfileRequest;
-import java.time.Instant;
-import java.util.Optional;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
@@ -96,6 +98,17 @@ public class UserService {
             // Una cadena vacia limpia el campo, que es opcional.
             user.setGender(request.gender().isBlank() ? null : request.gender().trim());
         }
+        user.setUpdatedAt(Instant.now());
+        return toProfile(userRepository.save(user));
+    }
+
+    public ProfileResponse toggleTwoFactor(AppPrincipal principal, boolean enable) {
+        var user = require(principal.userId());
+        
+        user.setTwoFactorEnabled(enable);
+        user.setTwoFactorSecret(null);
+        user.setTwoFactorPending(false);
+        
         user.setUpdatedAt(Instant.now());
         return toProfile(userRepository.save(user));
     }

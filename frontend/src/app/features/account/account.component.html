@@ -103,6 +103,7 @@
       </section>
 
       <!-- Verificacion en dos pasos -->
+      <!--
       <section class="account__block card">
         <h2 class="account__block-title">Verificacion en dos pasos</h2>
         <app-alert [message]="twoFactorMessage()" variant="success" />
@@ -110,8 +111,7 @@
 
         @if (!me.twoFactorEnabled) {
           <p class="account__text">
-            Viene desactivada por defecto. Al activarla te pediremos un codigo de tu aplicacion de
-            autenticacion cada vez que inicies sesion.
+            Al activarla, cada vez que intentes iniciar sesión te enviaremos un código de seguridad a tu correo electrónico.
           </p>
 
           @if (!setup()) {
@@ -151,6 +151,26 @@
             </div>
             <button class="btn btn--outline" type="submit">Desactivar</button>
           </form>
+        }
+      </section>
+    -->
+      <section class="account__block card">
+        <h2 class="account__block-title">Verificación en dos pasos</h2>
+        
+        @if (!me.twoFactorEnabled) {
+          <p class="account__text">
+            Al activarla, cada vez que intentes iniciar sesión te enviaremos un código de seguridad a tu correo electrónico.
+          </p>
+          <button class="btn" type="button" (click)="enableTwoFactorWithoutCode()">
+            Activar Verificación en dos pasos
+          </button>
+        } @else {
+          <p class="account__text">
+            La verificación por correo está <strong>activa</strong>.
+          </p>
+          <button class="btn btn--outline" type="button" (click)="disableTwoFactorSimple()">
+            Desactivar
+          </button>
         }
       </section>
 

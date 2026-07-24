@@ -34,7 +34,7 @@
   cursor: pointer;
   padding: var(--space-2);
 
-  @media (min-width: 860px) {
+  @media (min-width: 1000px) {
     display: none;
   }
 }
@@ -92,7 +92,7 @@
     line-height: 1;
   }
 
-  @media (min-width: 860px) {
+  @media (min-width: 1000px) {
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -1,5 +1,15 @@
 package com.ecommerce.user;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.ecommerce.auth.dto.AuthDtos.MessageResponse;
 import com.ecommerce.security.AppPrincipal;
 import com.ecommerce.user.dto.UserDtos.ChangePasswordRequest;
@@ -8,17 +18,10 @@ import com.ecommerce.user.dto.UserDtos.ProfileResponse;
 import com.ecommerce.user.dto.UserDtos.TwoFactorCodeRequest;
 import com.ecommerce.user.dto.UserDtos.TwoFactorSetupResponse;
 import com.ecommerce.user.dto.UserDtos.UpdateProfileRequest;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/me")
@@ -42,6 +45,13 @@ public class UserController {
     public ProfileResponse updateProfile(@AuthenticationPrincipal AppPrincipal principal,
                                          @Valid @RequestBody UpdateProfileRequest request) {
         return userService.updateProfile(principal, request);
+    }
+
+    @PatchMapping("/2fa/toggle")
+    @Operation(summary = "Activar o desactivar 2FA directamente")
+    public ProfileResponse toggle2fa(@AuthenticationPrincipal AppPrincipal principal, 
+                                    @RequestParam boolean enable) {
+        return userService.toggleTwoFactor(principal, enable);
     }
 
     @PostMapping("/password")

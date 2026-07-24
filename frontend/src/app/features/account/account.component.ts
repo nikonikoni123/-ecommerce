@@ -146,6 +146,33 @@ export class AccountComponent {
     });
   }
 
+  protected enableTwoFactorWithoutCode(): void {
+    this.twoFactorError.set(null);
+    this.twoFactorMessage.set(null);
+
+    this.account.toggle2fa(true).subscribe({
+      next: (updatedProfile) => {
+        this.profile.set(updatedProfile);
+        this.twoFactorMessage.set('Seguridad por correo activada. Se te pedirá un código en el próximo ingreso.');
+      },
+      error: (err) => this.twoFactorError.set(errorMessage(err, 'No se pudo activar.'))
+    });
+  }
+
+  protected disableTwoFactorSimple(): void {
+    this.twoFactorError.set(null);
+    this.twoFactorMessage.set(null);
+
+    this.account.toggle2fa(false).subscribe({
+      next: (updatedProfile) => {
+        this.profile.set(updatedProfile);
+        this.twoFactorMessage.set('Seguridad en dos pasos desactivada.');
+      },
+      error: (err) => this.twoFactorError.set(errorMessage(err, 'No se pudo desactivar.'))
+    });
+  }
+
+
   protected disableTwoFactor(): void {
     if (this.twoFactorForm.invalid) {
       this.twoFactorForm.markAllAsTouched();

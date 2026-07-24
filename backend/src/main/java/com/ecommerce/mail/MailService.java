@@ -1,9 +1,8 @@
 package com.ecommerce.mail;
 
-import com.ecommerce.config.AppProperties;
-import jakarta.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -12,6 +11,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
+
+import com.ecommerce.config.AppProperties;
+
+import jakarta.mail.internet.MimeMessage;
 
 /**
  * Envio de correos transaccionales con plantillas Thymeleaf.
@@ -46,6 +49,12 @@ public class MailService {
     public void sendWelcome(String to, String name) {
         send(to, "Tu cuenta ya esta activa", "welcome",
                 Map.of("name", name, "link", properties.frontendUrl() + "/productos"));
+    }
+
+    @Async
+    public void sendTwoFactorCode(String to, String name, String code) {
+        send(to, "Tu código de acceso", "2fa-code", 
+            Map.of("name", name, "code", code));
     }
 
     @Async

@@ -569,6 +569,7 @@ export interface Dashboard {
   tiles: StatTile[];
   salesByMonth: KpiSeries;
   topProducts: KpiSeries;
+  topCustomers: KpiSeries;
   casesByStatus: KpiSeries;
   byDepartment: KpiSeries;
   byAgent: KpiSeries;

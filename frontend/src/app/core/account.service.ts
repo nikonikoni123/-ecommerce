@@ -48,6 +48,10 @@ export class AccountService {
   resetPassword(token: string, password: string): Observable<MessageResponse> {
     return this.http.post<MessageResponse>(`${this.base}/auth/password/reset`, { token, password });
   }
+  
+  toggle2fa(enable: boolean): Observable<Profile> {
+    return this.http.patch<Profile>(`${this.base}/me/2fa/toggle?enable=${enable}`, {});
+  }
 }
 
 @Injectable({ providedIn: 'root' })

@@ -1,13 +1,15 @@
 package com.ecommerce.user;
 
-import com.ecommerce.security.Permission;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.ecommerce.security.Permission;
 
 /**
  * Documento unico para los dos tipos de cuenta, discriminado por {@link UserType}.
@@ -44,6 +46,10 @@ public class User {
 
     /** Secreto generado pero todavia no confirmado con un codigo valido. */
     private boolean twoFactorPending;
+
+    /** verifiacion 2FA*/
+    private String twoFactorCode;
+    private Instant twoFactorCodeExpiresAt;
 
     private Instant createdAt = Instant.now();
     private Instant updatedAt = Instant.now();
@@ -188,6 +194,22 @@ public class User {
 
     public void setTwoFactorPending(boolean twoFactorPending) {
         this.twoFactorPending = twoFactorPending;
+    }
+
+    public String getTwoFactorCode() {
+        return twoFactorCode;
+    }
+
+    public void setTwoFactorCode(String twoFactorCode) {
+        this.twoFactorCode = twoFactorCode;
+    }
+
+    public Instant getTwoFactorCodeExpiresAt() {
+        return twoFactorCodeExpiresAt;
+    }
+
+    public void setTwoFactorCodeExpiresAt(Instant twoFactorCodeExpiresAt) {
+        this.twoFactorCodeExpiresAt = twoFactorCodeExpiresAt;
     }
 
     public Instant getCreatedAt() {

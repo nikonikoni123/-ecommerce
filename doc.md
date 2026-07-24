@@ -323,11 +323,43 @@ sequenceDiagram
         A-->>C: challengeToken (5 min)
         C->>A: POST /auth/login/2fa + codigo
     end
-    A-->>C: accessToken (15 min) + refreshToken rotatorio
+    A-->>C: Set-Cookie httpOnly (acceso 15 min + refresco rotatorio)
 ```
 
 El **acceso** viaja en JWT firmado con HS256. El **refresh** es opaco y se guarda solo como hash: una
 filtracion de la coleccion no permite suplantar sesiones. Cada uso lo rota.
+
+### La sesion vive en cookies httpOnly
+
+Ni el token de acceso ni el de refresco llegan al cuerpo JSON: se emiten como **cookies
+`httpOnly`**, que el navegador adjunta sola pero **JavaScript no puede leer**. Esa es toda la
+diferencia: guardarlos en `localStorage` los dejaba al alcance de cualquier script de la pagina, de
+modo que un XSS bastaba para robar la sesion. Con `httpOnly` no hay nada que robar desde la pagina.
+
+| Cookie | Ruta | Vida | Visible para JS |
+|---|---|---|---|
+| `ecommerce_access` | `/` | 15 min | No (`httpOnly`) |
+| `ecommerce_refresh` | `/api/auth` | 7 dias | No (`httpOnly`) |
+| `XSRF-TOKEN` | `/` | sesion | **Si**, a proposito |
+
+La de refresco se limita a `/api/auth`: solo acompaña a renovar y cerrar sesion, en vez de viajar en
+cada peticion de la API.
+
+**CSRF pasa a ser necesario.** Cuando la credencial viaja en cookie, el navegador la adjunta tambien
+a las peticiones que provoque otro sitio, asi que se activa la proteccion de Spring Security: el
+servidor emite `XSRF-TOKEN` en una cookie **legible** y exige recibir ese mismo valor en la cabecera
+`X-XSRF-TOKEN`. Un sitio ajeno no puede leer la cookie —lo impide la politica del mismo origen— y por
+tanto no puede fabricar la cabecera. `SameSite=Lax` es la primera barrera y esto la segunda. Se
+exceptuan login, registro, verificacion y recuperacion: no hay sesion previa que proteger y son el
+punto donde el cliente aun no tiene el token.
+
+**El navegador no guarda nada de la sesion.** Como no puede leer la cookie, al recargar no sabe quien
+es: por eso existe `GET /api/auth/session`, que devuelve el usuario a partir de la cookie. La
+aplicacion lo consulta al arrancar, antes de evaluar las guardas de ruta. Lo unico que queda en el
+navegador es el recordatorio de 2FA en `sessionStorage`, que es una preferencia de presentacion.
+
+El filtro sigue admitiendo `Authorization: Bearer` para Swagger, scripts y pruebas. Eso no debilita
+nada: un XSS no puede leer la cookie y, por tanto, tampoco construir ese encabezado.
 
 La **verificacion en dos pasos** implementa TOTP (RFC 6238) sin dependencias externas, con tolerancia
 de un paso de reloj y comparacion en tiempo constante.
@@ -501,7 +533,8 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 | `Permission` | Enum de permisos granulares por proceso, agrupados para la interfaz |
 | `PermissionResolver` | Calcula los permisos efectivos: cargos + concedidos − revocados; root los tiene todos |
 | `JwtService` | Emite y valida los JWT; genera y hashea los refresh tokens |
-| `JwtAuthFilter` | Traduce el encabezado en una autenticacion; recarga el usuario en cada peticion |
+| `SessionCookieService` | Emite y retira las cookies `httpOnly` de sesion, y las lee de la peticion |
+| `JwtAuthFilter` | Toma el token de la cookie (o del encabezado) y recarga el usuario en cada peticion |
 | `TotpService` | TOTP propio (RFC 6238), con base32 y verificacion en tiempo constante |
 | `AppPrincipal` | Usuario autenticado tal como lo ven los controladores |
 
@@ -576,8 +609,8 @@ Dos comportamientos de Spring Boot 4 que costaron tiempo y conviene dejar por es
 
 | Archivo | Responsabilidad |
 |---|---|
-| `auth.service.ts` | Sesion con signals; recordatorio de 2FA persistido en `sessionStorage` |
-| `auth.interceptor.ts` | Adjunta el token y renueva **una sola vez** ante varios 401 concurrentes |
+| `auth.service.ts` | Sesion con signals **solo en memoria**; la restaura del servidor al arrancar |
+| `auth.interceptor.ts` | Envia las cookies (`withCredentials`), adjunta `X-XSRF-TOKEN` y renueva **una sola vez** ante varios 401 concurrentes |
 | `cart.service.ts` | Carrito y pedidos; signal del contador del encabezado |
 | `catalog.service.ts` | Catalogo publico y panel de productos |
 | `guards.ts` | Guardas por sesion, por tipo de cuenta y por permiso (`permission` o `anyPermission`) |
@@ -766,6 +799,11 @@ servidor: no es que se filtre y se limpie, es que la vista publica no lo contien
 ### Seguridad
 
 - Contrasenas con **BCrypt**; el registro nunca las devuelve.
+- **Sesion en cookies `httpOnly`**, ilegibles desde JavaScript: un XSS no puede robarla. El navegador
+  no guarda tokens ni el usuario; los recupera del servidor en cada arranque.
+- **Proteccion CSRF** con token en cookie legible y cabecera `X-XSRF-TOKEN`, mas `SameSite=Lax`.
+- `Secure` en las cookies es configurable (`COOKIE_SECURE`): **debe activarse en produccion**, donde
+  se sirve por HTTPS. En desarrollo va desactivado porque el navegador descartaria la cookie sobre HTTP.
 - **Refresh tokens** guardados como hash y rotados en cada uso.
 - **2FA TOTP** opcional, con recordatorio en cada ingreso mientras siga desactivada.
 - **CORS** restringido al origen del frontend.
@@ -877,6 +915,15 @@ Todos exigen sesion de cuenta de empresa. La columna **Permiso** indica la autor
 | POST | `/goals` | `KPI_GOAL_MANAGE` |
 | PUT · DELETE | `/goals/{id}` | `KPI_GOAL_MANAGE` |
 | GET | `/dashboard` | `KPI_VIEW_ALL` o `KPI_VIEW_TEAM` |
+
+**Sesion** — `/api/auth`
+
+| Metodo | Ruta | Notas |
+|---|---|---|
+| POST | `/login` · `/login/2fa` | Emiten las cookies `httpOnly`; el cuerpo **no** lleva tokens |
+| GET | `/session` | Usuario de la sesion actual, leido de la cookie; 401 si no hay |
+| POST | `/refresh` | Rota el refresco tomandolo de la cookie |
+| POST | `/logout` | Invalida el refresco y borra ambas cookies |
 
 **Chat** — `/api/company/chat`
 

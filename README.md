@@ -147,7 +147,8 @@ Con el 27018 ambos conviven sin pisarse.
 `mongodb://127.0.0.1:27017` sin autenticacion:
 
 ```bash
-cd backend && ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+cd backend 
+./mvnw spring-boot:run "-Dspring-boot.run.profiles=local"
 ```
 
 Necesitaras de todas formas un SMTP de pruebas en el 1025; lo mas comodo es levantar solo Mailpit
@@ -194,17 +195,32 @@ Debe devolver 16.
 ### 2. Backend
 
 ```bash
-cd backend && ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+cd backend 
+./mvnw spring-boot:run
 ```
 
 API en <http://localhost:8080>, documentacion interactiva en <http://localhost:8080/swagger-ui.html>.
 
-Sin el perfil `local` toma la configuracion de `.env` (copia `.env.example` y ajusta los valores).
+Este es el comando de la **Opcion A** (Docker): toma la configuracion del `.env` de la raiz, que
+apunta a Mongo en el **27018** y al SMTP que hayas configurado.
+
+Solo si elegiste la **Opcion B** (MongoDB propio en el 27017, sin Docker) añade el perfil `local`:
+
+```bash
+cd backend 
+./mvnw spring-boot:run "-Dspring-boot.run.profiles=local"
+```
+
+> **Ojo con el correo:** el perfil `local` fuerza el envio a Mailpit (`127.0.0.1:1025`) y desactiva
+> TLS. Si tienes el `.env` configurado para Gmail, arranca **sin perfil**: con `local` los correos
+> se quedan en el buzon local en vez de salir a internet.
 
 ### 3. Frontend
 
 ```bash
-cd frontend && npm install && npm start
+cd frontend
+npm install
+npm start
 ```
 
 Aplicacion en <http://localhost:4200>.
@@ -231,11 +247,13 @@ motor de descuentos y precios, reversion de stock, maquinas de estado de pedido 
 BERT con su fallback, chat, metas KPI y guardas de administracion.
 
 ```bash
-cd backend && ./mvnw test
+cd backend
+./mvnw test
 ```
 
 ```bash
-cd frontend && npm run build
+cd frontend
+npm run build
 ```
 
 Ademas, cada etapa se verifico recorriendo el flujo completo en el navegador, tanto del cliente como

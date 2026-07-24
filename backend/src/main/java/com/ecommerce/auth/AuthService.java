@@ -359,6 +359,19 @@ public class AuthService {
         return user.getType() != UserType.COMPANY_MEMBER || user.isRoot();
     }
 
+    /**
+     * Usuario de la sesion en curso, para que el navegador pueda restaurarla al recargar sin
+     * necesidad de guardar nada por su cuenta. Los permisos se recalculan aqui, como en cualquier
+     * otra peticion: la interfaz nunca es la fuente de verdad.
+     */
+    public UserSummary sessionOf(String userId) {
+        return userRepository.findById(userId)
+                .filter(u -> u.getStatus() == UserStatus.ACTIVE)
+                .map(this::toSummary)
+                .orElseThrow(() -> ApiException.unauthorized("UNAUTHENTICATED",
+                        "No hay una sesion activa."));
+    }
+
     public UserSummary toSummary(User user) {
         String companyName = Optional.ofNullable(user.getCompanyId())
                 .flatMap(companyRepository::findById)

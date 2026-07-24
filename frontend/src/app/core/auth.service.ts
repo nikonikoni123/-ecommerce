@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthResponse, MessageResponse, Profile, UserSummary } from './models';
 
-const ACCESS_TOKEN_KEY = 'ecommerce.accessToken';
-const REFRESH_TOKEN_KEY = 'ecommerce.refreshToken';
-const USER_KEY = 'ecommerce.user';
 /**
  * Estado del recordatorio de 2FA dentro de la pestana actual: 'pending' mientras deba mostrarse y
  * 'dismissed' cuando el usuario lo aparta. Vive en sessionStorage para sobrevivir a una recarga
  * pero desaparecer al cerrar la pestana, de modo que reaparezca en el siguiente ingreso.
+ *
+ * Es lo unico que se guarda en el navegador: no es un dato sensible, solo una preferencia de
+ * presentacion.
  */
 const REMINDER_KEY = 'ecommerce.twoFactorReminder';
 
@@ -21,7 +21,11 @@ export class AuthService {
   private readonly router = inject(Router);
   private readonly base = environment.apiBaseUrl;
 
-  private readonly currentUser = signal<UserSummary | null>(this.readStoredUser());
+  /**
+   * El usuario vive solo en memoria. La sesion la sostienen las cookies httpOnly que emite el
+   * servidor, ilegibles desde JavaScript; al recargar la pagina se restaura con {@link restoreSession}.
+   */
+  private readonly currentUser = signal<UserSummary | null>(null);
   /** El recordatorio de 2FA se muestra en cada ingreso hasta que el usuario la active. */
   private readonly reminderVisible = signal(sessionStorage.getItem(REMINDER_KEY) === 'pending');
 
@@ -31,14 +35,6 @@ export class AuthService {
   readonly isCompanyMember = computed(() => this.currentUser()?.type === 'COMPANY_MEMBER');
   readonly isRoot = computed(() => this.currentUser()?.root === true);
   readonly showTwoFactorReminder = this.reminderVisible.asReadonly();
-
-  get accessToken(): string | null {
-    return localStorage.getItem(ACCESS_TOKEN_KEY);
-  }
-
-  get refreshToken(): string | null {
-    return localStorage.getItem(REFRESH_TOKEN_KEY);
-  }
 
   /** Comprueba un permiso concreto. El usuario root los tiene todos de forma implicita. */
   has(permission: string): boolean {
@@ -83,39 +79,47 @@ export class AuthService {
       .pipe(tap((response) => this.storeSession(response)));
   }
 
+  /** El token de renovacion viaja en su cookie; no hay nada que enviar en el cuerpo. */
   refreshSession(): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${this.base}/auth/refresh`, { refreshToken: this.refreshToken })
+      .post<AuthResponse>(`${this.base}/auth/refresh`, {})
       .pipe(tap((response) => this.storeSession(response)));
   }
 
+  /**
+   * Restaura la sesion al arrancar la aplicacion. La cookie viaja sola; si es valida el servidor
+   * devuelve el usuario, y si no, se queda sin sesion sin mas.
+   */
+  restoreSession(): Observable<UserSummary | null> {
+    return this.http.get<UserSummary>(`${this.base}/auth/session`).pipe(
+      tap((user) => this.currentUser.set(user)),
+      catchError(() => {
+        this.currentUser.set(null);
+        return of(null);
+      }),
+    );
+  }
+
   logout(navigate = true): void {
-    const token = this.refreshToken;
-    if (token) {
-      // El cierre en el servidor es best effort: la sesion local se limpia en cualquier caso.
-      this.http.post(`${this.base}/auth/logout`, { refreshToken: token }).subscribe({
-        error: () => undefined,
-      });
-    }
+    // El cierre en el servidor es best effort: borra la cookie e invalida el token de renovacion.
+    this.http.post(`${this.base}/auth/logout`, {}).subscribe({ error: () => undefined });
     this.clearSession();
     if (navigate) {
       this.router.navigate(['/auth/login']);
     }
   }
 
+  /**
+   * Guarda lo que el navegador si puede conocer: quien es el usuario, para pintar la interfaz. Los
+   * tokens no llegan aqui —viajan en cookies httpOnly— y por eso no hay nada que almacenar.
+   */
   private storeSession(response: AuthResponse): void {
-    if (response.twoFactorRequired || !response.accessToken) {
-      // Todavia falta el segundo factor: no hay sesion que guardar.
+    if (response.twoFactorRequired || !response.user) {
+      // Todavia falta el segundo factor: aun no hay sesion.
       return;
     }
-    localStorage.setItem(ACCESS_TOKEN_KEY, response.accessToken);
-    if (response.refreshToken) {
-      localStorage.setItem(REFRESH_TOKEN_KEY, response.refreshToken);
-    }
-    if (response.user) {
-      localStorage.setItem(USER_KEY, JSON.stringify(response.user));
-      this.currentUser.set(response.user);
-    }
+    this.currentUser.set(response.user);
+
     // Cada ingreso reabre el recordatorio, aunque se hubiera apartado en la sesion anterior.
     if (response.twoFactorReminder) {
       sessionStorage.setItem(REMINDER_KEY, 'pending');
@@ -126,9 +130,6 @@ export class AuthService {
   }
 
   clearSession(): void {
-    localStorage.removeItem(ACCESS_TOKEN_KEY);
-    localStorage.removeItem(REFRESH_TOKEN_KEY);
-    localStorage.removeItem(USER_KEY);
     sessionStorage.removeItem(REMINDER_KEY);
     this.currentUser.set(null);
     this.reminderVisible.set(false);
@@ -156,14 +157,4 @@ export class AuthService {
     );
   }
 
-  private readStoredUser(): UserSummary | null {
-    const raw = localStorage.getItem(USER_KEY);
-    if (!raw) return null;
-    try {
-      return JSON.parse(raw) as UserSummary;
-    } catch {
-      localStorage.removeItem(USER_KEY);
-      return null;
-    }
-  }
 }

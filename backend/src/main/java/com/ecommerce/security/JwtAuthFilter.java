@@ -32,25 +32,28 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserRepository userRepository;
     private final PermissionResolver permissionResolver;
+    private final SessionCookieService cookieService;
 
     public JwtAuthFilter(JwtService jwtService, UserRepository userRepository,
-                         PermissionResolver permissionResolver) {
+                         PermissionResolver permissionResolver,
+                         SessionCookieService cookieService) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
         this.permissionResolver = permissionResolver;
+        this.cookieService = cookieService;
     }
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain chain) throws ServletException, IOException {
-        String header = request.getHeader("Authorization");
-        if (header == null || !header.startsWith(BEARER_PREFIX)) {
+        var token = tokenOf(request);
+        if (token.isEmpty()) {
             chain.doFilter(request, response);
             return;
         }
 
-        jwtService.parse(header.substring(BEARER_PREFIX.length()))
+        jwtService.parse(token.get())
                 // Un token de reto 2FA no autentica: solo sirve para completar el segundo factor.
                 .filter(claims -> !jwtService.isTwoFactorChallenge(claims))
                 .map(claims -> claims.getSubject())
@@ -59,6 +62,23 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 .ifPresent(this::authenticate);
 
         chain.doFilter(request, response);
+    }
+
+    /**
+     * El token se toma de la cookie httpOnly, que es como viaja desde el navegador. Se sigue
+     * admitiendo {@code Authorization: Bearer} para los clientes que no son el navegador —Swagger,
+     * scripts y pruebas—, lo que no debilita nada: un XSS no puede leer la cookie ni, por tanto,
+     * construir ese encabezado.
+     */
+    private java.util.Optional<String> tokenOf(HttpServletRequest request) {
+        var fromCookie = cookieService.readAccessToken(request);
+        if (fromCookie.isPresent()) {
+            return fromCookie;
+        }
+        String header = request.getHeader("Authorization");
+        return header != null && header.startsWith(BEARER_PREFIX)
+                ? java.util.Optional.of(header.substring(BEARER_PREFIX.length()))
+                : java.util.Optional.empty();
     }
 
     private void authenticate(User user) {

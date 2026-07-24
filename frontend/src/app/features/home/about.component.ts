@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-about',
@@ -21,8 +22,10 @@ import { RouterLink } from '@angular/router';
           verificacion en dos pasos.
         </p>
         <div class="about__actions">
-          <a class="btn" routerLink="/auth/registro-usuario">Crear una cuenta</a>
-          <a class="btn btn--outline" routerLink="/auth/registro-empresa">Registrar una empresa</a>
+          @if (!auth.isAuthenticated()) {
+            <a class="btn" routerLink="/auth/registro-usuario">Crear una cuenta</a>
+            <a class="btn btn--outline" routerLink="/auth/registro-empresa">Registrar una empresa</a>
+          }
         </div>
       </div>
     </section>
@@ -57,4 +60,6 @@ import { RouterLink } from '@angular/router';
     }
   `,
 })
-export class AboutComponent {}
+export class AboutComponent {
+  public auth = inject(AuthService);
+}

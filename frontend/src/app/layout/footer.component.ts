@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
         <div>
           <p class="eyebrow">E&#8209;Commerce</p>
           <p class="footer__tagline">
-            Catalogo, inventario y pedidos en una sola plataforma.
+            catálogo, inventario y pedidos en un solo lugar.
           </p>
         </div>
         <nav class="footer__nav">

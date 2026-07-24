@@ -14,6 +14,11 @@ export interface UserSummary {
   permissions: string[];
 }
 
+/**
+ * Respuesta de sesion. `accessToken` y `refreshToken` llegan siempre nulos: la sesion viaja en
+ * cookies httpOnly que el navegador no puede leer, precisamente para que un XSS no pueda robarla.
+ * Se conservan en el tipo porque el contrato de la API los declara.
+ */
 export interface AuthResponse {
   accessToken: string | null;
   refreshToken: string | null;

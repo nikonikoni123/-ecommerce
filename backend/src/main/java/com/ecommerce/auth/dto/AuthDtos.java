@@ -120,6 +120,17 @@ public final class AuthDtos {
      * @param twoFactorReminder  la 2FA esta desactivada: el frontend muestra el recordatorio. En las
      *                           cuentas de empresa solo se marca para el usuario root
      */
+    /**
+     * Respuesta de sesion.
+     *
+     * <p>{@code accessToken} y {@code refreshToken} son de uso <b>interno</b>: el controlador los
+     * toma para escribirlos en cookies {@code httpOnly} y despues llama a {@link #withoutTokens()},
+     * de modo que <b>nunca lleguen al navegador en el cuerpo JSON</b>. Si llegaran, el codigo de la
+     * pagina podria leerlos y un XSS robarlos, que es justo lo que la cookie httpOnly evita.
+     *
+     * <p>{@code challengeToken} si viaja en el cuerpo: no es una sesion, solo habilita el segundo
+     * paso de la 2FA y caduca en minutos.
+     */
     public record AuthResponse(
             String accessToken,
             String refreshToken,
@@ -131,6 +142,12 @@ public final class AuthDtos {
 
         public static AuthResponse challenge(String challengeToken) {
             return new AuthResponse(null, null, 0, true, challengeToken, false, null);
+        }
+
+        /** Copia sin los tokens, que es lo unico que se serializa hacia el navegador. */
+        public AuthResponse withoutTokens() {
+            return new AuthResponse(null, null, expiresInSeconds, twoFactorRequired, challengeToken,
+                    twoFactorReminder, user);
         }
     }
 

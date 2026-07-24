@@ -14,61 +14,47 @@
     </button>
 
     <nav id="nav-principal" class="header__nav" [class.is-open]="menuOpen()">
+  
+    <!-- CASO EMPRESA -->
+    @if (auth.isCompanyMember()) {
+      <a routerLink="/empresa/productos" routerLinkActive="is-active" (click)="closeMenu()">Productos</a>
+      <a routerLink="/empresa/pedidos" routerLinkActive="is-active" (click)="closeMenu()">Pedidos</a>
+      <a routerLink="/empresa/casos" routerLinkActive="is-active" (click)="closeMenu()">Casos</a>
+      @if (auth.isRoot()) {
+        <a routerLink="/empresa/administracion" routerLinkActive="is-active" (click)="closeMenu()">Administracion</a>
+      }
+      <a routerLink="/empresa/chat" routerLinkActive="is-active" (click)="closeMenu()">Chat</a>
+    }
+
+    <!-- CASO CLIENTE -->
+    @else if (auth.isCustomer()) {
       <a routerLink="/productos" routerLinkActive="is-active" (click)="closeMenu()">Tienda</a>
       <a routerLink="/nosotros" routerLinkActive="is-active" (click)="closeMenu()">Nosotros</a>
-
-      @if (auth.isCompanyMember()) {
-        <a routerLink="/empresa/productos" routerLinkActive="is-active" (click)="closeMenu()">
-          Productos
-        </a>
-        <a routerLink="/empresa/pedidos" routerLinkActive="is-active" (click)="closeMenu()">
-          Pedidos
-        </a>
-        <a routerLink="/empresa/casos" routerLinkActive="is-active" (click)="closeMenu()">
-          Casos
-        </a>
-        @if (canViewKpi()) {
-          <a routerLink="/empresa/kpi" routerLinkActive="is-active" (click)="closeMenu()">
-            KPI
-          </a>
+      <a routerLink="/sorpresa" routerLinkActive="is-active" (click)="closeMenu()">Sorpresa</a>
+      <a routerLink="/pedidos" routerLinkActive="is-active" (click)="closeMenu()">Mis Pedidos</a>
+      <a routerLink="/casos" routerLinkActive="is-active" (click)="closeMenu()">Soporte</a>
+      <a class="header__cart" routerLink="/carrito" routerLinkActive="is-active" (click)="closeMenu()">
+        Carrito
+        @if (cart.hasItems()) {
+          <span class="header__badge">{{ cart.itemCount() }}</span>
         }
-        @if (canAdminister()) {
-          <a routerLink="/empresa/administracion" routerLinkActive="is-active" (click)="closeMenu()">
-            Administracion
-          </a>
-        }
-        @if (auth.has('ACTIVITY_VIEW')) {
-          <a routerLink="/empresa/actividad" routerLinkActive="is-active" (click)="closeMenu()">
-            Actividad
-          </a>
-        }
-        <a routerLink="/empresa/chat" routerLinkActive="is-active" (click)="closeMenu()">
-          Chat
-        </a>
-      }
+      </a>
+    }
 
-      @if (auth.isCustomer()) {
-        <a routerLink="/sorpresa" routerLinkActive="is-active" (click)="closeMenu()">Sorpresa</a>
-        <a routerLink="/pedidos" routerLinkActive="is-active" (click)="closeMenu()">Pedidos</a>
-        <a routerLink="/casos" routerLinkActive="is-active" (click)="closeMenu()">Casos</a>
-        <a class="header__cart" routerLink="/carrito" routerLinkActive="is-active" (click)="closeMenu()">
-          Carrito
-          @if (cart.hasItems()) {
-            <span class="header__badge" aria-hidden="true">{{ cart.itemCount() }}</span>
-            <span class="visually-hidden">{{ cart.itemCount() }} articulos en el carrito</span>
-          }
-        </a>
-      }
+    <!-- CASO NO LOGUEADO -->
+    @else {
+      <a routerLink="/productos" routerLinkActive="is-active" (click)="closeMenu()">Tienda</a>
+      <a routerLink="/nosotros" routerLinkActive="is-active" (click)="closeMenu()">Nosotros</a>
+      <a routerLink="/auth/login" routerLinkActive="is-active" (click)="closeMenu()">Ingresar</a>
+      <a class="btn btn--outline" routerLink="/auth/registro-usuario" (click)="closeMenu()">Registrarse</a>
+    }
 
-      @if (auth.isAuthenticated()) {
-        <a routerLink="/notificaciones" routerLinkActive="is-active" (click)="closeMenu()">
-          Notificaciones
-        </a>
-        <a routerLink="/cuenta" routerLinkActive="is-active" (click)="closeMenu()">Cuenta</a>
-        <button class="header__logout" type="button" (click)="logout()">Salir</button>
-      } @else {
-        <a routerLink="/auth/login" routerLinkActive="is-active" (click)="closeMenu()">Ingresar</a>
-      }
-    </nav>
+    <!-- 4. ACCIONES DE CUENTA (Comunes para cualquier logueado) -->
+    @if (auth.isAuthenticated()) {
+      <a routerLink="/notificaciones" routerLinkActive="is-active" (click)="closeMenu()">Notificaciones</a>
+      <a routerLink="/cuenta" routerLinkActive="is-active" (click)="closeMenu()">Cuenta</a>
+      <button class="header__logout" type="button" (click)="logout()">Salir</button>
+    }
+  </nav>
   </div>
 </header>

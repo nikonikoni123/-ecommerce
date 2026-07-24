@@ -14,3 +14,11 @@ spring:
   mail:
     host: 127.0.0.1
     port: 1025
+    # Mailpit no habla TLS ni pide autenticacion. Hay que anular aqui lo que venga del .env: si el
+    # .env esta configurado para Gmail (MAIL_SMTP_STARTTLS=true) y este perfil solo cambia el host,
+    # el arranque queda incoherente y todo envio falla con
+    # "STARTTLS is required but host does not support STARTTLS".
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+      mail.smtp.starttls.required: false

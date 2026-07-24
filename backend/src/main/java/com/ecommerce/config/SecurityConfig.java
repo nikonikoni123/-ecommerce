@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -40,9 +42,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, JwtAuthFilter jwtAuthFilter,
                                            ObjectMapper objectMapper) throws Exception {
+        // Con la sesion en cookies, el navegador las adjunta solo a cada peticion, asi que CSRF si
+        // aplica: sin esto, otro sitio podria provocar acciones en nombre del usuario. El token va
+        // en una cookie legible (XSRF-TOKEN) que el cliente reenvia en la cabecera X-XSRF-TOKEN;
+        // como un sitio ajeno no puede leer esa cookie, no puede falsificar la cabecera.
+        var csrfHandler = new CsrfTokenRequestAttributeHandler();
+        // Se opta por el token en claro (sin cifrado BREACH) para que el valor de la cookie sea el
+        // mismo que el cliente debe enviar, y ademas se genere de forma temprana en cada peticion.
+        csrfHandler.setCsrfRequestAttributeName(null);
+
         http
-                // La API no usa cookies de sesion, el token va en el encabezado: CSRF no aplica.
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf
+                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                        .csrfTokenRequestHandler(csrfHandler)
+                        // El login y el registro no tienen sesion previa que proteger, y son el
+                        // punto de entrada que aun no dispone del token.
+                        .ignoringRequestMatchers("/api/auth/login", "/api/auth/login/2fa",
+                                "/api/auth/register/**", "/api/auth/verify/**",
+                                "/api/auth/password/**"))
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth

@@ -57,6 +57,16 @@ app:
     access-expiration-minutes: ${JWT_ACCESS_EXPIRATION_MINUTES:15}
     refresh-expiration-days: ${JWT_REFRESH_EXPIRATION_DAYS:7}
 
+  # Cookies de sesion. El token viaja en una cookie httpOnly, ilegible desde JavaScript, de modo que
+  # un XSS no pueda robarlo.
+  cookies:
+    # En desarrollo se sirve por HTTP y el navegador descartaria una cookie 'Secure'.
+    # EN PRODUCCION DEBE IR A true (exige HTTPS).
+    secure: ${COOKIE_SECURE:false}
+    # Lax impide que la cookie acompañe a peticiones POST provenientes de otro sitio: es la primera
+    # barrera contra CSRF, reforzada ademas con el token XSRF.
+    same-site: ${COOKIE_SAME_SITE:Lax}
+
   nlp:
     url: ${NLP_SERVICE_URL:http://localhost:8000}
     timeout-ms: ${NLP_SERVICE_TIMEOUT_MS:4000}

@@ -1,16 +1,19 @@
 package com.ecommerce.kpi;
 
-import com.ecommerce.order.Order;
-import com.ecommerce.order.OrderStatus;
-import com.ecommerce.support.CaseStatus;
-import com.ecommerce.support.SupportCase;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+
+import com.ecommerce.catalog.Product;
+import com.ecommerce.order.Order;
+import com.ecommerce.order.OrderStatus;
+import com.ecommerce.support.CaseStatus;
+import com.ecommerce.support.SupportCase;
 
 /**
  * Calcula el valor real de cada metrica KPI desde los datos que ya existen: pedidos y casos.
@@ -48,6 +51,11 @@ public class KpiCalculator {
             case CASOS_A_TIEMPO -> casos(companyId, from, to, userIdsInScope,
                     List.of(CaseStatus.RESUELTO, CaseStatus.CERRADO), true);
             case CASOS_ATENDIDOS -> casosAtendidos(companyId, from, to, userIdsInScope);
+            case PRODUCTOS_ACTIVOS -> productosActivos(companyId);
+            case UNIDADES_VENDIDAS -> unidadesPorEstado(companyId, from, to, null); // Todas menos anuladas
+            case UNIDADES_EN_CAMINO -> unidadesPorEstado(companyId, from, to, List.of(OrderStatus.ENVIANDO));
+            case UNIDADES_REEMBOLSADAS -> unidadesPorEstado(companyId, from, to, List.of(OrderStatus.REEMBOLSADO));
+            default -> BigDecimal.ZERO;
         };
     }
 
@@ -91,6 +99,32 @@ public class KpiCalculator {
             return true;   // sin SLA, no se cuenta como fuera de plazo
         }
         return !c.getUpdatedAt().isAfter(c.getDueDate());
+    }
+
+    // ------------------------------------------------------------------ productos
+
+    private BigDecimal productosActivos(String companyId) {
+        var query = new Query(Criteria.where("companyId").is(companyId).and("active").is(true));
+        return BigDecimal.valueOf(mongo.count(query, Product.class));
+    }
+
+    private BigDecimal unidadesPorEstado(String companyId, Instant from, Instant to, List<OrderStatus> estados) {
+        var query = new Query(Criteria.where("companyId").is(companyId)
+                .and("createdAt").gte(from).lte(to));
+        
+        if (estados != null) {
+            query.addCriteria(Criteria.where("status").in(estados));
+        } else {
+            query.addCriteria(Criteria.where("status").ne(OrderStatus.CANCELADO));
+        }
+
+        var pedidos = mongo.find(query, Order.class);
+        int totalUnidades = pedidos.stream()
+                .flatMap(o -> o.getItems().stream())
+                .mapToInt(Order.OrderItem::getQuantity)
+                .sum();
+                
+        return BigDecimal.valueOf(totalUnidades);
     }
 
     // ------------------------------------------------------------------ consultas base

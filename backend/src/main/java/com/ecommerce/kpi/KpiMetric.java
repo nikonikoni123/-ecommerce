@@ -10,10 +10,14 @@ package com.ecommerce.kpi;
 public enum KpiMetric {
 
     VENTAS("Ventas", Unit.CURRENCY, Scope.COMPANY_OR_DEPARTMENT),
-    PEDIDOS_ENTREGADOS("Pedidos entregados", Unit.COUNT, Scope.ANY),
+    PEDIDOS_ENTREGADOS("Productos entregados", Unit.COUNT, Scope.ANY),
     CASOS_RESUELTOS("Casos resueltos", Unit.COUNT, Scope.ANY),
     CASOS_A_TIEMPO("Casos resueltos a tiempo", Unit.COUNT, Scope.ANY),
-    CASOS_ATENDIDOS("Casos atendidos", Unit.COUNT, Scope.ANY);
+    CASOS_ATENDIDOS("Casos atendidos", Unit.COUNT, Scope.ANY),
+    PRODUCTOS_ACTIVOS("Productos activos en catálogo", Unit.COUNT, Scope.COMPANY_OR_DEPARTMENT),
+    UNIDADES_VENDIDAS("Total unidades vendidas", Unit.COUNT, Scope.COMPANY_OR_DEPARTMENT),
+    UNIDADES_EN_CAMINO("Unidades en tránsito", Unit.COUNT, Scope.COMPANY_OR_DEPARTMENT),
+    UNIDADES_REEMBOLSADAS("Unidades devueltas", Unit.COUNT, Scope.COMPANY_OR_DEPARTMENT);
 
     public enum Unit {
         CURRENCY, COUNT

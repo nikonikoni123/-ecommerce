@@ -1,5 +1,6 @@
 package com.ecommerce.kpi;
 
+import com.ecommerce.catalog.Product;
 import com.ecommerce.company.Department;
 import com.ecommerce.company.DepartmentRepository;
 import com.ecommerce.kpi.dto.KpiDtos.Dashboard;
@@ -83,12 +84,26 @@ public class DashboardService {
         long enEspera = casos.stream()
                 .filter(c -> c.getStatus() == CaseStatus.ESPERANDO_CLIENTE).count();
 
+        int vendidos = pedidos.stream().flatMap(o -> o.getItems().stream())
+                .mapToInt(Order.OrderItem::getQuantity).sum();
+
+        long activos = mongo.count(new Query(Criteria.where("companyId").is(companyId)
+        .and("active").is(true)), Product.class);
+
+        long enCamino = pedidos.stream().filter(o -> o.getStatus() == OrderStatus.ENVIANDO)
+            .flatMap(o -> o.getItems().stream()).mapToInt(Order.OrderItem::getQuantity).sum();
+
+        
+
         return List.of(
                 new StatTile("Ventas", ventas, "CURRENCY"),
-                new StatTile("Pedidos entregados", BigDecimal.valueOf(entregados), "COUNT"),
+                new StatTile("Productos entregados", BigDecimal.valueOf(entregados), "COUNT"),
                 new StatTile("Casos nuevos", BigDecimal.valueOf(nuevos), "COUNT"),
                 new StatTile("Casos vencidos", BigDecimal.valueOf(vencidos), "COUNT"),
-                new StatTile("Casos en espera", BigDecimal.valueOf(enEspera), "COUNT"));
+                new StatTile("Casos en espera", BigDecimal.valueOf(enEspera), "COUNT"),
+                new StatTile("Productos disponibles", BigDecimal.valueOf(activos), "COUNT"),
+                new StatTile("Productos en camino", BigDecimal.valueOf(enCamino), "COUNT"));
+                
     }
 
     // ------------------------------------------------------------------ series

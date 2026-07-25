@@ -6,6 +6,10 @@
 
 El propósito de este desarrollo es consolidar una plataforma de comercio electrónico de alta gama que trascienda la funcionalidad transaccional básica para convertirse en un ecosistema de gestión empresarial integral.
 
+### Video presentación
+
+[![Ver presentación en YouTube](https://img.youtube.com/vi/Po4HOAodkyA/maxresdefault.jpg)](https://www.youtube.com/watch?v=Po4HOAodkyA)
+
 ## Definición y Contextualización del Problema
 
 El desarrollo de una plataforma de comercio electrónico contemporánea trasciende la simple creación de un catálogo digital. El problema fundamental radica en la orquestación de tres pilares críticos: 

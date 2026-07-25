@@ -1,4 +1,4 @@
-# Documentacion tecnica — Plataforma E-Commerce
+# Documentacion tecnica
 
 ---
 
@@ -131,7 +131,7 @@ La investigación técnica se inclina por el uso de principios SOLID, diseño or
 ### 1.1. Ingeniería de Precisión Financiera
 Implementar un motor de cálculo de alta fidelidad que garantice la integridad de los datos monetarios mediante el uso de `BigDecimal` con operaciones atómicas de stock, eliminando errores de redondeo y previniendo la sobreventa en entornos de alta concurrencia.
 
-### 1.2. Concepto de facil naveagilidad
+### 1.2. Concepto de facil navegabilidad
 Consolidar una identidad visual inspirada en el diseño editorial contemporáneo simple, facil, rapido de entender. El sistema debe priorizar la serenidad del usuario mediante el minimalismo, eliminando el ruido visual para destacar el producto y la información analítica.
 
 ### 1.3. Clasificación Estratégica mediante IA
@@ -156,7 +156,7 @@ cerrada.
 | 4 | Casos de atencion con BERT, comentarios al vendedor y chat | 6 horas | 
 | 5 | Administracion de la empresa: cargos, usuarios, departamentos, equipos, metas KPI, graficas y chat de equipo | 24 horas| 
 | 6 | Desarrollo final de procesos visuales | 8 horas |
-| 7 | Correcion de errores | 10 horas|
+| 7 | Correción de errores | 10 horas|
 
 
 ## 2. Objetivos

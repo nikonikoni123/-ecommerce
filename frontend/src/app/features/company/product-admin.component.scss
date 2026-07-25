@@ -79,3 +79,38 @@
   display: flex;
   gap: var(--space-1);
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+  padding-bottom: var(--space-10);
+
+  &__item {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: all 0.2s ease;
+    border-radius: 2px;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    &.is-current {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+  }
+}

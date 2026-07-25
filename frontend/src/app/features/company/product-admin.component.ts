@@ -6,6 +6,7 @@ import { formatPrice } from '../../core/format';
 import { HasPermissionDirective } from '../../core/has-permission.directive';
 import { CompanyProduct, PageResponse, Permission } from '../../core/models';
 import { AlertComponent } from '../../shared/alert.component';
+import { CatalogService } from '../../core/catalog.service';
 
 @Component({
   selector: 'app-product-admin',
@@ -28,6 +29,7 @@ export class ProductAdminComponent {
   /** Producto en edicion. Nulo cuando el formulario esta cerrado. */
   protected readonly editing = signal<CompanyProduct | null>(null);
   protected readonly formOpen = signal(false);
+  private readonly service = inject(CatalogService);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.maxLength(150)]],
@@ -43,7 +45,7 @@ export class ProductAdminComponent {
 
   protected readonly price = formatPrice;
 
-  private currentPage = 0;
+  protected readonly currentPage = signal(0);
 
   constructor() {
     this.load();
@@ -51,7 +53,7 @@ export class ProductAdminComponent {
 
   private load(): void {
     this.loading.set(true);
-    this.api.list(this.currentPage, 20).subscribe({
+    this.api.list(this.currentPage(), 20).subscribe({
       next: (result) => {
         this.page.set(result);
         this.loading.set(false);
@@ -61,6 +63,16 @@ export class ProductAdminComponent {
         this.loading.set(false);
       },
     });
+  }
+
+  protected goToPage(page: number): void {
+    this.currentPage.set(page);
+    this.load();
+  }
+
+  protected get pageNumbers(): number[] {
+    const total = this.page()?.totalPages ?? 0;
+    return Array.from({ length: total }, (_, i) => i);
   }
 
   // ---------------------------------------------------------------- formulario

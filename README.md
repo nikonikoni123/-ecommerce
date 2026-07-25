@@ -8,19 +8,24 @@ El propósito de este desarrollo es consolidar una plataforma de comercio electr
 
 ## Definición y Contextualización del Problema
 
-El desarrollo de una plataforma de comercio electrónico contemporánea trasciende la simple creación de un catálogo digital. El problema fundamental radica en la orquestación de tres pilares críticos: la integridad del inventario, la fidelidad de la transacción y la flexibilidad de las reglas de negocio.
-En este contexto, el reto no consiste solo en permitir que un usuario compre un producto, sino en garantizar que el sistema pueda reaccionar en tiempo real a condiciones variables (como ventanas de tiempo y perfiles de cliente) sin comprometer la consistencia de los datos. La problemática se profundiza al integrar un sistema de auditoría y trazabilidad, donde cada mutación del estado del sistema debe ser registrada para garantizar la transparencia operativa.
+El desarrollo de una plataforma de comercio electrónico contemporánea trasciende la simple creación de un catálogo digital. El problema fundamental radica en la orquestación de tres pilares críticos: 
+- la integridad del inventario, 
+- la fidelidad de la transacción 
+- la flexibilidad de las reglas de negocio.
+
+En este contexto, el reto no consiste solo en permitir que un usuario compre un producto, sino en garantizar que el sistema pueda reaccionar en tiempo real a condiciones variables **como ventanas de tiempo y perfiles de cliente** sin comprometer la consistencia de los datos. La problemática se profundiza al integrar un sistema de auditoría y trazabilidad, donde cada mutación del estado del sistema debe ser registrada para garantizar la transparencia operativa.
 
 ### Dimensiones del Análisis
 
 Para entender el problema a profundidad, el proyecto se aborda desde cuatro dimensiones estratégicas:
-1. Sincronización Crítica de Inventarios: El análisis se centra en evitar la sobreventa y garantizar la atomicidad de las operaciones. La gestión de stock no es un campo estático, sino un flujo que debe estar perfectamente sincronizado con el ciclo de vida de las órdenes de compra.
-2. Motor de Reglas de Negocio (Pricing Engine): El desafío técnico principal es la implementación de una lógica de precios dinámica. El sistema debe ser capaz de evaluar, en el momento exacto de la persistencia de la orden, si aplica el descuento por ventana de tiempo (10%), si el pedido es aleatorio (50%) o si el cliente posee un histórico que lo catalogue como "frecuente" (+5%). La investigación aquí se enfoca en la jerarquía y el cálculo de precisión decimal para evitar errores financieros.
-3. Trazabilidad y Transparencia (Auditoría): Se investiga el diseño de un sistema de "logs" que registre no solo el qué, sino el quién y el cuándo. Esto transforma una aplicación transaccional en un sistema empresarial auditable y seguro.
-Análisis Predictivo y Descriptivo (Reporting): Los reportes solicitados (Top 5 ventas, productos activos, clientes frecuentes) no son meras listas; son el resultado de consultas complejas que buscan transformar datos crudos en información estratégica para la toma de decisiones.
+1. **Sincronización Crítica de Inventarios:** El análisis se centra en evitar la sobreventa y garantizar la atomicidad de las operaciones. La gestión de stock no es un campo estático, sino un flujo que debe estar perfectamente sincronizado con el ciclo de vida de las órdenes de compra.
+2. **Motor de Reglas de Negocio (Pricing Engine):** El desafío técnico principal es la implementación de una lógica de precios dinámica. El sistema debe ser capaz de evaluar, en el momento exacto de la persistencia de la orden, si aplica el **descuento por ventana de tiempo (10%)**, si el pedido es **aleatorio (50%)** o si el cliente posee un histórico que lo catalogue como **"frecuente" (+5%)**. La investigación aquí se enfoca en la jerarquía y el cálculo de precisión decimal para evitar errores financieros.
+3. **Trazabilidad y Transparencia (Auditoría):** Se investiga el diseño de un sistema de "logs" que registre no solo el qué, sino el quién y el cuándo. Esto transforma una aplicación transaccional en un sistema empresarial auditable y seguro.
+
+4. **Análisis Predictivo y Descriptivo (Reporting):** Los reportes solicitados (Top 5 ventas, productos activos, clientes frecuentes) no son meras listas; son el resultado de consultas complejas que buscan transformar datos crudos en información estratégica para la toma de decisiones.
 ### Propuesta de Solución Sistémica
-El enfoque propuesto utiliza una arquitectura desacoplada donde el Backend (Spring Boot) asume la responsabilidad total de la verdad de los datos y el cumplimiento de las reglas de negocio, mientras que el Frontend (Angular/TypeScript) se enfoca en la experiencia de usuario (UX) y la visualización clara de la información.
-La investigación técnica se inclina por el uso de principios SOLID y diseño orientado a dominio (DDD) para asegurar que la lógica de descuentos que es el corazón de la ventaja competitiva de este modelo sea escalable y fácil de mantener. Se prioriza la seguridad desde el diseño (Security by Design) mediante una gestión de usuarios robusta y una capa de persistencia (MongoDB) optimizada para la lectura rápida de reportes y la escritura atómica de transacciones.
+El enfoque propuesto utiliza una arquitectura desacoplada donde el Backend (Spring Boot) asume la responsabilidad total de la verdad de los datos, el cumplimiento de las reglas de negocio, mientras que el Frontend (Angular/TypeScript) se enfoca en la experiencia de usuario (UX) la visualización clara de la información.
+La investigación técnica se inclina por el uso de principios SOLID, diseño orientado a dominio (DDD) para asegurar que la lógica de descuentos que es el corazón de la ventaja competitiva de este modelo sea escalable, fácil de mantener. Se prioriza la seguridad desde el diseño (Security by Design) mediante una gestión de usuarios robusta y una capa de persistencia (MongoDB) optimizada para la lectura rápida de reportes y la escritura atómica de transacciones.
 
 | Componente | Tecnologia | Puerto |
 |---|---|---|
@@ -120,10 +125,10 @@ La investigación técnica se inclina por el uso de principios SOLID y diseño o
 ## 1. Objetivos
 
 ### 1.1. Ingeniería de Precisión Financiera
-Implementar un motor de cálculo de alta fidelidad que garantice la integridad de los datos monetarios mediante el uso de `BigDecimal` y operaciones atómicas de stock, eliminando errores de redondeo y previniendo la sobreventa en entornos de alta concurrencia.
+Implementar un motor de cálculo de alta fidelidad que garantice la integridad de los datos monetarios mediante el uso de `BigDecimal` con operaciones atómicas de stock, eliminando errores de redondeo y previniendo la sobreventa en entornos de alta concurrencia.
 
 ### 1.2. Concepto de facil naveagilidad
-Consolidar una identidad visual inspirada en el diseño editorial contemporáneo simple, facil y rapido de entender. El sistema debe priorizar la serenidad del usuario mediante el minimalismo, eliminando el ruido visual para destacar el producto y la información analítica.
+Consolidar una identidad visual inspirada en el diseño editorial contemporáneo simple, facil, rapido de entender. El sistema debe priorizar la serenidad del usuario mediante el minimalismo, eliminando el ruido visual para destacar el producto y la información analítica.
 
 ### 1.3. Clasificación Estratégica mediante IA
 Integrar modelos de procesamiento de lenguaje natural Transformers (BERT) para filtrar casos del soporte técnico, es una herramienta de decisión estratégica, permitiendo la priorización automática de casos según el sentimiento y la urgencia semántica.

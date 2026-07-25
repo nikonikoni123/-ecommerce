@@ -177,6 +177,22 @@
           </tbody>
         </table>
       </div>
+      @if (page(); as p) {
+          @if (p.totalPages > 1) {
+            <nav class="pagination">
+              @for (num of pageNumbers; track num) {
+                <button
+                  class="pagination__item"
+                  type="button"
+                  [class.is-current]="num === currentPage()"
+                  (click)="goToPage(num)"
+                >
+                  {{ num + 1 }}
+                </button>
+              }
+            </nav>
+          }
+        }
     }
   </div>
 </section>

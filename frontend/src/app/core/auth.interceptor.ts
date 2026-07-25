@@ -1,14 +1,16 @@
 import {
   HttpErrorResponse,
   HttpEvent,
+  HttpHandler,
   HttpHandlerFn,
   HttpInterceptorFn,
   HttpRequest,
 } from '@angular/common/http';
-import { inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, filter, switchMap, take, throwError } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
+import { inject } from '@angular/core';
+
 
 /** Endpoints que nunca deben provocar un intento de renovacion. */
 const AUTH_ENDPOINTS = ['/auth/login', '/auth/refresh', '/auth/register', '/auth/verify', '/auth/session'];
@@ -36,25 +38,6 @@ function readCookie(name: string): string | null {
   return match ? decodeURIComponent(match.slice(name.length + 1)) : null;
 }
 
-export const authInterceptor: HttpInterceptorFn = (request, next) => {
-  const auth = inject(AuthService);
-
-  const isApiCall = request.url.startsWith(environment.apiBaseUrl);
-  const isAuthEndpoint = AUTH_ENDPOINTS.some((path) => request.url.includes(path));
-
-  const prepared = isApiCall ? withSessionCookies(request) : request;
-
-  return next(prepared).pipe(
-    catchError((error: unknown) => {
-      const is401 = error instanceof HttpErrorResponse && error.status === 401;
-      if (!is401 || !isApiCall || isAuthEndpoint) {
-        return throwError(() => error);
-      }
-      return handleUnauthorized(auth, prepared, next);
-    }),
-  );
-};
-
 /**
  * Adjunta la sesion. `withCredentials` hace que el navegador envie las cookies httpOnly aunque la
  * API viva en otro origen, y la cabecera XSRF demuestra que la peticion la origina nuestra propia
@@ -70,13 +53,38 @@ function withSessionCookies(request: HttpRequest<unknown>): HttpRequest<unknown>
   });
 }
 
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const authService = inject(AuthService);
+  const authReq = withSessionCookies(req);
+
+  return next(authReq).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 403 && authService.isAuthenticated()) {
+        console.warn('Conflicto de identidad detectado (403).');
+        authService.forceLogout();
+        return throwError(() => error);
+      }
+      if (error.status === 401) {
+        const isAuthUrl = AUTH_ENDPOINTS.some(url => req.url.includes(url));
+        if (!isAuthUrl && authService.isAuthenticated()) {
+          return handleUnauthorized(authService, req, next);
+        } 
+        if (authService.isAuthenticated()) {
+          authService.forceLogout();
+        }
+      }
+
+      return throwError(() => error);
+    })
+  );
+};
+
 function handleUnauthorized(
   auth: AuthService,
   request: HttpRequest<unknown>,
   next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> {
   if (refreshing) {
-    // Otra peticion ya esta renovando: esperar a que termine y reintentar.
     return refreshDone.pipe(
       filter((done) => done),
       take(1),
@@ -91,14 +99,13 @@ function handleUnauthorized(
     switchMap(() => {
       refreshing = false;
       refreshDone.next(true);
-      // La cookie nueva ya la escribio el servidor; solo hay que repetir la peticion.
       return next(withSessionCookies(request));
     }),
-    catchError((refreshError: unknown) => {
+    catchError((err) => {
       refreshing = false;
       refreshDone.next(true);
-      auth.logout();
-      return throwError(() => refreshError);
+      auth.forceLogout();
+      return throwError(() => err);
     }),
   );
 }

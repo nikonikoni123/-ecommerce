@@ -45,7 +45,7 @@ export class CompanyCatalogService {
   private readonly http = inject(HttpClient);
   private readonly base = `${environment.apiBaseUrl}/company/products`;
 
-  list(page = 0, size = 20): Observable<PageResponse<CompanyProduct>> {
+  list(page: number, size: number): Observable<PageResponse<CompanyProduct>> {
     return this.http.get<PageResponse<CompanyProduct>>(this.base, {
       params: new HttpParams().set('page', page).set('size', size),
     });

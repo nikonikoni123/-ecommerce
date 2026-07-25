@@ -78,6 +78,13 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit() {
+    const params = this.route.snapshot.queryParams;
+    if (params['reason'] === 'session_conflict') {
+      this.error.set('Se detectó un cambio de usuario en otra pestaña. Por favor, ingresa de nuevo.');
+    }
+  }
+
   /** Vuelve a la pantalla que el usuario intentaba abrir antes de que le pidieramos la sesion. */
   private redirect(): void {
     const target = this.route.snapshot.queryParamMap.get('redirect') ?? '/';

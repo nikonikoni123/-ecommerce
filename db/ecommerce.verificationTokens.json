@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "6a640578dea99a3b6fb0d3e1"
+  },
+  "userId": "6a640578dea99a3b6fb0d3e0",
+  "token": "b3014dff445a4a7987cf6242d082a22464179e6cf9a041c9b8be5449bfcf55e4",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T00:38:16.606Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T00:39:17.163Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c3577b6a8803d536af44"
+  },
+  "userId": "6a64c3577b6a8803d536af43",
+  "token": "1319f8f40e7842af80b317890f5a21c9bdb641907df8489cb915607b8283896e",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T14:08:23.351Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T14:08:38.470Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c4807b6a8803d536af4b"
+  },
+  "userId": "6a64c4807b6a8803d536af4a",
+  "token": "fe34469ede9f4d898369bcd9834503163cc45ea98fc34c88a32fbb9cbbb143d4",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T14:13:20.698Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T14:13:45.157Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64cb497b6a8803d536af52"
+  },
+  "userId": "6a64cb497b6a8803d536af51",
+  "token": "c58a17beeec74a47a1bf2b2a0f66d41f8762a60b134d4d11a0a5f3d494cf1663",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T14:42:17.871Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T14:42:50.909Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af64"
+  },
+  "userId": "6a64cdfb7b6a8803d536af5f",
+  "token": "6954206b10e34d509072b92341afd740eacd92e3167849668adc3dab54c7a972",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T14:53:47.465Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T14:54:05.776Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d2f27b6a8803d536af73"
+  },
+  "userId": "6a64d2f27b6a8803d536af72",
+  "token": "e1b180e6e0ea4bf093539127de4e2e8ee43f0f3fe56c488f933c3a24055fbcce",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T15:14:58.824Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T15:15:28.618Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af84"
+  },
+  "userId": "6a64d4aa7b6a8803d536af7f",
+  "token": "2b76529ba2e042dfb75f908b42b28d80467858ca49644225b1cfe61d5175ea75",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T15:22:18.592Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d6be7b6a8803d536af96"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "token": "58a074c5f48e4cdb89aa035ef85b9bae6279c7675ec14245bd38740ae943cf43",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T15:31:10.871Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T15:31:33.885Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa8"
+  },
+  "userId": "6a64d8bf7b6a8803d536afa3",
+  "token": "d1372954bddb413db8fe60e282eb0cd4be29ce04c5394cf7bba5c08e3701362a",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T15:39:43.896Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afaf"
+  },
+  "userId": "6a64d90c7b6a8803d536afaa",
+  "token": "e185f8453db945d89001b5b2da749ccab7a367ee2b5b4083954353f515d60e75",
+  "purpose": "EMAIL_VERIFY",
+  "expiresAt": {
+    "$date": "2026-07-26T15:41:00.765Z"
+  },
+  "usedAt": {
+    "$date": "2026-07-25T15:41:25.863Z"
+  },
+  "_class": "com.ecommerce.auth.token.VerificationToken"
+}]

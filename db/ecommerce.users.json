@@ -1,0 +1,792 @@
+[{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5443"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "empresa@demo.local",
+  "passwordHash": "$2a$10$oX5ochdMCkWAMrw/Bau2p..QkRTFFYthvnom1EUfDYm.PELpSbYYe",
+  "phone": "+57 601 555 0123",
+  "address": "Calle 93 #11-27, Bogota",
+  "postalCode": "110221",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.414Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.414Z"
+  },
+  "firstName": "Ana Restrepo",
+  "tagAffinity": {},
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5445"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "gestor@demo.local",
+  "passwordHash": "$2a$10$ZCuaea5lxeL68RGpAdrJdOoaQVUB4E5x47JXnDm4ZlRlvEgGtNvW6",
+  "phone": "+57 601 555 0123",
+  "address": "Calle 93 #11-27, Bogota",
+  "postalCode": "110221",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.499Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.499Z"
+  },
+  "firstName": "Carlos Munoz",
+  "tagAffinity": {},
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "root": false,
+  "managerId": "6a60cf66f6768b5b9eeb5443",
+  "position": "Gestor de catalogo",
+  "roleIds": [
+    "6a60cf66f6768b5b9eeb5444"
+  ],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5446"
+  },
+  "type": "CUSTOMER",
+  "email": "cliente@demo.local",
+  "passwordHash": "$2a$10$qFOq32.wjgedO.HxlbsOmOFmqUykhzNkrQthc6zkQaaRdzagRnqRK",
+  "phone": "+57 300 111 2222",
+  "address": "Calle Nueva 123",
+  "postalCode": "110311",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.558Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T16:36:21.356Z"
+  },
+  "firstName": "Laura",
+  "lastName": "Gomez",
+  "username": "laura",
+  "tagAffinity": {
+    "activo-alto": 4,
+    "rutina-noche": 3,
+    "recompra": 3
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60cf9cf6768b5b9eeb5453"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a60cf9cf6768b5b9eeb5453@ecommerce.local",
+  "passwordHash": "$2a$10$iU6t33L9SjVG/iKxYt90Rut8xeDW.n.dC9kL4UGExz8gOvVJFXaM2",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:11:40.275Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T16:36:36.609Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-22T16:36:36.609Z"
+  },
+  "firstName": "Tomas",
+  "lastName": "Perez",
+  "tagAffinity": {},
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe5f6768b5b9eeb545b"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "contacto@textiles.local",
+  "passwordHash": "$2a$10$sib.QSzYxQ6mdM0PJztLa.gbbsv3bSN1tdI/CPkPox5wd862lNyUy",
+  "phone": "+57 604 555 0180",
+  "address": "Cra 43 #12-08, Medellin",
+  "postalCode": "050021",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:53.942Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:53.942Z"
+  },
+  "firstName": "Maria Lopez",
+  "tagAffinity": {},
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe6f6768b5b9eeb5460"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "jorge@textiles.local",
+  "passwordHash": "$2a$10$D6uRF7OgJe4iVxzfackV3.KM/GWNQK77xdvpAlQna8HcC7AhP.Rfy",
+  "phone": "+57 604 555 0180",
+  "address": "Cra 43 #12-08, Medellin",
+  "postalCode": "050021",
+  "emailVerified": false,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:54.009Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:54.009Z"
+  },
+  "firstName": "Jorge Diaz",
+  "tagAffinity": {},
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "root": false,
+  "roleIds": [
+    "6a60cfe6f6768b5b9eeb545f"
+  ],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60f41ff6768b5b9eeb546b"
+  },
+  "type": "CUSTOMER",
+  "email": "nico.prueba@gmail.com",
+  "passwordHash": "$2a$10$rx7HK4k8UypKusdh5tAvqeCYoYI.sLxEPpZ5KEq4XHSjxRuzJNbIa",
+  "phone": "+57 320 555 0144",
+  "address": "Calle 80 #20-15",
+  "postalCode": "111121",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:47:27.856Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T16:48:08.558Z"
+  },
+  "firstName": "Nicolas",
+  "lastName": "Rodriguez",
+  "username": "nicorod",
+  "tagAffinity": {},
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a60fc74f73faea0a9add457"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a60fc74f73faea0a9add457@ecommerce.local",
+  "passwordHash": "$2a$10$9YyjoQG4xQYotudhpkBTPOgAwSVZRTkUW5tTtDSXjfU32.9tEoVO6",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T17:23:00.677Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:12.230Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-24T04:08:12.230Z"
+  },
+  "firstName": "Prueba",
+  "lastName": "Gmail",
+  "tagAffinity": {},
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a61000a6b11273ff283a0db"
+  },
+  "type": "CUSTOMER",
+  "email": "correopruebatecnicaalarala+registro@gmail.com",
+  "passwordHash": "$2a$10$4bkbMBdpk8wGf3M6HtP/v.kCBY6zfSCU0saaUFJ193dqPKRWc4dLW",
+  "phone": "+57 310 555 0100",
+  "address": "Calle 100 #15-20",
+  "postalCode": "110111",
+  "emailVerified": false,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T17:38:18.586Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T17:38:18.586Z"
+  },
+  "firstName": "Nicolas",
+  "lastName": "Rodriguez",
+  "username": "nicoreal",
+  "tagAffinity": {},
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a6101bf6b11273ff283a0dd"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a6101bf6b11273ff283a0dd@ecommerce.local",
+  "passwordHash": "$2a$10$yQgFuH05dyMZno6S3v423ucqybZQAMKB6uOATKkATS8/4JCViLhJ.",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": true,
+  "createdAt": {
+    "$date": "2026-07-22T17:45:35.833Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T00:39:05.064Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-24T00:39:05.064Z"
+  },
+  "firstName": "Nicolas Andres",
+  "lastName": "Rodriguez",
+  "tagAffinity": {
+    "primera-compra": 2
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d7c"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "nicolas.rodrigueza@cun.edu.co",
+  "passwordHash": "$2a$10$FgFas02L.vFJq9cXGQUrF.8Cu.TduB6pq8ydLbJHt6njQslGR1EG6",
+  "phone": "+573023005676",
+  "address": "Diagonal 4 B bis #29-23",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.004Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:53.155Z"
+  },
+  "firstName": "AAAA AAAA",
+  "tagAffinity": {},
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a62b455f07e9a25f753e80d"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a62b455f07e9a25f753e80d@ecommerce.local",
+  "passwordHash": "$2a$10$lDO3YRJD3OIWE4GR0ug4eO6a1KR5V02fLqA/7VJamRX9jVBoMBoS6",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-24T00:39:49.432Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T02:46:32.442Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-24T02:46:32.442Z"
+  },
+  "firstName": "Nicolas",
+  "lastName": "Rodriguez",
+  "tagAffinity": {
+    "rutina-manana": 2,
+    "sensible": 1,
+    "primera-compra": 4,
+    "rutina-noche": 2,
+    "activo-alto": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a62d31f2da20d0c1c39d4b5"
+  },
+  "type": "CUSTOMER",
+  "email": "niconiconi756@gmail.com",
+  "passwordHash": "$2a$10$A6QynEaSX.CAvRwc/Xp4KebanNMNKfXwhAZ7iN1LiGNV/.gsUgemG",
+  "phone": "nico",
+  "address": "Diagonal 4 B bis #29-23",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": true,
+  "twoFactorPending": false,
+  "twoFactorCodeExpiresAt": {
+    "$date": "2026-07-25T14:12:32.311Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T02:51:11.913Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:02:22.640Z"
+  },
+  "firstName": "Nicolas Andres",
+  "lastName": "Rodriguez",
+  "username": "nico",
+  "tagAffinity": {
+    "rutina-noche": 5,
+    "primera-compra": 25,
+    "oficina-casa": 1,
+    "minimalista": 1,
+    "artesanal": 1,
+    "rutina-manana": 8,
+    "sensible": 9,
+    "recompra": 3,
+    "ejecutivo": 2,
+    "atemporal": 2,
+    "elegante": 2,
+    "activo-alto": 2
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c1"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "correopruebatecnicaalarala@gmail.com",
+  "passwordHash": "$2a$10$cjvu3IJnEIoihPF4f0hRoeQYlG1HKdBPn9tKtz3pZc9wKGVf7kv8a",
+  "phone": "+573023005676",
+  "address": "Diagonal 4 B bis #29-23",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorSecret": "YKTA5Q5KOB3EGDYFJTHT7RI4Y3RIWMVD",
+  "twoFactorPending": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.127Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T15:37:45.903Z"
+  },
+  "firstName": "AAAA AAAA",
+  "tagAffinity": {},
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a640578dea99a3b6fb0d3e0"
+  },
+  "type": "CUSTOMER",
+  "email": "nikojhosue@hotmail.com",
+  "passwordHash": "$2a$10$cnrvbEcZ24zjYc/KnPQsyOU67LzSMg/L6rJjFKbhfB5x5pjyRlkzO",
+  "phone": "+5730000000",
+  "address": "DIAGONAL 8 # 29-55",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T00:38:16.519Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:03:47.733Z"
+  },
+  "firstName": "Jose",
+  "lastName": "Murcia",
+  "username": "josem",
+  "gender": "masculino",
+  "tagAffinity": {
+    "primera-compra": 1,
+    "minimalista": 2,
+    "oficina-casa": 1,
+    "duradero": 2,
+    "artesanal": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64c3577b6a8803d536af43"
+  },
+  "type": "CUSTOMER",
+  "email": "danterob272@gmail.com",
+  "passwordHash": "$2a$10$qyv6jNEAeCToP1h.yLX0y.6HHZnbp/J89CDqDQlCP.ehkvhco.yy2",
+  "phone": "+5730000001",
+  "address": "danterob272@gmail.com",
+  "postalCode": "111235",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T14:08:23.285Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:08:38.468Z"
+  },
+  "firstName": "dante",
+  "lastName": "rob",
+  "username": "danterr",
+  "tagAffinity": {
+    "bienestar": 1,
+    "premium": 1,
+    "regalo-lujo": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64c4807b6a8803d536af4a"
+  },
+  "type": "CUSTOMER",
+  "email": "lalamarce1433@outlook.es",
+  "passwordHash": "$2a$10$Ka9e1Mnz7FM1DUFkECjxOOsidI/yV.9pvvSFuoZ/sXKaSYfdB4HTe",
+  "phone": "nico",
+  "address": "Calle 100 #15-20 A sur",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T14:13:20.634Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:13:45.155Z"
+  },
+  "firstName": "marcela",
+  "lastName": "rojas",
+  "username": "lalala",
+  "tagAffinity": {
+    "smart-tech": 1,
+    "uso-diario": 1,
+    "minimalista": 2,
+    "zen": 1,
+    "natural-fabric": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64cb497b6a8803d536af51"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a64cb497b6a8803d536af51@ecommerce.local",
+  "passwordHash": "$2a$10$6hOmzOHHGF8fasPcTDLhnecWwg.hrzKYjsEaqhfpFmHOZERrvegzy",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "twoFactorCodeExpiresAt": {
+    "$date": "2026-07-25T15:11:00.941Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:42:17.806Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:01:38.026Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-25T15:01:38.026Z"
+  },
+  "firstName": "pedro Alejandro",
+  "lastName": "pepe",
+  "tagAffinity": {
+    "ejecutivo": 3,
+    "premium": 3,
+    "artesanal": 2,
+    "atemporal": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af5f"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "lauranavarrete456@outlook.es",
+  "passwordHash": "$2a$10$O4mtESJWP34URiyt8/RtGu/GfHZB7aOqcd9umyWZqHrXiZBjbl0kK",
+  "phone": "+57302653215",
+  "address": "Calle 10 diagonal 3",
+  "postalCode": "123547",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.381Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:54:05.774Z"
+  },
+  "firstName": "Carlos",
+  "tagAffinity": {},
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64d2f27b6a8803d536af72"
+  },
+  "type": "CUSTOMER",
+  "email": "eliminado+6a64d2f27b6a8803d536af72@ecommerce.local",
+  "passwordHash": "$2a$10$K5F.WkWizegUk2gdjGdcYufp.R0WGzMyQKVdaj6xh2D2z6tUqbmpm",
+  "emailVerified": true,
+  "status": "DELETED",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "twoFactorCodeExpiresAt": {
+    "$date": "2026-07-25T15:33:34.495Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:14:58.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:24:10.192Z"
+  },
+  "deletedAt": {
+    "$date": "2026-07-25T15:24:10.192Z"
+  },
+  "firstName": "pedro Alejandro",
+  "lastName": "pepe",
+  "tagAffinity": {
+    "pro": 1,
+    "duradero": 3,
+    "creativo": 1,
+    "minimalista": 2,
+    "oficina-casa": 2
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af7f"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "empresapruebyo345@outlook.es",
+  "passwordHash": "$2a$10$BeOma8J4zKoJYhG/LAG2Lu0h21a7w1Hi6wymlTbeC1YaePCO4YbRW",
+  "phone": "+57302653123",
+  "address": "Calle 10 diagonal 30",
+  "postalCode": "123547",
+  "emailVerified": false,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.530Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.530Z"
+  },
+  "firstName": "Carlos Torrez",
+  "tagAffinity": {},
+  "companyId": "6a64d4aa7b6a8803d536af7e",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64d6be7b6a8803d536af95"
+  },
+  "type": "CUSTOMER",
+  "email": "pedropepe4455@outlook.es",
+  "passwordHash": "$2a$10$7J/fphRSatH90RISwHC14O/jdIbD.WmypIAewTW9oliQAFMvZvniS",
+  "phone": "3000004527",
+  "address": "Calle 100 #15-2 A sur",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": true,
+  "twoFactorPending": false,
+  "twoFactorCodeExpiresAt": {
+    "$date": "2026-07-25T16:02:36.793Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:31:10.808Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:36:19.071Z"
+  },
+  "firstName": "pedro Daniel",
+  "lastName": "Lopez",
+  "username": "pepepe",
+  "tagAffinity": {
+    "minimalista": 2,
+    "zen": 2,
+    "natural-fabric": 1,
+    "bienestar": 1,
+    "duradero": 1,
+    "premium": 1,
+    "ejecutivo": 1
+  },
+  "root": false,
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa3"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "empresapruebyoo345@outlook.es",
+  "passwordHash": "$2a$10$D0X5pje0FzUiowutAKWaZeIVFpmkxN2kyFZpLhIQNAF.7xD70XAc6",
+  "phone": "+57302653123",
+  "address": "Calle 10 diagonal 30",
+  "postalCode": "123547",
+  "emailVerified": false,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.832Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.832Z"
+  },
+  "firstName": "Carlos Torrez",
+  "tagAffinity": {},
+  "companyId": "6a64d8bf7b6a8803d536afa2",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afaa"
+  },
+  "type": "COMPANY_MEMBER",
+  "email": "empresapruebyoo3456@outlook.es",
+  "passwordHash": "$2a$10$Z9jLgdLdollthywvO6rPbuN29bGioGqTbHZ2hLzo/0dg68rRkDzyG",
+  "phone": "3000004527",
+  "address": "Calle 100 #15-2 A sur",
+  "postalCode": "250252",
+  "emailVerified": true,
+  "status": "ACTIVE",
+  "twoFactorEnabled": false,
+  "twoFactorPending": false,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.697Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:25.862Z"
+  },
+  "firstName": "Carlos Torrez",
+  "tagAffinity": {},
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "root": true,
+  "position": "Representante legal",
+  "roleIds": [],
+  "extraPermissions": [],
+  "revokedPermissions": [],
+  "_class": "com.ecommerce.user.User"
+}]

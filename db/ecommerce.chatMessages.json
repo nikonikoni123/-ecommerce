@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6a618e9e844907eff11121f5"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "channel": "general",
+  "type": "MESSAGE",
+  "authorId": "6a60cf66f6768b5b9eeb5443",
+  "authorName": "Ana Restrepo",
+  "body": "Buenos dias equipo, arrancamos la semana",
+  "createdAt": {
+    "$date": "2026-07-23T03:46:38.798Z"
+  },
+  "_class": "com.ecommerce.chat.ChatMessage"
+},
+{
+  "_id": {
+    "$oid": "6a618e9e844907eff11121f6"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "channel": "general",
+  "type": "BROADCAST",
+  "authorId": "6a60cf66f6768b5b9eeb5443",
+  "authorName": "Ana Restrepo",
+  "body": "Manana cerramos a las 15h por inventario",
+  "createdAt": {
+    "$date": "2026-07-23T03:46:38.978Z"
+  },
+  "_class": "com.ecommerce.chat.ChatMessage"
+},
+{
+  "_id": {
+    "$oid": "6a62553cf07e9a25f753e805"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "channel": "dept:6a6254d8f07e9a25f753e802",
+  "type": "MESSAGE",
+  "authorId": "6a60cf66f6768b5b9eeb5443",
+  "authorName": "Ana Restrepo",
+  "body": "Hola equipo de Soporte, primer mensaje del canal",
+  "createdAt": {
+    "$date": "2026-07-23T17:54:04.682Z"
+  },
+  "_class": "com.ecommerce.chat.ChatMessage"
+},
+{
+  "_id": {
+    "$oid": "6a64dab87b6a8803d536afbe"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "channel": "general",
+  "type": "BROADCAST",
+  "authorId": "6a62e5472da20d0c1c39d4c1",
+  "authorName": "AAAA AAAA",
+  "body": "Hola comunidad",
+  "createdAt": {
+    "$date": "2026-07-25T15:48:08.127Z"
+  },
+  "_class": "com.ecommerce.chat.ChatMessage"
+}]

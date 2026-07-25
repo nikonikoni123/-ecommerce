@@ -1,0 +1,764 @@
+[{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5444"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "STOCK_UPDATE"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.494Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.494Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe6f6768b5b9eeb545c"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe6f6768b5b9eeb545d"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe6f6768b5b9eeb545e"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe6f6768b5b9eeb545f"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:54.002Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d7d"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d7e"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d7f"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d80"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:20.069Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c2"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c3"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c4"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c5"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:39.281Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af60"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af61"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af62"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af63"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:53:47.458Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af80"
+  },
+  "companyId": "6a64d4aa7b6a8803d536af7e",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af81"
+  },
+  "companyId": "6a64d4aa7b6a8803d536af7e",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af82"
+  },
+  "companyId": "6a64d4aa7b6a8803d536af7e",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af83"
+  },
+  "companyId": "6a64d4aa7b6a8803d536af7e",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.589Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa4"
+  },
+  "companyId": "6a64d8bf7b6a8803d536afa2",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa5"
+  },
+  "companyId": "6a64d8bf7b6a8803d536afa2",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa6"
+  },
+  "companyId": "6a64d8bf7b6a8803d536afa2",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa7"
+  },
+  "companyId": "6a64d8bf7b6a8803d536afa2",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.893Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afab"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "name": "Administrador",
+  "description": "Acceso completo a la gestion, salvo la propiedad de la cuenta root",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "ORDER_VIEW",
+    "ORDER_STATUS_CHANGE",
+    "ORDER_ITEMS_CHANGE",
+    "REFUND_MANAGE",
+    "CASE_VIEW",
+    "CASE_ASSIGN",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN",
+    "KPI_VIEW_TEAM",
+    "KPI_VIEW_ALL",
+    "KPI_GOAL_MANAGE",
+    "USER_MANAGE",
+    "ROLE_MANAGE",
+    "DEPARTMENT_MANAGE",
+    "ACTIVITY_VIEW",
+    "CHAT_GENERAL_POST",
+    "BROADCAST_SEND"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afac"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "name": "Gestor de productos",
+  "description": "Gestiona el catalogo y el inventario",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "PRODUCT_CREATE",
+    "PRODUCT_UPDATE",
+    "PRODUCT_DELETE",
+    "STOCK_UPDATE",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afad"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "name": "Agente de soporte",
+  "description": "Atiende los casos de los usuarios y consulta pedidos",
+  "permissions": [
+    "ORDER_VIEW",
+    "CASE_VIEW",
+    "CASE_REPLY",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afae"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "name": "Consulta",
+  "description": "Solo lectura del catalogo y de sus propios indicadores",
+  "permissions": [
+    "PRODUCT_VIEW",
+    "KPI_VIEW_OWN"
+  ],
+  "system": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:00.762Z"
+  },
+  "_class": "com.ecommerce.company.Role"
+}]

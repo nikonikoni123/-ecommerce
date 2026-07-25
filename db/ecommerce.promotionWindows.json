@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "6a610675a21e71c25c5a8d65"
+  },
+  "name": "Temporada de lanzamiento",
+  "startsAt": {
+    "$date": "2026-07-21T18:05:41.833Z"
+  },
+  "endsAt": {
+    "$date": "2027-07-22T18:05:41.833Z"
+  },
+  "orderDiscountPercent": {
+    "$numberDecimal": "10"
+  },
+  "randomOrderDiscountPercent": {
+    "$numberDecimal": "50"
+  },
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:05:41.833Z"
+  },
+  "_class": "com.ecommerce.order.PromotionWindow"
+}]

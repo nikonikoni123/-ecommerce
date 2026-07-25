@@ -1,0 +1,209 @@
+[{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5442"
+  },
+  "name": "Laboratorio Botanico",
+  "legalRepresentative": "Ana Restrepo",
+  "nit": "900123456-7",
+  "address": "Calle 93 #11-27, Bogota",
+  "postalCode": "110221",
+  "email": "empresa@demo.local",
+  "phone": "+57 601 555 0123",
+  "description": "Formulas de cuidado facial desarrolladas con activos de origen vegetal y respaldo dermatologico.",
+  "categoryTags": [
+    "cuidado facial",
+    "limpieza",
+    "tratamiento"
+  ],
+  "rootUserId": "6a60cf66f6768b5b9eeb5443",
+  "verified": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.386Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a60cfe5f6768b5b9eeb545a"
+  },
+  "name": "Textiles Andinos",
+  "legalRepresentative": "Maria Lopez",
+  "nit": "901555222-3",
+  "address": "Cra 43 #12-08, Medellin",
+  "postalCode": "050021",
+  "email": "contacto@textiles.local",
+  "phone": "+57 604 555 0180",
+  "description": "Confeccion de prendas en algodon organico.",
+  "categoryTags": [
+    "ropa",
+    "algodon"
+  ],
+  "rootUserId": "6a60cfe5f6768b5b9eeb545b",
+  "verified": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:12:53.940Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:12:53.940Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a610a98a21e71c25c5a8d7b"
+  },
+  "name": "Cachibaches",
+  "legalRepresentative": "AAAA AAAA",
+  "nit": "1234566789",
+  "address": "Diagonal 4 B bis #29-23",
+  "postalCode": "250252",
+  "email": "nicolas.rodrigueza@cun.edu.co",
+  "phone": "+573023005676",
+  "description": "Hola esto es una prueba, testeo",
+  "categoryTags": [
+    "ropa",
+    "algodon"
+  ],
+  "rootUserId": "6a610a98a21e71c25c5a8d7c",
+  "verified": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:23:20.001Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:23:20.001Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a62e5472da20d0c1c39d4c0"
+  },
+  "name": "Cachibaches",
+  "legalRepresentative": "AAAA AAAA",
+  "nit": "322156798",
+  "address": "Diagonal 4 B bis #29-23",
+  "postalCode": "250252",
+  "email": "correopruebatecnicaalarala@gmail.com",
+  "phone": "+573023005676",
+  "description": "Pruebaaaaaaaaa",
+  "categoryTags": [
+    "ropa",
+    "algodon"
+  ],
+  "rootUserId": "6a62e5472da20d0c1c39d4c1",
+  "verified": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:08:39.120Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T04:08:39.120Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a64cdfb7b6a8803d536af5e"
+  },
+  "name": "aaaa",
+  "legalRepresentative": "Carlos",
+  "nit": "654789321",
+  "address": "Calle 10 diagonal 3",
+  "postalCode": "123547",
+  "email": "lauranavarrete456@outlook.es",
+  "phone": "+57302653215",
+  "description": "Empresa de comercio electrónico",
+  "categoryTags": [
+    "electrónica",
+    "pc"
+  ],
+  "rootUserId": "6a64cdfb7b6a8803d536af5f",
+  "verified": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:53:47.377Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:53:47.377Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a64d4aa7b6a8803d536af7e"
+  },
+  "name": "empresa demo",
+  "legalRepresentative": "Carlos Torrez",
+  "nit": "789654123",
+  "address": "Calle 10 diagonal 30",
+  "postalCode": "123547",
+  "email": "empresapruebyo345@outlook.es",
+  "phone": "+57302653123",
+  "description": "Tienda de electronicos",
+  "categoryTags": [
+    "electrónica",
+    "pc"
+  ],
+  "rootUserId": "6a64d4aa7b6a8803d536af7f",
+  "verified": false,
+  "createdAt": {
+    "$date": "2026-07-25T15:22:18.528Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:22:18.528Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a64d8bf7b6a8803d536afa2"
+  },
+  "name": "empresa demo",
+  "legalRepresentative": "Carlos Torrez",
+  "nit": "789456132",
+  "address": "Calle 10 diagonal 30",
+  "postalCode": "123547",
+  "email": "empresapruebyoo345@outlook.es",
+  "phone": "+57302653123",
+  "description": "Electrónica",
+  "categoryTags": [
+    "electrónica",
+    "pc"
+  ],
+  "rootUserId": "6a64d8bf7b6a8803d536afa3",
+  "verified": false,
+  "createdAt": {
+    "$date": "2026-07-25T15:39:43.830Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:39:43.830Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+},
+{
+  "_id": {
+    "$oid": "6a64d90c7b6a8803d536afa9"
+  },
+  "name": "empresa demo",
+  "legalRepresentative": "Carlos Torrez",
+  "nit": "14728539",
+  "address": "Calle 100 #15-2 A sur",
+  "postalCode": "250252",
+  "email": "empresapruebyoo3456@outlook.es",
+  "phone": "3000004527",
+  "description": "Electrónica",
+  "categoryTags": [
+    "electrónica",
+    "pc"
+  ],
+  "rootUserId": "6a64d90c7b6a8803d536afaa",
+  "verified": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:41:00.695Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:41:00.695Z"
+  },
+  "_class": "com.ecommerce.company.Company"
+}]

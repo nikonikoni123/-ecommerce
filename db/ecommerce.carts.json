@@ -1,0 +1,169 @@
+[{
+  "_id": {
+    "$oid": "6a610687a21e71c25c5a8d67"
+  },
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "quantity": 2,
+      "addedAt": {
+        "$date": "2026-07-22T21:41:13.681Z"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb544e",
+      "quantity": 4,
+      "addedAt": {
+        "$date": "2026-07-22T21:41:13.818Z"
+      }
+    }
+  ],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-22T21:41:13.818Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a610789a21e71c25c5a8d76"
+  },
+  "customerId": "6a60f41ff6768b5b9eeb546b",
+  "items": [
+    {
+      "productId": "6a610788a21e71c25c5a8d72",
+      "quantity": 1,
+      "addedAt": {
+        "$date": "2026-07-22T18:10:17.007Z"
+      }
+    }
+  ],
+  "updatedAt": {
+    "$date": "2026-07-22T18:10:17.007Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a61415b5ce656968d1b8c2c"
+  },
+  "customerId": "6a6101bf6b11273ff283a0dd",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-22T22:17:18.260Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a62b4d8f07e9a25f753e811"
+  },
+  "customerId": "6a62b455f07e9a25f753e80d",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-24T00:55:57.116Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a63cf64fcdaec73a29688b2"
+  },
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5449",
+      "quantity": 88,
+      "addedAt": {
+        "$date": "2026-07-25T03:14:26.755Z"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "quantity": 62,
+      "addedAt": {
+        "$date": "2026-07-25T03:51:52.931Z"
+      }
+    }
+  ],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T03:51:52.931Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64c2707b6a8803d536af3e"
+  },
+  "customerId": "6a640578dea99a3b6fb0d3e0",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T14:04:51.171Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64c3977b6a8803d536af47"
+  },
+  "customerId": "6a64c3577b6a8803d536af43",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T14:09:31.691Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64c4b17b6a8803d536af4e"
+  },
+  "customerId": "6a64c4807b6a8803d536af4a",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T14:14:23.918Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64cbb47b6a8803d536af55"
+  },
+  "customerId": "6a64cb497b6a8803d536af51",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T14:51:19.976Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64d3797b6a8803d536af77"
+  },
+  "customerId": "6a64d2f27b6a8803d536af72",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T15:20:51.321Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+},
+{
+  "_id": {
+    "$oid": "6a64d7177b6a8803d536af99"
+  },
+  "customerId": "6a64d6be7b6a8803d536af95",
+  "items": [],
+  "randomOrder": false,
+  "updatedAt": {
+    "$date": "2026-07-25T15:38:29.255Z"
+  },
+  "_class": "com.ecommerce.cart.Cart"
+}]

@@ -1,0 +1,472 @@
+[{
+  "_id": {
+    "$oid": "6a618e53844907eff11121e4"
+  },
+  "number": "CASO-2026-000001",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "orderId": "6a61386995804bf2b8572b94",
+  "orderNumber": "ORD-2026-000006",
+  "subject": "Producto roto y quiero reembolso",
+  "status": "RESUELTO",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-25T03:45:23.466Z"
+  },
+  "assignedToUserId": "6a60cf66f6768b5b9eeb5443",
+  "assignedToName": "Ana Restrepo",
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a60cf66f6768b5b9eeb5446",
+      "authorName": "Laura Gomez",
+      "body": "El pedido llego completamente destrozado, es un desastre, exijo la devolucion inmediata o pondre una queja formal",
+      "createdAt": {
+        "$date": "2026-07-23T03:45:23.494Z"
+      }
+    },
+    {
+      "author": "EMPRESA",
+      "authorId": "6a60cf66f6768b5b9eeb5443",
+      "authorName": "Ana Restrepo",
+      "body": "Lamentamos lo ocurrido. Vamos a gestionar tu caso de inmediato.",
+      "createdAt": {
+        "$date": "2026-07-23T03:46:19.533Z"
+      }
+    },
+    {
+      "author": "CLIENTE",
+      "authorId": "6a60cf66f6768b5b9eeb5446",
+      "authorName": "Laura Gomez",
+      "body": "Gracias, quedo atento a la solucion",
+      "createdAt": {
+        "$date": "2026-07-23T03:46:19.920Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-23T03:45:23.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T03:46:20.108Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-23T03:46:19.920Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a618e53844907eff11121e6"
+  },
+  "number": "CASO-2026-000002",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "orderId": "6a61386995804bf2b8572b94",
+  "orderNumber": "ORD-2026-000006",
+  "subject": "Consulta sobre el uso",
+  "status": "ABIERTO",
+  "priority": "LOW",
+  "sentiment": "POSITIVE",
+  "aiReason": "Sin senales de urgencia",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-26T03:45:23.784Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a60cf66f6768b5b9eeb5446",
+      "authorName": "Laura Gomez",
+      "body": "Hola, muchas gracias por el producto, me encanta. Solo queria preguntar con que frecuencia conviene aplicarlo",
+      "createdAt": {
+        "$date": "2026-07-23T03:45:23.789Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-23T03:45:23.784Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T03:45:23.789Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-23T03:45:23.789Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a618e78844907eff11121ea"
+  },
+  "number": "CASO-2026-000003",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "orderId": "6a61386995804bf2b8572b94",
+  "orderNumber": "ORD-2026-000006",
+  "subject": "Pregunta rapida",
+  "status": "ABIERTO",
+  "priority": "LOW",
+  "sentiment": "NEUTRAL",
+  "aiReason": "Prioridad estimada sin el modelo de lenguaje",
+  "aiClassified": false,
+  "dueDate": {
+    "$date": "2026-07-26T03:46:00.908Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a60cf66f6768b5b9eeb5446",
+      "authorName": "Laura Gomez",
+      "body": "Queria consultar una duda sobre el envio de mi pedido",
+      "createdAt": {
+        "$date": "2026-07-23T03:46:00.911Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-23T03:46:00.908Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T03:46:00.911Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-23T03:46:00.911Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a62b639f07e9a25f753e814"
+  },
+  "number": "CASO-2026-000004",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "customerId": "6a62b455f07e9a25f753e80d",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Rodriguez",
+  "orderId": "6a62b5a4f07e9a25f753e812",
+  "orderNumber": "ORD-2026-000008",
+  "subject": "Regalo",
+  "status": "ABIERTO",
+  "priority": "LOW",
+  "sentiment": "NEUTRAL",
+  "aiReason": "Prioridad estimada sin el modelo de lenguaje",
+  "aiClassified": false,
+  "dueDate": {
+    "$date": "2026-07-27T00:47:49.165Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a62b455f07e9a25f753e80d",
+      "authorName": "Nicolas Rodriguez",
+      "body": "Necesito que venga empacado como regalo de navidad.",
+      "createdAt": {
+        "$date": "2026-07-24T00:47:49.167Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-24T00:47:49.165Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T00:47:49.168Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-24T00:47:49.167Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a63cfbdfcdaec73a29688b5"
+  },
+  "number": "CASO-2026-000005",
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "orderId": "6a63cf8dfcdaec73a29688b3",
+  "orderNumber": "ORD-2026-000009",
+  "subject": "Regalo",
+  "status": "ABIERTO",
+  "priority": "LOW",
+  "sentiment": "NEUTRAL",
+  "aiReason": "Prioridad estimada sin el modelo de lenguaje",
+  "aiClassified": false,
+  "dueDate": {
+    "$date": "2026-07-27T20:48:57.911Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a62d31f2da20d0c1c39d4b5",
+      "authorName": "Nicolas Andres Rodriguez",
+      "body": "El producto es urgente",
+      "createdAt": {
+        "$date": "2026-07-24T20:48:57.913Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-24T20:48:57.911Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T20:48:57.913Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-24T20:48:57.913Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a63cfe6fcdaec73a29688b9"
+  },
+  "number": "CASO-2026-000006",
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "companyName": "Cachibaches",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "orderId": "6a63cfd4fcdaec73a29688b7",
+  "orderNumber": "ORD-2026-000010",
+  "subject": "El producto no llego",
+  "status": "ABIERTO",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-26T20:49:42.901Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a62d31f2da20d0c1c39d4b5",
+      "authorName": "Nicolas Andres Rodriguez",
+      "body": "Prueba técnica",
+      "createdAt": {
+        "$date": "2026-07-24T20:49:42.903Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-24T20:49:42.901Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T20:49:42.903Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-24T20:49:42.903Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a63df62dea99a3b6fb0d3c3"
+  },
+  "number": "CASO-2026-000007",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "orderId": "6a63def0dea99a3b6fb0d3be",
+  "orderNumber": "ORD-2026-000011",
+  "subject": "El producto no llego",
+  "status": "CERRADO",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-26T21:55:44.619Z"
+  },
+  "assignedToUserId": "6a62e5472da20d0c1c39d4c1",
+  "assignedToName": "AAAA AAAA",
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a62d31f2da20d0c1c39d4b5",
+      "authorName": "Nicolas Andres Rodriguez",
+      "body": "Estoy esperando y no ha llegado",
+      "createdAt": {
+        "$date": "2026-07-24T21:55:44.622Z"
+      }
+    },
+    {
+      "author": "EMPRESA",
+      "authorId": "6a62e5472da20d0c1c39d4c1",
+      "authorName": "AAAA AAAA",
+      "body": "Ya va en camino",
+      "createdAt": {
+        "$date": "2026-07-24T21:57:03.903Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-24T21:55:44.619Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T21:59:15.431Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-24T21:57:03.903Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a64cc787b6a8803d536af58"
+  },
+  "number": "CASO-2026-000008",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "customerId": "6a64cb497b6a8803d536af51",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro pepe",
+  "orderId": "6a64cc3f7b6a8803d536af56",
+  "orderNumber": "ORD-2026-000025",
+  "subject": "El producto no llego",
+  "status": "CERRADO",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-27T14:47:18.670Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a64cb497b6a8803d536af51",
+      "authorName": "pedro pepe",
+      "body": "Cuanto demora el producto",
+      "createdAt": {
+        "$date": "2026-07-25T14:47:18.673Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-25T14:47:18.670Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:24:51.400Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-25T14:47:18.673Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a64d4167b6a8803d536af7a"
+  },
+  "number": "CASO-2026-000009",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "customerId": "6a64d2f27b6a8803d536af72",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro Alejandro pepe",
+  "orderId": "6a64d3e17b6a8803d536af78",
+  "orderNumber": "ORD-2026-000027",
+  "subject": "El producto no llego",
+  "status": "CERRADO",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-27T15:19:49.479Z"
+  },
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a64d2f27b6a8803d536af72",
+      "authorName": "pedro Alejandro pepe",
+      "body": "Ayuda lo necesito con urgencia",
+      "createdAt": {
+        "$date": "2026-07-25T15:19:49.480Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-25T15:19:49.479Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:24:59.728Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-25T15:19:49.480Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+},
+{
+  "_id": {
+    "$oid": "6a64d7bf7b6a8803d536af9c"
+  },
+  "number": "CASO-2026-000010",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "customerId": "6a64d6be7b6a8803d536af95",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro pepe",
+  "orderId": "6a64d7717b6a8803d536af9a",
+  "orderNumber": "ORD-2026-000029",
+  "subject": "El producto no llego",
+  "status": "EN_ATENCION",
+  "priority": "MEDIUM",
+  "sentiment": "NEGATIVE",
+  "aiReason": "Tono negativo, menciona un asunto critico",
+  "aiClassified": true,
+  "dueDate": {
+    "$date": "2026-07-27T15:35:27.721Z"
+  },
+  "assignedToUserId": "6a62e5472da20d0c1c39d4c1",
+  "assignedToName": "AAAA AAAA",
+  "messages": [
+    {
+      "author": "CLIENTE",
+      "authorId": "6a64d6be7b6a8803d536af95",
+      "authorName": "pedro pepe",
+      "body": "Lo necesito como regalo urgente",
+      "createdAt": {
+        "$date": "2026-07-25T15:35:27.722Z"
+      }
+    },
+    {
+      "author": "EMPRESA",
+      "authorId": "6a62e5472da20d0c1c39d4c1",
+      "authorName": "AAAA AAAA",
+      "body": "Ya estamos gestionando",
+      "createdAt": {
+        "$date": "2026-07-25T15:45:52.495Z"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-07-25T15:35:27.721Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:45:54.607Z"
+  },
+  "lastMessageAt": {
+    "$date": "2026-07-25T15:45:52.495Z"
+  },
+  "_class": "com.ecommerce.support.SupportCase"
+}]

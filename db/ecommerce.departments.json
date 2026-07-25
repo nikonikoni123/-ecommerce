@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6a6254d8f07e9a25f753e802"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "name": "Soporte",
+  "description": "Atencion al cliente",
+  "leaderUserId": "6a60cf66f6768b5b9eeb5445",
+  "leaderName": "Carlos Munoz",
+  "createdAt": {
+    "$date": "2026-07-23T17:52:24.158Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T17:52:24.158Z"
+  },
+  "_class": "com.ecommerce.company.Department"
+}]

@@ -1,0 +1,2185 @@
+[{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5447"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Gel Limpiador Enzimatico",
+  "slug": "gel-limpiador-enzimatico",
+  "description": "Limpieza diaria que disuelve el exceso de sebo sin alterar la barrera cutanea. Textura en gel de aclarado rapido.",
+  "price": {
+    "$numberDecimal": "89000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "limpieza"
+  ],
+  "visibleTags": [
+    "piel mixta",
+    "uso diario"
+  ],
+  "hiddenTags": [
+    "rutina-manana",
+    "sensible",
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5448"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Serum Niacinamida 10%",
+  "slug": "serum-niacinamida-10",
+  "description": "Concentrado que unifica el tono y reduce la apariencia de los poros. Se aplica sobre la piel limpia, antes de la hidratacion.",
+  "price": {
+    "$numberDecimal": "142000"
+  },
+  "currency": "COP",
+  "stock": 62,
+  "images": [],
+  "categories": [
+    "tratamiento"
+  ],
+  "visibleTags": [
+    "manchas",
+    "poros"
+  ],
+  "hiddenTags": [
+    "activo-alto",
+    "rutina-noche",
+    "recompra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb5449"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Crema Barrera Ceramidas",
+  "slug": "crema-barrera-ceramidas",
+  "description": "Hidratacion prolongada con ceramidas y escualano para reforzar la barrera. Acabado mate, apta bajo maquillaje.",
+  "price": {
+    "$numberDecimal": "128000"
+  },
+  "currency": "COP",
+  "stock": 88,
+  "images": [],
+  "categories": [
+    "hidratacion"
+  ],
+  "visibleTags": [
+    "piel seca",
+    "barrera"
+  ],
+  "hiddenTags": [
+    "rutina-noche",
+    "sensible",
+    "recompra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb544a"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Protector Solar Fluido SPF50",
+  "slug": "protector-solar-fluido-spf50",
+  "description": "Filtro de amplio espectro con acabado invisible, sin residuo blanco. Reaplicar cada dos horas de exposicion.",
+  "price": {
+    "$numberDecimal": "115000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "proteccion"
+  ],
+  "visibleTags": [
+    "spf50",
+    "uso diario"
+  ],
+  "hiddenTags": [
+    "rutina-manana",
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb544b"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Exfoliante Acido Mandelico",
+  "slug": "exfoliante-acido-mandelico",
+  "description": "Renovacion suave semanal que mejora la textura sin irritar. Uso nocturno, dos veces por semana.",
+  "price": {
+    "$numberDecimal": "96000"
+  },
+  "currency": "COP",
+  "stock": 44,
+  "images": [],
+  "categories": [
+    "tratamiento"
+  ],
+  "visibleTags": [
+    "textura",
+    "semanal"
+  ],
+  "hiddenTags": [
+    "activo-alto",
+    "rutina-noche"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb544c"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Agua Micelar Calmante",
+  "slug": "agua-micelar-calmante",
+  "description": "Desmaquillante sin aclarado con pantenol y avena coloidal. Indicada para piel reactiva.",
+  "price": {
+    "$numberDecimal": "72000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "limpieza"
+  ],
+  "visibleTags": [
+    "desmaquillante",
+    "piel sensible"
+  ],
+  "hiddenTags": [
+    "sensible",
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb544d"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Contorno de Ojos Peptidos",
+  "slug": "contorno-de-ojos-peptidos",
+  "description": "Tratamiento ligero para la zona periocular que atenua la apariencia de lineas finas y suaviza el aspecto de las ojeras.",
+  "price": {
+    "$numberDecimal": "134000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "tratamiento"
+  ],
+  "visibleTags": [
+    "contorno",
+    "peptidos"
+  ],
+  "hiddenTags": [
+    "activo-alto",
+    "recompra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf66f6768b5b9eeb544e"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Mascarilla Arcilla Verde",
+  "slug": "mascarilla-arcilla-verde",
+  "description": "Mascarilla purificante de uso semanal que absorbe el exceso de grasa en la zona T.",
+  "price": {
+    "$numberDecimal": "68000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "tratamiento"
+  ],
+  "visibleTags": [
+    "purificante",
+    "zona t"
+  ],
+  "hiddenTags": [
+    "rutina-noche",
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:10:46.618Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a60cf93f6768b5b9eeb5451"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "name": "Tonico Equilibrante",
+  "slug": "tonico-equilibrante",
+  "description": "Tonico sin alcohol que prepara la piel.",
+  "price": {
+    "$numberDecimal": "78000"
+  },
+  "currency": "COP",
+  "stock": 30,
+  "images": [],
+  "categories": [
+    "limpieza"
+  ],
+  "visibleTags": [
+    "tonico"
+  ],
+  "hiddenTags": [
+    "rutina-manana",
+    "sensible"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T14:11:31.737Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T14:11:31.737Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6106aca21e71c25c5a8d69"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "name": "Camiseta Algodon Organico",
+  "slug": "camiseta-algodon-organico",
+  "description": "Tejido de algodon organico certificado, corte holgado.",
+  "price": {
+    "$numberDecimal": "95000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "ropa"
+  ],
+  "visibleTags": [
+    "algodon",
+    "unisex"
+  ],
+  "hiddenTags": [
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:06:36.135Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:06:36.135Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a610788a21e71c25c5a8d72"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "name": "Pieza Unica Prueba Concurrencia",
+  "slug": "pieza-unica-prueba-concurrencia",
+  "description": "Solo queda una unidad.",
+  "price": {
+    "$numberDecimal": "50000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "ropa"
+  ],
+  "visibleTags": [],
+  "hiddenTags": [],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:10:16.249Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:10:16.249Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a610b66a21e71c25c5a8d84"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "companyName": "Cachibaches",
+  "name": "prueba tecnica",
+  "slug": "prueba-tecnica",
+  "description": "prueba tecnica",
+  "price": {
+    "$numberDecimal": "10000"
+  },
+  "currency": "COP",
+  "stock": 0,
+  "images": [],
+  "categories": [
+    "ropa"
+  ],
+  "visibleTags": [
+    "uso diario"
+  ],
+  "hiddenTags": [
+    "primera-compra"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:26:46.900Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:26:46.900Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a640f833eb591c2e20bf8ec"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Camisa Lino Arena",
+  "slug": "camisa-lino-arena",
+  "description": "Confeccionada en lino 100% orgánico con corte relajado y botones de nácar.",
+  "price": {
+    "$numberDecimal": "280000"
+  },
+  "currency": "COP",
+  "stock": 40,
+  "images": [
+    "https://tennis.vtexassets.com/arquivos/ids/2688608-800-auto?v=639041084300400000&width=800&height=auto&aspect=true"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "sostenible",
+    "hombre"
+  ],
+  "hiddenTags": [
+    "natural-fabric",
+    "atemporal",
+    "eco-luxury"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:21:07.312Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:19:04.251Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a640fdb3eb591c2e20bf8ef"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Lámpara de Mesa \"Ora\"",
+  "slug": "lampara-de-mesa-ora",
+  "description": "Diseño escultural en cerámica mate con luz LED cálida regulable.",
+  "price": {
+    "$numberDecimal": "450000"
+  },
+  "currency": "COP",
+  "stock": 15,
+  "images": [
+    "https://www.luzete.es/22539-thickbox_default/lampara-de-mesa-blancooro-rosa-arleth.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "iluminación",
+    "decoración"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "minimalista",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:22:35.722Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:19:24.713Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64101b3eb591c2e20bf8f1"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Teclado Mecánico Alura",
+  "slug": "teclado-mecanico-alura",
+  "description": "Teclas de perfil bajo con retroiluminación ámbar y chasis de grafito.",
+  "price": {
+    "$numberDecimal": "990000"
+  },
+  "currency": "COP",
+  "stock": 30,
+  "images": [
+    "https://tse1.mm.bing.net/th/id/OIP.-cKlo0BcU4k0nx1hHBt4EgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "productividad",
+    "pro"
+  ],
+  "hiddenTags": [
+    "smart-tech",
+    "oficina-casa",
+    "ejecutivo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:23:39.666Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:19:42.197Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6410753eb591c2e20bf8f3"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Reloj Mono-Cromo",
+  "slug": "reloj-mono-cromo",
+  "description": "Reloj de pulso con esfera de zafiro y correa de cuero italiano negro.",
+  "price": {
+    "$numberDecimal": "11000000"
+  },
+  "currency": "COP",
+  "stock": 10,
+  "images": [
+    "https://tse4.mm.bing.net/th/id/OIP.sTTfMUdKPqP6HYIAfP3h9QHaLs?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "lujo",
+    "atemporal"
+  ],
+  "hiddenTags": [
+    "premium",
+    "ejecutivo",
+    "minimalista"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:25:09.349Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:20:05.235Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6410b53eb591c2e20bf8f5"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Set de Cerámica Nihon",
+  "slug": "set-de-ceramica-nihon",
+  "description": "Cuatro cuencos artesanales moldeados a mano con esmalte reactivo gris.",
+  "price": {
+    "$numberDecimal": "320000"
+  },
+  "currency": "COP",
+  "stock": 20,
+  "images": [
+    "https://i.pinimg.com/736x/30/2c/61/302c6157b0cfc850dbe5bf79e472e44d.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "cocina",
+    "artesanal"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "eco-luxury",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:26:13.292Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:20:20.178Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6410f53eb591c2e20bf8f7"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Morral de Cuero Nómada",
+  "slug": "morral-de-cuero-nomada",
+  "description": "Cuero de grano completo con compartimento acolchado para laptop de 16\".",
+  "price": {
+    "$numberDecimal": "750000"
+  },
+  "currency": "COP",
+  "stock": 50,
+  "images": [
+    "https://vincenzoficial.com/wp-content/uploads/2025/08/IMG_2547-1-1024x1536.jpg"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "viaje",
+    "cuero"
+  ],
+  "hiddenTags": [
+    "ejecutivo",
+    "duradero",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:27:17.646Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:18:16.195Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6411333eb591c2e20bf8f9"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Altavoz de Piedra Volcánica",
+  "slug": "altavoz-de-piedra-volcanica",
+  "description": "Altavoz Bluetooth integrado en una base de piedra natural tallada.",
+  "price": {
+    "$numberDecimal": "1400000"
+  },
+  "currency": "COP",
+  "stock": 8,
+  "images": [
+    "https://s13emagst.akamaized.net/products/31579/31578811/images/res_7d44bc4c757cbea507ccb435fa4a06a3.jpg"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "audio",
+    "arte"
+  ],
+  "hiddenTags": [
+    "smart-tech",
+    "interior-design",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:28:19.383Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:17:45.823Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64117c3eb591c2e20bf8fb"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Vestido Seda Nocturna",
+  "slug": "vestido-seda-nocturna",
+  "description": "Seda natural con caída fluida y espalda descubierta para eventos.",
+  "price": {
+    "$numberDecimal": "950000"
+  },
+  "currency": "COP",
+  "stock": 12,
+  "images": [
+    "https://th.bing.com/th/id/R.70b1f0aaafdba94e7ae69c518db02f33?rik=Lsd5gMblWZ6F2A&riu=http%3a%2f%2fwww.albertaferretti.com%2fcdn%2fshop%2ffiles%2fAeffe_2Farticle_imgs_2FAEF261U_2004611617_2F463287_f7864096-08fe-491e-9fe8-9e7c581e880e.jpg%3fv%3d1764211532&ehk=5jFdJW6YzLJum%2bEJS9GyvgAgzJigKbHFyNDN8bZEE2M%3d&risl=&pid=ImgRaw&r=0"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "mujer",
+    "noche"
+  ],
+  "hiddenTags": [
+    "natural-fabric",
+    "elegancia",
+    "regalo-lujo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:29:32.489Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:17:00.948Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6411cd3eb591c2e20bf8fd"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Cafetera de Goteo Vidrio",
+  "slug": "cafetera-de-goteo-vidrio",
+  "description": "Sistema de filtrado manual en vidrio soplado con detalles en madera.",
+  "price": {
+    "$numberDecimal": "240000"
+  },
+  "currency": "COP",
+  "stock": 60,
+  "images": [
+    "https://m.media-amazon.com/images/I/61RfDtoaByL._AC_SL1500_.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "café",
+    "gourmet"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "zen",
+    "uso-diario"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:30:53.700Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:16:38.744Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6412093eb591c2e20bf8ff"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Libreta de Notas Cuero",
+  "slug": "libreta-de-notas-cuero",
+  "description": "Papel de 120g libre de ácido encuadernado en cuero recuperado.",
+  "price": {
+    "$numberDecimal": "95000"
+  },
+  "currency": "COP",
+  "stock": 99,
+  "images": [
+    "https://m.media-amazon.com/images/I/81D2mmfo9WL._AC_.jpg"
+  ],
+  "categories": [
+    "oficina"
+  ],
+  "visibleTags": [
+    "papelería",
+    "escritura"
+  ],
+  "hiddenTags": [
+    "oficina-casa",
+    "minimalista",
+    "artesanal"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:31:53.691Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:16:13.082Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6412433eb591c2e20bf901"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Gafas de Sol Ópalo",
+  "slug": "gafas-de-sol-opalo",
+  "description": "Montura de acetato transparente con lentes polarizados color humo.",
+  "price": {
+    "$numberDecimal": "520000"
+  },
+  "currency": "COP",
+  "stock": 35,
+  "images": [
+    "https://media.tiffany.com/is/image/tco/71472930_SGL_MAIN1X1"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "verano",
+    "unisex"
+  ],
+  "hiddenTags": [
+    "atemporal",
+    "minimalista",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:32:51.419Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:15:51.887Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6412883eb591c2e20bf903"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Manta de Lana Merina",
+  "slug": "manta-de-lana-merina",
+  "description": "Tejido ultra suave de alto gramaje para interiores minimalistas.",
+  "price": {
+    "$numberDecimal": "680000"
+  },
+  "currency": "COP",
+  "stock": 18,
+  "images": [
+    "https://cdn.hohos.cl/legacy/uploads/2024/08/declt00039-23-38-3-ace486ca-a4a4-4a0b-876d-0e7a99160a9d-scaled.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "confort",
+    "textil"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "calma",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:34:00.892Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:15:20.003Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6412c33eb591c2e20bf906"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Cargador Inalámbrico Mármol",
+  "slug": "cargador-inalambrico-marmol",
+  "description": "Base de carga rápida tallada en mármol blanco de Carrara.",
+  "price": {
+    "$numberDecimal": "380000"
+  },
+  "currency": "COP",
+  "stock": 22,
+  "images": [
+    "https://http2.mlstatic.com/D_NQ_NP_680902-CBT91653119972_092025-O.webp"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "escritorio",
+    "lujo"
+  ],
+  "hiddenTags": [
+    "smart-tech",
+    "minimalista",
+    "interior-design"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:34:59.229Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:14:09.538Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6412f83eb591c2e20bf908"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Pantalón Tailored Sage",
+  "slug": "pantalon-tailored-sage",
+  "description": "Corte sastre en mezcla de algodón y elastano color verde salvia.",
+  "price": {
+    "$numberDecimal": "340000"
+  },
+  "currency": "COP",
+  "stock": 45,
+  "images": [
+    "https://sirri.com/cdn/shop/files/Men_sTailoredFitFormalTrousers-Belmont-SageGreen_1.jpg?v=1767948226&width=1696"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "sastre",
+    "oficina"
+  ],
+  "hiddenTags": [
+    "ejecutivo",
+    "atemporal",
+    "elegante"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:35:52.683Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:13:45.775Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6413333eb591c2e20bf90a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Vela Aromática \"Humo\"",
+  "slug": "vela-aromatica-humo",
+  "description": "Cera de soja con notas de sándalo, cuero y cardamomo en envase negro.",
+  "price": {
+    "$numberDecimal": "145000"
+  },
+  "currency": "COP",
+  "stock": 76,
+  "images": [
+    "https://img.magnific.com/fotos-premium/vela-apagada-humo-sobre-fondo-negro-aromas-granada-cereza-vainilla-coco_117406-4556.jpg?w=2000"
+  ],
+  "categories": [
+    "bienestar"
+  ],
+  "visibleTags": [
+    "fragancia",
+    "hogar"
+  ],
+  "hiddenTags": [
+    "bienestar",
+    "zen",
+    "minimalista"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:36:51.726Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:13:14.726Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6413673eb591c2e20bf90c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Maceta Auto-Riego Cinc",
+  "slug": "maceta-auto-riego-cinc",
+  "description": "Diseño industrial en acero galvanizado para plantas de interior.",
+  "price": {
+    "$numberDecimal": "185000"
+  },
+  "currency": "COP",
+  "stock": 40,
+  "images": [
+    "https://media.revistaad.es/photos/62da5a7834df63fe1c48ad82/master/w_1600%2Cc_limit/ikea-ps-fejo-maceta-con-autorriego-blanco__0900219_pe678037_s5.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "jardinería",
+    "diseño"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "minimalista",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:37:43.493Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:12:35.258Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64139a3eb591c2e20bf90e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Pluma Estilográfica Mate",
+  "slug": "pluma-estilografica-mate",
+  "description": "Cuerpo de titanio con plumín de oro de 14k para escritura fluida.",
+  "price": {
+    "$numberDecimal": "1350000"
+  },
+  "currency": "COP",
+  "stock": 5,
+  "images": [
+    "https://i5.walmartimages.com/asr/d705f1fe-6c57-4239-9ab6-4fec9ef033fa.52da56dea1cf12e4f2de1c986d90b49a.jpeg"
+  ],
+  "categories": [
+    "oficina"
+  ],
+  "visibleTags": [
+    "lujo",
+    "escritura"
+  ],
+  "hiddenTags": [
+    "ejecutivo",
+    "premium",
+    "artesanal"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:38:34.346Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:12:00.880Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6413d23eb591c2e20bf910"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Bol de Piedra Jabón",
+  "slug": "bol-de-piedra-jabon",
+  "description": "Recipiente pesado para frutas o decoración, tallado en una sola pieza.",
+  "price": {
+    "$numberDecimal": "290000"
+  },
+  "currency": "COP",
+  "stock": 14,
+  "images": [
+    "https://www.eluniversal.com.mx/resizer/v2/GE2Y7GYMBNCRFKAXSKKS6NLOTY.jpg?auth=2ef9b45b1a49ca1aaa059167768c15263548e79aa4262b8dca180fb834dd3724&smart=true&height=620"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "centro de mesa"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "natural-fabric",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:39:30.258Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:11:37.376Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64140e3eb591c2e20bf912"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Tablet Gráfica \"Lienzo\"",
+  "slug": "tablet-grafica-lienzo",
+  "description": "Superficie de dibujo con textura de papel y lápiz sin batería.",
+  "price": {
+    "$numberDecimal": "1800000"
+  },
+  "currency": "COP",
+  "stock": 14,
+  "images": [
+    "https://m.media-amazon.com/images/I/71+4Kw6Un1L._AC_.jpg"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "diseño",
+    "arte"
+  ],
+  "hiddenTags": [
+    "creativo",
+    "pro",
+    "smart-tech"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:40:30.639Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:11:12.700Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64144b3eb591c2e20bf914"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Saco de Cashmere Nude",
+  "slug": "saco-de-cashmere-nude",
+  "description": "Tejido de punto fino en lana de cachemira para máxima suavidad.",
+  "price": {
+    "$numberDecimal": "820000"
+  },
+  "currency": "COP",
+  "stock": 20,
+  "images": [
+    "https://images.thebestshops.com/product_images/original/max-mara-knee-length-coats-lilia-nude-cashmere-coat-00000167090f00s001.jpg"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "invierno",
+    "premium"
+  ],
+  "hiddenTags": [
+    "natural-fabric",
+    "regalo-lujo",
+    "atemporal"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:41:31.752Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:10:49.734Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6414823eb591c2e20bf916"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Difusor de Aceites Zen",
+  "slug": "difusor-de-aceites-zen",
+  "description": "Difusor ultrasónico con cubierta de cerámica y temporizador.",
+  "price": {
+    "$numberDecimal": "275000"
+  },
+  "currency": "COP",
+  "stock": 55,
+  "images": [
+    "https://www.cdiscount.com/pdt2/5/7/5/1/700x700/9363430043575/rw/traitement-de-l-air-diffuseur-d-huile-essentielle.jpg"
+  ],
+  "categories": [
+    "bienestar"
+  ],
+  "visibleTags": [
+    "aromaterapia"
+  ],
+  "hiddenTags": [
+    "bienestar",
+    "calma",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:42:26.017Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:09:13.710Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6419893eb591c2e20bf919"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Set de Cubiertos Mate",
+  "slug": "set-de-cubiertos-mate",
+  "description": "Acero inoxidable con acabado negro mate, set para 4 personas.",
+  "price": {
+    "$numberDecimal": "410000"
+  },
+  "currency": "COP",
+  "stock": 25,
+  "images": [
+    "https://th.bing.com/th/id/R.cc7df4ea312187e9fecc5adb494820e4?rik=E159hd%2f4ni%2bIlA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1161%2f3498%2fproducts%2fMonix_Accesorios_Cubiertos_01_grande.jpg%3fv%3d1669309089&ehk=U%2fRinKBby5RaEAiJKLxc3v6smAFgmyBF1xKScZjsMy4%3d&risl=&pid=ImgRaw&r=0"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "comedor",
+    "diseño"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "interior-design",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:03:53.976Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:08:49.077Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6419bb3eb591c2e20bf91b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Soporte Laptop Aluminio",
+  "slug": "soporte-laptop-aluminio",
+  "description": "Elevador ergonómico plegable con disipación de calor pasiva.",
+  "price": {
+    "$numberDecimal": "195000"
+  },
+  "currency": "COP",
+  "stock": 90,
+  "images": [
+    "https://m.media-amazon.com/images/I/71ITtF2j2dL._AC_.jpg"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "oficina",
+    "salud"
+  ],
+  "hiddenTags": [
+    "oficina-casa",
+    "productivo",
+    "minimalista"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:04:43.282Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:08:17.970Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641a9d3eb591c2e20bf91d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Clutch Metálico Silver",
+  "slug": "clutch-metalico-silver",
+  "description": "Bolso de mano rígido con acabado espejo y cadena oculta.",
+  "price": {
+    "$numberDecimal": "480000"
+  },
+  "currency": "COP",
+  "stock": 10,
+  "images": [
+    "https://assets.shoelace.ie/thumbs/1000xauto/2023-09::1695313195-silver-metallic-clutch-bag-1.jpg"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "fiesta",
+    "noche"
+  ],
+  "hiddenTags": [
+    "elegancia",
+    "regalo-lujo",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:08:29.636Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:07:51.036Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641e303eb591c2e20bf920"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Tetera de Hierro Fundido",
+  "slug": "tetera-de-hierro-fundido",
+  "description": "Inspirada en el diseño tetsubin con filtro interno de acero.",
+  "price": {
+    "$numberDecimal": "320000"
+  },
+  "currency": "COP",
+  "stock": 30,
+  "images": [
+    "https://rasgos.co/cdn/shop/files/2_30a23d56-3381-4225-9664-323ae19cfa52.png?v=1741384072&width=1200"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "té",
+    "tradición"
+  ],
+  "hiddenTags": [
+    "zen",
+    "artesanal",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:23:44.432Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T05:07:26.081Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641e813eb591c2e20bf922"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Mouse Ergonómico Aero",
+  "slug": "mouse-ergonomico-aero",
+  "description": "Sensor óptico de alta precisión con agarre vertical.",
+  "price": {
+    "$numberDecimal": "350000"
+  },
+  "currency": "COP",
+  "stock": 40,
+  "images": [
+    "https://th.bing.com/th/id/OIP.LmqgeJuAIoT0CVu2pzMbIwAAAA?w=160&h=108&c=7&qlt=90&bgcl=d926a3&r=0&o=6&pid=13.1"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "periféricos"
+  ],
+  "hiddenTags": [
+    "oficina-casa",
+    "productivo",
+    "smart-tech"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:25:05.800Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T02:25:05.800Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641efb3eb591c2e20bf924"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Alfombra Geométrica Lino",
+  "slug": "alfombra-geometrica-lino",
+  "description": "Tejido plano con patrón minimalista en tonos tierra.",
+  "price": {
+    "$numberDecimal": "1150000"
+  },
+  "currency": "COP",
+  "stock": 5,
+  "images": [
+    "https://s3.amazonaws.com/EcomExpertsUserFiles/25226%2F2873-732073673400-B.png"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "textil",
+    "suelo"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "eco-luxury",
+    "minimalista"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:27:07.547Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:15:47.263Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641f293eb591c2e20bf926"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Blazer Desestructurado",
+  "slug": "blazer-desestructurado",
+  "description": "Chaqueta ligera sin forro para un look profesional pero relajado.",
+  "price": {
+    "$numberDecimal": "590000"
+  },
+  "currency": "COP",
+  "stock": 22,
+  "images": [
+    "https://tse3.mm.bing.net/th/id/OIP.poEbj1gHKWSJtIaUf_XZwAHaJD?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "oficina",
+    "hombre"
+  ],
+  "hiddenTags": [
+    "ejecutivo",
+    "atemporal",
+    "elegante"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:27:53.768Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:41:25.829Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a641fb43eb591c2e20bf92c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Espejo de Pared \"Halo\"",
+  "slug": "espejo-de-pared-halo",
+  "description": "Espejo circular con marco de latón ultra delgado.",
+  "price": {
+    "$numberDecimal": "550000"
+  },
+  "currency": "COP",
+  "stock": 12,
+  "images": [
+    "https://images.victorianplumbing.co.uk/products/venice-600mm-round-led-illuminated-anti-fog-bathroom-mirror/carouselimages/vn60mir_d1.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "decoración"
+  ],
+  "hiddenTags": [
+    "interior-design",
+    "minimalista",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:30:12.645Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:42:09.356Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64201c3eb591c2e20bf92e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Cámara Instantánea Analógica",
+  "slug": "camara-instantanea-analogica",
+  "description": "Estética retro con controles manuales de exposición.",
+  "price": {
+    "$numberDecimal": "780000"
+  },
+  "currency": "COP",
+  "stock": 20,
+  "images": [
+    "https://i.pcmag.com/imagery/reviews/02kNWZhThefFnpt3VbouQoH-8.jpg"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "fotografía",
+    "ocio"
+  ],
+  "hiddenTags": [
+    "creativo",
+    "atemporal",
+    "regalo-lujo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:31:56.036Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:42:54.753Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64212f3eb591c2e20bf930"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Set de Yoga \"Balance\"",
+  "slug": "set-de-yoga-balance",
+  "description": "Tapete de caucho natural y dos bloques de corcho.",
+  "price": {
+    "$numberDecimal": "450000"
+  },
+  "currency": "COP",
+  "stock": 34,
+  "images": [
+    "https://i5.walmartimages.com/seo/BalanceFrom-Fitness-7-Pc-Yoga-Set-w-Mat-Stretch-Strap-Knee-Pad-Red_73c1f78c-44e1-4cd8-84df-503b5a9d2242.d89a758aebe2e95b187a278ff46da8a0.jpeg"
+  ],
+  "categories": [
+    "bienestar"
+  ],
+  "visibleTags": [
+    "deporte",
+    "yoga"
+  ],
+  "hiddenTags": [
+    "bienestar",
+    "calma",
+    "eco-luxury"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:36:31.281Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:43:24.793Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6421f93eb591c2e20bf933"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Cuchillo de Chef Damasco",
+  "slug": "cuchillo-de-chef-damasco",
+  "description": "Acero de 67 capas con mango de madera de nogal.",
+  "price": {
+    "$numberDecimal": "890000"
+  },
+  "currency": "COP",
+  "stock": 15,
+  "images": [
+    "https://www.kitchencenter.cl/cdn/shop/files/cuchillo-chef-20-cm-acero-damasco-67-capas-mango-g10-azul-koyam-koyam.jpg?v=1742255304&width=1946"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "cocina",
+    "pro"
+  ],
+  "hiddenTags": [
+    "artesanal",
+    "premium",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:39:53.278Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:43:57.360Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64228e3eb591c2e20bf935"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Bandeja de Roble \"Línea\"",
+  "slug": "bandeja-de-roble-linea",
+  "description": "Tallada en madera sólida con borde elevado.",
+  "price": {
+    "$numberDecimal": "220000"
+  },
+  "currency": "COP",
+  "stock": 39,
+  "images": [
+    "https://media.fds.fi/product_additional/2000/1600496-1600495-1600494-No.-10-Trays.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "servicio",
+    "madera"
+  ],
+  "hiddenTags": [
+    "zen",
+    "minimalista",
+    "natural-fabric"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:42:21.998Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:44:22.274Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6424d23eb591c2e20bf937"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Billetera Slim \"Arid\"",
+  "slug": "billetera-slim-arid",
+  "description": "Espacio para 6 tarjetas con protección RFID y cuero ultra fino.",
+  "price": {
+    "$numberDecimal": "135000"
+  },
+  "currency": "COP",
+  "stock": 120,
+  "images": [
+    "https://doop-design.com/wp-content/uploads/2026/05/05-4.png"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "básico",
+    "hombre"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "ejecutivo",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:52:02.575Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:45:32.848Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6425073eb591c2e20bf939"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Cojín de Meditación Zafu",
+  "slug": "cojin-de-meditacion-zafu",
+  "description": "Relleno de cáscara de espelta orgánica y funda de lino.",
+  "price": {
+    "$numberDecimal": "175000"
+  },
+  "currency": "COP",
+  "stock": 30,
+  "images": [
+    "https://esterilla.yoga/wp-content/plugins/aawp/public/image.php?url=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvMzEtdDlkbnVCTkwuanBn"
+  ],
+  "categories": [
+    "bienestar"
+  ],
+  "visibleTags": [
+    "meditación"
+  ],
+  "hiddenTags": [
+    "bienestar",
+    "calma",
+    "zen"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:52:55.088Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:46:06.890Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64253b3eb591c2e20bf93b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Auriculares In-Ear \"Gota\"",
+  "slug": "auriculares-in-ear-gota",
+  "description": "Transparencia acústica en un formato diminuto de cerámica.",
+  "price": {
+    "$numberDecimal": "650000"
+  },
+  "currency": "COP",
+  "stock": 45,
+  "images": [
+    "https://acf.geeknetic.es/imagenes/auto/23/04/11/4qe-4d6-image.png"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "audio",
+    "diseño"
+  ],
+  "hiddenTags": [
+    "smart-tech",
+    "minimalista",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:53:47.364Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:46:34.958Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6425853eb591c2e20bf93e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Sobretodo de Lana Storm",
+  "slug": "sobretodo-de-lana-storm",
+  "description": "Abrigo largo repelente al agua con forro térmico.",
+  "price": {
+    "$numberDecimal": "1450000"
+  },
+  "currency": "COP",
+  "stock": 8,
+  "images": [
+    "https://m.media-amazon.com/images/I/517Db5jYyZL._AC_UL1001_.jpg"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "invierno",
+    "lujo"
+  ],
+  "hiddenTags": [
+    "atemporal",
+    "ejecutivo",
+    "premium"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:55:01.905Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:47:18.253Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6425bb3eb591c2e20bf940"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Molino de Sal y Pimienta",
+  "slug": "molino-de-sal-y-pimienta",
+  "description": "Mecanismo de cerámica ajustable con cuerpo de hormigón.",
+  "price": {
+    "$numberDecimal": "195000"
+  },
+  "currency": "COP",
+  "stock": 49,
+  "images": [
+    "https://m.media-amazon.com/images/I/71PBsD3WCTL._AC_SL1200_.jpg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "cocina",
+    "diseño"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "artesanal",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:55:55.096Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:47:49.981Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6425f73eb591c2e20bf942"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Powerbank de Tela",
+  "slug": "powerbank-de-tela",
+  "description": "Batería externa de 10.000 mAh recubierta en textil gris.",
+  "price": {
+    "$numberDecimal": "180000"
+  },
+  "currency": "COP",
+  "stock": 69,
+  "images": [
+    "https://jonhvariedades01.meucatalogofacil.com/_core/_uploads/213211/2025/11/1112151125fejkgfdjj6.png"
+  ],
+  "categories": [
+    "tecnología"
+  ],
+  "visibleTags": [
+    "móvil",
+    "viaje"
+  ],
+  "hiddenTags": [
+    "smart-tech",
+    "uso-diario",
+    "minimalista"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:56:55.710Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:48:20.304Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6426253eb591c2e20bf944"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Juego de Toallas \"Spa\"",
+  "slug": "juego-de-toallas-spa",
+  "description": "Algodón egipcio de 800g para una absorción máxima.",
+  "price": {
+    "$numberDecimal": "310000"
+  },
+  "currency": "COP",
+  "stock": 39,
+  "images": [
+    "https://i5.walmartimages.com/asr/58a33eea-ad9b-4375-ad76-30b22f5a7363.36c7b9af6c471ab0ce98c10a35eb8b2c.jpeg"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "baño",
+    "confort"
+  ],
+  "hiddenTags": [
+    "bienestar",
+    "premium",
+    "regalo-lujo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:57:41.013Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:48:44.571Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6426573eb591c2e20bf946"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Mochila Fotográfica Pro",
+  "slug": "mochila-fotografica-pro",
+  "description": "Modular, resistente al agua y con acceso lateral rápido.",
+  "price": {
+    "$numberDecimal": "920000"
+  },
+  "currency": "COP",
+  "stock": 18,
+  "images": [
+    "https://visitmycolombia.com/wp-content/uploads/2026/01/daybag-Lowepro-ProTactic-BP-450-Unisexe.jpg"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "fotografía",
+    "viaje"
+  ],
+  "hiddenTags": [
+    "pro",
+    "duradero",
+    "creativo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:58:31.359Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:49:40.766Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6426903eb591c2e20bf948"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Jarra de Agua \"Pure\"",
+  "slug": "jarra-de-agua-pure",
+  "description": "Cristal soplado con esfera de corcho como tapa.",
+  "price": {
+    "$numberDecimal": "115000"
+  },
+  "currency": "COP",
+  "stock": 53,
+  "images": [
+    "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1693908892-51lq184iTLL.jpg?crop=0.673xw:0.673xh;0.141xw",
+    "0.262xh&resize=980:*"
+  ],
+  "categories": [
+    "hogar"
+  ],
+  "visibleTags": [
+    "comedor"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "zen",
+    "natural-fabric"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:59:28.191Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:50:17.716Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6426c03eb591c2e20bf94a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Camiseta Base de Bambú",
+  "slug": "camiseta-base-de-bambu",
+  "description": "Fibra de bambú ultra transpirable y anti-bacteriana.",
+  "price": {
+    "$numberDecimal": "110000"
+  },
+  "currency": "COP",
+  "stock": 100,
+  "images": [
+    "https://down-id.img.susercontent.com/file/id-11134201-7r98x-ln8ftapgcq30c9"
+  ],
+  "categories": [
+    "moda"
+  ],
+  "visibleTags": [
+    "básico",
+    "unisex"
+  ],
+  "hiddenTags": [
+    "eco-luxury",
+    "uso-diario",
+    "natural-fabric"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:00:16.705Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:50:41.482Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6428bf3eb591c2e20bf94c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Portalápices de Cemento",
+  "slug": "portalapices-de-cemento",
+  "description": "Pieza única de concreto vaciado para escritorio.",
+  "price": {
+    "$numberDecimal": "65000"
+  },
+  "currency": "COP",
+  "stock": 79,
+  "images": [
+    "https://img.edilportale.com/product-thumbs/b_B-LINE_AKI-JR_187jVGp1By.jpeg"
+  ],
+  "categories": [
+    "oficina"
+  ],
+  "visibleTags": [
+    "decoración"
+  ],
+  "hiddenTags": [
+    "minimalista",
+    "oficina-casa",
+    "duradero"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:08:47.929Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:51:00.964Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a6428f03eb591c2e20bf94e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "name": "Maleta de Mano Rígida(ejemplo)",
+  "slug": "maleta-de-mano-rigida",
+  "description": "Policarbonato aeroespacial con ruedas silenciosas 360.",
+  "price": {
+    "$numberDecimal": "1100000"
+  },
+  "currency": "COP",
+  "stock": 24,
+  "images": [
+    "https://i5.walmartimages.com/asr/bc5322fa-a09f-47b7-b765-afbb957e9b5b.d9065451844cbcf121e30658e5e0c471.jpeg"
+  ],
+  "categories": [
+    "accesorios"
+  ],
+  "visibleTags": [
+    "viaje",
+    "lujo"
+  ],
+  "hiddenTags": [
+    "duradero",
+    "premium",
+    "ejecutivo"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:09:36.799Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:50:07.954Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64cebe7b6a8803d536af67"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "companyName": "aaaa",
+  "name": "Computador escritorio",
+  "slug": "computador-escritorio",
+  "description": "Es un pc de gran velocidad",
+  "price": {
+    "$numberDecimal": "1200000"
+  },
+  "currency": "COP",
+  "stock": 4,
+  "images": [
+    "https://th.bing.com/th/id/R.816546ea405e509b51b92b51728c77f4?rik=xRlBKP3VC%2fXfpg&riu=http%3a%2f%2fi.mlcdn.com.br%2f1500x1500%2fcomputador-all-in-one-dell-optiplex-3011-a20intel-core-i5-4gb-500gb-windows-8-led-20-grava-dvd-082231200c.jpg&ehk=A%2b%2fgM8G09pqTr9%2bgfHmOkfGRimJj86jsWNccrWs5f5U%3d&risl=&pid=ImgRaw&r=0"
+  ],
+  "categories": [
+    "pc"
+  ],
+  "visibleTags": [
+    "computador"
+  ],
+  "hiddenTags": [
+    "electrodoméstico"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:57:02.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:57:17.619Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+},
+{
+  "_id": {
+    "$oid": "6a64d9827b6a8803d536afb2"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "companyName": "empresa demo",
+  "name": "Computador escritorio",
+  "slug": "computador-escritorio-2",
+  "description": "Es rapido",
+  "price": {
+    "$numberDecimal": "1200000"
+  },
+  "currency": "COP",
+  "stock": 1,
+  "images": [],
+  "categories": [
+    "pc"
+  ],
+  "visibleTags": [
+    "computador"
+  ],
+  "hiddenTags": [
+    "electrodoméstico"
+  ],
+  "active": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:42:58.150Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:42:58.150Z"
+  },
+  "_class": "com.ecommerce.catalog.Product"
+}]

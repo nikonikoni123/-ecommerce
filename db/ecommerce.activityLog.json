@@ -1,0 +1,2824 @@
+[{
+  "_id": {
+    "$oid": "6a60cf93f6768b5b9eeb5452"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "userEmail": "gestor@demo.local",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a60cf93f6768b5b9eeb5451",
+  "metadata": {
+    "name": "Tonico Equilibrante"
+  },
+  "createdAt": {
+    "$date": "2026-07-22T14:11:31.749Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6106aca21e71c25c5a8d6a"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "userId": "6a60cfe5f6768b5b9eeb545b",
+  "userEmail": "contacto@textiles.local",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6106aca21e71c25c5a8d69",
+  "metadata": {
+    "name": "Camiseta Algodon Organico"
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:06:36.144Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a610788a21e71c25c5a8d73"
+  },
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "userId": "6a60cfe5f6768b5b9eeb545b",
+  "userEmail": "contacto@textiles.local",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a610788a21e71c25c5a8d72",
+  "metadata": {
+    "name": "Pieza Unica Prueba Concurrencia"
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:10:16.254Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a610b66a21e71c25c5a8d85"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "userId": "6a610a98a21e71c25c5a8d7c",
+  "userEmail": "nicolas.rodrigueza@cun.edu.co",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a610b66a21e71c25c5a8d84",
+  "metadata": {
+    "name": "prueba tecnica"
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:26:46.905Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617d2aeade018f74579165"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a6106c4a21e71c25c5a8d6b",
+  "metadata": {
+    "estado": "ALISTANDO_PEDIDO",
+    "numero": "ORD-2026-000001"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:32:10.825Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617d2beade018f74579167"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a6106c4a21e71c25c5a8d6b",
+  "metadata": {
+    "estado": "ENVIANDO",
+    "numero": "ORD-2026-000001"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:32:11.024Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617d2beade018f74579169"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a6106c4a21e71c25c5a8d6b",
+  "metadata": {
+    "estado": "ENTREGADO",
+    "numero": "ORD-2026-000001"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:32:11.223Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617d46eade018f7457916f"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "REFUND_APPROVE",
+  "targetType": "Order",
+  "targetId": "6a6106c4a21e71c25c5a8d6b",
+  "metadata": {
+    "numero": "ORD-2026-000001"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:32:38.260Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617d66eade018f74579173"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_ITEMS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a6134f2a21e71c25c5a8d87",
+  "metadata": {
+    "numero": "ORD-2026-000005",
+    "diferencia": "128633.00"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:33:10.770Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617e7deade018f74579179"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a6106ffa21e71c25c5a8d6f",
+  "metadata": {
+    "estado": "ALISTANDO_PEDIDO",
+    "numero": "ORD-2026-000003"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:37:49.831Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f7457917e"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a61386995804bf2b8572b94",
+  "metadata": {
+    "estado": "ALISTANDO_PEDIDO",
+    "numero": "ORD-2026-000006"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.467Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f74579180"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a61386995804bf2b8572b94",
+  "metadata": {
+    "estado": "ENVIANDO",
+    "numero": "ORD-2026-000006"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.528Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f74579182"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a61386995804bf2b8572b94",
+  "metadata": {
+    "estado": "ENTREGADO",
+    "numero": "ORD-2026-000006"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.589Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a617f0ceade018f74579187"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "REFUND_APPROVE",
+  "targetType": "Order",
+  "targetId": "6a61386995804bf2b8572b94",
+  "metadata": {
+    "numero": "ORD-2026-000006"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:40:12.621Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a618e8b844907eff11121ed"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "CASE_REPLY",
+  "targetType": "SupportCase",
+  "targetId": "6a618e53844907eff11121e4",
+  "metadata": {
+    "numero": "CASO-2026-000001"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T03:46:19.538Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a618e8c844907eff11121f1"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a618e53844907eff11121e4",
+  "metadata": {
+    "numero": "CASO-2026-000001",
+    "estado": "RESUELTO"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T03:46:20.111Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6254aff07e9a25f753e7fd"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "KPI_GOAL_CREATE",
+  "targetType": "KpiGoal",
+  "targetId": "6a6254aff07e9a25f753e7fc",
+  "metadata": {
+    "metrica": "VENTAS"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T17:51:43.631Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6254aff07e9a25f753e7ff"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "KPI_GOAL_CREATE",
+  "targetType": "KpiGoal",
+  "targetId": "6a6254aff07e9a25f753e7fe",
+  "metadata": {
+    "metrica": "CASOS_RESUELTOS"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T17:51:43.721Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6254d8f07e9a25f753e803"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "DEPARTMENT_CREATE",
+  "targetType": "Department",
+  "targetId": "6a6254d8f07e9a25f753e802",
+  "metadata": {
+    "nombre": "Soporte"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T17:52:24.167Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a62a961f07e9a25f753e809"
+  },
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "userId": "6a610a98a21e71c25c5a8d7c",
+  "userEmail": "nicolas.rodrigueza@cun.edu.co",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a61416e5ce656968d1b8c2d",
+  "metadata": {
+    "estado": "ALISTANDO_PEDIDO",
+    "numero": "ORD-2026-000007"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T23:53:05.124Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a62d08b203ff12ffdf45d6a"
+  },
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "userEmail": "empresa@demo.local",
+  "action": "DEPARTMENT_CREATE",
+  "targetType": "Department",
+  "targetId": "6a62d08b203ff12ffdf45d69",
+  "metadata": {
+    "nombre": "CsrfTest"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T02:40:11.017Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63d067fcdaec73a29688bd"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "name": "prueba tecnica"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T20:51:51.644Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63d8d5e433d00207c5aa6a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "name": "lalaland"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:27:49.099Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63d8dde433d00207c5aa6b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "de": "0",
+    "a": "15"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:27:57.992Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63df85dea99a3b6fb0d3c6"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a63def0dea99a3b6fb0d3be",
+  "metadata": {
+    "numero": "ORD-2026-000011",
+    "estado": "ALISTANDO_PEDIDO"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:56:21.253Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63df8edea99a3b6fb0d3c8"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a63def0dea99a3b6fb0d3be",
+  "metadata": {
+    "numero": "ORD-2026-000011",
+    "estado": "ENVIANDO"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:56:30.971Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfafdea99a3b6fb0d3ca"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_REPLY",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:03.905Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfbcdea99a3b6fb0d3cc"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "EN_ATENCION"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:16.430Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfbfdea99a3b6fb0d3ce"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "ESPERANDO_CLIENTE"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:19.859Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfc2dea99a3b6fb0d3d0"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "EN_ATENCION"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:22.971Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcadea99a3b6fb0d3d2"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "ESPERANDO_CLIENTE"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:30.327Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcbdea99a3b6fb0d3d4"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "EN_ATENCION"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:31.841Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcedea99a3b6fb0d3d6"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "ESPERANDO_CLIENTE"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:57:34.961Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63e021dea99a3b6fb0d3db"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "RESUELTO"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:58:57.119Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a63e033dea99a3b6fb0d3dd"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a63df62dea99a3b6fb0d3c3",
+  "metadata": {
+    "numero": "CASO-2026-000007",
+    "estado": "CERRADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:59:15.433Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640b403eb591c2e20bf8e7"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "KPI_GOAL_CREATE",
+  "targetType": "KpiGoal",
+  "targetId": "6a640b403eb591c2e20bf8e6",
+  "metadata": {
+    "metrica": "CASOS_RESUELTOS"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:02:56.681Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640bc83eb591c2e20bf8e8"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "de": "0",
+    "a": "0"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:05:12.413Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640f3f3eb591c2e20bf8eb"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a640f3f3eb591c2e20bf8ea",
+  "metadata": {
+    "name": "Audífonos Anc Éter"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:19:59.153Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640f833eb591c2e20bf8ed"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a640f833eb591c2e20bf8ec",
+  "metadata": {
+    "name": "Camisa Lino Arena"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:21:07.316Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640f9a3eb591c2e20bf8ee"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "de": "0",
+    "a": "0"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:21:30.543Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a640fdb3eb591c2e20bf8f0"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a640fdb3eb591c2e20bf8ef",
+  "metadata": {
+    "name": "Lámpara de Mesa \"Ora\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:22:35.728Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64101b3eb591c2e20bf8f2"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64101b3eb591c2e20bf8f1",
+  "metadata": {
+    "name": "Teclado Mecánico Alura"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:23:39.672Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6410753eb591c2e20bf8f4"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6410753eb591c2e20bf8f3",
+  "metadata": {
+    "name": "Reloj Mono-Cromo"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:25:09.353Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6410b53eb591c2e20bf8f6"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6410b53eb591c2e20bf8f5",
+  "metadata": {
+    "name": "Set de Cerámica Nihon"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:26:13.295Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6410f53eb591c2e20bf8f8"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6410f53eb591c2e20bf8f7",
+  "metadata": {
+    "name": "Morral de Cuero Nómada"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:27:17.649Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6411333eb591c2e20bf8fa"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6411333eb591c2e20bf8f9",
+  "metadata": {
+    "name": "Altavoz de Piedra Volcánica"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:28:19.387Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64117c3eb591c2e20bf8fc"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64117c3eb591c2e20bf8fb",
+  "metadata": {
+    "name": "Vestido Seda Nocturna"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:29:32.492Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6411cd3eb591c2e20bf8fe"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6411cd3eb591c2e20bf8fd",
+  "metadata": {
+    "name": "Cafetera de Goteo Vidrio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:30:53.706Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6412093eb591c2e20bf900"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6412093eb591c2e20bf8ff",
+  "metadata": {
+    "name": "Libreta de Notas Cuero"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:31:53.695Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6412433eb591c2e20bf902"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6412433eb591c2e20bf901",
+  "metadata": {
+    "name": "Gafas de Sol Ópalo"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:32:51.424Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6412883eb591c2e20bf904"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6412883eb591c2e20bf903",
+  "metadata": {
+    "name": "Manta de Lana Merina"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:34:00.895Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6412c33eb591c2e20bf907"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6412c33eb591c2e20bf906",
+  "metadata": {
+    "name": "Cargador Inalámbrico Mármol"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:34:59.233Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6412f83eb591c2e20bf909"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6412f83eb591c2e20bf908",
+  "metadata": {
+    "name": "Pantalón Tailored Sage"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:35:52.688Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6413333eb591c2e20bf90b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6413333eb591c2e20bf90a",
+  "metadata": {
+    "name": "Vela Aromática \"Humo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:36:51.730Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6413673eb591c2e20bf90d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6413673eb591c2e20bf90c",
+  "metadata": {
+    "name": "Maceta Auto-Riego Cinc"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:37:43.496Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64139a3eb591c2e20bf90f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64139a3eb591c2e20bf90e",
+  "metadata": {
+    "name": "Pluma Estilográfica Mate"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:38:34.349Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6413d23eb591c2e20bf911"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6413d23eb591c2e20bf910",
+  "metadata": {
+    "name": "Bol de Piedra Jabón"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:39:30.262Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64140e3eb591c2e20bf913"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64140e3eb591c2e20bf912",
+  "metadata": {
+    "name": "Tablet Gráfica \"Lienzo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:40:30.643Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64144b3eb591c2e20bf915"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64144b3eb591c2e20bf914",
+  "metadata": {
+    "name": "Saco de Cashmere Nude"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:41:31.756Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6414823eb591c2e20bf917"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6414823eb591c2e20bf916",
+  "metadata": {
+    "name": "Difusor de Aceites Zen"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T01:42:26.020Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6419893eb591c2e20bf91a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6419893eb591c2e20bf919",
+  "metadata": {
+    "name": "Set de Cubiertos Mate"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:03:53.980Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6419bb3eb591c2e20bf91c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6419bb3eb591c2e20bf91b",
+  "metadata": {
+    "name": "Soporte Laptop Aluminio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:04:43.285Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641a9d3eb591c2e20bf91e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641a9d3eb591c2e20bf91d",
+  "metadata": {
+    "name": "Clutch Metálico Silver"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:08:29.638Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641e303eb591c2e20bf921"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641e303eb591c2e20bf920",
+  "metadata": {
+    "name": "Tetera de Hierro Fundido"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:23:44.437Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641e813eb591c2e20bf923"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641e813eb591c2e20bf922",
+  "metadata": {
+    "name": "Mouse Ergonómico Aero"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:25:05.803Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641efb3eb591c2e20bf925"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641efb3eb591c2e20bf924",
+  "metadata": {
+    "name": "Alfombra Geométrica Lino"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:27:07.550Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641f293eb591c2e20bf927"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641f293eb591c2e20bf926",
+  "metadata": {
+    "name": "Blazer Desestructurado"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:27:53.771Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641f743eb591c2e20bf929"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641f743eb591c2e20bf928",
+  "metadata": {
+    "name": "https://www.bing.com/th/id/OIP.TUkp6DPIW1f4sXP9tIHOQwHaHa?w=134&h=128&c=8&rs=1&qlt=90&o=6&pid=ImgAns&rm=2"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:29:08.501Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641f823eb591c2e20bf92a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641f743eb591c2e20bf928",
+  "metadata": {
+    "name": "Termo de Acero \"Duo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:29:22.636Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641f843eb591c2e20bf92b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641f743eb591c2e20bf928",
+  "metadata": {
+    "de": "150",
+    "a": "150"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:29:24.546Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a641fb43eb591c2e20bf92d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a641fb43eb591c2e20bf92c",
+  "metadata": {
+    "name": "Espejo de Pared \"Halo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:30:12.648Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64201c3eb591c2e20bf92f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64201c3eb591c2e20bf92e",
+  "metadata": {
+    "name": "Cámara Instantánea Analógica"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:31:56.039Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64212f3eb591c2e20bf931"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64212f3eb591c2e20bf930",
+  "metadata": {
+    "name": "Set de Yoga \"Balance\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:36:31.285Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6421f93eb591c2e20bf934"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6421f93eb591c2e20bf933",
+  "metadata": {
+    "name": "Cuchillo de Chef Damasco"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:39:53.282Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64228e3eb591c2e20bf936"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64228e3eb591c2e20bf935",
+  "metadata": {
+    "name": "Bandeja de Roble \"Línea\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:42:22.002Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6424d23eb591c2e20bf938"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6424d23eb591c2e20bf937",
+  "metadata": {
+    "name": "Billetera Slim \"Arid\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:52:02.579Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6425073eb591c2e20bf93a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6425073eb591c2e20bf939",
+  "metadata": {
+    "name": "Cojín de Meditación Zafu"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:52:55.091Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64253b3eb591c2e20bf93c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64253b3eb591c2e20bf93b",
+  "metadata": {
+    "name": "Auriculares In-Ear \"Gota\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:53:47.367Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6425853eb591c2e20bf93f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6425853eb591c2e20bf93e",
+  "metadata": {
+    "name": "Sobretodo de Lana Storm"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:55:01.908Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6425bb3eb591c2e20bf941"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6425bb3eb591c2e20bf940",
+  "metadata": {
+    "name": "Molino de Sal y Pimienta"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:55:55.100Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6425f73eb591c2e20bf943"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6425f73eb591c2e20bf942",
+  "metadata": {
+    "name": "Powerbank de Tela"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:56:55.714Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6426253eb591c2e20bf945"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6426253eb591c2e20bf944",
+  "metadata": {
+    "name": "Juego de Toallas \"Spa\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:57:41.017Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6426573eb591c2e20bf947"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6426573eb591c2e20bf946",
+  "metadata": {
+    "name": "Mochila Fotográfica Pro"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:58:31.362Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6426903eb591c2e20bf949"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6426903eb591c2e20bf948",
+  "metadata": {
+    "name": "Jarra de Agua \"Pure\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T02:59:28.193Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6426c03eb591c2e20bf94b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6426c03eb591c2e20bf94a",
+  "metadata": {
+    "name": "Camiseta Base de Bambú"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:00:16.708Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6428bf3eb591c2e20bf94d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6428bf3eb591c2e20bf94c",
+  "metadata": {
+    "name": "Portalápices de Cemento"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:08:47.932Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6428f03eb591c2e20bf94f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a6428f03eb591c2e20bf94e",
+  "metadata": {
+    "name": "Maleta de Mano Rígida"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:09:36.802Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a642a633eb591c2e20bf964"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641efb3eb591c2e20bf924",
+  "metadata": {
+    "name": "Alfombra Geométrica Lino"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:15:47.265Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a642bea3eb591c2e20bf968"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641f293eb591c2e20bf926",
+  "metadata": {
+    "name": "Blazer Desestructurado"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:22:18.631Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430499699444aa9a3223a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_DELETE",
+  "targetType": "Product",
+  "targetId": "6a641f743eb591c2e20bf928",
+  "metadata": {
+    "name": "Termo de Acero \"Duo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:40:57.510Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430659699444aa9a3223b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641f293eb591c2e20bf926",
+  "metadata": {
+    "name": "Blazer Desestructurado"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:41:25.833Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430919699444aa9a3223c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641fb43eb591c2e20bf92c",
+  "metadata": {
+    "name": "Espejo de Pared \"Halo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:42:09.359Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430be9699444aa9a3223d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64201c3eb591c2e20bf92e",
+  "metadata": {
+    "name": "Cámara Instantánea Analógica"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:42:54.755Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430dc9699444aa9a3223e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64212f3eb591c2e20bf930",
+  "metadata": {
+    "name": "Set de Yoga \"Balance\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:43:24.795Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6430fd9699444aa9a3223f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6421f93eb591c2e20bf933",
+  "metadata": {
+    "name": "Cuchillo de Chef Damasco"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:43:57.363Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6431169699444aa9a32240"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64228e3eb591c2e20bf935",
+  "metadata": {
+    "name": "Bandeja de Roble \"Línea\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:44:22.276Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64315c9699444aa9a32241"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6424d23eb591c2e20bf937",
+  "metadata": {
+    "name": "Billetera Slim \"Arid\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:45:32.850Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64317e9699444aa9a32242"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6425073eb591c2e20bf939",
+  "metadata": {
+    "name": "Cojín de Meditación Zafu"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:46:06.891Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64319a9699444aa9a32243"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64253b3eb591c2e20bf93b",
+  "metadata": {
+    "name": "Auriculares In-Ear \"Gota\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:46:34.960Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6431c69699444aa9a32244"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6425853eb591c2e20bf93e",
+  "metadata": {
+    "name": "Sobretodo de Lana Storm"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:47:18.255Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6431e59699444aa9a32245"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6425bb3eb591c2e20bf940",
+  "metadata": {
+    "name": "Molino de Sal y Pimienta"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:47:49.983Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432049699444aa9a32246"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6425f73eb591c2e20bf942",
+  "metadata": {
+    "name": "Powerbank de Tela"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:48:20.306Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64321c9699444aa9a32247"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6426253eb591c2e20bf944",
+  "metadata": {
+    "name": "Juego de Toallas \"Spa\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:48:44.574Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432549699444aa9a32248"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6426573eb591c2e20bf946",
+  "metadata": {
+    "name": "Mochila Fotográfica Pro"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:49:40.768Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432799699444aa9a32249"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6426903eb591c2e20bf948",
+  "metadata": {
+    "name": "Jarra de Agua \"Pure\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:50:17.718Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432919699444aa9a3224a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6426c03eb591c2e20bf94a",
+  "metadata": {
+    "name": "Camiseta Base de Bambú"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:50:41.484Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432a49699444aa9a3224b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6428bf3eb591c2e20bf94c",
+  "metadata": {
+    "name": "Portalápices de Cemento"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:51:00.966Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6432bc9699444aa9a3224c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6428f03eb591c2e20bf94e",
+  "metadata": {
+    "name": "Maleta de Mano Rígida"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:51:24.934Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64448ef95ca988efd45a80"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641e303eb591c2e20bf920",
+  "metadata": {
+    "name": "Tetera de Hierro Fundido"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:07:26.099Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6444a7f95ca988efd45a81"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a641a9d3eb591c2e20bf91d",
+  "metadata": {
+    "name": "Clutch Metálico Silver"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:07:51.039Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6444c1f95ca988efd45a82"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6419bb3eb591c2e20bf91b",
+  "metadata": {
+    "name": "Soporte Laptop Aluminio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:08:17.972Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6444e1f95ca988efd45a83"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6419893eb591c2e20bf919",
+  "metadata": {
+    "name": "Set de Cubiertos Mate"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:08:49.080Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6444f9f95ca988efd45a84"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6414823eb591c2e20bf916",
+  "metadata": {
+    "name": "Difusor de Aceites Zen"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:09:13.711Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644559f95ca988efd45a85"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64144b3eb591c2e20bf914",
+  "metadata": {
+    "name": "Saco de Cashmere Nude"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:10:49.736Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644570f95ca988efd45a86"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64140e3eb591c2e20bf912",
+  "metadata": {
+    "name": "Tablet Gráfica \"Lienzo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:11:12.708Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644589f95ca988efd45a87"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6413d23eb591c2e20bf910",
+  "metadata": {
+    "name": "Bol de Piedra Jabón"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:11:37.379Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6445a0f95ca988efd45a88"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64139a3eb591c2e20bf90e",
+  "metadata": {
+    "name": "Pluma Estilográfica Mate"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:12:00.882Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6445c3f95ca988efd45a89"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6413673eb591c2e20bf90c",
+  "metadata": {
+    "name": "Maceta Auto-Riego Cinc"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:12:35.260Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6445eaf95ca988efd45a8a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6413333eb591c2e20bf90a",
+  "metadata": {
+    "name": "Vela Aromática \"Humo\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:13:14.728Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644609f95ca988efd45a8c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6412f83eb591c2e20bf908",
+  "metadata": {
+    "name": "Pantalón Tailored Sage"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:13:45.776Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644621f95ca988efd45a8d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6412c33eb591c2e20bf906",
+  "metadata": {
+    "name": "Cargador Inalámbrico Mármol"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:14:09.539Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644668f95ca988efd45a8e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6412883eb591c2e20bf903",
+  "metadata": {
+    "name": "Manta de Lana Merina"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:15:20.006Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644687f95ca988efd45a8f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6412433eb591c2e20bf901",
+  "metadata": {
+    "name": "Gafas de Sol Ópalo"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:15:51.890Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64469df95ca988efd45a90"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6412093eb591c2e20bf8ff",
+  "metadata": {
+    "name": "Libreta de Notas Cuero"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:16:13.084Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6446b6f95ca988efd45a91"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6411cd3eb591c2e20bf8fd",
+  "metadata": {
+    "name": "Cafetera de Goteo Vidrio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:16:38.747Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6446ccf95ca988efd45a92"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64117c3eb591c2e20bf8fb",
+  "metadata": {
+    "name": "Vestido Seda Nocturna"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:17:00.950Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a6446f9f95ca988efd45a93"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6411333eb591c2e20bf8f9",
+  "metadata": {
+    "name": "Altavoz de Piedra Volcánica"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:17:45.824Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644718f95ca988efd45a94"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6410f53eb591c2e20bf8f7",
+  "metadata": {
+    "name": "Morral de Cuero Nómada"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:18:16.197Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644721f95ca988efd45a95"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_DELETE",
+  "targetType": "Product",
+  "targetId": "6a63d067fcdaec73a29688bc",
+  "metadata": {
+    "name": "lalaland"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:18:25.501Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644732f95ca988efd45a96"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a640f3f3eb591c2e20bf8ea",
+  "metadata": {
+    "name": "Audífonos Anc Éter"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:18:42.578Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644748f95ca988efd45a97"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a640f833eb591c2e20bf8ec",
+  "metadata": {
+    "name": "Camisa Lino Arena"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:19:04.252Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64475cf95ca988efd45a98"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a640fdb3eb591c2e20bf8ef",
+  "metadata": {
+    "name": "Lámpara de Mesa \"Ora\""
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:19:24.715Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64476ef95ca988efd45a99"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64101b3eb591c2e20bf8f1",
+  "metadata": {
+    "name": "Teclado Mecánico Alura"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:19:42.198Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644785f95ca988efd45a9a"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6410753eb591c2e20bf8f3",
+  "metadata": {
+    "name": "Reloj Mono-Cromo"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:20:05.236Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a644794f95ca988efd45a9b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6410b53eb591c2e20bf8f5",
+  "metadata": {
+    "name": "Set de Cerámica Nihon"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T05:20:20.180Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64cebe7b6a8803d536af68"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "userId": "6a64cdfb7b6a8803d536af5f",
+  "userEmail": "lauranavarrete456@outlook.es",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64cebe7b6a8803d536af67",
+  "metadata": {
+    "name": "Computador escritorio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:57:02.609Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64cecd7b6a8803d536af69"
+  },
+  "companyId": "6a64cdfb7b6a8803d536af5e",
+  "userId": "6a64cdfb7b6a8803d536af5f",
+  "userEmail": "lauranavarrete456@outlook.es",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a64cebe7b6a8803d536af67",
+  "metadata": {
+    "de": "2",
+    "a": "4"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:57:17.621Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64cefc7b6a8803d536af6b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_DELETE",
+  "targetType": "Product",
+  "targetId": "6a640f3f3eb591c2e20bf8ea",
+  "metadata": {
+    "name": "Audífonos Anc Éter"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:58:04.108Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64cf0b7b6a8803d536af6c"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64c2837b6a8803d536af41",
+  "metadata": {
+    "numero": "ORD-2026-000022",
+    "estado": "ALISTANDO_PEDIDO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:58:19.809Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64cf137b6a8803d536af6e"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64c2837b6a8803d536af41",
+  "metadata": {
+    "numero": "ORD-2026-000022",
+    "estado": "ENVIANDO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:58:27.953Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d5427b6a8803d536af87"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a64cc787b6a8803d536af58",
+  "metadata": {
+    "numero": "CASO-2026-000008",
+    "estado": "RESUELTO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:24:50.310Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d5437b6a8803d536af89"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a64cc787b6a8803d536af58",
+  "metadata": {
+    "numero": "CASO-2026-000008",
+    "estado": "CERRADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:24:51.402Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d54b7b6a8803d536af8b"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a64d4167b6a8803d536af7a",
+  "metadata": {
+    "numero": "CASO-2026-000009",
+    "estado": "CERRADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:24:59.731Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d57d7b6a8803d536af8d"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64d4537b6a8803d536af7c",
+  "metadata": {
+    "numero": "ORD-2026-000028",
+    "estado": "CANCELADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:25:49.030Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d5817b6a8803d536af8f"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64d3e17b6a8803d536af78",
+  "metadata": {
+    "numero": "ORD-2026-000027",
+    "estado": "CANCELADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:25:53.607Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d5877b6a8803d536af91"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64cd677b6a8803d536af5c",
+  "metadata": {
+    "numero": "ORD-2026-000026",
+    "estado": "CANCELADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:25:59.629Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d58d7b6a8803d536af93"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "ORDER_STATUS_CHANGE",
+  "targetType": "Order",
+  "targetId": "6a64cc3f7b6a8803d536af56",
+  "metadata": {
+    "numero": "ORD-2026-000025",
+    "estado": "CANCELADO"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:26:05.031Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d9827b6a8803d536afb3"
+  },
+  "companyId": "6a64d90c7b6a8803d536afa9",
+  "userId": "6a64d90c7b6a8803d536afaa",
+  "userEmail": "empresapruebyoo3456@outlook.es",
+  "action": "PRODUCT_CREATE",
+  "targetType": "Product",
+  "targetId": "6a64d9827b6a8803d536afb2",
+  "metadata": {
+    "name": "Computador escritorio"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:42:58.160Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d9c67b6a8803d536afb5"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "STOCK_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6428f03eb591c2e20bf94e",
+  "metadata": {
+    "de": "20",
+    "a": "24"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:44:06.302Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64d9d37b6a8803d536afb6"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6428f03eb591c2e20bf94e",
+  "metadata": {
+    "name": "Maleta de Mano Rígida(ejemplo)"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:44:19.590Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64da307b6a8803d536afb7"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_REPLY",
+  "targetType": "SupportCase",
+  "targetId": "6a64d7bf7b6a8803d536af9c",
+  "metadata": {
+    "numero": "CASO-2026-000010"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:45:52.497Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64da327b6a8803d536afb9"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "CASE_STATUS_CHANGE",
+  "targetType": "SupportCase",
+  "targetId": "6a64d7bf7b6a8803d536af9c",
+  "metadata": {
+    "numero": "CASO-2026-000010",
+    "estado": "EN_ATENCION"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:45:54.608Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64da7e7b6a8803d536afbb"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "KPI_GOAL_DELETE",
+  "targetType": "KpiGoal",
+  "targetId": "6a640b403eb591c2e20bf8e6",
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:47:10.588Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64da927b6a8803d536afbd"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "KPI_GOAL_CREATE",
+  "targetType": "KpiGoal",
+  "targetId": "6a64da927b6a8803d536afbc",
+  "metadata": {
+    "metrica": "CASOS_RESUELTOS"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:47:30.501Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+},
+{
+  "_id": {
+    "$oid": "6a64db2f7b6a8803d536afc1"
+  },
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "userEmail": "correopruebatecnicaalarala@gmail.com",
+  "action": "PRODUCT_UPDATE",
+  "targetType": "Product",
+  "targetId": "6a6428f03eb591c2e20bf94e",
+  "metadata": {
+    "name": "Maleta de Mano Rígida(ejemplo)"
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:50:07.956Z"
+  },
+  "_class": "com.ecommerce.activity.ActivityLog"
+}]

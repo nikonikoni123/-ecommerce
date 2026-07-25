@@ -1,0 +1,1635 @@
+[{
+  "_id": {
+    "$oid": "6a60cf86f6768b5b9eeb544f"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "NJn5_m1MxoBuPD8ck02YWbQXfqFVA-JLJIeEuPsI20s",
+  "expiresAt": {
+    "$date": "2026-07-29T14:11:18.833Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:11:18.833Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60cf93f6768b5b9eeb5450"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "5jX272HIMv0s_wVcagfDcvvquSRz89zhFa7mjTKUKqc",
+  "expiresAt": {
+    "$date": "2026-07-29T14:11:31.411Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:11:31.411Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60cff2f6768b5b9eeb5463"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "icONRLD5z1Q78tzGzEIZsOql9iiCyu9U6jZVbxzTe9g",
+  "expiresAt": {
+    "$date": "2026-07-29T14:13:06.802Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T14:13:06.802Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f026f6768b5b9eeb5464"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "8de790a1_Rkz1r5SImqny2N3gMjaAavtuqL7UIprYZk",
+  "expiresAt": {
+    "$date": "2026-07-29T16:30:30.603Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:30:30.603Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f045f6768b5b9eeb5465"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "5_gwx8wKZ0zQG-42ZlwDJ9mTSydL82Kg92UigVr_vHg",
+  "expiresAt": {
+    "$date": "2026-07-29T16:31:01.928Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:31:01.928Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f088f6768b5b9eeb5466"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "KQ8TiSf17rasgo_GIDrPTzCFejEfHin6TCSsY-t8yAw",
+  "expiresAt": {
+    "$date": "2026-07-29T16:32:08.541Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:32:08.541Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f185f6768b5b9eeb5467"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "rfeKSVVzX0A0jT2TZjNKEOc8zVZ8CovZZ9Qhuj9OVR4",
+  "expiresAt": {
+    "$date": "2026-07-29T16:36:21.234Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:36:21.234Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f454f6768b5b9eeb546e"
+  },
+  "userId": "6a60f41ff6768b5b9eeb546b",
+  "tokenHash": "Nz3T4c41HSzkgIUEZyei2vRHriZXZQdOwTKt763v8k8",
+  "expiresAt": {
+    "$date": "2026-07-29T16:48:20.063Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T16:48:20.063Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a60f7ebf6768b5b9eeb546f"
+  },
+  "userId": "6a60f41ff6768b5b9eeb546b",
+  "tokenHash": "jQaygjDetNbsD-SH03EQz9n-9WHkVXaqC1AbLNrQ_po",
+  "expiresAt": {
+    "$date": "2026-07-29T17:03:39.130Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T17:03:39.130Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a610686a21e71c25c5a8d66"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "iEqs53Oevg00GPElVvqVdYMRSlB6hZxem8ncbb4O85I",
+  "expiresAt": {
+    "$date": "2026-07-29T18:05:58.859Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:05:58.859Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6106aba21e71c25c5a8d68"
+  },
+  "userId": "6a60cfe5f6768b5b9eeb545b",
+  "tokenHash": "uDQR1G2tV5R4T8rCUBfJKkzfvRI8Xv6bnLH6PIrw1jk",
+  "expiresAt": {
+    "$date": "2026-07-29T18:06:35.947Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:06:35.947Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a610788a21e71c25c5a8d71"
+  },
+  "userId": "6a60cfe5f6768b5b9eeb545b",
+  "tokenHash": "OTqt-h0v2m9kxKWehfWOfcSwS7KVIEnNjEqAapsEMdg",
+  "expiresAt": {
+    "$date": "2026-07-29T18:10:16.081Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:10:16.081Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a610788a21e71c25c5a8d74"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "DRds5swDzz3UmZjgnuMioGlUtJ71_WHiHFRreFNMFXg",
+  "expiresAt": {
+    "$date": "2026-07-29T18:10:16.497Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:10:16.497Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a610788a21e71c25c5a8d75"
+  },
+  "userId": "6a60f41ff6768b5b9eeb546b",
+  "tokenHash": "xNYwAwy3qPExBB2C9EiC1jSdZcWgxarynBzitTcLanI",
+  "expiresAt": {
+    "$date": "2026-07-29T18:10:16.701Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T18:10:16.701Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a610ae7a21e71c25c5a8d83"
+  },
+  "userId": "6a610a98a21e71c25c5a8d7c",
+  "tokenHash": "PSuYOcLCMzGXPOFwwaDZfvjbWaA1NwMZuzmHcysZULA",
+  "expiresAt": {
+    "$date": "2026-07-29T18:24:39.707Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-22T18:24:39.707Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a613487a21e71c25c5a8d86"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "w9VqRnWeQHrPKhjDR-s7AmjO1GCi-eQDsJzjyipw8m4",
+  "expiresAt": {
+    "$date": "2026-07-29T21:22:15.728Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-22T21:22:15.728Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a61384895804bf2b8572b93"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "Ws6sxxGLeTUp_hYbYMpYGJb3zMPUasVCtqRYf_Puez4",
+  "expiresAt": {
+    "$date": "2026-07-29T21:38:16.497Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-22T21:38:16.497Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6138f85ce656968d1b8c26"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "QY89sL-L8AEikB8pyeGy6q0zJ88HxQcQXl3Bp4jS_IA",
+  "expiresAt": {
+    "$date": "2026-07-29T21:41:12.607Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-22T21:41:12.607Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a613e295ce656968d1b8c27"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "1MeEE93b3qocTOuSY0XtbufJUE8AswWc-bt61H_-5eo",
+  "expiresAt": {
+    "$date": "2026-07-29T22:03:21.105Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-22T22:03:21.105Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d1beade018f74579163"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "OMjenmRPF1KDWw-I1KGGB_KQkbYb2Fnr9z31Qnucyd8",
+  "expiresAt": {
+    "$date": "2026-07-30T02:31:55.360Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:31:55.360Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d2aeade018f74579164"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "ksBGN76u_XM5G7rj6SVirzQre-vT-AtmKqfVyiDD_sc",
+  "expiresAt": {
+    "$date": "2026-07-30T02:32:10.230Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:32:10.230Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d37eade018f7457916b"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "svbdccLQ1TayAIDaYVMYNptTzLnp2hEoGnAFHkoL_6g",
+  "expiresAt": {
+    "$date": "2026-07-30T02:32:23.957Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:32:23.957Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d45eade018f7457916e"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "A4Ao5IAL37YDBcrmYpe_JHyzvHXRgYrrT-hmW6rfZc0",
+  "expiresAt": {
+    "$date": "2026-07-30T02:32:37.668Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:32:37.668Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d55eade018f74579171"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "mSus0qT8lLwWr_VmMWiqFPteAIEF0mW5EtRbgP2bQxU",
+  "expiresAt": {
+    "$date": "2026-07-30T02:32:53.686Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:32:53.686Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d65eade018f74579172"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "5ZJH9Yu4ACUUB_zrKs9dUX6_Zd1EKVPeEMn1UWVnK0g",
+  "expiresAt": {
+    "$date": "2026-07-30T02:33:09.837Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:33:09.837Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d75eade018f74579175"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "JxWNmVq8SnTu2XYN5E0q9um_gCQYudKkmA1hYkai3pQ",
+  "expiresAt": {
+    "$date": "2026-07-30T02:33:25.542Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:33:25.542Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d76eade018f74579176"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "GQXuJx5MOVprv0tuTqfWyar7TX3WCpBDKU9Kr43o2n8",
+  "expiresAt": {
+    "$date": "2026-07-30T02:33:26.203Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:33:26.203Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d7feade018f74579177"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "PDHU44qIncmiJS5GyD5ixTE-aslMOeKyABFHYIh5Nr8",
+  "expiresAt": {
+    "$date": "2026-07-30T02:33:35.476Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:33:35.476Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617d93eade018f74579178"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "8DxNQlhs-D5m6EfmBPVsGx4AB_hIhQUCMlrPBcGlhdU",
+  "expiresAt": {
+    "$date": "2026-07-30T02:33:55.674Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:33:55.674Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617e95eade018f7457917b"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "NezfSFZ-amvlOomXYC7pO8PL3R_59UPuKzxywGMO-7c",
+  "expiresAt": {
+    "$date": "2026-07-30T02:38:13.158Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:38:13.158Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617ea2eade018f7457917c"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "aiqGJ1PFl3INclhLOHGujx2PSZuwbWBIHCFVwwqCRkE",
+  "expiresAt": {
+    "$date": "2026-07-30T02:38:26.023Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:38:26.023Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f7457917d"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "L2tNRia_NSAoI7Ze_URnFS5x0tDBd3LMChTrb04W11M",
+  "expiresAt": {
+    "$date": "2026-07-30T02:38:37.124Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.124Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a617eebeade018f74579186"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "wLd7sDOvMrPD0ztJ6xig-xcZm5B6X6XpArOJq9YzFTY",
+  "expiresAt": {
+    "$date": "2026-07-30T02:39:39.579Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-23T02:39:39.579Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618c8a844907eff11121e2"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "hfE5yWC8NYQNMob7nojzxidMvXnspvnW8Cq70gMfRuc",
+  "expiresAt": {
+    "$date": "2026-07-30T03:37:46.432Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:37:46.432Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e53844907eff11121e3"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "Wc6jUHcTUuZhr01gs2por-kLGmW3pFcOP93DRISWIuQ",
+  "expiresAt": {
+    "$date": "2026-07-30T03:45:23.077Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:45:23.077Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e68844907eff11121e8"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "-GmkOhnBKWE-6q_-_4MCqhRR5mnIPIjwADLQY1VscX4",
+  "expiresAt": {
+    "$date": "2026-07-30T03:45:44.398Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:45:44.398Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e78844907eff11121e9"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "ZhDqYoEVZUq_Gib_VO4op8OYyJ6Q6rmKphxAi0tbc_8",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:00.556Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:00.556Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e8b844907eff11121ec"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "qWy7EQAHWHvmmAUZCfCQ9eRelTBLkRYWkjCd4GJ677s",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:19.187Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:19.187Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e8b844907eff11121ef"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5446",
+  "tokenHash": "pY-Re8H45a1XQnGUZRkZqzPTZ3qELEjW0Z498m1MdhU",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:19.784Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:19.784Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e8c844907eff11121f3"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "d4OhuKr2hDPjfbkT2kZ08Gylt7BTMTQd7cMTFxxh6uE",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:20.364Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:20.364Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e9e844907eff11121f4"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "EStlX8tXDNVNMQvraTNKLdm6u4ICS0mmmCd1jQ93eCQ",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:38.655Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:38.655Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618e9f844907eff11121f8"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "ohxs_3cD1kddbRYdhswY6NQmEz-ccjswYMppCiyJa78",
+  "expiresAt": {
+    "$date": "2026-07-30T03:46:39.420Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T03:46:39.420Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a618ed1844907eff11121f9"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "smbaRmNHkDSD9Ikm0vpsWrAZSO4rEpREo670ueQHHtc",
+  "expiresAt": {
+    "$date": "2026-07-30T03:47:29.192Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-23T03:47:29.192Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a625141844907eff11121fb"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "qN0ehNAXncQ7K7iVnp68Jx9_XYlBKqkDGgwa-LnVAp8",
+  "expiresAt": {
+    "$date": "2026-07-30T17:37:05.489Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-23T17:37:05.489Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6253d3844907eff11121fc"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "fLAiff5ztt_mMxYCbFFRKWJ6VJXxHL6LHFyQhg17pf8",
+  "expiresAt": {
+    "$date": "2026-07-30T17:48:03.848Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:48:03.848Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62541c844907eff11121fd"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "wQAJ3iQVBjvRnRuQ_ccDhMqqFQiO5BJ5Tl-GYzB2Om4",
+  "expiresAt": {
+    "$date": "2026-07-30T17:49:16.028Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:49:16.028Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a625452f07e9a25f753e7fa"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "SGGxhzw6UTeABzUUXhv-335QH7Y9TsqLN9ZIHIKLXCY",
+  "expiresAt": {
+    "$date": "2026-07-30T17:50:10.297Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:50:10.297Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6254aff07e9a25f753e7fb"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "0MpPBNvU1YZnGBbDXyAow6O3QBymBRbFacIh-MMQ1GQ",
+  "expiresAt": {
+    "$date": "2026-07-30T17:51:43.482Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:51:43.482Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6254c6f07e9a25f753e800"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "qNePoN7wTERYs4PIazLneT9Clhm5BmqsMgGyMfG0U_0",
+  "expiresAt": {
+    "$date": "2026-07-30T17:52:06.384Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:52:06.384Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6254d7f07e9a25f753e801"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "gQ2zIVIgnGuk9_Tt2Lah36RKxHwZmJEXFxNPNNyX99o",
+  "expiresAt": {
+    "$date": "2026-07-30T17:52:23.820Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:52:23.820Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62553cf07e9a25f753e804"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "4ZClQoAaBN5-Lk4eP8J4NyNw0KWjLLSLKfTGgb-o6Zc",
+  "expiresAt": {
+    "$date": "2026-07-30T17:54:04.539Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-23T17:54:04.539Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62a8e2f07e9a25f753e808"
+  },
+  "userId": "6a610a98a21e71c25c5a8d7c",
+  "tokenHash": "xjHNo_s4HzXlUpOganHEY3liXOjCXO2SRI_tSsbk1Q4",
+  "expiresAt": {
+    "$date": "2026-07-30T23:50:58.153Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-23T23:50:58.153Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62b8daf07e9a25f753e818"
+  },
+  "userId": "6a610a98a21e71c25c5a8d7c",
+  "tokenHash": "FpxqFFJYlT1v39yaRxwGISu9j53mPjMpJuQ2mte6jfA",
+  "expiresAt": {
+    "$date": "2026-07-31T00:59:06.459Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-24T00:59:06.459Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62ce33d737fc349504747e"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5445",
+  "tokenHash": "Zic6k9RAPmsnzKksZlnDhAJGUA_aWOgH3_53LOLxZpE",
+  "expiresAt": {
+    "$date": "2026-07-31T02:30:11.148Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-24T02:30:11.148Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62d079203ff12ffdf45d67"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "YBb7OqHNqvNEznWKRSE5kn45KWOCi_7MMZeXidAkKEQ",
+  "expiresAt": {
+    "$date": "2026-07-31T02:39:53.441Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T02:39:53.441Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62d079203ff12ffdf45d68"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "yCQEq3pbpA-QDx2HYTFLod7qA4NDCkuwDjohY5j2pUg",
+  "expiresAt": {
+    "$date": "2026-07-31T02:39:53.615Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-24T02:39:53.615Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62d099203ff12ffdf45d6b"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "8FFWLk4zPDJ1uigC23_6TJIIdOifdZXqBPea8Jf7Jbg",
+  "expiresAt": {
+    "$date": "2026-07-31T02:40:25.997Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T02:40:25.997Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62d0d4203ff12ffdf45d6c"
+  },
+  "userId": "6a60cf66f6768b5b9eeb5443",
+  "tokenHash": "e5X8KlDmCn_RAtxNOYDvBEqC3SprydsGL4e_m83VFaw",
+  "expiresAt": {
+    "$date": "2026-07-31T02:41:24.711Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T02:41:24.711Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a62e5652da20d0c1c39d4c8"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "ZX6Ar2MEdzGEu0W3bbUA2m-eV9WSGDgGPfKM9FCducA",
+  "expiresAt": {
+    "$date": "2026-07-31T04:09:09.203Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T04:09:09.203Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a637f122da20d0c1c39d4cc"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "f320JUhOLy1a11faFCguZjAcd-MK_r3jTlf3BVFOvmU",
+  "expiresAt": {
+    "$date": "2026-07-31T15:04:50.960Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T15:04:50.960Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6382552da20d0c1c39d4cd"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "CFQuOtU7Qi6jKelbX3CxNtts78N2VM68zsrbEjaFXdQ",
+  "expiresAt": {
+    "$date": "2026-07-31T15:18:45.846Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T15:18:45.846Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6386c770586abbce6c7073"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "NqfySP8nXwG6qPpMMjiX1lB0K9c2PLMsRsnTQfPnivo",
+  "expiresAt": {
+    "$date": "2026-07-31T15:37:43.384Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-24T15:37:43.384Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63d049fcdaec73a29688bb"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "KNQLBFy_56R6798Vj21EtxdV2JYEAWG99NxzaYkYQUE",
+  "expiresAt": {
+    "$date": "2026-07-31T20:51:21.422Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T20:51:21.422Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63d3a0558d30e819672bf0"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "ADQYSadsDx1Cqx25eOTY_2Ft8gaF9ZedwgtXchXjeoo",
+  "expiresAt": {
+    "$date": "2026-07-31T21:05:36.699Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:05:36.699Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63d3ea558d30e819672bf2"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "3tuRW2k26_UliJgKl-ytwf5erKX1bs6PK-6IIXjdLZQ",
+  "expiresAt": {
+    "$date": "2026-07-31T21:06:50.212Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:06:50.212Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63d8cae433d00207c5aa69"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "5268yzxelYiWHY_9FQeLDxZFEZZAEVT_ruF_jJp-j-4",
+  "expiresAt": {
+    "$date": "2026-07-31T21:27:38.299Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:27:38.299Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63d911e433d00207c5aa6d"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "C1b9DSwUvb1HOqquYCGMOY3Lr7rD7OmBQQu6YIiVQHE",
+  "expiresAt": {
+    "$date": "2026-07-31T21:28:49.581Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:28:49.581Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63dbbc81c2e1b0ece582ad"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "Kq0GtKiyOPg-6M4z24VaO6bUXJluZsWZxNu_05VXd8c",
+  "expiresAt": {
+    "$date": "2026-07-31T21:40:12.094Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:40:12.094Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63de6a30b941970ab38f7b"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "-0Acm_mTt79rtYtFGwypokZPqaMEF_oqLw2VA8HH70o",
+  "expiresAt": {
+    "$date": "2026-07-31T21:51:38.491Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:51:38.491Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63df15dea99a3b6fb0d3c0"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "OLEvqLWLsmsjjQvd0WDoe5wULTqzxGRXbvlvt7PuV1g",
+  "expiresAt": {
+    "$date": "2026-07-31T21:54:29.188Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:54:29.188Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63df2edea99a3b6fb0d3c1"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "HRg1w-s2fSTrdeEA-l70ejNYIoSsb-86QiD7CIGUIDk",
+  "expiresAt": {
+    "$date": "2026-07-31T21:54:54.362Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:54:54.362Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63df7bdea99a3b6fb0d3c5"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "9h0uO64qM_S_dR6v_85rjTmcJJN7WgeGH-0fiJmqJlw",
+  "expiresAt": {
+    "$date": "2026-07-31T21:56:11.651Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:56:11.651Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63e01adea99a3b6fb0d3da"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "PqDwK-JdzzJS3JG1WY09hfZBN2lzssNYqXXjQ6u_rwE",
+  "expiresAt": {
+    "$date": "2026-07-31T21:58:50.348Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T21:58:50.348Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a63f902dea99a3b6fb0d3df"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "3qJpmsYGWu1khpmD2WEP_dgVON5rOM9POGwd-T5npGs",
+  "expiresAt": {
+    "$date": "2026-07-31T23:45:06.397Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-24T23:45:06.397Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6406fddea99a3b6fb0d3e4"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "y5GxD4Sp6Q2s_osxIUrIoRcs55CCXxoo4BM1k_bIrtc",
+  "expiresAt": {
+    "$date": "2026-08-01T00:44:45.686Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T00:44:45.686Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a640a83484f11da463ddbc4"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "EiGY_B90ELDfWjRgz4KB64bqJTt1i3xGLc3APzk2Zy0",
+  "expiresAt": {
+    "$date": "2026-08-01T00:59:47.724Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T00:59:47.724Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a640f3f3eb591c2e20bf8e9"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "3kqItF_VwBddev3IFHWwKVAyWkDEgjO-QenZ1ejpH6k",
+  "expiresAt": {
+    "$date": "2026-08-01T01:19:59.106Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:19:59.106Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6412c33eb591c2e20bf905"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "nhoIexcXVEBwjh-Z5qpZrbmI0VyJbxrMx5hXd8lf-I0",
+  "expiresAt": {
+    "$date": "2026-08-01T01:34:59.216Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T01:34:59.216Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6419893eb591c2e20bf918"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "4Tcj83PLlhMhbcy-H8Vo5LFyr3CjHKLbRZadOFBL-_k",
+  "expiresAt": {
+    "$date": "2026-08-01T02:03:53.963Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:03:53.963Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a641e303eb591c2e20bf91f"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "FQ5UtQ8to_LmW6gXJteozMX1I_XQZ-qIHhcEq5ewoFU",
+  "expiresAt": {
+    "$date": "2026-08-01T02:23:44.407Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:23:44.407Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6421f93eb591c2e20bf932"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "456c3Zyv2Ji4cxHGGLma_mPH2TvGWZOmdztEPFpU_80",
+  "expiresAt": {
+    "$date": "2026-08-01T02:39:53.265Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:39:53.265Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6425853eb591c2e20bf93d"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "cm1PVmKW6djvY88t3Eq7Gyny318bc7I-3ijQYcwGkb0",
+  "expiresAt": {
+    "$date": "2026-08-01T02:55:01.892Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T02:55:01.892Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a642a2e3eb591c2e20bf963"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "3WVxgkhcGPsvlyYb-BlIvs5VIvLEHHKOvFeOqWp1vU8",
+  "expiresAt": {
+    "$date": "2026-08-01T03:14:54.157Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:14:54.157Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a642ad43eb591c2e20bf966"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "OzTjUcueyNOmV23dUXfQon4O7DBcLFB09rnw9OfyI6Y",
+  "expiresAt": {
+    "$date": "2026-08-01T03:17:40.956Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:17:40.956Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a642b4d3eb591c2e20bf967"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "PhjXKSA3SaM3bZ7R5WbpFfoRloULwo3PiiOpSV830g8",
+  "expiresAt": {
+    "$date": "2026-08-01T03:19:41.940Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-25T03:19:41.940Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a642fa19699444aa9a32237"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "zi0kIo5aNNjMmFhHkMkDzob5Hy2-p9LIZWFJsGY-V5E",
+  "expiresAt": {
+    "$date": "2026-08-01T03:38:09.913Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-25T03:38:09.913Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64302c9699444aa9a32239"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "T4du_pHVbLDSz7rn4RpG2elpStWVQvqb4Pe2TMB9qWA",
+  "expiresAt": {
+    "$date": "2026-08-01T03:40:28.719Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T03:40:28.719Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a6433529699444aa9a3224e"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "QFsgB8sFhjsHjkWlGbZQheb0Q5mOPkE5aO7Ipuoe-2w",
+  "expiresAt": {
+    "$date": "2026-08-01T03:53:54.553Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-25T03:53:54.553Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64383ae8f6213aa1b5dbcc"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "nuVLd1Koc37L6NrGKsNCohoapQuayQyG3-HbpFmbzRs",
+  "expiresAt": {
+    "$date": "2026-08-01T04:14:50.181Z"
+  },
+  "revoked": false,
+  "createdAt": {
+    "$date": "2026-07-25T04:14:50.181Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64403722f79746ad934de2"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "q7BB1cgYyGz5m7ylyE5PppI_hy9IH1SXG3kPFeWxfxk",
+  "expiresAt": {
+    "$date": "2026-08-01T04:48:55.477Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T04:48:55.477Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64427a2a0c6629f9fe02bd"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "FEfW-cnOEyRIMQfIR7VJILriH2MCaKYV5Dce-CX5VCw",
+  "expiresAt": {
+    "$date": "2026-08-01T04:58:34.823Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T04:58:34.823Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a644609f95ca988efd45a8b"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "GV5JhG2zK1bYIBkCgpghLjAIV-wWXBub0NVQDhfqVnE",
+  "expiresAt": {
+    "$date": "2026-08-01T05:13:45.752Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T05:13:45.752Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c21f7b6a8803d536af3a"
+  },
+  "userId": "6a62d31f2da20d0c1c39d4b5",
+  "tokenHash": "R0raESAOElDVxj_0S1TTgYGYdFPlgUzYPeFK5jQkgjo",
+  "expiresAt": {
+    "$date": "2026-08-01T14:03:11.919Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:03:11.919Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c25f7b6a8803d536af3d"
+  },
+  "userId": "6a640578dea99a3b6fb0d3e0",
+  "tokenHash": "m3Azfkyw6FqknsonKxulkI2pCcL2FSc3m4mTlsVo_4Q",
+  "expiresAt": {
+    "$date": "2026-08-01T14:04:15.243Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:04:15.243Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c38d7b6a8803d536af46"
+  },
+  "userId": "6a64c3577b6a8803d536af43",
+  "tokenHash": "ANWygsz_06uz2Z_2xYTZ4KP1qmdQtlNU9t9ZyDMOVzM",
+  "expiresAt": {
+    "$date": "2026-08-01T14:09:17.765Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:09:17.765Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64c4ab7b6a8803d536af4d"
+  },
+  "userId": "6a64c4807b6a8803d536af4a",
+  "tokenHash": "iB537X1rmKtDi9b-SIlii6ZzFJonZeB0cTTZRwKNIvk",
+  "expiresAt": {
+    "$date": "2026-08-01T14:14:03.309Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:14:03.309Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64ce337b6a8803d536af66"
+  },
+  "userId": "6a64cdfb7b6a8803d536af5f",
+  "tokenHash": "piCbBgFntf3uNLzfsJ9uf1oZpG3bEgETZoH4-MzwRvs",
+  "expiresAt": {
+    "$date": "2026-08-01T14:54:43.045Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:54:43.045Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64cee37b6a8803d536af6a"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "1PsqIySPAYLZMqRPUP6cJhl5zlYU1rifsXEsnOcS3bg",
+  "expiresAt": {
+    "$date": "2026-08-01T14:57:39.786Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T14:57:39.786Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64cff37b6a8803d536af71"
+  },
+  "userId": "6a64cdfb7b6a8803d536af5f",
+  "tokenHash": "8KOfYNHPCYl8dQgFHF-s35O4hKuk1RUk6dNX0aWYFX0",
+  "expiresAt": {
+    "$date": "2026-08-01T15:02:11.934Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:02:11.934Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d5317b6a8803d536af86"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "x3V3uZqSsz6bSPwU14a0vL7yXrPQve2kRlWJfDa0Lsk",
+  "expiresAt": {
+    "$date": "2026-08-01T15:24:33.908Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:24:33.908Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d6e27b6a8803d536af98"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "YouKHTVVYevwPaEGPXvFXz-vHoilcVZWfyf0LKLngbM",
+  "expiresAt": {
+    "$date": "2026-08-01T15:31:46.068Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:31:46.068Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d8187b6a8803d536af9e"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "z0uYhfNCKQmn2DHFYZ_sg2eaoWPVAieDyZwywKw0ByM",
+  "expiresAt": {
+    "$date": "2026-08-01T15:36:56.856Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:36:56.856Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d83f7b6a8803d536af9f"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "nu34y49DcyIPORgFvs-NHjlAAMKecBPX3kRY2EeLzCw",
+  "expiresAt": {
+    "$date": "2026-08-01T15:37:35.027Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:37:35.027Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d9627b6a8803d536afb1"
+  },
+  "userId": "6a64d90c7b6a8803d536afaa",
+  "tokenHash": "Yvy-rHgNSIrAbVO9WKFd8OrrvuDCEHR0kcToarjqN7o",
+  "expiresAt": {
+    "$date": "2026-08-01T15:42:26.662Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:42:26.662Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64d9b27b6a8803d536afb4"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "6Jrfz_LQx_LBBR2dTGPInhWiTm8xhZql15HGD3j0Lks",
+  "expiresAt": {
+    "$date": "2026-08-01T15:43:46.082Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:43:46.082Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64daf47b6a8803d536afbf"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "gMZzX3LE1hbBpM_BJYW63zxNsPvvSRcj2WNlglUPusw",
+  "expiresAt": {
+    "$date": "2026-08-01T15:49:08.964Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:49:08.964Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64db1f7b6a8803d536afc0"
+  },
+  "userId": "6a62e5472da20d0c1c39d4c1",
+  "tokenHash": "uEBATQAm5YAkIqGwer_APG7XFEI-Y3b1ghPp-l72qyQ",
+  "expiresAt": {
+    "$date": "2026-08-01T15:49:51.914Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:49:51.914Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64db557b6a8803d536afc2"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "M7NRjIm9fydEvW0Fhmgs_Xs2rIQ3OyKsyaa6jfHqTlg",
+  "expiresAt": {
+    "$date": "2026-08-01T15:50:45.062Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:50:45.062Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+},
+{
+  "_id": {
+    "$oid": "6a64dbd77b6a8803d536afc3"
+  },
+  "userId": "6a64d6be7b6a8803d536af95",
+  "tokenHash": "t7lSUyGbN32KJiyYTxqboBIn-o0K9iufMGpCCdZbqsA",
+  "expiresAt": {
+    "$date": "2026-08-01T15:52:55.187Z"
+  },
+  "revoked": true,
+  "createdAt": {
+    "$date": "2026-07-25T15:52:55.187Z"
+  },
+  "_class": "com.ecommerce.auth.token.RefreshToken"
+}]

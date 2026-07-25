@@ -1,0 +1,3704 @@
+[{
+  "_id": {
+    "$oid": "6a6106c4a21e71c25c5a8d6b"
+  },
+  "number": "ORD-2026-000001",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5447",
+      "name": "Gel Limpiador Enzimatico",
+      "slug": "gel-limpiador-enzimatico",
+      "unitPrice": {
+        "$numberDecimal": "89000"
+      },
+      "quantity": 2,
+      "lineTotal": {
+        "$numberDecimal": "178000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "name": "Serum Niacinamida 10%",
+      "slug": "serum-niacinamida-10",
+      "unitPrice": {
+        "$numberDecimal": "142000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "142000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "320000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "32000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "32000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "288000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "54720.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "342720.00"
+  },
+  "currency": "COP",
+  "status": "REEMBOLSADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T18:07:00.372Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-23T02:32:10.816Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "paso ALISTANDO_PEDIDO"
+    },
+    {
+      "status": "ENVIANDO",
+      "at": {
+        "$date": "2026-07-23T02:32:11.020Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "paso ENVIANDO"
+    },
+    {
+      "status": "ENTREGADO",
+      "at": {
+        "$date": "2026-07-23T02:32:11.220Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "paso ENTREGADO"
+    },
+    {
+      "status": "REEMBOLSADO",
+      "at": {
+        "$date": "2026-07-23T02:32:38.257Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "Reembolso aprobado: Lamentamos el inconveniente, procesamos la devolucion"
+    }
+  ],
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "0"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Laura Gomez",
+    "address": "Carrera 7 #45-12, Bogota",
+    "postalCode": "110311",
+    "phone": "+57 300 555 0199"
+  },
+  "gift": {
+    "isGift": true,
+    "recipientName": "Marta Ruiz",
+    "address": "Av. Siempre Viva 742, Medellin",
+    "postalCode": "050015",
+    "message": "Feliz cumpleanos"
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-F6DA00CE-C01",
+    "paidAt": {
+      "$date": "2026-07-22T18:07:00.341Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:07:00.347Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T02:32:38.257Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6106c4a21e71c25c5a8d6c"
+  },
+  "number": "ORD-2026-000002",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "items": [
+    {
+      "productId": "6a6106aca21e71c25c5a8d69",
+      "name": "Camiseta Algodon Organico",
+      "slug": "camiseta-algodon-organico",
+      "unitPrice": {
+        "$numberDecimal": "95000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "95000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "95000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "9500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "9500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "85500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "16245.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "116745.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T18:07:00.382Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    }
+  ],
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Laura Gomez",
+    "address": "Carrera 7 #45-12, Bogota",
+    "postalCode": "110311",
+    "phone": "+57 300 555 0199"
+  },
+  "gift": {
+    "isGift": true,
+    "recipientName": "Marta Ruiz",
+    "address": "Av. Siempre Viva 742, Medellin",
+    "postalCode": "050015",
+    "message": "Feliz cumpleanos"
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-F6DA00CE-C01",
+    "paidAt": {
+      "$date": "2026-07-22T18:07:00.341Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:07:00.378Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:07:00.382Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6106ffa21e71c25c5a8d6f"
+  },
+  "number": "ORD-2026-000003",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "name": "Serum Niacinamida 10%",
+      "slug": "serum-niacinamida-10",
+      "unitPrice": {
+        "$numberDecimal": "142000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "142000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "142000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "14200.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "14200.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "127800.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "24282.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "167082.00"
+  },
+  "currency": "COP",
+  "status": "ALISTANDO_PEDIDO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T18:07:59.266Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-23T02:37:49.828Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443"
+    }
+  ],
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "0"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Laura Gomez",
+    "address": "Carrera 7 #45-12",
+    "postalCode": "110311",
+    "phone": "+57 300 555 0199"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-CD83B566-C72",
+    "paidAt": {
+      "$date": "2026-07-22T18:07:59.258Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:07:59.264Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T02:37:49.828Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a610789a21e71c25c5a8d77"
+  },
+  "number": "ORD-2026-000004",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "items": [
+    {
+      "productId": "6a610788a21e71c25c5a8d72",
+      "name": "Pieza Unica Prueba Concurrencia",
+      "slug": "pieza-unica-prueba-concurrencia",
+      "unitPrice": {
+        "$numberDecimal": "50000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "50000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "50000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "5000.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "2500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "7500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "42500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "8075.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "65575.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T18:10:17.087Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    }
+  ],
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "X",
+    "address": "Y",
+    "postalCode": "1",
+    "phone": "2"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-4E2F2C62-8B9",
+    "paidAt": {
+      "$date": "2026-07-22T18:10:17.078Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T18:10:17.084Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-22T18:10:17.087Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6134f2a21e71c25c5a8d87"
+  },
+  "number": "ORD-2026-000005",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "name": "Serum Niacinamida 10%",
+      "slug": "serum-niacinamida-10",
+      "unitPrice": {
+        "$numberDecimal": "142000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "142000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "142000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "14200.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "7100.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "21300.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "120700.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "22933.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "158633.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T21:24:02.014Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-23T02:33:10.768Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "Productos modificados. Queda un saldo a tu favor de 128633.00 COP. Ajuste de prueba"
+    }
+  ],
+  "adjustmentBalance": {
+    "$numberDecimal": "128633.00"
+  },
+  "paidTotal": {
+    "$numberDecimal": "0"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Laura Gomez",
+    "address": "Calle Nueva 123",
+    "postalCode": "110311",
+    "phone": "+57 300 111 2222"
+  },
+  "gift": {
+    "isGift": true,
+    "recipientName": "Marta Ruiz",
+    "address": "Av. Siempre Viva 742, Medellin",
+    "postalCode": "050015",
+    "message": "Feliz cumpleanos"
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-A79CAD7E-79D",
+    "paidAt": {
+      "$date": "2026-07-22T21:24:01.999Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T21:24:02.006Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T02:33:10.768Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a61386995804bf2b8572b94"
+  },
+  "number": "ORD-2026-000006",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5449",
+      "name": "Crema Barrera Ceramidas",
+      "slug": "crema-barrera-ceramidas",
+      "unitPrice": {
+        "$numberDecimal": "128000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "128000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb5448",
+      "name": "Serum Niacinamida 10%",
+      "slug": "serum-niacinamida-10",
+      "unitPrice": {
+        "$numberDecimal": "142000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "142000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb544e",
+      "name": "Mascarilla Arcilla Verde",
+      "slug": "mascarilla-arcilla-verde",
+      "unitPrice": {
+        "$numberDecimal": "68000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "68000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "338000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "33800.00"
+      }
+    },
+    {
+      "code": "ALEATORIO",
+      "label": "Pedido sorpresa",
+      "percent": {
+        "$numberDecimal": "50"
+      },
+      "amount": {
+        "$numberDecimal": "169000.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "16900.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "65"
+  },
+  "discountAmount": {
+    "$numberDecimal": "219700.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "118300.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "22477.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "155777.00"
+  },
+  "currency": "COP",
+  "status": "REEMBOLSADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T21:38:49.308Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5446",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-23T02:38:37.464Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443"
+    },
+    {
+      "status": "ENVIANDO",
+      "at": {
+        "$date": "2026-07-23T02:38:37.525Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443"
+    },
+    {
+      "status": "ENTREGADO",
+      "at": {
+        "$date": "2026-07-23T02:38:37.586Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443"
+    },
+    {
+      "status": "REEMBOLSADO",
+      "at": {
+        "$date": "2026-07-23T02:40:12.618Z"
+      },
+      "byUserId": "6a60cf66f6768b5b9eeb5443",
+      "note": "Reembolso aprobado: Lamentamos el inconveniente, procesamos tu devolucion"
+    }
+  ],
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "0"
+  },
+  "randomOrder": true,
+  "shipping": {
+    "recipientName": "Laura Gomez",
+    "address": "Calle Nueva 123",
+    "postalCode": "110311",
+    "phone": "+57 300 111 2222"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-5A5DC583-F84",
+    "paidAt": {
+      "$date": "2026-07-22T21:38:49.290Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T21:38:49.295Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T02:40:12.618Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a61416e5ce656968d1b8c2d"
+  },
+  "number": "ORD-2026-000007",
+  "customerId": "6a6101bf6b11273ff283a0dd",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Rodriguez",
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a610b66a21e71c25c5a8d84",
+      "name": "prueba tecnica",
+      "slug": "prueba-tecnica",
+      "unitPrice": {
+        "$numberDecimal": "10000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "10000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "10000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "9000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1710.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "25710.00"
+  },
+  "currency": "COP",
+  "status": "ALISTANDO_PEDIDO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-22T22:17:18.243Z"
+      },
+      "byUserId": "6a6101bf6b11273ff283a0dd",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-23T23:53:05.119Z"
+      },
+      "byUserId": "6a610a98a21e71c25c5a8d7c"
+    }
+  ],
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "0"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Rodriguez",
+    "address": "Calle 100 #15-20",
+    "postalCode": "110111",
+    "phone": "+57 310 555 0100"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "PSE simulado",
+    "reference": "PAY-1B47D900-10B",
+    "paidAt": {
+      "$date": "2026-07-22T22:17:18.221Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-22T22:17:18.226Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-23T23:53:05.119Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a62b5a4f07e9a25f753e812"
+  },
+  "number": "ORD-2026-000008",
+  "customerId": "6a62b455f07e9a25f753e80d",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544a",
+      "name": "Protector Solar Fluido SPF50",
+      "slug": "protector-solar-fluido-spf50",
+      "unitPrice": {
+        "$numberDecimal": "115000"
+      },
+      "quantity": 3,
+      "lineTotal": {
+        "$numberDecimal": "345000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb544e",
+      "name": "Mascarilla Arcilla Verde",
+      "slug": "mascarilla-arcilla-verde",
+      "unitPrice": {
+        "$numberDecimal": "68000"
+      },
+      "quantity": 3,
+      "lineTotal": {
+        "$numberDecimal": "204000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb544b",
+      "name": "Exfoliante Acido Mandelico",
+      "slug": "exfoliante-acido-mandelico",
+      "unitPrice": {
+        "$numberDecimal": "96000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "96000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "645000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "64500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "64500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "580500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "110295.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "690795.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-24T00:45:24.382Z"
+      },
+      "byUserId": "6a62b455f07e9a25f753e80d",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-29T00:45:24.319Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "690795.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": true,
+    "recipientName": "Alabama",
+    "address": "DIAGONAL 4 B BIS  29-23",
+    "postalCode": "250252",
+    "message": "No estoy seguro pero esto no debe permitir."
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-910F81B4-78C",
+    "paidAt": {
+      "$date": "2026-07-24T00:45:24.319Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-24T00:45:24.322Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T00:45:24.382Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a63cf8dfcdaec73a29688b3"
+  },
+  "number": "ORD-2026-000009",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "items": [
+    {
+      "productId": "6a6106aca21e71c25c5a8d69",
+      "name": "Camiseta Algodon Organico",
+      "slug": "camiseta-algodon-organico",
+      "unitPrice": {
+        "$numberDecimal": "95000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "95000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "95000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "9500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "9500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "85500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "16245.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "116745.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-24T20:48:13.990Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-29T20:48:13.965Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "116745.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-46200E05-59C",
+    "paidAt": {
+      "$date": "2026-07-24T20:48:13.965Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-24T20:48:13.970Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T20:48:13.990Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a63cfd4fcdaec73a29688b7"
+  },
+  "number": "ORD-2026-000010",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a610b66a21e71c25c5a8d84",
+      "name": "prueba tecnica",
+      "slug": "prueba-tecnica",
+      "unitPrice": {
+        "$numberDecimal": "10000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "10000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "10000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "9000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1710.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "25710.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-24T20:49:24.001Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-29T20:49:23.994Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "25710.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-3F153961-701",
+    "paidAt": {
+      "$date": "2026-07-24T20:49:23.994Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-24T20:49:23.998Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T20:49:24.001Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a63def0dea99a3b6fb0d3be"
+  },
+  "number": "ORD-2026-000011",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a63d067fcdaec73a29688bc",
+      "name": "lalaland",
+      "slug": "prueba-tecnica-2",
+      "unitPrice": {
+        "$numberDecimal": "1000"
+      },
+      "quantity": 15,
+      "lineTotal": {
+        "$numberDecimal": "15000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "15000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "13500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "2565.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "31065.00"
+  },
+  "currency": "COP",
+  "status": "ENVIANDO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-24T21:53:52.524Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-24T21:56:21.251Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    },
+    {
+      "status": "ENVIANDO",
+      "at": {
+        "$date": "2026-07-24T21:56:30.969Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-29T21:53:52.505Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "31065.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-E4FD03E6-639",
+    "paidAt": {
+      "$date": "2026-07-24T21:53:52.505Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-24T21:53:52.510Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-24T21:56:30.969Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf951"
+  },
+  "number": "ORD-2026-000012",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544e",
+      "name": "Mascarilla Arcilla Verde",
+      "slug": "mascarilla-arcilla-verde",
+      "unitPrice": {
+        "$numberDecimal": "68000"
+      },
+      "quantity": 73,
+      "lineTotal": {
+        "$numberDecimal": "4964000.00"
+      }
+    },
+    {
+      "productId": "6a60cf66f6768b5b9eeb5447",
+      "name": "Gel Limpiador Enzimatico",
+      "slug": "gel-limpiador-enzimatico",
+      "unitPrice": {
+        "$numberDecimal": "89000"
+      },
+      "quantity": 12,
+      "lineTotal": {
+        "$numberDecimal": "1068000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "6032000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "603200.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "301600.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "904800.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "5127200.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "974168.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "6101368.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:11:42.328Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:11:42.289Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "6101368.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-BFF6728B-DDB",
+    "paidAt": {
+      "$date": "2026-07-25T03:11:42.289Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.293Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:11:42.328Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf952"
+  },
+  "number": "ORD-2026-000013",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a610a98a21e71c25c5a8d7b",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a610b66a21e71c25c5a8d84",
+      "name": "prueba tecnica",
+      "slug": "prueba-tecnica",
+      "unitPrice": {
+        "$numberDecimal": "10000"
+      },
+      "quantity": 98,
+      "lineTotal": {
+        "$numberDecimal": "980000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "980000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "98000.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "49000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "147000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "833000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "158270.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "991270.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:11:42.333Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:11:42.289Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "991270.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-BFF6728B-DDB",
+    "paidAt": {
+      "$date": "2026-07-25T03:11:42.289Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.331Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:11:42.333Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf953"
+  },
+  "number": "ORD-2026-000014",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cfe5f6768b5b9eeb545a",
+  "companyName": "Textiles Andinos",
+  "items": [
+    {
+      "productId": "6a6106aca21e71c25c5a8d69",
+      "name": "Camiseta Algodon Organico",
+      "slug": "camiseta-algodon-organico",
+      "unitPrice": {
+        "$numberDecimal": "95000"
+      },
+      "quantity": 38,
+      "lineTotal": {
+        "$numberDecimal": "3610000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "3610000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "361000.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "180500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "541500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "3068500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "583015.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "3651515.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:11:42.336Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:11:42.289Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "3651515.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-BFF6728B-DDB",
+    "paidAt": {
+      "$date": "2026-07-25T03:11:42.289Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.335Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:11:42.336Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6429a53eb591c2e20bf957"
+  },
+  "number": "ORD-2026-000015",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5447",
+      "name": "Gel Limpiador Enzimatico",
+      "slug": "gel-limpiador-enzimatico",
+      "unitPrice": {
+        "$numberDecimal": "89000"
+      },
+      "quantity": 99,
+      "lineTotal": {
+        "$numberDecimal": "8811000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "8811000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "881100.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "440550.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1321650.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "7489350.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1422976.50"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "8912326.50"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:12:37.029Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:12:37.025Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "8912326.50"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-43F0FD27-524",
+    "paidAt": {
+      "$date": "2026-07-25T03:12:37.025Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:12:37.028Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:12:37.029Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6429b13eb591c2e20bf959"
+  },
+  "number": "ORD-2026-000016",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb5447",
+      "name": "Gel Limpiador Enzimatico",
+      "slug": "gel-limpiador-enzimatico",
+      "unitPrice": {
+        "$numberDecimal": "89000"
+      },
+      "quantity": 9,
+      "lineTotal": {
+        "$numberDecimal": "801000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "801000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "80100.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "40050.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "120150.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "680850.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "129361.50"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "810211.50"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:12:49.059Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:12:49.055Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "810211.50"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-F9A84FDF-CB2",
+    "paidAt": {
+      "$date": "2026-07-25T03:12:49.055Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:12:49.058Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:12:49.059Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6429cf3eb591c2e20bf95b"
+  },
+  "number": "ORD-2026-000017",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544a",
+      "name": "Protector Solar Fluido SPF50",
+      "slug": "protector-solar-fluido-spf50",
+      "unitPrice": {
+        "$numberDecimal": "115000"
+      },
+      "quantity": 99,
+      "lineTotal": {
+        "$numberDecimal": "11385000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "11385000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1138500.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "569250.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1707750.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "9677250.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1838677.50"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "11515927.50"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:13:19.171Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:13:19.167Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "11515927.50"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-2AD33FBF-F85",
+    "paidAt": {
+      "$date": "2026-07-25T03:13:19.167Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:13:19.169Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:13:19.171Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6429dc3eb591c2e20bf95d"
+  },
+  "number": "ORD-2026-000018",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544a",
+      "name": "Protector Solar Fluido SPF50",
+      "slug": "protector-solar-fluido-spf50",
+      "unitPrice": {
+        "$numberDecimal": "115000"
+      },
+      "quantity": 98,
+      "lineTotal": {
+        "$numberDecimal": "11270000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "11270000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1127000.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "563500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1690500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "9579500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1820105.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "11399605.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:13:32.027Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:13:32.009Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "11399605.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-BF66CAE8-0BB",
+    "paidAt": {
+      "$date": "2026-07-25T03:13:32.009Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:13:32.025Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:13:32.027Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a6429f53eb591c2e20bf95f"
+  },
+  "number": "ORD-2026-000019",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544c",
+      "name": "Agua Micelar Calmante",
+      "slug": "agua-micelar-calmante",
+      "unitPrice": {
+        "$numberDecimal": "72000"
+      },
+      "quantity": 99,
+      "lineTotal": {
+        "$numberDecimal": "7128000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "7128000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "712800.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "356400.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "1069200.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "6058800.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1151172.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "7209972.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:13:57.986Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:13:57.983Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "7209972.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-FD7EC693-E4B",
+    "paidAt": {
+      "$date": "2026-07-25T03:13:57.983Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:13:57.985Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:13:57.986Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a642a093eb591c2e20bf961"
+  },
+  "number": "ORD-2026-000020",
+  "customerId": "6a62d31f2da20d0c1c39d4b5",
+  "customerEmail": "niconiconi756@gmail.com",
+  "customerName": "Nicolas Andres Rodriguez",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "companyName": "Laboratorio Botanico",
+  "items": [
+    {
+      "productId": "6a60cf66f6768b5b9eeb544c",
+      "name": "Agua Micelar Calmante",
+      "slug": "agua-micelar-calmante",
+      "unitPrice": {
+        "$numberDecimal": "72000"
+      },
+      "quantity": 51,
+      "lineTotal": {
+        "$numberDecimal": "3672000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "3672000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "367200.00"
+      }
+    },
+    {
+      "code": "FRECUENTE",
+      "label": "Cliente frecuente",
+      "percent": {
+        "$numberDecimal": "5"
+      },
+      "amount": {
+        "$numberDecimal": "183600.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "15"
+  },
+  "discountAmount": {
+    "$numberDecimal": "550800.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "3121200.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "593028.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "3714228.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T03:14:17.269Z"
+      },
+      "byUserId": "6a62d31f2da20d0c1c39d4b5",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T03:14:17.264Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "3714228.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Nicolas Andres Rodriguez",
+    "address": "Diagonal 4 B bis #29-23",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-F4BC0110-1F7",
+    "paidAt": {
+      "$date": "2026-07-25T03:14:17.264Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T03:14:17.267Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T03:14:17.269Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64c2737b6a8803d536af3f"
+  },
+  "number": "ORD-2026-000021",
+  "customerId": "6a640578dea99a3b6fb0d3e0",
+  "customerEmail": "nikojhosue@hotmail.com",
+  "customerName": "Jose Murcia",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6428bf3eb591c2e20bf94c",
+      "name": "Portalápices de Cemento",
+      "slug": "portalapices-de-cemento",
+      "imageUrl": "https://img.edilportale.com/product-thumbs/b_B-LINE_AKI-JR_187jVGp1By.jpeg",
+      "unitPrice": {
+        "$numberDecimal": "65000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "65000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "65000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "6500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "6500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "58500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "11115.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "84615.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:04:35.943Z"
+      },
+      "byUserId": "6a640578dea99a3b6fb0d3e0",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:04:35.912Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "84615.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Jose Murcia",
+    "address": "DIAGONAL 8 # 29-55",
+    "postalCode": "250252",
+    "phone": "+5730000000"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-5A7568A5-82B",
+    "paidAt": {
+      "$date": "2026-07-25T14:04:35.912Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:04:35.917Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:04:35.943Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64c2837b6a8803d536af41"
+  },
+  "number": "ORD-2026-000022",
+  "customerId": "6a640578dea99a3b6fb0d3e0",
+  "customerEmail": "nikojhosue@hotmail.com",
+  "customerName": "Jose Murcia",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6425bb3eb591c2e20bf940",
+      "name": "Molino de Sal y Pimienta",
+      "slug": "molino-de-sal-y-pimienta",
+      "imageUrl": "https://m.media-amazon.com/images/I/71PBsD3WCTL._AC_SL1200_.jpg",
+      "unitPrice": {
+        "$numberDecimal": "195000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "195000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "195000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "19500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "19500.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "175500.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "33345.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "15000.00"
+  },
+  "total": {
+    "$numberDecimal": "223845.00"
+  },
+  "currency": "COP",
+  "status": "ENVIANDO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:04:51.167Z"
+      },
+      "byUserId": "6a640578dea99a3b6fb0d3e0",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "ALISTANDO_PEDIDO",
+      "at": {
+        "$date": "2026-07-25T14:58:19.806Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    },
+    {
+      "status": "ENVIANDO",
+      "at": {
+        "$date": "2026-07-25T14:58:27.951Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:04:51.161Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "223845.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "Jose Murcia",
+    "address": "DIAGONAL 8 # 29-55",
+    "postalCode": "250252",
+    "phone": "+5730000000"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-139E02A4-6FE",
+    "paidAt": {
+      "$date": "2026-07-25T14:04:51.161Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:04:51.165Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:58:27.951Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64c39b7b6a8803d536af48"
+  },
+  "number": "ORD-2026-000023",
+  "customerId": "6a64c3577b6a8803d536af43",
+  "customerEmail": "danterob272@gmail.com",
+  "customerName": "dante rob",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6426253eb591c2e20bf944",
+      "name": "Juego de Toallas \"Spa\"",
+      "slug": "juego-de-toallas-spa",
+      "imageUrl": "https://i5.walmartimages.com/asr/58a33eea-ad9b-4375-ad76-30b22f5a7363.36c7b9af6c471ab0ce98c10a35eb8b2c.jpeg",
+      "unitPrice": {
+        "$numberDecimal": "310000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "310000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "310000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "31000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "31000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "279000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "53010.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "332010.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:09:31.686Z"
+      },
+      "byUserId": "6a64c3577b6a8803d536af43",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:09:31.681Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "332010.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "dante rob",
+    "address": "danterob272@gmail.com",
+    "postalCode": "111235",
+    "phone": "+5730000001"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-A35A0423-77B",
+    "paidAt": {
+      "$date": "2026-07-25T14:09:31.681Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:09:31.685Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:09:31.686Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64c4bf7b6a8803d536af4f"
+  },
+  "number": "ORD-2026-000024",
+  "customerId": "6a64c4807b6a8803d536af4a",
+  "customerEmail": "lalamarce1433@outlook.es",
+  "customerName": "marcela rojas",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6425f73eb591c2e20bf942",
+      "name": "Powerbank de Tela",
+      "slug": "powerbank-de-tela",
+      "imageUrl": "https://jonhvariedades01.meucatalogofacil.com/_core/_uploads/213211/2025/11/1112151125fejkgfdjj6.png",
+      "unitPrice": {
+        "$numberDecimal": "180000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "180000.00"
+      }
+    },
+    {
+      "productId": "6a64228e3eb591c2e20bf935",
+      "name": "Bandeja de Roble \"Línea\"",
+      "slug": "bandeja-de-roble-linea",
+      "imageUrl": "https://media.fds.fi/product_additional/2000/1600496-1600495-1600494-No.-10-Trays.jpg",
+      "unitPrice": {
+        "$numberDecimal": "220000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "220000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "400000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "40000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "40000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "360000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "68400.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "428400.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:14:23.915Z"
+      },
+      "byUserId": "6a64c4807b6a8803d536af4a",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:14:23.910Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "428400.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "marcela rojas",
+    "address": "Calle 100 #15-20 A sur",
+    "postalCode": "250252",
+    "phone": "nico"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-01523CB5-1B5",
+    "paidAt": {
+      "$date": "2026-07-25T14:14:23.910Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:14:23.913Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T14:14:23.915Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64cc3f7b6a8803d536af56"
+  },
+  "number": "ORD-2026-000025",
+  "customerId": "6a64cb497b6a8803d536af51",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro pepe",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a64139a3eb591c2e20bf90e",
+      "name": "Pluma Estilográfica Mate",
+      "slug": "pluma-estilografica-mate",
+      "imageUrl": "https://i5.walmartimages.com/asr/d705f1fe-6c57-4239-9ab6-4fec9ef033fa.52da56dea1cf12e4f2de1c986d90b49a.jpeg",
+      "unitPrice": {
+        "$numberDecimal": "1350000"
+      },
+      "quantity": 5,
+      "lineTotal": {
+        "$numberDecimal": "6750000.00"
+      }
+    },
+    {
+      "productId": "6a6425853eb591c2e20bf93e",
+      "name": "Sobretodo de Lana Storm",
+      "slug": "sobretodo-de-lana-storm",
+      "imageUrl": "https://m.media-amazon.com/images/I/517Db5jYyZL._AC_UL1001_.jpg",
+      "unitPrice": {
+        "$numberDecimal": "1450000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "1450000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "8200000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "820000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "820000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "7380000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "1402200.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "8782200.00"
+  },
+  "currency": "COP",
+  "status": "CANCELADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:46:23.079Z"
+      },
+      "byUserId": "6a64cb497b6a8803d536af51",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "CANCELADO",
+      "at": {
+        "$date": "2026-07-25T15:26:05.029Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:46:23.074Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "8782200.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "pedro pepe",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3144275726"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-42A5A3EE-251",
+    "paidAt": {
+      "$date": "2026-07-25T14:46:23.074Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:46:23.077Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:26:05.029Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64cd677b6a8803d536af5c"
+  },
+  "number": "ORD-2026-000026",
+  "customerId": "6a64cb497b6a8803d536af51",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro Alejandro pepe",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6410753eb591c2e20bf8f3",
+      "name": "Reloj Mono-Cromo",
+      "slug": "reloj-mono-cromo",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.sTTfMUdKPqP6HYIAfP3h9QHaLs?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "unitPrice": {
+        "$numberDecimal": "11000000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "11000000.00"
+      }
+    },
+    {
+      "productId": "6a64144b3eb591c2e20bf914",
+      "name": "Saco de Cashmere Nude",
+      "slug": "saco-de-cashmere-nude",
+      "imageUrl": "https://images.thebestshops.com/product_images/original/max-mara-knee-length-coats-lilia-nude-cashmere-coat-00000167090f00s001.jpg",
+      "unitPrice": {
+        "$numberDecimal": "820000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "820000.00"
+      }
+    },
+    {
+      "productId": "6a6424d23eb591c2e20bf937",
+      "name": "Billetera Slim \"Arid\"",
+      "slug": "billetera-slim-arid",
+      "imageUrl": "https://doop-design.com/wp-content/uploads/2026/05/05-4.png",
+      "unitPrice": {
+        "$numberDecimal": "135000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "135000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "11955000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "1195500.00"
+      }
+    },
+    {
+      "code": "ALEATORIO",
+      "label": "Pedido sorpresa",
+      "percent": {
+        "$numberDecimal": "50"
+      },
+      "amount": {
+        "$numberDecimal": "5977500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "60"
+  },
+  "discountAmount": {
+    "$numberDecimal": "7173000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "4782000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "908580.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "5690580.00"
+  },
+  "currency": "COP",
+  "status": "CANCELADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T14:51:19.971Z"
+      },
+      "byUserId": "6a64cb497b6a8803d536af51",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "CANCELADO",
+      "at": {
+        "$date": "2026-07-25T15:25:59.628Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T14:51:19.965Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "5690580.00"
+  },
+  "randomOrder": true,
+  "shipping": {
+    "recipientName": "pedro Alejandro pepe",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3023000000"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "PSE simulado",
+    "reference": "PAY-114A09C7-5EF",
+    "paidAt": {
+      "$date": "2026-07-25T14:51:19.965Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T14:51:19.970Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:25:59.628Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64d3e17b6a8803d536af78"
+  },
+  "number": "ORD-2026-000027",
+  "customerId": "6a64d2f27b6a8803d536af72",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro Alejandro pepe",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6426573eb591c2e20bf946",
+      "name": "Mochila Fotográfica Pro",
+      "slug": "mochila-fotografica-pro",
+      "imageUrl": "https://visitmycolombia.com/wp-content/uploads/2026/01/daybag-Lowepro-ProTactic-BP-450-Unisexe.jpg",
+      "unitPrice": {
+        "$numberDecimal": "920000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "920000.00"
+      }
+    },
+    {
+      "productId": "6a6425bb3eb591c2e20bf940",
+      "name": "Molino de Sal y Pimienta",
+      "slug": "molino-de-sal-y-pimienta",
+      "imageUrl": "https://m.media-amazon.com/images/I/71PBsD3WCTL._AC_SL1200_.jpg",
+      "unitPrice": {
+        "$numberDecimal": "195000"
+      },
+      "quantity": 12,
+      "lineTotal": {
+        "$numberDecimal": "2340000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "3260000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "326000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "326000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "2934000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "557460.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "3491460.00"
+  },
+  "currency": "COP",
+  "status": "CANCELADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T15:18:57.991Z"
+      },
+      "byUserId": "6a64d2f27b6a8803d536af72",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "CANCELADO",
+      "at": {
+        "$date": "2026-07-25T15:25:53.605Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T15:18:57.988Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "3491460.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "pedro Alejandro pepe",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3000004527"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-0E037493-62C",
+    "paidAt": {
+      "$date": "2026-07-25T15:18:57.988Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:18:57.990Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:25:53.605Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64d4537b6a8803d536af7c"
+  },
+  "number": "ORD-2026-000028",
+  "customerId": "6a64d2f27b6a8803d536af72",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro Alejandro pepe",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6428bf3eb591c2e20bf94c",
+      "name": "Portalápices de Cemento",
+      "slug": "portalapices-de-cemento",
+      "imageUrl": "https://img.edilportale.com/product-thumbs/b_B-LINE_AKI-JR_187jVGp1By.jpeg",
+      "unitPrice": {
+        "$numberDecimal": "65000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "65000.00"
+      }
+    },
+    {
+      "productId": "6a6412c33eb591c2e20bf906",
+      "name": "Cargador Inalámbrico Mármol",
+      "slug": "cargador-inalambrico-marmol",
+      "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_680902-CBT91653119972_092025-O.webp",
+      "unitPrice": {
+        "$numberDecimal": "380000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "380000.00"
+      }
+    },
+    {
+      "productId": "6a6413333eb591c2e20bf90a",
+      "name": "Vela Aromática \"Humo\"",
+      "slug": "vela-aromatica-humo",
+      "imageUrl": "https://img.magnific.com/fotos-premium/vela-apagada-humo-sobre-fondo-negro-aromas-granada-cereza-vainilla-coco_117406-4556.jpg?w=2000",
+      "unitPrice": {
+        "$numberDecimal": "145000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "145000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "590000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "59000.00"
+      }
+    },
+    {
+      "code": "ALEATORIO",
+      "label": "Pedido sorpresa",
+      "percent": {
+        "$numberDecimal": "50"
+      },
+      "amount": {
+        "$numberDecimal": "295000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "60"
+  },
+  "discountAmount": {
+    "$numberDecimal": "354000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "236000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "44840.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "280840.00"
+  },
+  "currency": "COP",
+  "status": "CANCELADO",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T15:20:51.318Z"
+      },
+      "byUserId": "6a64d2f27b6a8803d536af72",
+      "note": "Pago confirmado"
+    },
+    {
+      "status": "CANCELADO",
+      "at": {
+        "$date": "2026-07-25T15:25:49.028Z"
+      },
+      "byUserId": "6a62e5472da20d0c1c39d4c1"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T15:20:51.314Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "280840.00"
+  },
+  "randomOrder": true,
+  "shipping": {
+    "recipientName": "pedro Alejandro pepe",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3000004527"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-4EE8935A-FB4",
+    "paidAt": {
+      "$date": "2026-07-25T15:20:51.314Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:20:51.317Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:25:49.028Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64d7717b6a8803d536af9a"
+  },
+  "number": "ORD-2026-000029",
+  "customerId": "6a64d6be7b6a8803d536af95",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro pepe",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6426903eb591c2e20bf948",
+      "name": "Jarra de Agua \"Pure\"",
+      "slug": "jarra-de-agua-pure",
+      "imageUrl": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1693908892-51lq184iTLL.jpg?crop=0.673xw:0.673xh;0.141xw",
+      "unitPrice": {
+        "$numberDecimal": "115000"
+      },
+      "quantity": 2,
+      "lineTotal": {
+        "$numberDecimal": "230000.00"
+      }
+    },
+    {
+      "productId": "6a6413333eb591c2e20bf90a",
+      "name": "Vela Aromática \"Humo\"",
+      "slug": "vela-aromatica-humo",
+      "imageUrl": "https://img.magnific.com/fotos-premium/vela-apagada-humo-sobre-fondo-negro-aromas-granada-cereza-vainilla-coco_117406-4556.jpg?w=2000",
+      "unitPrice": {
+        "$numberDecimal": "145000"
+      },
+      "quantity": 4,
+      "lineTotal": {
+        "$numberDecimal": "580000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "810000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "81000.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "10"
+  },
+  "discountAmount": {
+    "$numberDecimal": "81000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "729000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "138510.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "867510.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T15:34:09.370Z"
+      },
+      "byUserId": "6a64d6be7b6a8803d536af95",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T15:34:09.366Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "867510.00"
+  },
+  "randomOrder": false,
+  "shipping": {
+    "recipientName": "pedro pepe",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3000004527"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "PSE simulado",
+    "reference": "PAY-9D8557A3-097",
+    "paidAt": {
+      "$date": "2026-07-25T15:34:09.366Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:34:09.369Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:34:09.370Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+},
+{
+  "_id": {
+    "$oid": "6a64d8757b6a8803d536afa0"
+  },
+  "number": "ORD-2026-000030",
+  "customerId": "6a64d6be7b6a8803d536af95",
+  "customerEmail": "pedropepe4455@outlook.es",
+  "customerName": "pedro Daniel Lopez",
+  "companyId": "6a62e5472da20d0c1c39d4c0",
+  "companyName": "Cachibaches",
+  "items": [
+    {
+      "productId": "6a6413d23eb591c2e20bf910",
+      "name": "Bol de Piedra Jabón",
+      "slug": "bol-de-piedra-jabon",
+      "imageUrl": "https://www.eluniversal.com.mx/resizer/v2/GE2Y7GYMBNCRFKAXSKKS6NLOTY.jpg?auth=2ef9b45b1a49ca1aaa059167768c15263548e79aa4262b8dca180fb834dd3724&smart=true&height=620",
+      "unitPrice": {
+        "$numberDecimal": "290000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "290000.00"
+      }
+    },
+    {
+      "productId": "6a6412093eb591c2e20bf8ff",
+      "name": "Libreta de Notas Cuero",
+      "slug": "libreta-de-notas-cuero",
+      "imageUrl": "https://m.media-amazon.com/images/I/81D2mmfo9WL._AC_.jpg",
+      "unitPrice": {
+        "$numberDecimal": "95000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "95000.00"
+      }
+    },
+    {
+      "productId": "6a64212f3eb591c2e20bf930",
+      "name": "Set de Yoga \"Balance\"",
+      "slug": "set-de-yoga-balance",
+      "imageUrl": "https://i5.walmartimages.com/seo/BalanceFrom-Fitness-7-Pc-Yoga-Set-w-Mat-Stretch-Strap-Knee-Pad-Red_73c1f78c-44e1-4cd8-84df-503b5a9d2242.d89a758aebe2e95b187a278ff46da8a0.jpeg",
+      "unitPrice": {
+        "$numberDecimal": "450000"
+      },
+      "quantity": 1,
+      "lineTotal": {
+        "$numberDecimal": "450000.00"
+      }
+    }
+  ],
+  "subtotal": {
+    "$numberDecimal": "835000.00"
+  },
+  "discounts": [
+    {
+      "code": "VENTANA",
+      "label": "Promocion Temporada de lanzamiento",
+      "percent": {
+        "$numberDecimal": "10"
+      },
+      "amount": {
+        "$numberDecimal": "83500.00"
+      }
+    },
+    {
+      "code": "ALEATORIO",
+      "label": "Pedido sorpresa",
+      "percent": {
+        "$numberDecimal": "50"
+      },
+      "amount": {
+        "$numberDecimal": "417500.00"
+      }
+    }
+  ],
+  "discountPercent": {
+    "$numberDecimal": "60"
+  },
+  "discountAmount": {
+    "$numberDecimal": "501000.00"
+  },
+  "taxableBase": {
+    "$numberDecimal": "334000.00"
+  },
+  "taxRate": {
+    "$numberDecimal": "19"
+  },
+  "taxAmount": {
+    "$numberDecimal": "63460.00"
+  },
+  "shippingCost": {
+    "$numberDecimal": "0"
+  },
+  "total": {
+    "$numberDecimal": "397460.00"
+  },
+  "currency": "COP",
+  "status": "PREPARANDO_ORDEN",
+  "statusHistory": [
+    {
+      "status": "PREPARANDO_ORDEN",
+      "at": {
+        "$date": "2026-07-25T15:38:29.251Z"
+      },
+      "byUserId": "6a64d6be7b6a8803d536af95",
+      "note": "Pago confirmado"
+    }
+  ],
+  "dueDate": {
+    "$date": "2026-07-30T15:38:29.246Z"
+  },
+  "adjustmentBalance": {
+    "$numberDecimal": "0"
+  },
+  "paidTotal": {
+    "$numberDecimal": "397460.00"
+  },
+  "randomOrder": true,
+  "shipping": {
+    "recipientName": "pedro Daniel Lopez",
+    "address": "Calle 100 #15-2 A sur",
+    "postalCode": "250252",
+    "phone": "3000004527"
+  },
+  "gift": {
+    "isGift": false
+  },
+  "payment": {
+    "simulated": true,
+    "method": "Tarjeta simulada",
+    "reference": "PAY-DBC1193A-00C",
+    "paidAt": {
+      "$date": "2026-07-25T15:38:29.246Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2026-07-25T15:38:29.250Z"
+  },
+  "updatedAt": {
+    "$date": "2026-07-25T15:38:29.251Z"
+  },
+  "_class": "com.ecommerce.order.Order"
+}]

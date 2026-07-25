@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "6a617d38eade018f7457916c"
+  },
+  "orderId": "6a6106c4a21e71c25c5a8d6b",
+  "orderNumber": "ORD-2026-000001",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "reason": "El producto llego con la textura alterada, no era lo que esperaba",
+  "amount": {
+    "$numberDecimal": "342720.00"
+  },
+  "currency": "COP",
+  "status": "APROBADA",
+  "resolution": "Lamentamos el inconveniente, procesamos la devolucion",
+  "resolvedByUserId": "6a60cf66f6768b5b9eeb5443",
+  "resolvedAt": {
+    "$date": "2026-07-23T02:32:38.238Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:32:24.288Z"
+  },
+  "_class": "com.ecommerce.order.RefundRequest"
+},
+{
+  "_id": {
+    "$oid": "6a617ed1eade018f74579184"
+  },
+  "orderId": "6a61386995804bf2b8572b94",
+  "orderNumber": "ORD-2026-000006",
+  "companyId": "6a60cf66f6768b5b9eeb5442",
+  "customerId": "6a60cf66f6768b5b9eeb5446",
+  "customerEmail": "cliente@demo.local",
+  "customerName": "Laura Gomez",
+  "reason": "El serum llego con un olor extrano y la consistencia no era la habitual",
+  "amount": {
+    "$numberDecimal": "155777.00"
+  },
+  "currency": "COP",
+  "status": "APROBADA",
+  "resolution": "Lamentamos el inconveniente, procesamos tu devolucion",
+  "resolvedByUserId": "6a60cf66f6768b5b9eeb5443",
+  "resolvedAt": {
+    "$date": "2026-07-23T02:40:12.608Z"
+  },
+  "createdAt": {
+    "$date": "2026-07-23T02:39:13.830Z"
+  },
+  "_class": "com.ecommerce.order.RefundRequest"
+}]

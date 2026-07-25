@@ -1,0 +1,1632 @@
+[{
+  "_id": {
+    "$oid": "6a60cfbdf6768b5b9eeb5455"
+  },
+  "recipientId": "6a60cf9cf6768b5b9eeb5453",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T14:12:13.309Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a60cfcef6768b5b9eeb5458"
+  },
+  "recipientId": "6a60cf9cf6768b5b9eeb5453",
+  "type": "SECURITY",
+  "title": "Verificacion en dos pasos activada",
+  "body": "Tu cuenta ahora pide un codigo adicional al iniciar sesion.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T14:12:30.972Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a60f448f6768b5b9eeb546d"
+  },
+  "recipientId": "6a60f41ff6768b5b9eeb546b",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T16:48:08.563Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6102236b11273ff283a0df"
+  },
+  "recipientId": "6a6101bf6b11273ff283a0dd",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T17:47:15.456Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a61025e6b11273ff283a0e1"
+  },
+  "recipientId": "6a6101bf6b11273ff283a0dd",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T17:48:14.551Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6106c4a21e71c25c5a8d6d"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000001 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T18:07:00.406Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6106c4a21e71c25c5a8d6e"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000002 confirmado",
+  "body": "Tu pedido a Textiles Andinos esta en preparacion.",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T18:07:00.411Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6106ffa21e71c25c5a8d70"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000003 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6106ffa21e71c25c5a8d6f",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T18:07:59.275Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a610789a21e71c25c5a8d78"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000004 confirmado",
+  "body": "Tu pedido a Textiles Andinos esta en preparacion.",
+  "link": "/pedidos/6a610789a21e71c25c5a8d77",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T18:10:17.094Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a610ab9a21e71c25c5a8d82"
+  },
+  "recipientId": "6a610a98a21e71c25c5a8d7c",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T18:23:53.166Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6134f2a21e71c25c5a8d88"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000005 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6134f2a21e71c25c5a8d87",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T21:24:02.023Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a61386995804bf2b8572b95"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000006 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a61386995804bf2b8572b94",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T21:38:49.337Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6140eb5ce656968d1b8c29"
+  },
+  "recipientId": "6a6101bf6b11273ff283a0dd",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T22:15:07.766Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a61416e5ce656968d1b8c2e"
+  },
+  "recipientId": "6a6101bf6b11273ff283a0dd",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000007 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a61416e5ce656968d1b8c2d",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-22T22:17:18.263Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d2aeade018f74579166"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000001 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Alistando pedido\". Nota del vendedor: paso ALISTANDO_PEDIDO",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:32:10.831Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d2beade018f74579168"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000001 ahora esta \"Enviando\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Enviando\". Nota del vendedor: paso ENVIANDO",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:32:11.027Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d2beade018f7457916a"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000001 ahora esta \"Entregado\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Entregado\". Nota del vendedor: paso ENTREGADO",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:32:11.227Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d38eade018f7457916d"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "ORDER",
+  "title": "Solicitud de reembolso del pedido ORD-2026-000001",
+  "body": "Laura Gomez pide el reembolso: El producto llego con la textura alterada, no era lo que esperaba",
+  "link": "/empresa/reembolsos",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:32:24.299Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d46eade018f74579170"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Reembolso aprobado del pedido ORD-2026-000001",
+  "body": "Laboratorio Botanico aprobo el reembolso de 342720.00 COP. Lamentamos el inconveniente, procesamos la devolucion",
+  "link": "/pedidos/6a6106c4a21e71c25c5a8d6b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:32:38.262Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617d66eade018f74579174"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Cambios en tu pedido ORD-2026-000005",
+  "body": "Laboratorio Botanico modifico los productos de tu pedido. Queda un saldo a tu favor de 128633.00 COP. Nota del vendedor: Ajuste de prueba",
+  "link": "/pedidos/6a6134f2a21e71c25c5a8d87",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:33:10.772Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617e7deade018f7457917a"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000003 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Alistando pedido\".",
+  "link": "/pedidos/6a6106ffa21e71c25c5a8d6f",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:37:49.833Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f7457917f"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000006 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Alistando pedido\".",
+  "link": "/pedidos/6a61386995804bf2b8572b94",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.468Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f74579181"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000006 ahora esta \"Enviando\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Enviando\".",
+  "link": "/pedidos/6a61386995804bf2b8572b94",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.530Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617eadeade018f74579183"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000006 ahora esta \"Entregado\"",
+  "body": "El estado de tu pedido a Laboratorio Botanico cambio a \"Entregado\".",
+  "link": "/pedidos/6a61386995804bf2b8572b94",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:38:37.591Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617ed1eade018f74579185"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "ORDER",
+  "title": "Solicitud de reembolso del pedido ORD-2026-000006",
+  "body": "Laura Gomez pide el reembolso: El serum llego con un olor extrano y la consistencia no era la habitual",
+  "link": "/empresa/reembolsos",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:39:13.834Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a617f0ceade018f74579188"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "ORDER",
+  "title": "Reembolso aprobado del pedido ORD-2026-000006",
+  "body": "Laboratorio Botanico aprobo el reembolso de 155777.00 COP. Lamentamos el inconveniente, procesamos tu devolucion",
+  "link": "/pedidos/6a61386995804bf2b8572b94",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T02:40:12.623Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e53844907eff11121e5"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000001",
+  "body": "Laura Gomez abrio un caso: Producto roto y quiero reembolso",
+  "link": "/empresa/casos/6a618e53844907eff11121e4",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:45:23.651Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e53844907eff11121e7"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000002",
+  "body": "Laura Gomez abrio un caso: Consulta sobre el uso",
+  "link": "/empresa/casos/6a618e53844907eff11121e6",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:45:23.849Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e78844907eff11121eb"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000003",
+  "body": "Laura Gomez abrio un caso: Pregunta rapida",
+  "link": "/empresa/casos/6a618e78844907eff11121ea",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:46:00.919Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e8b844907eff11121ee"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "CASE",
+  "title": "Respuesta en tu caso CASO-2026-000001",
+  "body": "Laboratorio Botanico respondio a tu caso.",
+  "link": "/casos/6a618e53844907eff11121e4",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:46:19.543Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e8b844907eff11121f0"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "CASE",
+  "title": "Nueva respuesta en el caso CASO-2026-000001",
+  "body": "Laura Gomez respondio en su caso.",
+  "link": "/empresa/casos/6a618e53844907eff11121e4",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:46:19.925Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e8c844907eff11121f2"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5446",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000001 ahora esta \"Resuelto\"",
+  "body": "El estado de tu caso con Laboratorio Botanico cambio.",
+  "link": "/casos/6a618e53844907eff11121e4",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:46:20.114Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a618e9e844907eff11121f7"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5445",
+  "type": "BROADCAST",
+  "title": "Comunicado de la empresa",
+  "body": "Manana cerramos a las 15h por inventario",
+  "link": "/empresa/chat",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T03:46:38.983Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62a961f07e9a25f753e80a"
+  },
+  "recipientId": "6a6101bf6b11273ff283a0dd",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000007 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Alistando pedido\".",
+  "link": "/pedidos/6a61416e5ce656968d1b8c2d",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-23T23:53:05.127Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62b489f07e9a25f753e80f"
+  },
+  "recipientId": "6a62b455f07e9a25f753e80d",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T00:40:41.767Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62b5a4f07e9a25f753e813"
+  },
+  "recipientId": "6a62b455f07e9a25f753e80d",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000008 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a62b5a4f07e9a25f753e812",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T00:45:24.390Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62b639f07e9a25f753e815"
+  },
+  "recipientId": "6a60cf66f6768b5b9eeb5443",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000004",
+  "body": "Nicolas Rodriguez abrio un caso: Regalo",
+  "link": "/empresa/casos/6a62b639f07e9a25f753e814",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T00:47:53.304Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62d3322da20d0c1c39d4b7"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T02:51:30.879Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62dd902da20d0c1c39d4ba"
+  },
+  "recipientId": "6a60fc74f73faea0a9add457",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T03:35:44.574Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a62e5582da20d0c1c39d4c7"
+  },
+  "recipientId": "6a62e5472da20d0c1c39d4c1",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T04:08:56.952Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63cf8efcdaec73a29688b4"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000009 confirmado",
+  "body": "Tu pedido a Textiles Andinos esta en preparacion.",
+  "link": "/pedidos/6a63cf8dfcdaec73a29688b3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T20:48:14.013Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63cfbdfcdaec73a29688b6"
+  },
+  "recipientId": "6a60cfe5f6768b5b9eeb545b",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000005",
+  "body": "Nicolas Andres Rodriguez abrio un caso: Regalo",
+  "link": "/empresa/casos/6a63cfbdfcdaec73a29688b5",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T20:49:01.955Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63cfd4fcdaec73a29688b8"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000010 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a63cfd4fcdaec73a29688b7",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T20:49:24.007Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63cfe6fcdaec73a29688ba"
+  },
+  "recipientId": "6a610a98a21e71c25c5a8d7c",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000006",
+  "body": "Nicolas Andres Rodriguez abrio un caso: El producto no llego",
+  "link": "/empresa/casos/6a63cfe6fcdaec73a29688b9",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T20:49:42.979Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63def0dea99a3b6fb0d3bf"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000011 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a63def0dea99a3b6fb0d3be",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:53:52.541Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63df62dea99a3b6fb0d3c4"
+  },
+  "recipientId": "6a62e5472da20d0c1c39d4c1",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000007",
+  "body": "Nicolas Andres Rodriguez abrio un caso: El producto no llego",
+  "link": "/empresa/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:55:46.512Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63df85dea99a3b6fb0d3c7"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000011 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Alistando pedido\".",
+  "link": "/pedidos/6a63def0dea99a3b6fb0d3be",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:56:21.258Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63df8edea99a3b6fb0d3c9"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000011 ahora esta \"Enviando\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Enviando\".",
+  "link": "/pedidos/6a63def0dea99a3b6fb0d3be",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:56:30.974Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfafdea99a3b6fb0d3cb"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Respuesta en tu caso CASO-2026-000007",
+  "body": "Cachibaches respondio a tu caso.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:03.907Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfbcdea99a3b6fb0d3cd"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"En atencion\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:16.432Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfbfdea99a3b6fb0d3cf"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"Esperando al cliente\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:19.860Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfc2dea99a3b6fb0d3d1"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"En atencion\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:22.972Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcadea99a3b6fb0d3d3"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"Esperando al cliente\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:30.328Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcbdea99a3b6fb0d3d5"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"En atencion\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:31.842Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63dfcedea99a3b6fb0d3d7"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"Esperando al cliente\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:57:34.962Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63e021dea99a3b6fb0d3dc"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"Resuelto\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:58:57.121Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a63e033dea99a3b6fb0d3de"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000007 ahora esta \"Cerrado\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a63df62dea99a3b6fb0d3c3",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-24T21:59:15.435Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6405b5dea99a3b6fb0d3e2"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T00:39:17.165Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf954"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000012 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a64296e3eb591c2e20bf951",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.345Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf955"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000013 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64296e3eb591c2e20bf952",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.349Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64296e3eb591c2e20bf956"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000014 confirmado",
+  "body": "Tu pedido a Textiles Andinos esta en preparacion.",
+  "link": "/pedidos/6a64296e3eb591c2e20bf953",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:11:42.350Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6429a53eb591c2e20bf958"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000015 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6429a53eb591c2e20bf957",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:12:37.032Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6429b13eb591c2e20bf95a"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000016 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6429b13eb591c2e20bf959",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:12:49.065Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6429cf3eb591c2e20bf95c"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000017 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6429cf3eb591c2e20bf95b",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:13:19.176Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6429dc3eb591c2e20bf95e"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000018 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6429dc3eb591c2e20bf95d",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:13:32.030Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a6429f53eb591c2e20bf960"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000019 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a6429f53eb591c2e20bf95f",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:13:57.990Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a642a093eb591c2e20bf962"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000020 confirmado",
+  "body": "Tu pedido a Laboratorio Botanico esta en preparacion.",
+  "link": "/pedidos/6a642a093eb591c2e20bf961",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T03:14:17.272Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64bda57b6a8803d536af34"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T13:44:05.753Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64be1f7b6a8803d536af36"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T13:46:07.524Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c1ee7b6a8803d536af39"
+  },
+  "recipientId": "6a62d31f2da20d0c1c39d4b5",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:02:22.649Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c2437b6a8803d536af3c"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "SECURITY",
+  "title": "Contrasena actualizada",
+  "body": "Se cambio la contrasena de tu cuenta y se cerraron las demas sesiones.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:03:47.740Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c2737b6a8803d536af40"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000021 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64c2737b6a8803d536af3f",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:04:35.965Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c2837b6a8803d536af42"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000022 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64c2837b6a8803d536af41",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:04:51.173Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c3667b6a8803d536af45"
+  },
+  "recipientId": "6a64c3577b6a8803d536af43",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:08:38.472Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c39b7b6a8803d536af49"
+  },
+  "recipientId": "6a64c3577b6a8803d536af43",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000023 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64c39b7b6a8803d536af48",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:09:31.692Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c4997b6a8803d536af4c"
+  },
+  "recipientId": "6a64c4807b6a8803d536af4a",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:13:45.159Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64c4bf7b6a8803d536af50"
+  },
+  "recipientId": "6a64c4807b6a8803d536af4a",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000024 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64c4bf7b6a8803d536af4f",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:14:23.919Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cb6a7b6a8803d536af53"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:42:50.910Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cc3f7b6a8803d536af57"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000025 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64cc3f7b6a8803d536af56",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:46:23.084Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cc787b6a8803d536af59"
+  },
+  "recipientId": "6a62e5472da20d0c1c39d4c1",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000008",
+  "body": "pedro pepe abrio un caso: El producto no llego",
+  "link": "/empresa/casos/6a64cc787b6a8803d536af58",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:47:20.852Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cd677b6a8803d536af5d"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000026 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64cd677b6a8803d536af5c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:51:19.977Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64ce0d7b6a8803d536af65"
+  },
+  "recipientId": "6a64cdfb7b6a8803d536af5f",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:54:05.786Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cf0b7b6a8803d536af6d"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000022 ahora esta \"Alistando pedido\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Alistando pedido\".",
+  "link": "/pedidos/6a64c2837b6a8803d536af41",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:58:19.810Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64cf137b6a8803d536af6f"
+  },
+  "recipientId": "6a640578dea99a3b6fb0d3e0",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000022 ahora esta \"Enviando\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Enviando\".",
+  "link": "/pedidos/6a64c2837b6a8803d536af41",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T14:58:27.956Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d3107b6a8803d536af74"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:15:28.620Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d3e17b6a8803d536af79"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000027 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64d3e17b6a8803d536af78",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:18:57.996Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d4167b6a8803d536af7b"
+  },
+  "recipientId": "6a62e5472da20d0c1c39d4c1",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000009",
+  "body": "pedro Alejandro pepe abrio un caso: El producto no llego",
+  "link": "/empresa/casos/6a64d4167b6a8803d536af7a",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:19:50.073Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d4537b6a8803d536af7d"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000028 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64d4537b6a8803d536af7c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:20:51.323Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d5427b6a8803d536af88"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000008 ahora esta \"Resuelto\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a64cc787b6a8803d536af58",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:24:50.312Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d5437b6a8803d536af8a"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000008 ahora esta \"Cerrado\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a64cc787b6a8803d536af58",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:24:51.403Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d54b7b6a8803d536af8c"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000009 ahora esta \"Cerrado\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a64d4167b6a8803d536af7a",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:24:59.732Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d57d7b6a8803d536af8e"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000028 ahora esta \"Servicio cancelado\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Servicio cancelado\".",
+  "link": "/pedidos/6a64d4537b6a8803d536af7c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:25:49.032Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d5817b6a8803d536af90"
+  },
+  "recipientId": "6a64d2f27b6a8803d536af72",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000027 ahora esta \"Servicio cancelado\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Servicio cancelado\".",
+  "link": "/pedidos/6a64d3e17b6a8803d536af78",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:25:53.608Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d5877b6a8803d536af92"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000026 ahora esta \"Servicio cancelado\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Servicio cancelado\".",
+  "link": "/pedidos/6a64cd677b6a8803d536af5c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:25:59.630Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d58d7b6a8803d536af94"
+  },
+  "recipientId": "6a64cb497b6a8803d536af51",
+  "type": "ORDER",
+  "title": "Tu pedido ORD-2026-000025 ahora esta \"Servicio cancelado\"",
+  "body": "El estado de tu pedido a Cachibaches cambio a \"Servicio cancelado\".",
+  "link": "/pedidos/6a64cc3f7b6a8803d536af56",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:26:05.032Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d6d57b6a8803d536af97"
+  },
+  "recipientId": "6a64d6be7b6a8803d536af95",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:31:33.886Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d7717b6a8803d536af9b"
+  },
+  "recipientId": "6a64d6be7b6a8803d536af95",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000029 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64d7717b6a8803d536af9a",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:34:09.375Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d7bf7b6a8803d536af9d"
+  },
+  "recipientId": "6a62e5472da20d0c1c39d4c1",
+  "type": "CASE",
+  "title": "Caso nuevo CASO-2026-000010",
+  "body": "pedro pepe abrio un caso: El producto no llego",
+  "link": "/empresa/casos/6a64d7bf7b6a8803d536af9c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:35:27.832Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d8757b6a8803d536afa1"
+  },
+  "recipientId": "6a64d6be7b6a8803d536af95",
+  "type": "ORDER",
+  "title": "Pedido ORD-2026-000030 confirmado",
+  "body": "Tu pedido a Cachibaches esta en preparacion.",
+  "link": "/pedidos/6a64d8757b6a8803d536afa0",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:38:29.256Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64d9257b6a8803d536afb0"
+  },
+  "recipientId": "6a64d90c7b6a8803d536afaa",
+  "type": "ACCOUNT",
+  "title": "Tu cuenta esta activa",
+  "body": "Confirmamos tu correo electronico. Ya puedes usar la plataforma.",
+  "link": "/cuenta",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:41:25.867Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64da307b6a8803d536afb8"
+  },
+  "recipientId": "6a64d6be7b6a8803d536af95",
+  "type": "CASE",
+  "title": "Respuesta en tu caso CASO-2026-000010",
+  "body": "Cachibaches respondio a tu caso.",
+  "link": "/casos/6a64d7bf7b6a8803d536af9c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:45:52.498Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+},
+{
+  "_id": {
+    "$oid": "6a64da327b6a8803d536afba"
+  },
+  "recipientId": "6a64d6be7b6a8803d536af95",
+  "type": "CASE",
+  "title": "Tu caso CASO-2026-000010 ahora esta \"En atencion\"",
+  "body": "El estado de tu caso con Cachibaches cambio.",
+  "link": "/casos/6a64d7bf7b6a8803d536af9c",
+  "read": false,
+  "metadata": {},
+  "createdAt": {
+    "$date": "2026-07-25T15:45:54.609Z"
+  },
+  "_class": "com.ecommerce.notification.Notification"
+}]

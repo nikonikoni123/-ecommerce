@@ -1,4 +1,4 @@
-# Documentacion tecnica — Plataforma E-Commerce
+# Documentacion tecnica
 
 ---
 

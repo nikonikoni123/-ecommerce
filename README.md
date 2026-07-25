@@ -156,7 +156,7 @@ cerrada.
 | 4 | Casos de atencion con BERT, comentarios al vendedor y chat | 6 horas | 
 | 5 | Administracion de la empresa: cargos, usuarios, departamentos, equipos, metas KPI, graficas y chat de equipo | 24 horas| 
 | 6 | Desarrollo final de procesos visuales | 8 horas |
-| 7 | Correcion de errores | 10 horas|
+| 7 | Correción de errores | 10 horas|
 
 
 ## 2. Objetivos
